@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_login.xml" value="0.2" />
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_register.xml" value="0.152" />
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_splash_screen.xml" value="0.176" />
         <entry key="..\:/Users/User/StudioProjects/FinalProjectC14/app/src/main/res/font/font.xml" value="0.18896964514749892" />
         <entry key="..\:/Users/User/StudioProjects/FinalProjectC14/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/User/StudioProjects/FinalProjectC14/app/src/main/res/layout/fragment_login.xml" value="0.25" />
