@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="abu">#12D9D9D9</color>
     <color name="birutua">#080834</color>
+    <color name="button">#2555B7</color>
+    <color name="basic">#2555B7</color>
 </resources>
