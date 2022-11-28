@@ -11,4 +11,5 @@
     <color name="birutua">#080834</color>
     <color name="button">#2555B7</color>
     <color name="basic">#2555B7</color>
+    <color name="button_logout">#3F3F89</color>
 </resources>
