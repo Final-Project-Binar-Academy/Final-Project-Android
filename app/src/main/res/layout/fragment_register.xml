@@ -94,47 +94,29 @@
                 android:inputType="textEmailAddress"
                 android:textColorHint="@color/white" />
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="293dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:passwordToggleEnabled="true"
-                app:boxBackgroundMode="none"
-                android:backgroundTint="@color/white"
+                android:layout_marginTop="30dp"
+                android:ems="10"
                 android:hint="Password"
                 android:textColorHint="@color/white"
-                app:endIconMode="password_toggle">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
-                    android:inputType="textPassword"
-                    android:maxLines="1" />
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:passwordToggleEnabled="true"
-                app:boxBackgroundMode="none"
                 android:backgroundTint="@color/white"
+                android:inputType="textPassword"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <EditText
+                android:id="@+id/etConfirmPassword"
+                android:layout_width="293dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:ems="10"
                 android:hint="Confirm Password"
                 android:textColorHint="@color/white"
-                app:endIconMode="password_toggle">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/confirmPass"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
-                    android:inputType="textPassword"
-                    android:maxLines="1" />
-
-            </android.support.design.widget.TextInputLayout>
+                android:backgroundTint="@color/white"
+                android:inputType="textPassword"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
