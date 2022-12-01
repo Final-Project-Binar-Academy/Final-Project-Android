@@ -10,7 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.binar.finalproject14.R
 import com.binar.finalproject14.data.api.response.BaseResponse
-import com.binar.finalproject14.data.api.response.LoginResponse
+import com.binar.finalproject14.data.api.response.AuthResponse
 import com.binar.finalproject14.databinding.FragmentLoginBinding
 import com.binar.finalproject14.utils.SessionManager
 import com.binar.finalproject14.viewmodel.LoginViewModel
@@ -38,52 +38,34 @@ class LoginFragment : Fragment() {
 
         viewModel.loginResult.observe(viewLifecycleOwner) {
             when (it) {
-                is BaseResponse.Loading -> {
-                    showLoading()
-                }
-
                 is BaseResponse.Success -> {
-                    stopLoading()
                     processLogin(it.data)
                 }
-
                 is BaseResponse.Error -> {
                     processError(it.msg)
                 }
                 else -> {
-                    stopLoading()
                 }
             }
         }
 
         binding.btnLogin.setOnClickListener {
-            doLogin()
+            val mail = binding.email.text.toString()
+            val pwd = binding.password.text.toString()
+            viewModel.loginUser(email = mail, pwd = pwd)
+        }
 
+        binding.signUp.setOnClickListener{
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
 
     }
 
-    fun doLogin() {
-        val email = binding.txtEmail.text.toString()
-        val pwd = binding.password.text.toString()
-        viewModel.loginUser(email = email, pwd = pwd)
-
-    }
-
-    fun showLoading() {
-        binding.prgbar.visibility = View.VISIBLE
-    }
-
-    fun stopLoading() {
-        binding.prgbar.visibility = View.GONE
-    }
-
-    fun processLogin(data: LoginResponse?) {
+    fun processLogin(data: AuthResponse?) {
         showToast("Success:" + data?.message)
-        if (!data?.data?.token.isNullOrEmpty()) {
-            data?.data?.token?.let { SessionManager.saveAuthToken(requireContext(), it) }
-            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-        }
+        findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+        data?.data?.token?.let { SessionManager.saveAuthToken(requireContext(), it) }
+
     }
 
     fun processError(msg: String?) {

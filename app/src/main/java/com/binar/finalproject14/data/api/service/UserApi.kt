@@ -1,7 +1,8 @@
 package com.binar.finalproject14.data.api.service
 
 import com.binar.finalproject14.data.api.request.LoginRequest
-import com.binar.finalproject14.data.api.response.LoginResponse
+import com.binar.finalproject14.data.api.request.RegisterRequest
+import com.binar.finalproject14.data.api.response.AuthResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -9,7 +10,10 @@ import retrofit2.http.POST
 interface UserApi {
 
     @POST("/api/auth/login")
-    suspend fun loginUser(@Body loginRequest: LoginRequest): Response<LoginResponse>
+    suspend fun loginUser(@Body loginRequest: LoginRequest): Response<AuthResponse>
+
+    @POST("/api/auth/register")
+    suspend fun registerUser(@Body registerRequest: RegisterRequest): Response<AuthResponse>
 
     companion object {
         fun getApi(): UserApi? {

@@ -4,14 +4,14 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.binar.finalproject14.data.api.request.LoginRequest
 import com.binar.finalproject14.data.api.response.BaseResponse
-import com.binar.finalproject14.data.api.response.LoginResponse
+import com.binar.finalproject14.data.api.response.AuthResponse
 import com.binar.finalproject14.repository.UserRepository
 import kotlinx.coroutines.launch
 
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
     val userRepo = UserRepository()
-    val loginResult: MutableLiveData<BaseResponse<LoginResponse>> = MutableLiveData()
+    val loginResult: MutableLiveData<BaseResponse<AuthResponse>> = MutableLiveData()
 
     fun loginUser(email: String, pwd: String) {
 

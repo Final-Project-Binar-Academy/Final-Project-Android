@@ -79,6 +79,7 @@
         <item name="android:letterSpacing">0.1</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textSize">14sp</item>
+    </style>
 
     <style name="circleImageView" parent="">
         <item name="cornerFamily">rounded</item>
