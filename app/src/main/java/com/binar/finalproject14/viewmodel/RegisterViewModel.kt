@@ -9,10 +9,16 @@ import com.binar.finalproject14.data.api.request.RegisterRequest
 import com.binar.finalproject14.data.api.response.AuthResponse
 import com.binar.finalproject14.data.api.response.BaseResponse
 import com.binar.finalproject14.repository.UserRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class RegisterViewModel(application: Application) : AndroidViewModel(application) {
-    val userRepo = UserRepository()
+@HiltViewModel
+class RegisterViewModel @Inject constructor(
+    private val userRepo: UserRepository,
+    application: Application
+) : AndroidViewModel(application) {
+    //    val userRepo = UserRepository()
     val registerResult: MutableLiveData<BaseResponse<AuthResponse>> = MutableLiveData()
 
     fun registerUser(fname: String, lname: String, email: String, pwd: String) {

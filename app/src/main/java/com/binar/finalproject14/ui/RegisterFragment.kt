@@ -16,7 +16,9 @@ import com.binar.finalproject14.databinding.FragmentRegisterBinding
 import com.binar.finalproject14.utils.SessionManager
 import com.binar.finalproject14.viewmodel.LoginViewModel
 import com.binar.finalproject14.viewmodel.RegisterViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!

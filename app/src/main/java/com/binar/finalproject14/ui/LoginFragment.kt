@@ -14,7 +14,9 @@ import com.binar.finalproject14.data.api.response.AuthResponse
 import com.binar.finalproject14.databinding.FragmentLoginBinding
 import com.binar.finalproject14.utils.SessionManager
 import com.binar.finalproject14.viewmodel.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!

@@ -6,11 +6,18 @@ import com.binar.finalproject14.data.api.request.LoginRequest
 import com.binar.finalproject14.data.api.response.BaseResponse
 import com.binar.finalproject14.data.api.response.AuthResponse
 import com.binar.finalproject14.repository.UserRepository
+import dagger.hilt.android.internal.lifecycle.HiltViewModelMap
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class LoginViewModel(application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class LoginViewModel @Inject constructor(
+    private val userRepo: UserRepository,
+    application: Application
+) : AndroidViewModel(application) {
 
-    val userRepo = UserRepository()
+    //    val userRepo = UserRepository()
     val loginResult: MutableLiveData<BaseResponse<AuthResponse>> = MutableLiveData()
 
     fun loginUser(email: String, pwd: String) {

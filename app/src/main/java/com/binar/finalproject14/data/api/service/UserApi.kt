@@ -15,9 +15,9 @@ interface UserApi {
     @POST("/api/auth/register")
     suspend fun registerUser(@Body registerRequest: RegisterRequest): Response<AuthResponse>
 
-    companion object {
-        fun getApi(): UserApi? {
-            return ApiClient.client?.create(UserApi::class.java)
-        }
-    }
+//    companion object {
+//        fun getApi(): UserApi? {
+//            return ApiClient.client?.create(UserApi::class.java)
+//        }
+//    }
 }
