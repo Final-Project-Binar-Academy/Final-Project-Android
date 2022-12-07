@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/background"
     tools:context=".ui.ProfileFragment">
 
@@ -14,124 +14,184 @@
         android:orientation="vertical"
         android:padding="15dp">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center|top"
-        android:orientation="vertical">
-
-        <com.google.android.material.imageview.ShapeableImageView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/logo"
-            android:layout_margin="10dp"
-            app:shapeAppearanceOverlay="@style/circleImageView"/>
+            android:layout_gravity="center|top"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_gravity="center"
-            android:textAppearance="@style/TextAppearance.MyApp.ProfileName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Diogo Jota"/>
-        <TextView
-            android:layout_gravity="center"
-            android:textAppearance="@style/TextAppearance.MyApp.ProfileAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Liverpool,UK"/>
-    </LinearLayout>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:shapeAppearanceOverlay="@style/circleImageView"
+                app:srcCompat="@drawable/logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Diogo Jota"
+                android:textAppearance="@style/TextAppearance.MyApp.ProfileName" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Liverpool,UK"
+                android:textAppearance="@style/TextAppearance.MyApp.ProfileAddress" />
+        </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="30dp"
-        android:gravity="center">
-
-        <android.support.design.widget.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:textColorHint="@color/white">
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <android.support.design.widget.TextInputEditText
+            <FrameLayout
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginTop="15dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/username_profile"
+                            android:textAppearance="@style/TextAppearance.MyApp.ProfileAddress" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:gravity="end"
+                            android:text="Diogo20"
+                            android:textAppearance="@style/TextAppearance.MyApp.ProfileAddress" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/white" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginTop="15dp">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:text="@string/name_profile"
+                            android:textAppearance="@style/TextAppearance.MyApp.ProfileAddress" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:gravity="end"
+                            android:text="Diogo Jota"
+                            android:textAppearance="@style/TextAppearance.MyApp.ProfileAddress" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:background="@color/white" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginTop="15dp">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:text="@string/address_profile"
+                            android:textAppearance="@style/TextAppearance.MyApp.ProfileAddress" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:gravity="end"
+                            android:text="Liverpool,UK"
+                            android:textAppearance="@style/TextAppearance.MyApp.ProfileAddress" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:background="@color/white" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginTop="15dp">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:text="@string/no_hp_profile"
+                            android:textAppearance="@style/TextAppearance.MyApp.ProfileAddress" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:gravity="end"
+                            android:text="08xxxxxxxxx"
+                            android:textAppearance="@style/TextAppearance.MyApp.ProfileAddress" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+            </FrameLayout>
+
+            <Button
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:backgroundTint="@color/white"
-                android:hint="Username"/>
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:textColorHint="@color/white">
-
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:backgroundTint="@color/white"
-                android:hint="Name"/>
-
-        </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:textColorHint="@color/white">
-
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:backgroundTint="@color/white"
-                android:hint="Alamat"/>
-
-        </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:textColorHint="@color/white">
-
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:backgroundTint="@color/white"
-                android:hint="No Hp"/>
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:textColorHint="@color/white">
-
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:backgroundTint="@color/white"
-                android:drawableRight="@drawable/ic_right"
-                android:hint="Settings"/>
-
-        </android.support.design.widget.TextInputLayout>
-
-        <Button
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/button_logout"
-            android:textSize="15sp"
-            android:text="Sign Out"/>
-    </LinearLayout>
-
+                android:layout_gravity="center"
+                android:backgroundTint="@color/button_logout"
+                android:text="@string/sign_out"
+                android:textSize="15sp" />
+        </LinearLayout>
 
 
     </LinearLayout>
