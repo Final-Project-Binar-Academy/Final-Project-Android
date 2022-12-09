@@ -22,15 +22,20 @@
         <entry key="..\:/Users/User/StudioProjects/FinalProjectC14/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/User/StudioProjects/FinalProjectC14/app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="..\:/Users/User/StudioProjects/FinalProjectC14/app/src/main/res/layout/fragment_register.xml" value="0.25" />
+        <entry key="..\:/kuliah/mbkm/Final-Project-Android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2415" />
+        <entry key="..\:/kuliah/mbkm/Final-Project-Android/app/src/main/res/drawable/ic_right.xml" value="0.2415" />
         <entry key="..\:/kuliah/mbkm/Final-Project-Android/app/src/main/res/drawable/round_button.xml" value="0.148" />
         <entry key="..\:/kuliah/mbkm/Final-Project-Android/app/src/main/res/drawable/rounded_corner.xml" value="0.148" />
         <entry key="..\:/kuliah/mbkm/Final-Project-Android/app/src/main/res/layout/activity_main.xml" value="0.31567028985507245" />
         <entry key="..\:/kuliah/mbkm/Final-Project-Android/app/src/main/res/layout/fragment_about.xml" value="0.3754528985507246" />
+        <entry key="..\:/kuliah/mbkm/Final-Project-Android/app/src/main/res/layout/fragment_home.xml" value="0.3677536231884058" />
         <entry key="..\:/kuliah/mbkm/Final-Project-Android/app/src/main/res/layout/fragment_login.xml" value="0.1" />
         <entry key="..\:/kuliah/mbkm/Final-Project-Android/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
         <entry key="..\:/kuliah/mbkm/Final-Project-Android/app/src/main/res/layout/fragment_register.xml" value="0.1" />
+        <entry key="..\:/kuliah/mbkm/Final-Project-Android/app/src/main/res/layout/fragment_search.xml" value="0.3677536231884058" />
         <entry key="..\:/kuliah/mbkm/Final-Project-Android/app/src/main/res/layout/fragment_setting.xml" value="0.3754528985507246" />
         <entry key="..\:/kuliah/mbkm/Final-Project-Android/app/src/main/res/layout/fragment_splash_screen.xml" value="0.31567028985507245" />
+        <entry key="..\:/kuliah/mbkm/Final-Project-Android/app/src/main/res/layout/list_item.xml" value="0.25" />
       </map>
     </option>
   </component>

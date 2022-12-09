@@ -29,5 +29,4 @@
     <string name="txt_traveller">1 Adult</string>
     <string name="economy">Economy</string>
     <string name="show">Show direct flights only</string>
-    <string name="fee_surcharges"><![CDATA[Fee & Surcharges]]></string>
 </resources>
