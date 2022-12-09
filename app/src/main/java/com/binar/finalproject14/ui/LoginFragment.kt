@@ -38,10 +38,12 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
         }
 
+
         viewModel.loginResult.observe(viewLifecycleOwner) {
             when (it) {
                 is BaseResponse.Success -> {
                     processLogin(it.data)
+                    viewModel.saveIsLoginStatus(true)
                 }
                 is BaseResponse.Error -> {
                     processError(it.msg)
@@ -61,6 +63,15 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.getDataStoreIsLogin().observe(viewLifecycleOwner) {
+            if (it == true) {
+                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            }
+        }
     }
 
     fun processLogin(data: AuthResponse?) {

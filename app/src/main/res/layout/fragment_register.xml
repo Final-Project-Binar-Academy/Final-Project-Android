@@ -67,9 +67,10 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
                     android:hint="First Name"
-                    android:maxLines="1"
                     android:inputType="textPersonName"
-                    android:textColorHint="@color/white" />
+                    android:maxLines="1"
+                    android:textColorHint="@color/white"
+                    tools:ignore="TouchTargetSizeCheck" />
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/edtLastName"
@@ -78,9 +79,10 @@
                     android:layout_marginStart="35dp"
                     android:backgroundTint="@color/white"
                     android:hint="Last Name"
-                    android:maxLines="1"
                     android:inputType="textPersonName"
-                    android:textColorHint="@color/white" />
+                    android:maxLines="1"
+                    android:textColorHint="@color/white"
+                    tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatEditText
@@ -90,9 +92,10 @@
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/white"
                 android:hint="Email"
-                android:maxLines="1"
                 android:inputType="textEmailAddress"
-                android:textColorHint="@color/white" />
+                android:maxLines="1"
+                android:textColorHint="@color/white"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <EditText
                 android:id="@+id/etPassword"

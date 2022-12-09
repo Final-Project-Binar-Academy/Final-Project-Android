@@ -6,6 +6,7 @@ import com.binar.finalproject14.data.api.request.LoginRequest
 import com.binar.finalproject14.data.api.response.BaseResponse
 import com.binar.finalproject14.data.api.response.AuthResponse
 import com.binar.finalproject14.repository.UserRepository
+import com.binar.finalproject14.utils.UserDataStoreManager
 import dagger.hilt.android.internal.lifecycle.HiltViewModelMap
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -14,11 +15,13 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val userRepo: UserRepository,
+    private val pref: UserDataStoreManager,
     application: Application
 ) : AndroidViewModel(application) {
 
     //    val userRepo = UserRepository()
     val loginResult: MutableLiveData<BaseResponse<AuthResponse>> = MutableLiveData()
+
 
     fun loginUser(email: String, pwd: String) {
 
@@ -40,5 +43,14 @@ class LoginViewModel @Inject constructor(
                 loginResult.value = BaseResponse.Error(ex.message)
             }
         }
+    }
+    fun saveIsLoginStatus(status: Boolean) {
+        viewModelScope.launch {
+            pref.saveIsLoginStatus(status)
+        }
+    }
+
+    fun getDataStoreIsLogin(): LiveData<Boolean> {
+        return pref.getIsLogin.asLiveData()
     }
 }
