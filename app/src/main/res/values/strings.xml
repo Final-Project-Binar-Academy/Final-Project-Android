@@ -67,6 +67,18 @@
     <string name="seat">Seat</string>
     <string name="txt_seat">1 B</string>
     <string name="txt_barcode">9824 0972 1742 1298</string>
+    <string name="wishlist">Wishlist</string>
+    <string name="traveler_details">TRAVELER DETAILS</string>
+    <string name="select_payment_method">SELECT PAYMENT METHOD</string>
+    <string name="payment_bank">Bank</string>
+    <string name="payment_e_wallet">E - Wallet</string>
+    <string name="payment_qris">QRIS</string>
+    <string name="detail_travel_insurance">Travel Insurance</string>
+    <string name="detail_convenience_fee">Convenience Fee</string>
+    <string name="detail_total_fare">Total Fare</string>
+    <string name="detail_fee_and_surcharges"><![CDATA[Fee & Surcharges]]></string>
+    <string name="detail_tos">By Continuing to pay, you agree with our privacy policy and terms of service</string>
+    <string name="select_travel_date">Select Travel Date</string>
     <string-array name="languages">
         <item>Indonesia</item>
         <item>English</item>
