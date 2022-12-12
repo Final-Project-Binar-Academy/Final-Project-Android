@@ -7,10 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="abu">#12D9D9D9</color>
+    <color name="abu">#E6F6F8FA</color>
     <color name="birutua">#080834</color>
     <color name="button">#2555B7</color>
     <color name="basic">#2555B7</color>
     <color name="button_logout">#3F3F89</color>
     <color name="tanggal">#85FFFFFF</color>
+    <color name="button_dark">#1D2026</color>
+    <color name="text_blue">#AAE6E3</color>
 </resources>

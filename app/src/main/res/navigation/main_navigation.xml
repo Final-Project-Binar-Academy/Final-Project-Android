@@ -40,4 +40,14 @@
         android:name="com.binar.finalproject14.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/bookFragment"
+        android:name="com.binar.finalproject14.ui.BookFragment"
+        android:label="fragment_book"
+        tools:layout="@layout/fragment_book" />
+    <fragment
+        android:id="@+id/tripUpcomingFragment"
+        android:name="com.binar.finalproject14.ui.TripUpcomingFragment"
+        android:label="fragment_trip_upcoming"
+        tools:layout="@layout/fragment_trip_upcoming" />
 </navigation>

@@ -269,4 +269,12 @@
         <item name="cornerSize">60%</item>
     </style>
 
+    <style name="TextAppearance.MyApp.GreyTextTicket" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="textAllCaps">true</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textColor">#4D000000</item>
+        <item name="fontFamily">@font/rubik_medium</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
 </resources>
