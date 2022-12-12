@@ -79,6 +79,10 @@
     <string name="detail_fee_and_surcharges"><![CDATA[Fee & Surcharges]]></string>
     <string name="detail_tos">By Continuing to pay, you agree with our privacy policy and terms of service</string>
     <string name="select_travel_date">Select Travel Date</string>
+    <string name="home">Home</string>
+    <string name="whislist">Wishlist</string>
+    <string name="profile">Profile</string>
+    <string name="fee_surcharges">Fee surcharges</string>
     <string-array name="languages">
         <item>Indonesia</item>
         <item>English</item>

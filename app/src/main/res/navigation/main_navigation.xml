@@ -50,4 +50,14 @@
         android:name="com.binar.finalproject14.ui.TripUpcomingFragment"
         android:label="fragment_trip_upcoming"
         tools:layout="@layout/fragment_trip_upcoming" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.binar.finalproject14.ui.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/whislistFragment"
+        android:name="com.binar.finalproject14.ui.WhislistFragment"
+        android:label="fragment_whislist"
+        tools:layout="@layout/fragment_whislist" />
 </navigation>
