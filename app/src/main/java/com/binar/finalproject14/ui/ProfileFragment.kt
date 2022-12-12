@@ -9,8 +9,12 @@ import com.binar.finalproject14.R
 import com.binar.finalproject14.databinding.FragmentAboutBinding
 import com.binar.finalproject14.databinding.FragmentPastBinding
 import com.binar.finalproject14.databinding.FragmentProfileBinding
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 
 class ProfileFragment : Fragment() {
+    private lateinit var analytics: FirebaseAnalytics
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
@@ -19,6 +23,8 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        analytics = Firebase.analytics
+
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
     }

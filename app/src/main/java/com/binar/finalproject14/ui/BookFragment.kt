@@ -9,8 +9,12 @@ import com.binar.finalproject14.MainActivity
 import com.binar.finalproject14.R
 import com.binar.finalproject14.databinding.FragmentAboutBinding
 import com.binar.finalproject14.databinding.FragmentBookBinding
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 
 class BookFragment : Fragment() {
+    private lateinit var analytics: FirebaseAnalytics
     private var _binding: FragmentBookBinding? = null
     private val binding get() = _binding!!
 
@@ -18,6 +22,9 @@ class BookFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        analytics = Firebase.analytics
+
         _binding = FragmentBookBinding.inflate(inflater, container, false)
         return binding.root
     }
