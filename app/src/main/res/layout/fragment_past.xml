@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.PastFragment"
+    android:background="@drawable/bg_light"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:padding="20dp"
+                android:background="#00FFFFFF"
+                android:src="@drawable/ic_baseline_arrow_back_ios_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="270dp"
+                android:layout_height="70dp"
+                android:textSize="14sp"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="#FFF5F1"
+                app:cardCornerRadius="15dp"
+                app:cardBackgroundColor="@color/white">
+
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:gravity="center"
+                        android:text="@string/upcoming"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/rubik_medium"
+                        android:textAllCaps="false"
+                        android:textSize="14sp"
+                        android:layout_width="125dp"
+                        android:layout_height="70dp"
+                        />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:text="@string/past"
+                        android:textColor="@color/text_blue"
+                        android:fontFamily="@font/rubik_medium"
+                        android:textAllCaps="false"
+                        android:textSize="14sp"
+                        android:backgroundTint="@color/button_dark"
+                        app:cornerRadius="15dp"
+                        android:layout_width="125dp"
+                        android:layout_height="70dp"
+                        android:layout_marginEnd="10dp"
+                        />
+                </LinearLayout>
+
+
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="20dp"
+            tools:listitem="@layout/list_tiket_upcoming"
+            android:paddingTop="?attr/actionBarSize"/>
+
+    </LinearLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

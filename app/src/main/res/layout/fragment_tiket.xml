@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.TiketFragment"
+    android:background="@drawable/bg_tiket"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00FFFFFF"
+                android:padding="20dp"
+                android:src="@drawable/ic_baseline_arrow_back_ios_24"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="@string/etiket"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/rubik_medium"
+                app:cardCornerRadius="15dp"
+                app:cardBackgroundColor="@color/white"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:src="@drawable/plane_track"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginTop="-100dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/rubik_medium"
+            android:text="@string/jam"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="15dp" />
+
+        <LinearLayout
+            android:padding="20dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_dari"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/rubik_medium"
+                    android:textColor="@color/black"
+                    android:text="@string/del"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/dari"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/rubik_medium"
+                    android:textColor="@color/black"
+                    android:text="@string/new_york"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginStart="125dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_ke"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/rubik_medium"
+                    android:textColor="@color/black"
+                    android:text="@string/jfk"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/dari2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/rubik_medium"
+                    android:textColor="@color/black"
+                    android:text="@string/new_york"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="480dp"
+            tools:listitem="@layout/ticket" />
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

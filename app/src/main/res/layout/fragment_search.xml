@@ -6,10 +6,10 @@
     tools:context=".ui.SearchFragment"
     android:background="@color/abu">
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="10dp"
         tools:listitem="@layout/list_item"
         android:paddingTop="?attr/actionBarSize"/>
 </FrameLayout>
