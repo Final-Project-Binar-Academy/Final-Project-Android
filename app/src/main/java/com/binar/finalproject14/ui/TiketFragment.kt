@@ -8,8 +8,12 @@ import android.view.ViewGroup
 import com.binar.finalproject14.R
 import com.binar.finalproject14.databinding.FragmentAboutBinding
 import com.binar.finalproject14.databinding.FragmentTiketBinding
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 
 class TiketFragment : Fragment() {
+    private lateinit var analytics: FirebaseAnalytics
     private var _binding: FragmentTiketBinding? = null
     private val binding get() = _binding!!
 
@@ -18,6 +22,8 @@ class TiketFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        analytics = Firebase.analytics
+
         _binding = FragmentTiketBinding.inflate(inflater, container, false)
         return binding.root
     }
