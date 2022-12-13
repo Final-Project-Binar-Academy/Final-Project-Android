@@ -4,9 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.binar.finalproject14.data.api.request.LoginRequest
 import com.binar.finalproject14.data.api.request.RegisterRequest
-import com.binar.finalproject14.data.api.response.AuthResponse
 import com.binar.finalproject14.data.api.response.BaseResponse
 import com.binar.finalproject14.repository.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel

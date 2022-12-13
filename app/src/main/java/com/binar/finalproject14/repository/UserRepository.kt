@@ -1,12 +1,8 @@
 package com.binar.finalproject14.repository
 
-import com.binar.finalproject14.data.api.service.UserApi
 import com.binar.finalproject14.data.api.request.LoginRequest
 import com.binar.finalproject14.data.api.request.RegisterRequest
-import com.binar.finalproject14.data.api.response.AuthResponse
-import com.binar.finalproject14.data.api.service.ApiClient
 import com.binar.finalproject14.data.api.service.ApiHelper
-import retrofit2.Response
 import javax.inject.Inject
 import javax.inject.Singleton
 
