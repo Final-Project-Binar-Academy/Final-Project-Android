@@ -10,7 +10,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.binar.finalproject14.R
 import com.binar.finalproject14.data.api.response.BaseResponse
-import com.binar.finalproject14.data.api.response.AuthResponse
 import com.binar.finalproject14.databinding.FragmentLoginBinding
 import com.binar.finalproject14.utils.SessionManager
 import com.binar.finalproject14.viewmodel.LoginViewModel

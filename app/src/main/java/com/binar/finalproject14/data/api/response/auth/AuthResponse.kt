@@ -1,8 +1,8 @@
-package com.binar.finalproject14.data.api.response
+package com.binar.finalproject14.data.api.response.auth
 
 
-import com.google.gson.annotations.SerializedName
 import androidx.annotation.Keep
+import com.google.gson.annotations.SerializedName
 
 @Keep
 data class AuthResponse(

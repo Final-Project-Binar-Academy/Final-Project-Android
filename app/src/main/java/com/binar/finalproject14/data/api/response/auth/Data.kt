@@ -1,11 +1,13 @@
-package com.binar.finalproject14.data.api.response
+package com.binar.finalproject14.data.api.response.auth
 
 
-import com.google.gson.annotations.SerializedName
 import androidx.annotation.Keep
+import com.google.gson.annotations.SerializedName
 
 @Keep
 data class Data(
+    @SerializedName("accessToken")
+    var accessToken: String?,
     @SerializedName("email")
     var email: String?,
     @SerializedName("id")
@@ -15,7 +17,5 @@ data class Data(
     @SerializedName("role")
     var role: String?,
     @SerializedName("roleId")
-    var roleId: Int?,
-    @SerializedName("token")
-    var token: String?
+    var roleId: Int?
 )
