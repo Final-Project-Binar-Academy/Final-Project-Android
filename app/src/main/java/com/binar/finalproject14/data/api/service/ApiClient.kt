@@ -60,6 +60,7 @@ object ApiClient {
     }
     @Provides
     fun getUserManager(@ApplicationContext context: Context) : UserDataStoreManager = UserDataStoreManager(context)
+
 //    fun getUserService(): UserApi {
 //        var mHttpLoggingInterceptor = HttpLoggingInterceptor()
 //            .setLevel(HttpLoggingInterceptor.Level.BODY)

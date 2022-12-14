@@ -39,13 +39,15 @@ class AirportAdapter(private val onItemClick: OnClickListener) :
     inner class ViewHolder(private val binding: ListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: DataAirport) {
-//            binding.apply {
-//                tvAirport.text = data.airportName
-//                tvPrice.text = data.price.toString()
-//                root.setOnClickListener {
-//                    onItemClick.onClickItem(data)
-//                }
-//            }
+            binding.apply {
+                codeIataFrom.text = data.cityCode
+                codeIataTo.text = data.cityCode
+                city1.text = data.city
+                city2.text = data.city
+                root.setOnClickListener {
+                    onItemClick.onClickItem(data)
+                }
+            }
         }
     }
 
