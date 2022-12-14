@@ -53,6 +53,9 @@ class LoginFragment : Fragment() {
             }
         }
 
+        binding.forgetPass.setOnClickListener {
+            throw RuntimeException("App Crashed")
+        }
         binding.btnLogin.setOnClickListener {
             val mail = binding.email.text.toString()
             val pwd = binding.password.text.toString()
@@ -65,14 +68,14 @@ class LoginFragment : Fragment() {
 
     }
 
-    override fun onStart() {
-        super.onStart()
-        viewModel.getDataStoreIsLogin().observe(viewLifecycleOwner) {
-            if (it == true) {
-                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-            }
-        }
-    }
+//    override fun onStart() {
+//        super.onStart()
+//        viewModel.getDataStoreIsLogin().observe(viewLifecycleOwner) {
+//            if (it == true) {
+//                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+//            }
+//        }
+//    }
 
     fun processLogin(data: AuthResponse?) {
         showToast("Success:" + data?.message)
