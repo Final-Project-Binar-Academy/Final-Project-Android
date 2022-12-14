@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.binar.finalproject14.R
 import com.binar.finalproject14.data.api.response.BaseResponse
+import com.binar.finalproject14.data.api.response.auth.AuthResponse
 import com.binar.finalproject14.databinding.FragmentRegisterBinding
 import com.binar.finalproject14.viewmodel.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint

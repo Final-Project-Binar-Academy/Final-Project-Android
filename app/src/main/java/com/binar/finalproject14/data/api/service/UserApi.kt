@@ -18,8 +18,6 @@ interface UserApi {
     @POST("/api/auth/register")
     suspend fun registerUser(@Body registerRequest: RegisterRequest): Response<AuthResponse>
 
-    @GET("/api/airport")
-    fun getAirport() : Response<AirportResponse>
 
 //    companion object {
 //        fun getApi(): UserApi? {

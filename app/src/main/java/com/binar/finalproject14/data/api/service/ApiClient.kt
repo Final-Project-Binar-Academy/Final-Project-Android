@@ -55,6 +55,11 @@ object ApiClient {
     }
     @Singleton
     @Provides
+    fun provideAirportApi(retrofit: Retrofit): AirportApi {
+        return retrofit.create()
+    }
+    @Singleton
+    @Provides
     fun provideApiHelper(apiHelper: ApiHelperImpl): ApiHelper {
         return apiHelper
     }

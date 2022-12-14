@@ -8,9 +8,12 @@ import retrofit2.Call
 import retrofit2.Response
 import javax.inject.Inject
 
-class ApiHelperImpl @Inject constructor(private val apiService: UserApi): ApiHelper {
+class ApiHelperImpl @Inject constructor(
+    private val apiService: UserApi,
+    private val airportApi: AirportApi
+): ApiHelper {
     override suspend fun loginUser(loginRequest: LoginRequest): Response<AuthResponse>? = apiService.loginUser(loginRequest = loginRequest)
     override suspend fun registerUser(registerRequest: RegisterRequest): Response<AuthResponse>? = apiService.registerUser(registerRequest = registerRequest)
 
-    override suspend fun getAirport(): Response<AirportResponse>? = apiService.getAirport()
+    override suspend fun getAirport(): Response<AirportResponse>? = airportApi.getAirport()
 }
