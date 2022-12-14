@@ -13,8 +13,4 @@ interface ApiHelper {
 
     suspend fun registerUser(registerRequest: RegisterRequest): Response<AuthResponse>?
 
-    suspend fun getAirport(): Response<AirportResponse>?
-
-
-
 }
