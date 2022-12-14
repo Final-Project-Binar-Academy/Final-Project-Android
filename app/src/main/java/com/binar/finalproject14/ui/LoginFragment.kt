@@ -10,7 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.binar.finalproject14.R
 import com.binar.finalproject14.data.api.response.BaseResponse
-import com.binar.finalproject14.data.api.response.AuthResponse
+import com.binar.finalproject14.data.api.response.auth.AuthResponse
 import com.binar.finalproject14.databinding.FragmentLoginBinding
 import com.binar.finalproject14.utils.SessionManager
 import com.binar.finalproject14.viewmodel.LoginViewModel
@@ -80,7 +80,7 @@ class LoginFragment : Fragment() {
     fun processLogin(data: AuthResponse?) {
         showToast("Success:" + data?.message)
         findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-        data?.data?.token?.let { SessionManager.saveAuthToken(requireContext(), it) }
+        data?.data?.accessToken?.let { SessionManager.saveAuthToken(requireContext(), it) }
 
     }
 

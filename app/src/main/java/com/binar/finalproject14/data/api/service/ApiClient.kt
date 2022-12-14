@@ -55,11 +55,17 @@ object ApiClient {
     }
     @Singleton
     @Provides
+    fun provideAirportApi(retrofit: Retrofit): AirportApi {
+        return retrofit.create()
+    }
+    @Singleton
+    @Provides
     fun provideApiHelper(apiHelper: ApiHelperImpl): ApiHelper {
         return apiHelper
     }
     @Provides
     fun getUserManager(@ApplicationContext context: Context) : UserDataStoreManager = UserDataStoreManager(context)
+
 //    fun getUserService(): UserApi {
 //        var mHttpLoggingInterceptor = HttpLoggingInterceptor()
 //            .setLevel(HttpLoggingInterceptor.Level.BODY)

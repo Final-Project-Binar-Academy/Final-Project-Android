@@ -4,10 +4,9 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.binar.finalproject14.data.api.request.LoginRequest
 import com.binar.finalproject14.data.api.response.BaseResponse
-import com.binar.finalproject14.data.api.response.AuthResponse
+import com.binar.finalproject14.data.api.response.auth.AuthResponse
 import com.binar.finalproject14.repository.UserRepository
 import com.binar.finalproject14.utils.UserDataStoreManager
-import dagger.hilt.android.internal.lifecycle.HiltViewModelMap
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
