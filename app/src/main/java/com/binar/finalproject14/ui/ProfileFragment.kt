@@ -5,15 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.binar.finalproject14.R
 import com.binar.finalproject14.databinding.FragmentAboutBinding
 import com.binar.finalproject14.databinding.FragmentPastBinding
 import com.binar.finalproject14.databinding.FragmentProfileBinding
+import com.binar.finalproject14.viewmodel.ProfileViewModel
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ProfileFragment : Fragment() {
+    private lateinit var viewModel : ProfileViewModel
     private lateinit var analytics: FirebaseAnalytics
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
@@ -29,4 +35,25 @@ class ProfileFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
+        logout()
+    }
+
+    private fun logout() {
+        binding.btnLogout.setOnClickListener {
+            viewModel.removeIsLoginStatus()
+            viewModel.removeId()
+            viewModel.removeUsername()
+            viewModel.getDataStoreIsLogin().observe(viewLifecycleOwner) {
+                findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
+            }
+        }
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

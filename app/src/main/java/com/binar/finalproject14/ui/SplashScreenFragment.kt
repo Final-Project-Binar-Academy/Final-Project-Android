@@ -28,13 +28,9 @@ class SplashScreenFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val token = SessionManager.getToken(requireContext())
-            Handler(Looper.myLooper()!!).postDelayed({
-                if (!token.isNullOrBlank()) {
-                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-                }
-                else
-                    findNavController().navigate(R.id.action_splashScreenFragment_to_loginFragment)
+//        val token = SessionManager.getToken(requireContext())
+        Handler(Looper.myLooper()!!).postDelayed({
+            findNavController().navigate(R.id.action_splashScreenFragment_to_loginFragment)
             },1000)
 
     }
