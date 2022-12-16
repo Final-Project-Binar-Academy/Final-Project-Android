@@ -10,7 +10,6 @@ import retrofit2.http.GET
 
 interface ApiHelper {
     suspend fun loginUser(loginRequest: LoginRequest): Response<AuthResponse>?
-
     suspend fun registerUser(registerRequest: RegisterRequest): Response<AuthResponse>?
 
 }

@@ -10,13 +10,16 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 
-interface UserApi {
+interface ApiService {
 
     @POST("/api/auth/login")
     suspend fun loginUser(@Body loginRequest: LoginRequest): Response<AuthResponse>
 
     @POST("/api/auth/register")
     suspend fun registerUser(@Body registerRequest: RegisterRequest): Response<AuthResponse>
+
+    @GET("/api/airport")
+    fun getAirport() : Call<AirportResponse>
 
 
 //    companion object {

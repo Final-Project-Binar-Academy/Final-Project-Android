@@ -4,25 +4,29 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.binar.finalproject14.data.api.response.airport.AirportResponse
-import com.binar.finalproject14.data.api.service.AirportApi
+import com.binar.finalproject14.data.di.ApiClient
+import com.binar.finalproject14.repository.AirportRepository
+import com.example.mvvm_car_chapter6.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.Exception
 import javax.inject.Inject
 
 @HiltViewModel
 class AirportViewModel @Inject constructor(
-    private val client: AirportApi
+    private val repository: AirportRepository
     ) : ViewModel() {
 
     private val _airport: MutableLiveData<AirportResponse?> = MutableLiveData()
-    val airport: LiveData<AirportResponse?> get() = _airport
-
+    fun getLiveDataAirport() : MutableLiveData<AirportResponse?> = _airport
 
     fun getDataAirport() {
-        client.getAirport()
+        repository.getAirport()
             .enqueue(object : Callback<AirportResponse> {
                 override fun onResponse(
                     call: Call<AirportResponse>,
@@ -37,18 +41,9 @@ class AirportViewModel @Inject constructor(
                 }
 
                 override fun onFailure(call: Call<AirportResponse>, t: Throwable) {
+                    _airport.postValue(null)
+                    Log.d("Failed",t.message.toString())
                 }
             })
     }
-
-//    fun getDataAirport() = liveData(Dispatchers.IO) {
-//        emit(Resource.loading(null))
-//        try {
-//            emit(Resource.success(data = airportRepository.getUsers()))
-//        } catch (exception: Exception) {
-//            emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
-//        }
-//    }
-
-
 }

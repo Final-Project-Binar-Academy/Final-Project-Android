@@ -1,7 +1,7 @@
 package com.binar.finalproject14.viewmodel
 
 import com.binar.finalproject14.data.api.request.LoginRequest
-import com.binar.finalproject14.data.api.service.UserApi
+import com.binar.finalproject14.data.api.service.ApiService
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
@@ -12,7 +12,7 @@ import retrofit2.Response
 
 
 class LoginViewModelTest {
-    private lateinit var service: UserApi
+    private lateinit var service: ApiService
 
     @Before
     fun setUp() {
