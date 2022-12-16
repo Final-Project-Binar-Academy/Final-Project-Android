@@ -28,22 +28,22 @@ class LoginFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
 
-        _binding = FragmentLoginBinding.inflate(inflater,container,false)
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val token = SessionManager.getToken(requireContext())
-        if (!token.isNullOrBlank()) {
-            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-        }
+//        val token = SessionManager.getToken(requireContext())
+//        if (!token.isNullOrBlank()) {
+//            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+//        }
 
 
         viewModel.loginResult.observe(viewLifecycleOwner) {
             when (it) {
                 is BaseResponse.Success -> {
                     processLogin(it.data)
-                    viewModel.saveIsLoginStatus(true)
                 }
                 is BaseResponse.Error -> {
                     processError(it.msg)
@@ -62,26 +62,29 @@ class LoginFragment : Fragment() {
             viewModel.loginUser(email = mail, pwd = pwd)
         }
 
-        binding.signUp.setOnClickListener{
+        binding.signUp.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
 
     }
 
-//    override fun onStart() {
-//        super.onStart()
-//        viewModel.getDataStoreIsLogin().observe(viewLifecycleOwner) {
-//            if (it == true) {
-//                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-//            }
-//        }
-//    }
 
     fun processLogin(data: AuthResponse?) {
         showToast("Success:" + data?.message)
-        findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-        data?.data?.accessToken?.let { SessionManager.saveAuthToken(requireContext(), it) }
-
+        if (data?.data?.accessToken != null) {
+            viewModel.saveIsLoginStatus(true)
+            viewModel.saveUsername(data?.data?.name.toString())
+            viewModel.saveId(data?.data?.id!!.toInt())
+            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+        }
+    }
+    override fun onStart() {
+        super.onStart()
+        viewModel.getDataStoreIsLogin().observe(viewLifecycleOwner) {
+            if (it == true) {
+                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            }
+        }
     }
 
     fun processError(msg: String?) {
@@ -95,5 +98,5 @@ class LoginFragment : Fragment() {
             Toast.LENGTH_SHORT
         ).show()
     }
-
 }
+

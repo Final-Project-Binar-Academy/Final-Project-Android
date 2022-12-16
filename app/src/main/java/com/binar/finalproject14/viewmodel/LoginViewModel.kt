@@ -52,4 +52,15 @@ class LoginViewModel @Inject constructor(
     fun getDataStoreIsLogin(): LiveData<Boolean> {
         return pref.getIsLogin.asLiveData()
     }
+    fun saveUsername(username: String) {
+        viewModelScope.launch {
+            pref.saveUsername(username)
+        }
+    }
+
+    fun saveId(id: Int){
+        viewModelScope.launch {
+            pref.saveId(id)
+        }
+    }
 }
