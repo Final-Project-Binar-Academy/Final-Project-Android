@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.binar.finalproject14.R
 import com.binar.finalproject14.databinding.FragmentAboutBinding
 import com.binar.finalproject14.databinding.FragmentPastBinding
@@ -26,6 +27,15 @@ class PastFragment : Fragment() {
 
         _binding = FragmentPastBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        binding.btnBack.setOnClickListener(){
+            findNavController().navigate(R.id.action_bookFragment_to_homeFragment)
+        }
+
+        super.onViewCreated(view, savedInstanceState)
     }
 
 }

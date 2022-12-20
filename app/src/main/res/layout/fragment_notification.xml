@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.BookFragment"
+    tools:context=".ui.NotificationFragment"
     android:background="@drawable/bg_light"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -21,7 +21,6 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/btnBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#00FFFFFF"
@@ -32,7 +31,7 @@
             <TextView
                 android:layout_width="270dp"
                 android:layout_height="wrap_content"
-                android:text="@string/book"
+                android:text="@string/txt_notif"
                 android:textSize="20sp"
                 android:textAlignment="center"
                 android:layout_gravity="center"
@@ -46,8 +45,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp"
-            tools:listitem="@layout/list_booking"/>
+            tools:listitem="@layout/list_notif"/>
 
     </LinearLayout>
 

@@ -54,19 +54,16 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:id="@+id/ll_one_round"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:background="@drawable/card_top"
-                android:orientation="horizontal">
+                android:background="@drawable/card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/txt_oneway"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
                     android:layout_marginStart="80dp"
+                    android:layout_marginTop="15dp"
                     android:fontFamily="@font/rubik_medium"
                     android:text="@string/oneway"
                     android:textAppearance="@style/TextAppearance.MyApp.TextHome" />
@@ -80,193 +77,199 @@
                     android:text="@string/roundTrip"
                     android:fontFamily="@font/rubik_medium"
                     android:textAppearance="@style/TextAppearance.MyApp.TextHome" />
+
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/ll_one_round"
-                android:layout_marginTop="-10dp"
+                android:layout_marginTop="45dp"
                 android:background="@drawable/card_home"
                 android:orientation="horizontal">
 
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp">
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="20dp">
 
-                <TableRow>
-                    <TextView
-                        android:id="@+id/txt_from"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="0dp"
-                        android:fontFamily="@font/rubik_medium"
-                        android:text="@string/from"
-                        android:textColor="#4DFFFFFF"
-                        android:textSize="12sp" />
+                    <TableRow>
 
-                    <TextView
-                        android:id="@+id/txt_to"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="220dp"
-                        android:layout_marginTop="0dp"
-                        android:fontFamily="@font/rubik_medium"
-                        android:text="@string/to"
-                        android:textColor="#4DFFFFFF"
-                        android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/txt_from"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="0dp"
+                            android:fontFamily="@font/rubik_medium"
+                            android:text="@string/from"
+                            android:textColor="@color/abu"
+                            android:textSize="12sp" />
 
-                </TableRow>
+                        <TextView
+                            android:id="@+id/txt_to"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="220dp"
+                            android:layout_marginTop="0dp"
+                            android:fontFamily="@font/rubik_medium"
+                            android:text="@string/to"
+                            android:textColor="@color/abu"
+                            android:textSize="12sp" />
 
-                <TableRow>
-                    <TextView
-                        android:id="@+id/txt_del"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/rubik_medium"
-                        android:text="@string/del"
-                        android:textColor="#FFFFFF"
-                        android:textSize="12sp" />
+                    </TableRow>
 
-                    <TextView
-                        android:id="@+id/txt_jfk"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="210dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/rubik_medium"
-                        android:text="@string/jfk"
-                        android:textAlignment="textEnd"
-                        android:textColor="#FFFFFF"
-                        android:textSize="12sp" />
-                </TableRow>
+                    <TableRow>
 
-                <TableRow>
-                    <TextView
-                        android:id="@+id/txt_delhi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="0dp"
-                        android:fontFamily="@font/rubik"
-                        android:text="@string/new_delhi"
-                        android:textColor="#99FFFFFF"
-                        android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/txt_del"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/rubik_medium"
+                            android:text="@string/del"
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
 
-                    <TextView
-                        android:id="@+id/txt_newyork"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="160dp"
-                        android:layout_marginTop="0dp"
-                        android:fontFamily="@font/rubik"
-                        android:text="@string/new_york"
-                        android:textAlignment="textEnd"
-                        android:textColor="#99FFFFFF"
-                        android:textSize="12sp" />
-                </TableRow>
+                        <TextView
+                            android:id="@+id/txt_jfk"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="210dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/rubik_medium"
+                            android:text="@string/jfk"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
+                    </TableRow>
 
-                <TableRow>
-                    <TextView
-                        android:id="@+id/txt_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="35dp"
-                        android:fontFamily="@font/rubik_medium"
-                        android:text="@string/travel_date"
-                        android:textColor="#4DFFFFFF"
-                        android:textSize="12sp" />
+                    <TableRow>
 
-                    <TextView
-                        android:id="@+id/txt_return"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="190dp"
-                        android:layout_marginTop="35dp"
-                        android:fontFamily="@font/rubik_medium"
-                        android:text="@string/returnn"
-                        android:textColor="#4DFFFFFF"
-                        android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/txt_delhi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="0dp"
+                            android:fontFamily="@font/rubik"
+                            android:text="@string/new_delhi"
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
 
-                </TableRow>
+                        <TextView
+                            android:id="@+id/txt_newyork"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="160dp"
+                            android:layout_marginTop="0dp"
+                            android:fontFamily="@font/rubik"
+                            android:text="@string/new_york"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
+                    </TableRow>
 
-                <TableRow>
-                    <TextView
-                        android:id="@+id/date1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/rubik_medium"
-                        android:text="@string/date"
-                        android:textColor="#FFFFFF"
-                        android:textSize="12sp" />
+                    <TableRow>
 
-                    <TextView
-                        android:id="@+id/date2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="175dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/rubik_medium"
-                        android:text="@string/date"
-                        android:textAlignment="textEnd"
-                        android:textColor="#FFFFFF"
-                        android:textSize="12sp" />
-                </TableRow>
+                        <TextView
+                            android:id="@+id/txt_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="35dp"
+                            android:fontFamily="@font/rubik_medium"
+                            android:text="@string/travel_date"
+                            android:textColor="@color/abu"
+                            android:textSize="12sp" />
 
-                <TableRow>
-                    <TextView
-                        android:id="@+id/traveller"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="35dp"
-                        android:fontFamily="@font/rubik_medium"
-                        android:text="@string/traveller"
-                        android:textColor="#4DFFFFFF"
-                        android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/txt_return"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="190dp"
+                            android:layout_marginTop="35dp"
+                            android:fontFamily="@font/rubik_medium"
+                            android:text="@string/returnn"
+                            android:textColor="@color/abu"
+                            android:textSize="12sp" />
 
-                    <TextView
-                        android:id="@+id/CLASS"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="200dp"
-                        android:layout_marginTop="35dp"
-                        android:fontFamily="@font/rubik_medium"
-                        android:text="@string/str_class"
-                        android:textColor="#4DFFFFFF"
-                        android:textSize="12sp" />
+                    </TableRow>
 
-                </TableRow>
+                    <TableRow>
 
-                <TableRow>
-                    <TextView
-                        android:id="@+id/txt_traveller"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/rubik_medium"
-                        android:text="@string/txt_traveller"
-                        android:textColor="#FFFFFF"
-                        android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/date1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/rubik_medium"
+                            android:text="@string/date"
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
 
-                    <TextView
-                        android:id="@+id/economy"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="182dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/rubik_medium"
-                        android:text="@string/economy"
-                        android:textAlignment="textEnd"
-                        android:textColor="#FFFFFF"
-                        android:textSize="12sp" />
-                </TableRow>
+                        <TextView
+                            android:id="@+id/date2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="175dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/rubik_medium"
+                            android:text="@string/date"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
+                    </TableRow>
 
-            </TableLayout>
+                    <TableRow>
+
+                        <TextView
+                            android:id="@+id/traveller"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="35dp"
+                            android:fontFamily="@font/rubik_medium"
+                            android:text="@string/traveller"
+                            android:textColor="@color/abu"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/CLASS"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="200dp"
+                            android:layout_marginTop="35dp"
+                            android:fontFamily="@font/rubik_medium"
+                            android:text="@string/str_class"
+                            android:textColor="@color/abu"
+                            android:textSize="12sp" />
+
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:id="@+id/txt_traveller"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/rubik_medium"
+                            android:text="@string/txt_traveller"
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/economy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="182dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/rubik_medium"
+                            android:text="@string/economy"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
+                    </TableRow>
+
+                </TableLayout>
 
             </LinearLayout>
 
@@ -292,41 +295,67 @@
                     android:fontFamily="@font/rubik"
                     android:text="@string/show"
                     android:textAlignment="textEnd"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
             </LinearLayout>
 
         </RelativeLayout>
 
-        <RelativeLayout
+
+        <Button
+            android:id="@+id/btnRegister"
+            style="@style/Widget.MyApp.Button"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@string/search"
+            android:layout_marginTop="15dp"
+            app:cornerRadius="18dp" />
+
+        <TextView
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:text="@string/hotOffer"
+            style="@style/TextAppearance.MyApp.titleCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_hot_offer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:orientation="horizontal">
-            <ImageButton
-                android:id="@+id/btnRegister"
-                style="@style/Widget.MyApp.Button"
-                android:src="@drawable/btn_search"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/register"
-                android:layout_marginTop="15dp"
-                app:cornerRadius="18dp" />
+            tools:listitem="@layout/hot_offer"
+            tools:visibility="visible" />
 
-            <TextView
-                android:id="@+id/txt_search"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="10dp"
-                android:fontFamily="@font/rubik"
-                android:text="@string/show"
-                android:textAlignment="textEnd"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp" />
-        </RelativeLayout>
+        <TextView
+            style="@style/TextAppearance.MyApp.titleCard"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:text="@string/popular_flight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_popular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/list_popular"
+            tools:visibility="visible" />
+
+        <TextView
+            style="@style/TextAppearance.MyApp.titleCard"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:text="@string/important_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_important"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/list_important_info"
+            tools:visibility="visible" />
 
     </LinearLayout>
 

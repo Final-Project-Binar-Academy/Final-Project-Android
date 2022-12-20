@@ -25,7 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="83dp"
+                android:layout_marginTop="50dp"
                 android:text="@string/register"
                 android:textAppearance="@style/TextAppearance.MyApp.TitleLogin" />
 
@@ -33,7 +33,7 @@
                 android:id="@+id/txt_login2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="53dp"
                 android:layout_marginStart="8dp"
                 android:text="@string/register"
                 android:textColor="@color/white"
@@ -53,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="30dp"
             android:orientation="vertical">
 
@@ -120,24 +120,6 @@
                 android:backgroundTint="@color/white"
                 android:inputType="textPassword"
                 tools:ignore="TouchTargetSizeCheck" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="80dp"
-                android:layout_gravity="center"
-                android:orientation="horizontal">
-
-                <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/checkBox"
-                    android:layout_width="290dp"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:fontFamily="@font/poppins"
-                    android:textSize="12sp"
-                    android:textColor="@color/white"
-                    android:text="@string/terms" />
-            </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnRegister"
