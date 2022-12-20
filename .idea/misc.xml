@@ -16,11 +16,12 @@
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/bottom_dialog_search.xml" value="0.2" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/calendar_dialog.xml" value="0.184375" />
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/dropdown_item.xml" value="0.19322916666666667" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_about.xml" value="0.20416666666666666" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_book.xml" value="0.176" />
-        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_data_penumpang.xml" value="0.1621376811594203" />
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_data_penumpang.xml" value="0.4" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_detail.xml" value="0.2" />
-        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_home.xml" value="0.536" />
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_login.xml" value="0.2" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_notification.xml" value="0.20885416666666667" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_past.xml" value="0.209375" />
@@ -34,7 +35,7 @@
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_trip_upcoming.xml" value="0.2" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/hot_offer.xml" value="0.264" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/ic_baseline_arrow_forward_24.xml" value="0.25" />
-        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/item_data_penumpang.xml" value="0.21784420289855072" />
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/item_data_penumpang.xml" value="0.4" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/list_booking.xml" value="0.264" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/list_important_info.xml" value="0.4" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/list_item.xml" value="0.264" />

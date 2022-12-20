@@ -8,194 +8,72 @@
     tools:ignore="SpeakableTextPresentCheck">
 
     <FrameLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/background" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="334dp"
-            android:layout_height="275dp"
-            android:layout_marginLeft="45dp"
-            android:layout_marginTop="7dp"
-            android:src="@drawable/substract" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                tools:listitem="@layout/list_item"/>
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="132dp"
-            android:layout_height="89dp"
-            android:layout_marginLeft="140dp"
-            android:layout_marginTop="58dp"
-            android:src="@drawable/flight" />
+        <LinearLayout
+            android:padding="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="145dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="Traveller Details"
-            android:textColor="@color/white" />
+            <com.google.android.material.button.MaterialButton
+                app:icon="@drawable/icon_info"
+                app:iconPadding="20dp"
+                app:cornerRadius="20dp"
+                android:text="@string/detailsPenumpang"
+                android:fontFamily="@font/rubik"
+                android:textAllCaps="false"
+                android:textAlignment="textStart"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"/>
 
-        <TextView
-            android:id="@+id/tvTanggal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="75dp"
-            android:fontFamily="@font/rubik_medium"
-            android:text="Thu, 15 Oct"
-            android:textColor="@color/tanggal"
-            android:textSize="10sp" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="20dp"
+                app:boxCornerRadiusTopStart="15dp"
+                app:boxCornerRadiusBottomStart="15dp"
+                app:boxCornerRadiusTopEnd="15dp"
+                app:boxCornerRadiusBottomEnd="15dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tvLamaPerjalanan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="185dp"
-            android:layout_marginTop="75dp"
-            android:fontFamily="@font/rubik_medium"
-            android:text="04h 00m"
-            android:textColor="@color/tanggal"
-            android:textSize="10sp" />
+                <!-- Inside text input layout add
+                      an auto complete text view
+                        and make its input type to none-->
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompleteTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="none"
+                    android:text="@string/jmlPenumpang"
+                    />
 
-        <TextView
-            android:id="@+id/tvBusiness"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="178dp"
-            android:layout_marginTop="120dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="Bussiness"
-            android:textColor="@color/basic"
-            android:textSize="12sp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/tvWaktu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="90dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="15:40"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvAsal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="88dp"
-            android:layout_marginTop="115dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="SGN"
-            android:textColor="@color/white" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_important"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/item_data_penumpang"
+                tools:visibility="visible" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="75dp"
-            android:layout_marginTop="135dp"
-            android:fontFamily="@font/rubik"
-            android:text="Tehran, iran"
-            android:textColor="@color/tanggal"
-            android:textSize="12sp" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvtanggal1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="280dp"
-            android:layout_marginTop="75dp"
-            android:fontFamily="@font/rubik_medium"
-            android:text="Thu, 15 Oct"
-            android:textColor="@color/tanggal"
-            android:textSize="10sp" />
 
-        <TextView
-            android:id="@+id/tvWaktu2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="280dp"
-            android:layout_marginTop="90dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="19:40"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/tvTujuan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="288dp"
-            android:layout_marginTop="115dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="TYP"
-            android:textColor="@color/white" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="275dp"
-            android:layout_marginTop="135dp"
-            android:fontFamily="@font/rubik"
-            android:text="Tehran, iran"
-            android:textColor="@color/tanggal"
-            android:textSize="12sp" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="68dp"
-            android:layout_height="26dp"
-            android:layout_marginLeft="240dp"
-            android:layout_marginTop="175dp"
-            android:src="@drawable/img_kelas" />
-
-        <TextView
-            android:id="@+id/tvKelas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="267dp"
-            android:layout_marginTop="180dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:textSize="10dp"
-            android:text="Bisnis"
-            android:textColor="@color/white" />
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="68dp"
-            android:layout_height="26dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="175dp"
-            android:src="@drawable/icon_pesawat" />
-
-        <TextView
-            android:id="@+id/tvPesawat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="110dp"
-            android:layout_marginTop="180dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:textSize="10dp"
-            android:text="Qatar Airways"
-            android:textColor="@color/white" />
-
-        <TextView
-            android:id="@+id/tvHarga"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="315dp"
-            android:layout_marginTop="175dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:textSize="14dp"
-            android:text="$150"
-            android:textColor="@color/basic" />
 
     </FrameLayout>
 
