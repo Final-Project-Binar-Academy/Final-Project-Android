@@ -3,26 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
+    app:cardBackgroundColor="@drawable/bg_light"
     app:cardCornerRadius="8dp"
     app:cardElevation="0dp"
     app:cardPreventCornerOverlap="false"
     app:cardUseCompatPadding="true">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="210dp"
+        android:orientation="vertical"
+        android:gravity="center"
         android:background="@drawable/bg_card">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:paddingTop="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -61,11 +69,38 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="04h00m"
+                    android:textAppearance="@style/TextAppearance.MyApp.timeEst"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:rotation="90"
+                    android:src="@drawable/plane_black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Business"
+                    android:textAppearance="@style/TextAppearance.MyApp.classSeat"/>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="167dp"
+                android:layout_marginStart="60dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -105,53 +140,23 @@
         </LinearLayout>
 
         <View
-            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_width="300dp"
+            android:layout_marginTop="5dp"
             android:layout_height="1dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="110dp"
-            android:layout_marginRight="30dp"
             android:background="@color/basic" />
 
+
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="159dp"
-            android:layout_marginTop="15dp"
             android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="04h00m"
-                android:textAppearance="@style/TextAppearance.MyApp.timeEst"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:rotation="90"
-                android:src="@drawable/plane_black" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Business"
-                android:textAppearance="@style/TextAppearance.MyApp.classSeat"/>
-        </LinearLayout>
-
-
-        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-
             <LinearLayout
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="120dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -167,44 +172,19 @@
                     android:text="Qatar Airways"
                     android:textAppearance="@style/TextAppearance.MyApp.planeJenis" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="126dp"
-                android:layout_marginEnd="35dp"
-                android:layout_weight="1"
-                android:gravity="end"
-                android:orientation="horizontal">
-
-                <androidx.cardview.widget.CardView
+                <com.google.android.material.button.MaterialButton
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/basic"
-                    app:cardCornerRadius="10dp">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_person_circle_white" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="Bisnis"
-                            android:textAlignment="center"
-                            android:textAppearance="@style/TextAppearance.MyApp.classSeat.Second" />
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                    android:layout_marginStart="50dp"
+                    android:layout_height="43dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="3dp"
+                    android:paddingStart="5dp"
+                    android:gravity="center"
+                    android:text="@string/bisnis"
+                    android:textAllCaps="false"
+                    app:cornerRadius="100dp"
+                    app:icon="@drawable/person"
+                    app:iconSize="25dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -217,6 +197,5 @@
             </LinearLayout>
 
         </LinearLayout>
-
-    </RelativeLayout>
+    </LinearLayout>
 </androidx.cardview.widget.CardView>
