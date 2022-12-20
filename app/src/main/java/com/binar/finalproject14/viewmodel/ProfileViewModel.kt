@@ -2,6 +2,7 @@ package com.binar.finalproject14.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*
+import com.binar.finalproject14.data.api.response.profile.GetUserResponse
 import com.binar.finalproject14.data.api.response.profile.ProfileResponse
 import com.binar.finalproject14.data.api.response.profile.User
 import com.binar.finalproject14.data.api.service.UserApi
@@ -19,15 +20,15 @@ class ProfileViewModel @Inject constructor(
     private val pref: UserDataStoreManager,
     application: Application
 ) : AndroidViewModel(application) {
-    private val _user: MutableLiveData<ProfileResponse?> = MutableLiveData()
-    val user: LiveData<ProfileResponse?> get() = _user
+    private val _user: MutableLiveData<GetUserResponse?> = MutableLiveData()
+    val user: LiveData<GetUserResponse?> get() = _user
 
     fun getUserProfile(token : String){
         client.getUserProfile(token)
-            .enqueue(object : Callback <ProfileResponse> {
+            .enqueue(object : Callback <GetUserResponse> {
                 override fun onResponse(
-                    call: Call<ProfileResponse>,
-                    response: Response<ProfileResponse>
+                    call: Call<GetUserResponse>,
+                    response: Response<GetUserResponse>
                 ) {
                     if (response.isSuccessful) {
                         val responseBody = response.body()
@@ -37,7 +38,7 @@ class ProfileViewModel @Inject constructor(
                     }
                 }
 
-                override fun onFailure(call: Call<ProfileResponse>, t: Throwable) {
+                override fun onFailure(call: Call<GetUserResponse>, t: Throwable) {
                 }
             })
     }

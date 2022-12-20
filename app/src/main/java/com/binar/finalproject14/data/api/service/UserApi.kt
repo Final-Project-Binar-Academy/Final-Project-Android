@@ -4,6 +4,7 @@ import com.binar.finalproject14.data.api.request.LoginRequest
 import com.binar.finalproject14.data.api.request.RegisterRequest
 import com.binar.finalproject14.data.api.response.airport.AirportResponse
 import com.binar.finalproject14.data.api.response.auth.AuthResponse
+import com.binar.finalproject14.data.api.response.profile.GetUserResponse
 import com.binar.finalproject14.data.api.response.profile.ProfileResponse
 import com.binar.finalproject14.data.api.response.profile.User
 import retrofit2.Call
@@ -23,7 +24,7 @@ interface UserApi {
     suspend fun registerUser(@Body registerRequest: RegisterRequest): Response<AuthResponse>
 
     @GET("/api/user")
-    fun getUserProfile(@Header("Authorization")token: String): Call <ProfileResponse>
+    fun getUserProfile(@Header("Authorization")token: String): Call <GetUserResponse>
 
     @PUT("/api/user/update")
     fun updateUser(@Body request: User, @Header("Authorization")token: String): Call <ProfileResponse>

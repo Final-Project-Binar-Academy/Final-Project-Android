@@ -46,10 +46,10 @@ class ProfileFragment : Fragment() {
         viewModel.user.observe(viewLifecycleOwner) {
             binding.apply {
                 if(it != null) {
-                    tvUsernameProfile.setText(it.user?.firstName.toString())
-                    tvLastNameProfile.setText(it.user?.lastName.toString())
-                    tvAddressProfile.setText(it.user?.address.toString())
-                    tvPhoneProfile.setText(it.user?.phoneNumber.toString())
+                    tvUsernameProfile.setText(it.data?.firstName.toString())
+                    tvLastNameProfile.setText(it.data?.lastName.toString())
+                    tvAddressProfile.setText(it.data?.address.toString())
+                    tvPhoneProfile.setText(it.data?.phoneNumber.toString())
                 }
             }
         }
