@@ -150,14 +150,6 @@
             android:textSize="12sp" />
 
         <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="334dp"
-            android:layout_height="275dp"
-            android:layout_marginLeft="45dp"
-            android:layout_marginTop="150dp"
-            android:src="@drawable/info" />
-
-        <ImageView
             android:id="@+id/imageView4"
             android:layout_width="68dp"
             android:layout_height="26dp"

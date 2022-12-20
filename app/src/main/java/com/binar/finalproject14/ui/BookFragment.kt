@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.binar.finalproject14.MainActivity
 import com.binar.finalproject14.R
 import com.binar.finalproject14.databinding.FragmentAboutBinding
@@ -34,5 +35,9 @@ class BookFragment : Fragment() {
 
         (activity as MainActivity).binding.navBook.visibility = View.VISIBLE
         (activity as MainActivity).binding.navHome.visibility = View.GONE
+
+        binding.btnBack.setOnClickListener(){
+            findNavController().navigate(R.id.action_bookFragment_to_homeFragment)
+        }
     }
 }

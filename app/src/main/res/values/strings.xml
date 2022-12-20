@@ -83,6 +83,19 @@
     <string name="whislist">Wishlist</string>
     <string name="profile">Profile</string>
     <string name="fee_surcharges">Fee surcharges</string>
+    <string name="judul_notif">Booking Successfull</string>
+    <string name="notification">Your booking is Successfull. Check your ticket in Book Page</string>
+    <string name="txt_notif">Notification</string>
+    <string name="popular_flight">Popular Flight</string>
+    <string name="jakarta">Jakarta</string>
+    <string name="jkt">(JKT)</string>
+    <string name="search">Search Flights</string>
+    <string name="chinese">Chinese New Year Promo</string>
+    <string name="termscondition">*Terms and Condition</string>
+    <string name="hotOffer">Hot Offer</string>
+    <string name="important_info">Important Info for You</string>
+    <string name="health">Health Protocol Update</string>
+    <string name="info">Read info about travel regulation here!</string>
     <string-array name="languages">
         <item>Indonesia</item>
         <item>English</item>
