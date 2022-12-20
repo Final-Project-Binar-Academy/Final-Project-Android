@@ -4,6 +4,7 @@ import com.binar.finalproject14.data.api.request.LoginRequest
 import com.binar.finalproject14.data.api.request.RegisterRequest
 import com.binar.finalproject14.data.api.response.airport.AirportResponse
 import com.binar.finalproject14.data.api.response.auth.AuthResponse
+import com.binar.finalproject14.data.api.response.profile.ProfileResponse
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.GET

@@ -76,6 +76,7 @@
 
 
                         <TextView
+                            android:id="@+id/tvUsernameProfile"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
@@ -107,6 +108,7 @@
 
 
                         <TextView
+                            android:id="@+id/tvLastNameProfile"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
@@ -139,6 +141,7 @@
 
 
                         <TextView
+                            android:id="@+id/tvAddressProfile"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
@@ -169,6 +172,7 @@
 
 
                         <TextView
+                            android:id="@+id/tvPhoneProfile"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"

@@ -58,6 +58,12 @@ class LoginViewModel @Inject constructor(
         }
     }
 
+    fun saveToken(token: String) {
+        viewModelScope.launch {
+            pref.saveToken(token)
+        }
+    }
+
     fun saveId(id: Int){
         viewModelScope.launch {
             pref.saveId(id)

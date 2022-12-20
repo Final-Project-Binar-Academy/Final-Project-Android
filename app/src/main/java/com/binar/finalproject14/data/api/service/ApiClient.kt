@@ -28,6 +28,7 @@ object ApiClient {
             level = HttpLoggingInterceptor.Level.BODY
         }
     }
+
     @Singleton
     @Provides
     fun provideOkHttp(
@@ -37,6 +38,7 @@ object ApiClient {
             .addInterceptor(httpLoggingInterceptor)
             .build()
     }
+
     @Singleton
     @Provides
     fun provideRetrofit(
@@ -48,24 +50,31 @@ object ApiClient {
             .client(okHttpClient)
             .build()
     }
+
     @Singleton
     @Provides
     fun provideApiService(retrofit: Retrofit): UserApi {
         return retrofit.create()
     }
+
     @Singleton
     @Provides
     fun provideAirportApi(retrofit: Retrofit): AirportApi {
         return retrofit.create()
     }
+
     @Singleton
     @Provides
     fun provideApiHelper(apiHelper: ApiHelperImpl): ApiHelper {
         return apiHelper
     }
-    @Provides
-    fun getUserManager(@ApplicationContext context: Context) : UserDataStoreManager = UserDataStoreManager(context)
 
+    @Provides
+    fun getUserManager(@ApplicationContext context: Context): UserDataStoreManager =
+        UserDataStoreManager(context)
+
+//    @Singleton
+//    @Provides
 //    fun getUserService(): UserApi {
 //        var mHttpLoggingInterceptor = HttpLoggingInterceptor()
 //            .setLevel(HttpLoggingInterceptor.Level.BODY)

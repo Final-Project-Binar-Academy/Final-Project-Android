@@ -4,11 +4,15 @@ import com.binar.finalproject14.data.api.request.LoginRequest
 import com.binar.finalproject14.data.api.request.RegisterRequest
 import com.binar.finalproject14.data.api.response.airport.AirportResponse
 import com.binar.finalproject14.data.api.response.auth.AuthResponse
+import com.binar.finalproject14.data.api.response.profile.ProfileResponse
+import com.binar.finalproject14.data.api.response.profile.User
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
+import retrofit2.http.PUT
 
 interface UserApi {
 
@@ -17,6 +21,13 @@ interface UserApi {
 
     @POST("/api/auth/register")
     suspend fun registerUser(@Body registerRequest: RegisterRequest): Response<AuthResponse>
+
+    @GET("/api/user")
+    fun getUserProfile(@Header("Authorization")token: String): Call <ProfileResponse>
+
+    @PUT("/api/user/update")
+    fun updateUser(@Body request: User, @Header("Authorization")token: String): Call <ProfileResponse>
+
 
 
 //    companion object {

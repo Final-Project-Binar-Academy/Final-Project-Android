@@ -13,6 +13,10 @@ class UserDataStoreManager(@ApplicationContext val context: Context) {
         it[USERNAME_KEY] ?: ""
     }
 
+    val getToken: Flow<String> = context.dataStore.data.map {
+        it[TOKEN_KEY] ?: ""
+    }
+
     val getIsLogin: Flow<Boolean> = context.dataStore.data.map {
         it[IS_LOGIN_KEY] ?: false
     }
@@ -24,6 +28,12 @@ class UserDataStoreManager(@ApplicationContext val context: Context) {
     suspend fun saveUsername(username: String) {
         context.dataStore.edit {
             it[USERNAME_KEY] = username
+        }
+    }
+
+    suspend fun saveToken(token: String) {
+        context.dataStore.edit {
+            it[TOKEN_KEY] = token
         }
     }
 
@@ -60,6 +70,7 @@ class UserDataStoreManager(@ApplicationContext val context: Context) {
     companion object {
         private const val DATASTORE_NAME = "user_preferences"
         private val USERNAME_KEY = stringPreferencesKey("username_key")
+        private val TOKEN_KEY = stringPreferencesKey("token_key")
         private val ID_USER_KEY = intPreferencesKey("id_user_key")
         private val IS_LOGIN_KEY = booleanPreferencesKey("is_login_key")
         private val Context.dataStore by preferencesDataStore(

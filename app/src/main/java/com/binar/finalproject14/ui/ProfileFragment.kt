@@ -39,6 +39,20 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
+
+        viewModel.getDataStoreToken().observe(viewLifecycleOwner){
+            viewModel.getUserProfile("Bearer $it")
+        }
+        viewModel.user.observe(viewLifecycleOwner) {
+            binding.apply {
+                if(it != null) {
+                    tvUsernameProfile.setText(it.user?.firstName.toString())
+                    tvLastNameProfile.setText(it.user?.lastName.toString())
+                    tvAddressProfile.setText(it.user?.address.toString())
+                    tvPhoneProfile.setText(it.user?.phoneNumber.toString())
+                }
+            }
+        }
         logout()
     }
 

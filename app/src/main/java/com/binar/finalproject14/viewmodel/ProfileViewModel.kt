@@ -1,20 +1,68 @@
 package com.binar.finalproject14.viewmodel
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.asLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
+import com.binar.finalproject14.data.api.response.profile.ProfileResponse
+import com.binar.finalproject14.data.api.response.profile.User
+import com.binar.finalproject14.data.api.service.UserApi
 import com.binar.finalproject14.utils.UserDataStoreManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
+    private val client: UserApi,
     private val pref: UserDataStoreManager,
     application: Application
 ) : AndroidViewModel(application) {
+    private val _user: MutableLiveData<ProfileResponse?> = MutableLiveData()
+    val user: LiveData<ProfileResponse?> get() = _user
+
+    fun getUserProfile(token : String){
+        client.getUserProfile(token)
+            .enqueue(object : Callback <ProfileResponse> {
+                override fun onResponse(
+                    call: Call<ProfileResponse>,
+                    response: Response<ProfileResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val responseBody = response.body()
+                        if (responseBody != null) {
+                            _user.postValue(responseBody)
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<ProfileResponse>, t: Throwable) {
+                }
+            })
+    }
+    fun updateUser(
+        firstName: String,
+        lastName: String,
+        address: String,
+        phoneNumber: Int,
+        avatar : String,
+    ) {
+        client.updateUser(User(firstName, lastName, address, phoneNumber, avatar), token = "Bearer ${pref.getToken}")
+            .enqueue(object : Callback<ProfileResponse> {
+                override fun onResponse(
+                    call: Call<ProfileResponse>,
+                    response: Response<ProfileResponse>
+                ) {
+                }
+
+                override fun onFailure(call: Call<ProfileResponse>, t: Throwable) {
+                }
+            })
+    }
+    fun getDataStoreToken(): LiveData<String> {
+        return pref.getToken.asLiveData()
+    }
     fun removeIsLoginStatus() {
         viewModelScope.launch {
             pref.removeIsLoginStatus()
@@ -34,7 +82,10 @@ class ProfileViewModel @Inject constructor(
     fun getDataStoreIsLogin(): LiveData<Boolean> {
         return pref.getIsLogin.asLiveData()
     }
-
-
+    fun saveUsername(username: String) {
+        viewModelScope.launch {
+            pref.saveUsername(username)
+        }
+    }
 
 }
