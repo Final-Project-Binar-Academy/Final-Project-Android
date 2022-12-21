@@ -61,6 +61,12 @@ class UserDataStoreManager(@ApplicationContext val context: Context) {
         }
     }
 
+    suspend fun removeToken() {
+        context.dataStore.edit {
+            it.remove(TOKEN_KEY)
+        }
+    }
+    
     suspend fun removeId() {
         context.dataStore.edit {
             it.remove(ID_USER_KEY)

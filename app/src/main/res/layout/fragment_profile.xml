@@ -68,28 +68,18 @@
                         android:layout_marginBottom="15dp"
                         android:layout_marginTop="15dp">
 
-                        <TextView
+                        <EditText
+                            android:id="@+id/etFirstName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/username_profile"
-                            android:textAppearance="@style/TextAppearance.MyApp.ProfileAddress" />
-
-
-                        <TextView
-                            android:id="@+id/tvUsernameProfile"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.5"
-                            android:gravity="end"
-                            android:text="Diogo20"
-                            android:textAppearance="@style/TextAppearance.MyApp.ProfileAddress" />
-
+                            android:layout_weight="1"
+                            android:hint="@string/firstName"
+                            android:textAppearance="@style/TextAppearance.MyApp.ProfileAddress"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white"
+                            android:backgroundTint="@color/white"
+                            />
                     </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/white" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -99,29 +89,17 @@
                         android:layout_marginTop="15dp">
 
 
-                        <TextView
+                        <EditText
+                            android:id="@+id/etLastName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="end"
-                            android:text="@string/name_profile"
-                            android:textAppearance="@style/TextAppearance.MyApp.ProfileAddress" />
-
-
-                        <TextView
-                            android:id="@+id/tvLastNameProfile"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.5"
-                            android:gravity="end"
-                            android:text="Diogo Jota"
-                            android:textAppearance="@style/TextAppearance.MyApp.ProfileAddress" />
-
+                            android:layout_weight="1"
+                            android:hint="@string/lastName"
+                            android:textAppearance="@style/TextAppearance.MyApp.ProfileAddress"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white"
+                            android:backgroundTint="@color/white"/>
                     </LinearLayout>
-
-                    <View
-                        android:layout_width="wrap_content"
-                        android:layout_height="1dp"
-                        android:background="@color/white" />
 
 
                     <LinearLayout
@@ -132,29 +110,18 @@
                         android:layout_marginTop="15dp">
 
 
-                        <TextView
+                        <EditText
+                            android:id="@+id/etAddress"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="end"
-                            android:text="@string/address_profile"
-                            android:textAppearance="@style/TextAppearance.MyApp.ProfileAddress" />
-
-
-                        <TextView
-                            android:id="@+id/tvAddressProfile"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.5"
-                            android:gravity="end"
-                            android:text="Liverpool,UK"
-                            android:textAppearance="@style/TextAppearance.MyApp.ProfileAddress" />
-
+                            android:layout_weight="1"
+                            android:hint="@string/address_profile"
+                            android:textAppearance="@style/TextAppearance.MyApp.ProfileAddress"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white"
+                            android:backgroundTint="@color/white"/>
                     </LinearLayout>
 
-                    <View
-                        android:layout_width="wrap_content"
-                        android:layout_height="1dp"
-                        android:background="@color/white" />
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -163,22 +130,16 @@
                         android:layout_marginTop="15dp">
 
 
-                        <TextView
+                        <EditText
+                            android:id="@+id/etPhone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="end"
-                            android:text="@string/no_hp_profile"
-                            android:textAppearance="@style/TextAppearance.MyApp.ProfileAddress" />
-
-
-                        <TextView
-                            android:id="@+id/tvPhoneProfile"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.5"
-                            android:gravity="end"
-                            android:text="08xxxxxxxxx"
-                            android:textAppearance="@style/TextAppearance.MyApp.ProfileAddress" />
+                            android:layout_weight="1"
+                            android:hint="@string/no_hp_profile"
+                            android:textAppearance="@style/TextAppearance.MyApp.ProfileAddress"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white"
+                            android:backgroundTint="@color/white"/>
 
                     </LinearLayout>
 
@@ -187,6 +148,15 @@
 
 
             </FrameLayout>
+
+            <Button
+                android:id="@+id/btnUpdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/button_logout"
+                android:text="@string/update"
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/btnLogout"

@@ -47,9 +47,9 @@ class ProfileViewModel @Inject constructor(
         lastName: String,
         address: String,
         phoneNumber: Int,
-        avatar : String,
+        token: String
     ) {
-        client.updateUser(User(firstName, lastName, address, phoneNumber, avatar), token = "Bearer ${pref.getToken}")
+        client.updateUser(User(firstName, lastName, address, phoneNumber), token)
             .enqueue(object : Callback<ProfileResponse> {
                 override fun onResponse(
                     call: Call<ProfileResponse>,
@@ -74,6 +74,11 @@ class ProfileViewModel @Inject constructor(
             pref.removeUsername()
         }
     }
+    fun removeToken() {
+        viewModelScope.launch {
+            pref.removeToken()
+        }
+    }
 
     fun removeId() {
         viewModelScope.launch {
@@ -83,9 +88,9 @@ class ProfileViewModel @Inject constructor(
     fun getDataStoreIsLogin(): LiveData<Boolean> {
         return pref.getIsLogin.asLiveData()
     }
-    fun saveUsername(username: String) {
+    fun saveUsername(fName: String) {
         viewModelScope.launch {
-            pref.saveUsername(username)
+            pref.saveUsername(fName)
         }
     }
 

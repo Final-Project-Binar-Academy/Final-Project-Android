@@ -13,6 +13,4 @@ data class User(
     var address: String?,
     @SerializedName("phoneNumber")
     var phoneNumber: Int?,
-    @SerializedName("avatar")
-    var avatar: String?,
     )
