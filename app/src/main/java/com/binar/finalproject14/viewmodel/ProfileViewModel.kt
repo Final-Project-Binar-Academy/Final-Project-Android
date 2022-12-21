@@ -46,7 +46,7 @@ class ProfileViewModel @Inject constructor(
         firstName: String,
         lastName: String,
         address: String,
-        phoneNumber: Int,
+        phoneNumber: String,
         token: String
     ) {
         client.updateUser(User(firstName, lastName, address, phoneNumber), token)

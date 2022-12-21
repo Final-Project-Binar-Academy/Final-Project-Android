@@ -31,7 +31,7 @@ class RegisterViewModel @Inject constructor(
                     email = email,
                     address = "",
                     avatar = "",
-                    phoneNumber = 0,
+                    phoneNumber = ""
                 )
                 val response = userRepo.registerUser(registerRequest = registerRequest)
                 if (response?.code() == 201) {

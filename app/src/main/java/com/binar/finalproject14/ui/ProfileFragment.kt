@@ -51,7 +51,7 @@ class ProfileFragment : Fragment() {
             val fName = binding.etFirstName.text.toString().trim()
             val lName = binding.etLastName.text.toString().trim()
             val address = binding.etAddress.text.toString().trim()
-            val phone = binding.etPhone.text.toString().toInt()
+            val phone = binding.etPhone.text.toString().trim()
 
             viewModel.saveUsername(fName)
             viewModel.getDataStoreToken().observe(viewLifecycleOwner) {
@@ -66,7 +66,7 @@ class ProfileFragment : Fragment() {
                     etFirstName.setText(it.data?.firstName.toString())
                     etLastName.setText(it.data?.lastName.toString())
                     etAddress.setText(it.data?.address.toString())
-                    etAddress.setText(it.data?.address.toString().toInt())
+                    etPhone.setText(it.data?.phoneNumber.toString())
                 }
             }
         }
