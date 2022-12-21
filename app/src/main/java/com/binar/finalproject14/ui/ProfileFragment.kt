@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.binar.finalproject14.MainActivity
 import com.binar.finalproject14.R
 import com.binar.finalproject14.databinding.FragmentAboutBinding
 import com.binar.finalproject14.databinding.FragmentPastBinding
@@ -41,6 +42,8 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (activity as MainActivity).binding.navHome.visibility = View.VISIBLE
 
         viewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
 

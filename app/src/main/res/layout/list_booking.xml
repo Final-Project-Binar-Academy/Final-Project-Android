@@ -30,7 +30,6 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_marginStart="10dp"
                     android:id="@+id/waktuPembayaran"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -40,9 +39,9 @@
                     android:textSize="14sp" />
 
                 <TextView
-                    android:layout_marginStart="180dp"
+                    android:textAlignment="textEnd"
                     android:id="@+id/waktu"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/rubik_medium"
                     android:text="@string/waktu"

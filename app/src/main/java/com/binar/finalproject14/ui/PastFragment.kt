@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.binar.finalproject14.MainActivity
 import com.binar.finalproject14.R
 import com.binar.finalproject14.databinding.FragmentAboutBinding
 import com.binar.finalproject14.databinding.FragmentPastBinding
@@ -31,10 +32,11 @@ class PastFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        binding.btnBack.setOnClickListener(){
-            findNavController().navigate(R.id.action_bookFragment_to_homeFragment)
-        }
+        (activity as MainActivity).binding.navHome.visibility = View.VISIBLE
 
+        binding.upcoming.setOnClickListener{
+            findNavController().navigate(R.id.action_pastFragment_to_tripUpcomingFragment)
+        }
         super.onViewCreated(view, savedInstanceState)
     }
 

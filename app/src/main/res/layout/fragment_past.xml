@@ -14,19 +14,12 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:gravity="center"
             android:layout_marginTop="20dp"
             android:orientation="horizontal"
             android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <ImageButton
-                android:id="@+id/btnBack"
-                android:padding="20dp"
-                android:background="#00FFFFFF"
-                android:src="@drawable/ic_baseline_arrow_back_ios_24"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="270dp"
@@ -44,7 +37,10 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <TextView
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/upcoming"
+                        android:backgroundTint="@color/white"
+                        app:strokeColor="@color/white"
                         android:gravity="center"
                         android:text="@string/upcoming"
                         android:textColor="@color/black"
@@ -65,7 +61,6 @@
                         app:cornerRadius="15dp"
                         android:layout_width="125dp"
                         android:layout_height="70dp"
-                        android:layout_marginEnd="10dp"
                         />
                 </LinearLayout>
 
@@ -75,6 +70,14 @@
             </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:visibility="gone"
+            tools:listitem="@layout/list_booking"
+            android:paddingTop="?attr/actionBarSize"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"

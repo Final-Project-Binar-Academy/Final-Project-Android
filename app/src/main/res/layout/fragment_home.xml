@@ -55,25 +55,27 @@
 
             <LinearLayout
                 android:background="@drawable/card"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
                     android:id="@+id/txt_oneway"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="80dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
                     android:fontFamily="@font/rubik_medium"
                     android:text="@string/oneway"
                     android:textAppearance="@style/TextAppearance.MyApp.TextHome" />
 
                 <TextView
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
                     android:id="@+id/txt_round_trip"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="70dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
                     android:text="@string/roundTrip"
                     android:fontFamily="@font/rubik_medium"
                     android:textAppearance="@style/TextAppearance.MyApp.TextHome" />
@@ -81,45 +83,40 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="20dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="45dp"
                 android:background="@drawable/card_home"
                 android:orientation="horizontal">
 
-                <TableLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginRight="20dp">
+                <LinearLayout
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                    <TableRow>
+                    <TextView
+                        android:id="@+id/txt_from"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:fontFamily="@font/rubik_medium"
+                        android:text="@string/from"
+                        android:textColor="@color/abu"
+                        android:textSize="12sp" />
 
-                        <TextView
-                            android:id="@+id/txt_from"
-                            android:layout_width="wrap_content"
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_marginEnd="20dp"
+                        app:strokeColor="@color/white"
+                        android:id="@+id/btnDeparture"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="0dp"
-                            android:fontFamily="@font/rubik_medium"
-                            android:text="@string/from"
-                            android:textColor="@color/abu"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:id="@+id/txt_to"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="220dp"
-                            android:layout_marginTop="0dp"
-                            android:fontFamily="@font/rubik_medium"
-                            android:text="@string/to"
-                            android:textColor="@color/abu"
-                            android:textSize="12sp" />
-
-                    </TableRow>
-
-                    <TableRow>
+                            android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/txt_del"
@@ -129,23 +126,7 @@
                             android:fontFamily="@font/rubik_medium"
                             android:text="@string/del"
                             android:textColor="@color/black"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:id="@+id/txt_jfk"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="210dp"
-                            android:layout_marginTop="10dp"
-                            android:fontFamily="@font/rubik_medium"
-                            android:text="@string/jfk"
-                            android:textAlignment="textEnd"
-                            android:textColor="@color/black"
-                            android:textSize="12sp" />
-                    </TableRow>
-
-                    <TableRow>
-
+                            android:textSize="14sp" />
                         <TextView
                             android:id="@+id/txt_delhi"
                             android:layout_width="wrap_content"
@@ -154,47 +135,27 @@
                             android:fontFamily="@font/rubik"
                             android:text="@string/new_delhi"
                             android:textColor="@color/black"
-                            android:textSize="12sp" />
+                            android:textSize="14sp" />
 
-                        <TextView
-                            android:id="@+id/txt_newyork"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="160dp"
-                            android:layout_marginTop="0dp"
-                            android:fontFamily="@font/rubik"
-                            android:text="@string/new_york"
-                            android:textAlignment="textEnd"
-                            android:textColor="@color/black"
-                            android:textSize="12sp" />
-                    </TableRow>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
 
-                    <TableRow>
+                    <TextView
+                        android:id="@+id/txt_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:fontFamily="@font/rubik_medium"
+                        android:text="@string/travel_date"
+                        android:textColor="@color/abu"
+                        android:textSize="12sp" />
 
-                        <TextView
-                            android:id="@+id/txt_date"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="35dp"
-                            android:fontFamily="@font/rubik_medium"
-                            android:text="@string/travel_date"
-                            android:textColor="@color/abu"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:id="@+id/txt_return"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="190dp"
-                            android:layout_marginTop="35dp"
-                            android:fontFamily="@font/rubik_medium"
-                            android:text="@string/returnn"
-                            android:textColor="@color/abu"
-                            android:textSize="12sp" />
-
-                    </TableRow>
-
-                    <TableRow>
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_marginEnd="20dp"
+                        app:strokeColor="@color/white"
+                        android:id="@+id/btnDepartureDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
                         <TextView
                             android:id="@+id/date1"
@@ -204,48 +165,26 @@
                             android:fontFamily="@font/rubik_medium"
                             android:text="@string/date"
                             android:textColor="@color/black"
-                            android:textSize="12sp" />
+                            android:textSize="14sp" />
 
-                        <TextView
-                            android:id="@+id/date2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="175dp"
-                            android:layout_marginTop="10dp"
-                            android:fontFamily="@font/rubik_medium"
-                            android:text="@string/date"
-                            android:textAlignment="textEnd"
-                            android:textColor="@color/black"
-                            android:textSize="12sp" />
-                    </TableRow>
+                    </com.google.android.material.card.MaterialCardView>
 
-                    <TableRow>
+                    <TextView
+                        android:id="@+id/traveller"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="35dp"
+                        android:fontFamily="@font/rubik_medium"
+                        android:text="@string/traveller"
+                        android:textColor="@color/abu"
+                        android:textSize="12sp" />
 
-                        <TextView
-                            android:id="@+id/traveller"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="35dp"
-                            android:fontFamily="@font/rubik_medium"
-                            android:text="@string/traveller"
-                            android:textColor="@color/abu"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:id="@+id/CLASS"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="200dp"
-                            android:layout_marginTop="35dp"
-                            android:fontFamily="@font/rubik_medium"
-                            android:text="@string/str_class"
-                            android:textColor="@color/abu"
-                            android:textSize="12sp" />
-
-                    </TableRow>
-
-                    <TableRow>
-
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_marginEnd="20dp"
+                        app:strokeColor="@color/white"
+                        android:id="@+id/btntraveller"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
                         <TextView
                             android:id="@+id/txt_traveller"
                             android:layout_width="wrap_content"
@@ -254,22 +193,130 @@
                             android:fontFamily="@font/rubik_medium"
                             android:text="@string/txt_traveller"
                             android:textColor="@color/black"
-                            android:textSize="12sp" />
+                            android:textSize="14sp" />
 
-                        <TextView
-                            android:id="@+id/economy"
-                            android:layout_width="wrap_content"
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txt_to"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="0dp"
+                        android:fontFamily="@font/rubik_medium"
+                        android:text="@string/to"
+                        android:textColor="@color/abu"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/btnDestination"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        app:strokeColor="@color/white">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="182dp"
-                            android:layout_marginTop="10dp"
-                            android:fontFamily="@font/rubik_medium"
-                            android:text="@string/economy"
-                            android:textAlignment="textEnd"
-                            android:textColor="@color/black"
-                            android:textSize="12sp" />
-                    </TableRow>
+                            android:orientation="vertical">
 
-                </TableLayout>
+                            <TextView
+                                android:id="@+id/txt_jfk"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/rubik_medium"
+                                android:text="@string/jfk"
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/black"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/txt_newyork"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:layout_marginTop="0dp"
+                                android:fontFamily="@font/rubik"
+                                android:text="@string/new_york"
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/black"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/txt_return"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="30dp"
+                        android:fontFamily="@font/rubik_medium"
+                        android:text="@string/returnn"
+                        android:textColor="@color/abu"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_marginStart="20dp"
+                        app:strokeColor="@color/white"
+                        android:id="@+id/btnDestinationDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/date2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/rubik_medium"
+                        android:text="@string/date"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/CLASS"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="35dp"
+                        android:fontFamily="@font/rubik_medium"
+                        android:text="@string/str_class"
+                        android:textColor="@color/abu"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_marginStart="20dp"
+                        app:strokeColor="@color/white"
+                        android:id="@+id/btnClass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/economy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/rubik_medium"
+                        android:text="@string/economy"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
 
             </LinearLayout>
 
@@ -303,7 +350,7 @@
 
 
         <Button
-            android:id="@+id/btnRegister"
+            android:id="@+id/btnSearch"
             style="@style/Widget.MyApp.Button"
             android:layout_gravity="center"
             android:layout_width="match_parent"

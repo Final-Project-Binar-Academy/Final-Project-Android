@@ -20,8 +20,8 @@ class MainActivity : AppCompatActivity() {
                     Navigation.findNavController(this,R.id.fragmentContainer).navigate(R.id.homeFragment)
                     return@setOnNavigationItemSelectedListener true
                 }
-                R.id.bookFragment -> {
-                    Navigation.findNavController(this,R.id.fragmentContainer).navigate(R.id.bookFragment)
+                R.id.pastFragment -> {
+                    Navigation.findNavController(this,R.id.fragmentContainer).navigate(R.id.pastFragment)
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.whislistFragment -> {
@@ -30,20 +30,6 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.profileFragment -> {
                     Navigation.findNavController(this,R.id.fragmentContainer).navigate(R.id.profileFragment)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                else -> false
-            }
-        }
-
-        binding.bottomNavigationBook.setOnNavigationItemSelectedListener {
-            when (it.itemId) {
-                R.id.bookFragment -> {
-                    Navigation.findNavController(this,R.id.fragmentContainer).navigate(R.id.bookFragment)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.tripUpcomingFragment -> {
-                    Navigation.findNavController(this,R.id.fragmentContainer).navigate(R.id.tripUpcomingFragment)
                     return@setOnNavigationItemSelectedListener true
                 }
                 else -> false

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.binar.finalproject14.MainActivity
 import com.binar.finalproject14.R
 import com.binar.finalproject14.databinding.FragmentAboutBinding
 import com.binar.finalproject14.databinding.FragmentWhislistBinding
@@ -27,6 +28,13 @@ class WhislistFragment : Fragment() {
 
         _binding = FragmentWhislistBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        (activity as MainActivity).binding.navHome.visibility = View.VISIBLE
+
+        super.onViewCreated(view, savedInstanceState)
     }
 
 }

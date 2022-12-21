@@ -6,7 +6,7 @@
         android:title="@string/home"
         android:icon="@drawable/book"/>
     <item
-        android:id="@+id/bookFragment"
+        android:id="@+id/pastFragment"
         android:title="@string/book"
         android:icon="@drawable/trips"/>
     <item

@@ -39,24 +39,16 @@
         android:id="@+id/homeFragment"
         android:name="com.binar.finalproject14.ui.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
-    <fragment
-        android:id="@+id/bookFragment"
-        android:name="com.binar.finalproject14.ui.BookFragment"
-        android:label="fragment_book"
-        tools:layout="@layout/fragment_book" >
+        tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_bookFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/tripUpcomingFragment"
         android:name="com.binar.finalproject14.ui.TripUpcomingFragment"
         android:label="fragment_trip_upcoming"
         tools:layout="@layout/fragment_trip_upcoming" >
-        <action
-            android:id="@+id/action_tripUpcomingFragment_to_bookFragment"
-            app:destination="@id/bookFragment" />
         <action
             android:id="@+id/action_tripUpcomingFragment_to_pastFragment"
             app:destination="@id/pastFragment" />
@@ -93,5 +85,14 @@
         <action
             android:id="@+id/action_pastFragment_to_tripUpcomingFragment"
             app:destination="@id/tripUpcomingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.binar.finalproject14.ui.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>
