@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -55,9 +56,13 @@ class HomeFragment : Fragment() {
             activateRoundTrip()
         }
 
-        binding.btntraveller.setOnClickListener{
+        binding.txtTraveller.setOnClickListener{
             findNavController().navigate(R.id.action_homeFragment_to_travellerDialogFragment)
         }
+
+        val kelas = resources.getStringArray(R.array.kelas)
+        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, kelas)
+        binding.autoCompleteTextView3.setAdapter(arrayAdapter)
 
         (activity as MainActivity).binding.navHome.visibility = View.VISIBLE
 
@@ -74,7 +79,7 @@ class HomeFragment : Fragment() {
 
         materialDateBuilder.setTitleText("SELECT A DATE")
         val materialDatePicker = materialDateBuilder.build()
-        binding.btnDepartureDate.setOnClickListener(
+        binding.date1.setOnClickListener(
             View.OnClickListener {
                 materialDatePicker.show(parentFragmentManager, "MATERIAL_DATE_PICKER")
             })
@@ -95,7 +100,7 @@ class HomeFragment : Fragment() {
         materialDateBuilder.setTitleText("SELECT A DATE")
         val materialDatePicker = materialDateBuilder.build()
 
-        binding.btnDestinationDate.setOnClickListener(
+        binding.date2.setOnClickListener(
             View.OnClickListener {
                 materialDatePicker.show(parentFragmentManager, "MATERIAL_DATE_PICKER")
             })

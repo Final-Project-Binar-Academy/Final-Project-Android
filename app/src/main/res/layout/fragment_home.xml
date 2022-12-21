@@ -144,58 +144,49 @@
                         android:id="@+id/txt_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
+                        android:layout_marginTop="28dp"
                         android:fontFamily="@font/rubik_medium"
                         android:text="@string/travel_date"
                         android:textColor="@color/abu"
                         android:textSize="12sp" />
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_marginEnd="20dp"
-                        app:strokeColor="@color/white"
-                        android:id="@+id/btnDepartureDate"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/date1"
+                        android:paddingBottom="15dp"
+                        android:paddingEnd="50dp"
+                        android:paddingTop="10dp"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/rubik_medium"
+                        android:text="@string/date"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
 
-                        <TextView
-                            android:id="@+id/date1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:fontFamily="@font/rubik_medium"
-                            android:text="@string/date"
-                            android:textColor="@color/black"
-                            android:textSize="14sp" />
-
-                    </com.google.android.material.card.MaterialCardView>
 
                     <TextView
                         android:id="@+id/traveller"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="35dp"
+                        android:layout_marginTop="20dp"
                         android:fontFamily="@font/rubik_medium"
                         android:text="@string/traveller"
                         android:textColor="@color/abu"
                         android:textSize="12sp" />
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_marginEnd="20dp"
-                        app:strokeColor="@color/white"
-                        android:id="@+id/btntraveller"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:id="@+id/txt_traveller"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:fontFamily="@font/rubik_medium"
-                            android:text="@string/txt_traveller"
-                            android:textColor="@color/black"
-                            android:textSize="14sp" />
+                    <TextView
+                        android:id="@+id/txt_traveller"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="15dp"
+                        android:paddingEnd="50dp"
+                        android:paddingTop="10dp"
+                        android:gravity="center"
+                        android:fontFamily="@font/rubik_medium"
+                        android:text="@string/txt_traveller"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
 
-                    </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
 
                 <LinearLayout
@@ -259,62 +250,62 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
-                        android:layout_marginTop="30dp"
+                        android:layout_marginTop="28dp"
                         android:fontFamily="@font/rubik_medium"
                         android:text="@string/returnn"
                         android:textColor="@color/abu"
                         android:textSize="12sp" />
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_marginStart="20dp"
-                        app:strokeColor="@color/white"
-                        android:id="@+id/btnDestinationDate"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
 
                     <TextView
                         android:id="@+id/date2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
-                        android:layout_marginTop="10dp"
+                        android:paddingBottom="15dp"
+                        android:paddingStart="50dp"
+                        android:paddingTop="10dp"
                         android:fontFamily="@font/rubik_medium"
                         android:text="@string/date"
                         android:textAlignment="textEnd"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
-                    </com.google.android.material.card.MaterialCardView>
 
                     <TextView
                         android:id="@+id/CLASS"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
-                        android:layout_marginTop="35dp"
+                        android:layout_marginTop="20dp"
                         android:fontFamily="@font/rubik_medium"
                         android:text="@string/str_class"
                         android:textColor="@color/abu"
                         android:textSize="12sp" />
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_marginStart="20dp"
-                        app:strokeColor="@color/white"
-                        android:id="@+id/btnClass"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                    <TextView
-                        android:id="@+id/economy"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/rubik_medium"
-                        android:text="@string/economy"
-                        android:textAlignment="textEnd"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
-                    </com.google.android.material.card.MaterialCardView>
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:endIconMode="dropdown_menu"
+                            android:layout_marginStart="10dp"
+                            app:boxStrokeColor="#00FFFFFF"
+                            app:boxBackgroundMode="filled"
+                            app:boxBackgroundColor="#00FFFFFF">
+
+                            <AutoCompleteTextView
+                                android:textAlignment="textEnd"
+                                android:paddingVertical="5dp"
+                                android:id="@+id/autoCompleteTextView3"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:inputType="none"
+                                android:fontFamily="@font/rubik_medium"
+                                android:textSize="13sp"
+                                android:textColor="@color/black"
+                                android:text="@string/semua"
+                                />
+
+                        </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
 
 

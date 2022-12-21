@@ -127,6 +127,7 @@
     <string name="twoChild">2 Children</string>
     <string name="threeChild">3 Children</string>
     <string name="save">save</string>
+    <string name="semua">Semua</string>
     <string-array name="languages">
         <item>Indonesia</item>
         <item>English</item>
@@ -137,5 +138,10 @@
         <item>3</item>
         <item>4</item>
         <item>5</item>
+    </string-array>
+    <string-array name="kelas">
+        <item name="eksekutif">Eksekutif</item>
+        <item name="bisnis">Bisnis</item>
+        <item name="ekonomi">Ekonomi</item>
     </string-array>
 </resources>
