@@ -43,6 +43,9 @@
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_travellerDialogFragment"
+            app:destination="@id/travellerDialogFragment" />
     </fragment>
     <fragment
         android:id="@+id/tripUpcomingFragment"
@@ -95,4 +98,13 @@
             android:id="@+id/action_searchFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
+    <dialog
+        android:id="@+id/travellerDialogFragment"
+        android:name="com.binar.finalproject14.ui.TravellerDialogFragment"
+        android:label="fragment_traveller_dialog"
+        tools:layout="@layout/fragment_traveller_dialog" >
+        <action
+            android:id="@+id/action_travellerDialogFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </dialog>
 </navigation>

@@ -55,6 +55,10 @@ class HomeFragment : Fragment() {
             activateRoundTrip()
         }
 
+        binding.btntraveller.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_travellerDialogFragment)
+        }
+
         (activity as MainActivity).binding.navHome.visibility = View.VISIBLE
 
         binding.btnSearch.setOnClickListener{

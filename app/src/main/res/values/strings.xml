@@ -116,6 +116,17 @@
     <string name="covid19">COVID-19 VACCINE</string>
     <string name="travel_essentials">Travel Essentials</string>
     <string name="nul">" "</string>
+    <string name="oneAdult">1 Adult</string>
+    <string name="adult">Traveller Adult</string>
+    <string name="twoAdult">2 Adults</string>
+    <string name="threeAdult">3 Adults</string>
+    <string name="fourAdult">4 Adults</string>
+    <string name="fiveAdult">5 Adults</string>
+    <string name="child">Traveller Child</string>
+    <string name="oneChild">1 Child</string>
+    <string name="twoChild">2 Children</string>
+    <string name="threeChild">3 Children</string>
+    <string name="save">save</string>
     <string-array name="languages">
         <item>Indonesia</item>
         <item>English</item>
