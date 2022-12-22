@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.binar.finalproject14.MainActivity
 import com.binar.finalproject14.R
@@ -67,6 +68,10 @@ class SearchFragment : Fragment() {
             }
             rvPost.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             rvPost.adapter = adapter
+        }
+
+        binding.btnBack.setOnClickListener{
+            findNavController().navigate(R.id.action_searchFragment_to_detailFragment)
         }
 
         super.onViewCreated(view, savedInstanceState)

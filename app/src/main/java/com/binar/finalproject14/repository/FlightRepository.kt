@@ -7,5 +7,6 @@ import javax.inject.Singleton
 @Singleton
 class FlightRepository @Inject constructor(private val apiHelper: ApiHelper) {
     fun getFlight() = apiHelper.getAllFlight()
+    fun getDetailFlight(id: Int) = apiHelper.getDetailFlight(id)
 
 }

@@ -3,8 +3,10 @@ package com.binar.finalproject14.viewmodel
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.binar.finalproject14.data.api.response.ticket.FlightIdResponse
 import com.binar.finalproject14.data.api.response.ticket.FlightResponse
 import com.binar.finalproject14.data.api.service.UserApi
 import com.binar.finalproject14.repository.FlightRepository
@@ -46,6 +48,30 @@ class FlightViewModel @Inject constructor(
                     Log.d("Failed",t.message.toString())
                 }
 
+            })
+    }
+
+    private val getDetailFlight: MutableLiveData<FlightIdResponse?> = MutableLiveData()
+    val flightDetail: LiveData<FlightIdResponse?> get() = getDetailFlight
+
+    fun getFlightDetail(id : Int){
+        client.getFlightDetail(id)
+            .enqueue(object : Callback <FlightIdResponse> {
+                override fun onResponse(
+                    call: Call<FlightIdResponse>,
+                    response: Response<FlightIdResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val responseBody = response.body()
+                        if (responseBody != null) {
+                            flightRepository.getDetailFlight(id)
+                            getDetailFlight.postValue(responseBody)
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<FlightIdResponse>, t: Throwable) {
+                }
             })
     }
 

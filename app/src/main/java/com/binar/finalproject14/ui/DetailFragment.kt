@@ -1,21 +1,43 @@
 package com.binar.finalproject14.ui
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.ViewModelProvider
+import com.binar.finalproject14.MainActivity
 import com.binar.finalproject14.R
 import com.binar.finalproject14.databinding.FragmentAboutBinding
 import com.binar.finalproject14.databinding.FragmentDetailBinding
+import com.binar.finalproject14.viewmodel.FlightViewModel
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.android.material.bottomsheet.BottomSheetDragHandleView
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
+import dagger.hilt.android.AndroidEntryPoint
 
-class DetailFragment : Fragment() {
+@AndroidEntryPoint
+class DetailFragment : DialogFragment() {
     private lateinit var analytics: FirebaseAnalytics
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
+    private lateinit var flightViewModel: FlightViewModel
+
+    override fun onStart() {
+        super.onStart()
+        dialog!!.window
+            ?.setLayout(
+                WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.WRAP_CONTENT
+            )
+        dialog!!.window?.setGravity(Gravity.BOTTOM)
+        dialog!!.window
+            ?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,6 +48,23 @@ class DetailFragment : Fragment() {
 
         _binding = FragmentDetailBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        flightViewModel = ViewModelProvider(this)[FlightViewModel::class.java]
+
+        val id = arguments?.getInt("id")
+
+        if (id != null) {
+            flightViewModel.getFlightDetail(id)
+        }
+        flightViewModel.flightDetail.observe(viewLifecycleOwner) {
+            binding.apply {
+                if (it != null) {
+                }
+            }
+        }
+        super.onViewCreated(view, savedInstanceState)
     }
 
 }

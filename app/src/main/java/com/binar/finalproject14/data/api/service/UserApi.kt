@@ -7,14 +7,11 @@ import com.binar.finalproject14.data.api.response.auth.AuthResponse
 import com.binar.finalproject14.data.api.response.profile.GetUserResponse
 import com.binar.finalproject14.data.api.response.profile.ProfileResponse
 import com.binar.finalproject14.data.api.response.profile.User
+import com.binar.finalproject14.data.api.response.ticket.FlightIdResponse
 import com.binar.finalproject14.data.api.response.ticket.FlightResponse
 import retrofit2.Call
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
-import retrofit2.http.PUT
+import retrofit2.http.*
 
 interface UserApi {
 
@@ -33,6 +30,9 @@ interface UserApi {
     //    ticket
     @GET("/api/ticket")
     fun getFlight() : Call<FlightResponse>
+
+    @GET("/api/ticket/{id}")
+    fun getFlightDetail(@Path("id") id: Int) : Call<FlightIdResponse>
 
 //    companion object {
 //        fun getApi(): UserApi? {

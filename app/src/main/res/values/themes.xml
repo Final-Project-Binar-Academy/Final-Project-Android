@@ -168,10 +168,18 @@
 
     <style name="TextAppearance.MyApp.BookPage.Route" parent="TextAppearance.MaterialComponents.Headline4">
         <item name="textAllCaps">false</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">#090808</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextAppearance.MyApp.BookPage.Info" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="textAllCaps">false</item>
         <item name="fontFamily">@font/poppins_semibold</item>
         <item name="android:textColor">#090808</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">16sp</item>
     </style>
+
     <style name="TextAppearance.MyApp.BookPage.Aircraft" parent="TextAppearance.MaterialComponents.Headline4">
         <item name="textAllCaps">false</item>
         <item name="fontFamily">@font/poppins</item>
@@ -186,12 +194,24 @@
     </style>
     <style name="TextAppearance.MyApp.BookPage.airport.from" parent="TextAppearance.MaterialComponents.Headline4">
         <item name="textAllCaps">false</item>
-        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="fontFamily">@font/poppins_semibold</item>
         <item name="android:textColor">#1B1A1A</item>
         <item name="android:textSize">14sp</item>
     </style>
 
-    <style name="TextAppearance.MyApp.BookPage.fasilitas" parent="TextAppearance.MaterialComponents.Headline4">
+    <style name="CustomCardViewStyle" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay_card_custom_corners</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay_card_custom_corners" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">4dp</item>
+        <item name="cornerSizeTopLeft">8dp</item>
+        <item name="cornerSizeBottomRight">16dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+
+    <style name="TextAppearance.MyApp.BookPage.thin" parent="TextAppearance.MaterialComponents.Headline4">
         <item name="textAllCaps">false</item>
         <item name="fontFamily">@font/poppins</item>
         <item name="android:textColor">#1B1A1A</item>

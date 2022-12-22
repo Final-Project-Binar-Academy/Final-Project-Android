@@ -1,569 +1,271 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#F6F8FA"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.DetailFragment">
 
-
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal"
-            android:padding="20dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_back" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="80dp"
-                android:text="Review and Pay"
-                android:textAppearance="@style/TextAppearance.MyApp.whislist" />
-
-
-        </LinearLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="15dp"
-                app:cardMaxElevation="12dp"
-                app:cardUseCompatPadding="true">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:text="FROM"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.from" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="110dp"
-                            android:rotation="90"
-                            android:src="@drawable/plane_black" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="130dp"
-                            android:text="@string/to"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.from" />
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="25dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="DEL"
-                                android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="New Delhi,India"
-                                android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="23:45,Thu 15 Oct"
-                                android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
-
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="end"
-                            android:orientation="vertical"
-                            android:paddingStart="125dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="DEL"
-                                android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="New Delhi,India"
-                                android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="23:45,Thu 15 Oct"
-                                android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
-
-
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="wrap_content"
-                        android:layout_height="1dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
-                        android:background="@color/black" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginBottom="15dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:src="@drawable/logo" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="United Airlines UA 802"
-                                android:textAppearance="@style/TextAppearance.MyApp.detail.from.airline" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="15h 15m . Direct"
-                                android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
-
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="wrap_content"
-                        android:layout_height="1dp"
-                        android:background="@color/black" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginBottom="20dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/traveler_details"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="20dp"
-                            android:text="Samantha Ruth"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.from.airline" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Adult (Business)"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-
-            </androidx.cardview.widget.CardView>
-
-
-        </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="25dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_lock" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:text="@string/select_payment_method"
-                android:textAppearance="@style/TextAppearance.MyApp.detail.payment" />
-        </LinearLayout>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="15dp"
-            app:cardMaxElevation="12dp"
-            app:cardUseCompatPadding="true">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <RadioGroup
-                    android:id="@+id/radioGroup"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <com.google.android.material.radiobutton.MaterialRadioButton
-                        android:id="@+id/option1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/payment_bank"
-                        android:textAppearance="@style/TextAppearance.MyApp.detail.payment.choice" />
-
-                    <View
-                        android:layout_width="wrap_content"
-                        android:layout_height="1dp"
-                        android:layout_marginLeft="30dp"
-                        android:background="@color/black" />
-
-                    <com.google.android.material.radiobutton.MaterialRadioButton
-                        android:id="@+id/option2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/payment_e_wallet"
-                        android:textAppearance="@style/TextAppearance.MyApp.detail.payment.choice" />
-
-                    <View
-                        android:layout_width="wrap_content"
-                        android:layout_height="1dp"
-                        android:layout_marginLeft="30dp"
-                        android:background="@color/black" />
-
-                    <com.google.android.material.radiobutton.MaterialRadioButton
-                        android:id="@+id/option3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/payment_qris"
-                        android:textAppearance="@style/TextAppearance.MyApp.detail.payment.choice" />
-
-
-                </RadioGroup>
-
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="15dp"
-            app:cardMaxElevation="12dp"
-            app:cardUseCompatPadding="true">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:layout_weight="0.1"
-                    android:orientation="horizontal">
-
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.payment.fare"
-                            android:text="Base Fare" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.payment.money"
-                            android:text="$320" />
-                    </LinearLayout>
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.payment.fare"
-                            android:text="@string/detail_fee_and_surcharges" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.payment.money"
-                            android:text="$320" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="wrap_content"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:background="@color/basic" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.payment.fare"
-                            android:text="@string/detail_travel_insurance" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.payment.money"
-                            android:text="$320" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="wrap_content"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:background="@color/basic" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.payment.fare"
-                            android:text="@string/detail_convenience_fee" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.payment.money"
-                            android:text="$320" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="wrap_content"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:background="@color/basic" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.payment.fare"
-                            android:text="@string/detail_total_fare" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.payment.money.total"
-                            android:text="$320" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
+        android:background="@drawable/bottom_dialog"
+        android:orientation="vertical"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginBottom="20dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.MyApp.detail.tos"
-                android:text="@string/detail_tos" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CGK"
+                    android:textAppearance="@style/TextAppearance.MyApp.BookPage.Route" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="15dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="5dp"
+                    android:src="@drawable/ic_baseline_arrow_forward_24" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="LCY"
+                    android:textAppearance="@style/TextAppearance.MyApp.BookPage.Route" />
+
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="15dp"
+                android:src="@drawable/logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="15dp"
+                android:text="Garuda Indonesia"
+                android:textAppearance="@style/TextAppearance.MyApp.BookPage.Aircraft" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Boeing 737-800"
+                    android:textAppearance="@style/TextAppearance.MyApp.BookPage.Info" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Economy"
+                    android:textAppearance="@style/TextAppearance.MyApp.BookPage.Info" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:text="Ticket Code : T302288"
+                android:textAppearance="@style/TextAppearance.MyApp.BookPage.thin" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <!--            jam datang-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="22.50"
+                        android:textAppearance="@style/TextAppearance.MyApp.BookPage.timeDepartAndArr" />
+                    <!--            tgl datang-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Jan 4"
+                        android:textAppearance="@style/TextAppearance.MyApp.BookPage.timeDepartAndArr" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_weight="0.1"
+                    android:layout_marginTop="30dp"
+                    android:text="14h"
+                    android:textAppearance="@style/TextAppearance.MyApp.BookPage.timeDepartAndArr" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
                     android:orientation="vertical">
 
+                    <!--            jam sampe-->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.MyApp.detail.totalFare"
-                        android:text="TOTAL FARE" />
+                        android:text="22.50"
+                        android:textAppearance="@style/TextAppearance.MyApp.BookPage.timeDepartAndArr" />
+
+                    <!--            tgl sampe-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Jan 4"
+                        android:textAppearance="@style/TextAppearance.MyApp.BookPage.timeDepartAndArr" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:src="@drawable/center" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Soekarno Hatta"
+                    android:textAppearance="@style/TextAppearance.MyApp.BookPage.airport.from" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/luggage" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.MyApp.detail.totalFare.money"
-                        android:text="$ 100" />
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:text="Baggage 30KG"
+                        android:textAppearance="@style/TextAppearance.MyApp.BookPage.thin" />
 
                 </LinearLayout>
 
-                <ImageView
-                    android:layout_width="170dp"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="100dp"
-                    android:src="@drawable/resource_continue" />
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/cutlery" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="Meals"
+                        android:textAppearance="@style/TextAppearance.MyApp.BookPage.thin" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Amsterdam"
+                    android:textAppearance="@style/TextAppearance.MyApp.BookPage.airport.from" />
 
             </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
 
-</ScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:background="#4F2555B7"
+                android:padding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_add_shopping_cart_24" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="$400/pax"
+                android:textAlignment="textEnd"
+                android:textAppearance="@style/TextAppearance.MyApp.BookPage.airport.from" />
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Book Now"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:cornerRadius="10dp" />
+
+    </LinearLayout>
+</layout>

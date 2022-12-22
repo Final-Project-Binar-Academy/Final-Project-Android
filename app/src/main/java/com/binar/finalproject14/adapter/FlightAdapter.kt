@@ -1,10 +1,13 @@
 package com.binar.finalproject14.adapter
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.binar.finalproject14.R
 import com.binar.finalproject14.data.api.response.ticket.DataFlight
 import com.binar.finalproject14.databinding.ListItemBinding
 
@@ -42,6 +45,12 @@ class FlightAdapter (private val itemClick: (DataFlight) -> Unit) : RecyclerView
                 binding.arrivalTime.text = item.arrivalTime.toString()
                 binding.kelas.text = item.classX.toString()
                 binding.btnKelas.text = item.classX.toString()
+
+                binding.card.setOnClickListener{
+                    var bund = Bundle()
+                    item.id?.let { it1 -> bund.putInt("id", it1) }
+                    findNavController(it).navigate(R.id.action_searchFragment_to_detailFragment, bund)
+                }
 
             }
 
