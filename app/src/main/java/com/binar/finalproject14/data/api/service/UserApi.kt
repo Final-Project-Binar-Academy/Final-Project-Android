@@ -7,6 +7,7 @@ import com.binar.finalproject14.data.api.response.auth.AuthResponse
 import com.binar.finalproject14.data.api.response.profile.GetUserResponse
 import com.binar.finalproject14.data.api.response.profile.ProfileResponse
 import com.binar.finalproject14.data.api.response.profile.User
+import com.binar.finalproject14.data.api.response.ticket.FlightResponse
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
@@ -29,7 +30,9 @@ interface UserApi {
     @PUT("/api/user/update")
     fun updateUser(@Body request: User, @Header("Authorization")token: String): Call <ProfileResponse>
 
-
+    //    ticket
+    @GET("/api/ticket")
+    fun getFlight() : Call<FlightResponse>
 
 //    companion object {
 //        fun getApi(): UserApi? {
