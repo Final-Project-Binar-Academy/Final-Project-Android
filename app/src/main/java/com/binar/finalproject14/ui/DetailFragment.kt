@@ -4,28 +4,38 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
 import com.binar.finalproject14.MainActivity
 import com.binar.finalproject14.R
+import com.binar.finalproject14.data.dao.WishlistData
 import com.binar.finalproject14.databinding.FragmentAboutBinding
 import com.binar.finalproject14.databinding.FragmentDetailBinding
 import com.binar.finalproject14.viewmodel.FlightViewModel
+import com.binar.finalproject14.viewmodel.WishlistViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.bottomsheet.BottomSheetDragHandleView
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.SimpleDateFormat
+import java.util.*
 
 @AndroidEntryPoint
 class DetailFragment : DialogFragment() {
     private lateinit var analytics: FirebaseAnalytics
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
+    private var isClicked = false
     private lateinit var flightViewModel: FlightViewModel
+    private lateinit var wishlistViewModel: WishlistViewModel
+    private lateinit var data : WishlistData
 
     override fun onStart() {
         super.onStart()
@@ -52,33 +62,109 @@ class DetailFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         flightViewModel = ViewModelProvider(this)[FlightViewModel::class.java]
+        wishlistViewModel = ViewModelProvider(this)[WishlistViewModel::class.java]
 
         val id = arguments?.getInt("id")
 
         if (id != null) {
             flightViewModel.getFlightDetail(id)
-        }
-        flightViewModel.flightDetail.observe(viewLifecycleOwner) {
-            binding.apply {
-                if (it != null) {
-                    codeDeparture.text = it.data?.origin?.cityCode.toString()
-                    codeDestination.text = it.data?.destination?.cityCode.toString()
-                    company.text = it.data?.airplane?.company?.companyName.toString()
-                    airplane.text = it.data?.airplane?.airplaneName.toString()
-                    kelas.text = it.data?.classX.toString()
-                    ticketCode.text = it.data?.code.toString()
-                    departureDate.text = it.data?.departureDate.toString()
-                    departureTime.text = it.data?.departureTime.toString()
-                    destinationDate.text = it.data?.arrivalDate.toString()
-                    destinationTime.text = it.data?.arrivalTime.toString()
-                    airportDeparture.text = it.data?.origin?.airportName.toString()
-                    airportDestination.text = it.data?.destination?.airportName.toString()
-                    price.text = it.data?.price.toString()
+            flightViewModel.flightDetail.observe(viewLifecycleOwner) {
+                binding.apply {
+                    if (it != null) {
+                        var simpleDateFormat = SimpleDateFormat("LLL dd")
+                        var departure : Date? = it.data?.departureDate
+                        var departure_date = simpleDateFormat.format(departure?.time).toString()
+
+                        var arrival : Date? = it.data?.arrivalDate
+                        var arrivalDate = simpleDateFormat.format(arrival?.time).toString()
+
+                        codeDeparture.text = it.data?.origin?.cityCode.toString()
+                        codeDestination.text = it.data?.destination?.cityCode.toString()
+                        company.text = it.data?.airplane?.company?.companyName.toString()
+                        airplane.text = it.data?.airplane?.airplaneName.toString()
+                        kelas.text = it.data?.classX.toString()
+                        ticketCode.text = "Ticket Code : " + it.data?.code.toString()
+                        departureDate.text = departure_date
+                        departureTime.text = it.data?.departureTime.toString()
+                        destinationDate.text = arrivalDate
+                        destinationTime.text = it.data?.arrivalTime.toString()
+                        airportDeparture.text = it.data?.origin?.airportName.toString()
+                        airportDestination.text = it.data?.destination?.airportName.toString()
+                        price.text = it.data?.price.toString()
+                        var duration = 0
+                        data = it.data?.id?.let { it1 ->
+                            WishlistData(
+                                it1.toInt(), departure_date,
+                                it.data?.departureTime.toString(), it.data?.origin?.cityCode.toString(),
+                                it.data?.origin?.city.toString(), duration.toString(), it.data?.classX.toString(),
+                                arrivalDate, it.data?.arrivalTime.toString(),
+                                it.data?.destination?.cityCode.toString(), it.data?.destination?.city.toString(),
+                                it.data?.airplane?.company?.companyName.toString(), it.data?.price.toString())
+                        }!!
+                    }
                 }
             }
         }
 
+        if (id != null) {
+            wishlistViewModel.isWishlist(id)
+            wishlistViewModel.wishlist.observe(viewLifecycleOwner) {
+                if (it != null) {
+                    if (it) {
+                        isClicked = true
+                        binding.btnWishlist.setBackgroundColor(resources.getColor(R.color.wishlist))
+                    } else {
+                        isClicked = false
+                        binding.btnWishlist.setBackgroundColor(Color.TRANSPARENT)
+                    }
+                }
+            }
+        }
+
+        binding.btnWishlist.setOnClickListener {
+            if (!isClicked) {
+                isClicked = true
+                addWishlist(data)
+                binding.btnWishlist.setBackgroundColor(resources.getColor(R.color.wishlist))
+
+            } else {
+                isClicked = false
+                deleteWishlist(data)
+                binding.btnWishlist.setBackgroundColor(Color.TRANSPARENT)
+            }
+        }
+
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    private fun addWishlist(wishlistFlight: WishlistData) {
+        wishlistViewModel.addWishlist(wishlistFlight)
+        wishlistViewModel.wishlistFlight.observe(viewLifecycleOwner) {
+            if (it != null) {
+                Snackbar.make(binding.root, "Film ditambahkan ke Wishlist", Snackbar.LENGTH_SHORT)
+                    .setBackgroundTint(
+                        ContextCompat.getColor(requireContext(),
+                        R.color.basic
+                    ))
+                    .setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+                    .show()
+            }
+        }
+    }
+
+    private fun deleteWishlist(favFlight: WishlistData) {
+        wishlistViewModel.removeWishlist(favFlight)
+        wishlistViewModel.deleteWishlist.observe(viewLifecycleOwner) {
+            if (it != null) {
+                Snackbar.make(binding.root, "Film dihapus dari Wishlist", Snackbar.LENGTH_SHORT)
+                    .setBackgroundTint(
+                        ContextCompat.getColor(requireContext(),
+                        R.color.basic
+                    ))
+                    .setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+                    .show()
+            }
+        }
     }
 
 }

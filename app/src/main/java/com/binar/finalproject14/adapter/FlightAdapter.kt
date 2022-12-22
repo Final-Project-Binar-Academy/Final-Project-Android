@@ -3,6 +3,7 @@ package com.binar.finalproject14.adapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -10,6 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.binar.finalproject14.R
 import com.binar.finalproject14.data.api.response.ticket.DataFlight
 import com.binar.finalproject14.databinding.ListItemBinding
+import java.text.SimpleDateFormat
+import java.util.*
+
 
 class FlightAdapter (private val itemClick: (DataFlight) -> Unit) : RecyclerView.Adapter<FlightAdapter.ViewHolder>(){
 
@@ -39,12 +43,20 @@ class FlightAdapter (private val itemClick: (DataFlight) -> Unit) : RecyclerView
                 itemView.setOnClickListener { itemClick(this) }
                 binding.dataBinding = item
 
-                binding.departureDate.text = item.departureDate.toString()
+                var simpleDateFormat = SimpleDateFormat("E, dd LLL")
+                var departure : Date? = item.departureDate
+                var departureDate = simpleDateFormat.format(departure?.time).toString()
+
+                var arrival : Date? = item.arrivalDate
+                var arrivalDate = simpleDateFormat.format(arrival?.time).toString()
+
+                binding.departureDate.text = departureDate
                 binding.departureTime.text = item.departureTime.toString()
-                binding.arrivalDate.text = item.arrivalDate.toString()
+                binding.arrivalDate.text = arrivalDate
                 binding.arrivalTime.text = item.arrivalTime.toString()
                 binding.kelas.text = item.classX.toString()
                 binding.btnKelas.text = item.classX.toString()
+                binding.price.text = item.price.toString()
 
                 binding.card.setOnClickListener{
                     var bund = Bundle()

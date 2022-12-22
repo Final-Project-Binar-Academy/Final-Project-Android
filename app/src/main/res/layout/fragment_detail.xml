@@ -53,7 +53,7 @@
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="20dp"
                 android:src="@drawable/logo" />
 
             <TextView
@@ -61,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="20dp"
                 android:text="Garuda Indonesia"
                 android:textAppearance="@style/TextAppearance.MyApp.BookPage.Aircraft" />
 
@@ -72,7 +72,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
-            android:padding="10dp">
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -101,12 +102,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
                 android:text="Ticket Code : T302288"
+                android:fontFamily="@font/poppins_medium"
                 android:textAppearance="@style/TextAppearance.MyApp.BookPage.thin" />
 
 
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -182,7 +185,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
+                android:layout_marginStart="20dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -246,15 +249,14 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/btnWishlist"
-                android:background="#4F2555B7"
                 android:padding="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -274,6 +276,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnBook"
             android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:backgroundTint="@color/white"
