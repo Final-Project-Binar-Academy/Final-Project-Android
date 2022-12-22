@@ -61,9 +61,23 @@ class DetailFragment : DialogFragment() {
         flightViewModel.flightDetail.observe(viewLifecycleOwner) {
             binding.apply {
                 if (it != null) {
+                    codeDeparture.text = it.data?.origin?.cityCode.toString()
+                    codeDestination.text = it.data?.destination?.cityCode.toString()
+                    company.text = it.data?.airplane?.company?.companyName.toString()
+                    airplane.text = it.data?.airplane?.airplaneName.toString()
+                    kelas.text = it.data?.classX.toString()
+                    ticketCode.text = it.data?.code.toString()
+                    departureDate.text = it.data?.departureDate.toString()
+                    departureTime.text = it.data?.departureTime.toString()
+                    destinationDate.text = it.data?.arrivalDate.toString()
+                    destinationTime.text = it.data?.arrivalTime.toString()
+                    airportDeparture.text = it.data?.origin?.airportName.toString()
+                    airportDestination.text = it.data?.destination?.airportName.toString()
+                    price.text = it.data?.price.toString()
                 }
             }
         }
+
         super.onViewCreated(view, savedInstanceState)
     }
 
