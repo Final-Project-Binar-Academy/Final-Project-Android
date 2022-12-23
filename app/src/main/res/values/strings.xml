@@ -146,6 +146,8 @@
     <string name="shopeepay">ShopeePay</string>
     <string name="dana">Dana</string>
     <string name="pay_qris">Pay by Qris</string>
+    <string name="edit">Edit</string>
+    <string name="logout">Logout</string>
     <string-array name="languages">
         <item>Indonesia</item>
         <item>English</item>

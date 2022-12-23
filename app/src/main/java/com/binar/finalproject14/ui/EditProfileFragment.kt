@@ -1,20 +1,20 @@
 package com.binar.finalproject14.ui
 
-import android.content.ContentValues.TAG
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.Toast
+import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.binar.finalproject14.MainActivity
 import com.binar.finalproject14.R
-import com.binar.finalproject14.databinding.FragmentAboutBinding
-import com.binar.finalproject14.databinding.FragmentPastBinding
+import com.binar.finalproject14.databinding.FragmentEditProfileBinding
 import com.binar.finalproject14.databinding.FragmentProfileBinding
 import com.binar.finalproject14.viewmodel.ProfileViewModel
 import com.google.firebase.analytics.FirebaseAnalytics
@@ -23,11 +23,17 @@ import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ProfileFragment : Fragment() {
+class EditProfileFragment : DialogFragment() {
     private lateinit var viewModel: ProfileViewModel
     private lateinit var analytics: FirebaseAnalytics
-    private var _binding: FragmentProfileBinding? = null
+    private var _binding: FragmentEditProfileBinding? = null
     private val binding get() = _binding!!
+
+    override fun onStart() {
+        super.onStart()
+        dialog!!.window
+            ?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,7 +42,7 @@ class ProfileFragment : Fragment() {
         // Inflate the layout for this fragment
         analytics = Firebase.analytics
 
-        _binding = FragmentProfileBinding.inflate(inflater, container, false)
+        _binding = FragmentEditProfileBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -50,33 +56,27 @@ class ProfileFragment : Fragment() {
         viewModel.getDataStoreToken().observe(viewLifecycleOwner) {
             viewModel.getUserProfile("Bearer $it")
         }
+        binding.btnUpdate.setOnClickListener {
+            val fName = binding.etFirstName.text.toString().trim()
+            val lName = binding.etLastName.text.toString().trim()
+            val address = binding.etAddress.text.toString().trim()
+            val phone = binding.etPhone.text.toString().trim()
 
+            viewModel.saveUsername(fName)
+            viewModel.getDataStoreToken().observe(viewLifecycleOwner) {
+                viewModel.updateUser(fName, lName, address,phone, "Bearer $it")
+            }
+            Toast.makeText(requireContext(), "Update Success", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_editProfileFragment_to_profileFragment)
+        }
         viewModel.user.observe(viewLifecycleOwner) {
             binding.apply {
                 if (it != null) {
-                    username.text = it.data?.firstName.toString() + " " + it.data?.lastName.toString()
                     etFirstName.setText(it.data?.firstName.toString())
                     etLastName.setText(it.data?.lastName.toString())
                     etAddress.setText(it.data?.address.toString())
                     etPhone.setText(it.data?.phoneNumber.toString())
                 }
-            }
-        }
-
-        binding.btnEdit.setOnClickListener{
-            findNavController().navigate(R.id.action_profileFragment_to_editProfileFragment)
-        }
-        logout()
-    }
-
-    private fun logout() {
-        binding.btnLogout.setOnClickListener {
-            viewModel.removeIsLoginStatus()
-            viewModel.removeId()
-            viewModel.removeUsername()
-            viewModel.removeToken()
-            viewModel.getDataStoreIsLogin().observe(viewLifecycleOwner) {
-                findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
             }
         }
     }

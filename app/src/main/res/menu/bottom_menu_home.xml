@@ -12,10 +12,10 @@
     <item
         android:id="@+id/whislistFragment"
         android:title="@string/whislist"
-        android:icon="@drawable/book"/>
+        android:icon="@drawable/ic_baseline_shopping_cart_24"/>
     <item
         android:id="@+id/profileFragment"
         android:title="@string/profile"
-        android:icon="@drawable/trips"/>
+        android:icon="@drawable/ic_baseline_person_24"/>
 
 </menu>
