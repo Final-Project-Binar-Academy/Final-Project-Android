@@ -2,9 +2,9 @@ package com.binar.finalproject14.data.api.service
 
 import com.binar.finalproject14.data.api.request.LoginRequest
 import com.binar.finalproject14.data.api.request.RegisterRequest
+import com.binar.finalproject14.data.api.response.InfoResponse
 import com.binar.finalproject14.data.api.response.airport.AirportResponse
 import com.binar.finalproject14.data.api.response.auth.AuthResponse
-import com.binar.finalproject14.data.api.response.profile.ProfileResponse
 import com.binar.finalproject14.data.api.response.ticket.FlightIdResponse
 import com.binar.finalproject14.data.api.response.ticket.FlightResponse
 import com.binar.finalproject14.utils.UserDataStoreManager
@@ -22,6 +22,9 @@ class ApiHelperImpl @Inject constructor(
 
     override fun getAllFlight(): Call<FlightResponse> = apiService.getFlight()
     override fun getDetailFlight(id: Int): Call<FlightIdResponse>  = apiService.getFlightDetail(id)
+
+    override fun getAllAirport() = apiService.getAirport()
+    override fun getInfo(): Call<InfoResponse> = apiService.getInfo()
 
 
 }

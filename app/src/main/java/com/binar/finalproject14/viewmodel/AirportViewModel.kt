@@ -1,11 +1,13 @@
 package com.binar.finalproject14.viewmodel
 
-import android.util.Log
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.binar.finalproject14.data.api.response.airport.AirportResponse
-import com.binar.finalproject14.data.api.service.AirportApi
+import com.binar.finalproject14.data.api.response.airport.DataAirport
+import com.binar.finalproject14.data.api.service.UserApi
+import com.binar.finalproject14.repository.AirportRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call
 import retrofit2.Callback
@@ -14,16 +16,17 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AirportViewModel @Inject constructor(
-    private val client: AirportApi
-    ) : ViewModel() {
+    private val client: UserApi,
+    private val airportRepository: AirportRepository,
+    application: Application
+) : AndroidViewModel(application) {
 
     private val _airport: MutableLiveData<AirportResponse?> = MutableLiveData()
-    val airport: LiveData<AirportResponse?> get() = _airport
+    val getLiveDataAirport: LiveData<AirportResponse?> get() = _airport
 
-
-    fun getDataAirport() {
+    fun getAirport(){
         client.getAirport()
-            .enqueue(object : Callback<AirportResponse> {
+            .enqueue(object : Callback <AirportResponse> {
                 override fun onResponse(
                     call: Call<AirportResponse>,
                     response: Response<AirportResponse>
@@ -41,14 +44,27 @@ class AirportViewModel @Inject constructor(
             })
     }
 
-//    fun getDataAirport() = liveData(Dispatchers.IO) {
-//        emit(Resource.loading(null))
-//        try {
-//            emit(Resource.success(data = airportRepository.getUsers()))
-//        } catch (exception: Exception) {
-//            emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
-//        }
+//    private val _airportCity: MutableLiveData<DataAirport?> = MutableLiveData()
+//    val getLiveDataAirportCity: LiveData<DataAirport?> get() = _airportCity
+//
+//    fun getAirportCity(){
+//        client.getAirportCity()
+//            .enqueue(object : Callback <DataAirport> {
+//                override fun onResponse(
+//                    call: Call<DataAirport>,
+//                    response: Response<DataAirport>
+//                ) {
+//                    if (response.isSuccessful) {
+//                        val responseBody = response.body()
+//                        if (responseBody != null) {
+//                            _airportCity.postValue(responseBody)
+//                        }
+//                    }
+//                }
+//
+//                override fun onFailure(call: Call<DataAirport>, t: Throwable) {
+//                }
+//            })
 //    }
-
 
 }

@@ -20,6 +20,7 @@ import javax.inject.Singleton
 object ApiClient {
 
     val BASE_URL = "https://lef-id.up.railway.app"
+    val BASE_URL2 = "https://newsapi.org"
 
     @Singleton
     @Provides
@@ -46,6 +47,7 @@ object ApiClient {
     ): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
+            .baseUrl(BASE_URL2)
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()
@@ -54,12 +56,6 @@ object ApiClient {
     @Singleton
     @Provides
     fun provideApiService(retrofit: Retrofit): UserApi {
-        return retrofit.create()
-    }
-
-    @Singleton
-    @Provides
-    fun provideAirportApi(retrofit: Retrofit): AirportApi {
         return retrofit.create()
     }
 

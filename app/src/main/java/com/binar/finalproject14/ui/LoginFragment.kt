@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.binar.finalproject14.MainActivity
 import com.binar.finalproject14.R
 import com.binar.finalproject14.data.api.response.BaseResponse
 import com.binar.finalproject14.data.api.response.auth.AuthResponse
@@ -39,6 +40,7 @@ class LoginFragment : Fragment() {
 //            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
 //        }
 
+        (activity as MainActivity).binding.navHome.visibility = View.GONE
 
         viewModel.loginResult.observe(viewLifecycleOwner) {
             when (it) {

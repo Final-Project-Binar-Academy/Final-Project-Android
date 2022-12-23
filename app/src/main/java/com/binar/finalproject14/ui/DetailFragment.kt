@@ -4,21 +4,15 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
-import com.binar.finalproject14.MainActivity
+import androidx.navigation.fragment.findNavController
 import com.binar.finalproject14.R
 import com.binar.finalproject14.data.dao.WishlistData
-import com.binar.finalproject14.databinding.FragmentAboutBinding
 import com.binar.finalproject14.databinding.FragmentDetailBinding
 import com.binar.finalproject14.viewmodel.FlightViewModel
 import com.binar.finalproject14.viewmodel.WishlistViewModel
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.google.android.material.bottomsheet.BottomSheetDragHandleView
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
@@ -134,6 +128,9 @@ class DetailFragment : DialogFragment() {
             }
         }
 
+        binding.btnBook.setOnClickListener{
+            findNavController().navigate(R.id.action_detailFragment_to_dataPenumpangFragment)
+        }
         super.onViewCreated(view, savedInstanceState)
     }
 
@@ -141,7 +138,7 @@ class DetailFragment : DialogFragment() {
         wishlistViewModel.addWishlist(wishlistFlight)
         wishlistViewModel.wishlistFlight.observe(viewLifecycleOwner) {
             if (it != null) {
-                Snackbar.make(binding.root, "Film ditambahkan ke Wishlist", Snackbar.LENGTH_SHORT)
+                Snackbar.make(binding.root, "Ticket ditambahkan ke Wishlist", Snackbar.LENGTH_SHORT)
                     .setBackgroundTint(
                         ContextCompat.getColor(requireContext(),
                         R.color.basic
@@ -156,7 +153,7 @@ class DetailFragment : DialogFragment() {
         wishlistViewModel.removeWishlist(favFlight)
         wishlistViewModel.deleteWishlist.observe(viewLifecycleOwner) {
             if (it != null) {
-                Snackbar.make(binding.root, "Film dihapus dari Wishlist", Snackbar.LENGTH_SHORT)
+                Snackbar.make(binding.root, "Ticket dihapus dari Wishlist", Snackbar.LENGTH_SHORT)
                     .setBackgroundTint(
                         ContextCompat.getColor(requireContext(),
                         R.color.basic

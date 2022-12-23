@@ -119,7 +119,7 @@
                             android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/txt_del"
+                            android:id="@+id/txt_citycode_departure"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
@@ -128,7 +128,7 @@
                             android:textColor="@color/black"
                             android:textSize="14sp" />
                         <TextView
-                            android:id="@+id/txt_delhi"
+                            android:id="@+id/txt_city_departure"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="0dp"
@@ -389,6 +389,8 @@
             android:layout_height="wrap_content"/>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:scrollbars="horizontal"
+            android:layout_marginBottom="50dp"
             android:id="@+id/rv_important"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

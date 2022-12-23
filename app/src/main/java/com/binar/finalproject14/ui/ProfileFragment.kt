@@ -59,6 +59,7 @@ class ProfileFragment : Fragment() {
                     etLastName.setText(it.data?.lastName.toString())
                     etAddress.setText(it.data?.address.toString())
                     etPhone.setText(it.data?.phoneNumber.toString())
+
                 }
             }
         }

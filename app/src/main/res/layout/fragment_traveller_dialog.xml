@@ -79,16 +79,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
 
-                    <androidx.appcompat.widget.AppCompatRadioButton
-                        android:buttonTint="@color/basic"
-                        android:textSize="14sp"
-                        android:paddingStart="5dp"
-                        android:fontFamily="@font/poppins"
-                        android:textColor="@color/black"
-                        android:text="@string/fiveAdult"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-
                 </RadioGroup>
 
             </LinearLayout>
@@ -129,16 +119,6 @@
                         android:fontFamily="@font/poppins"
                         android:textColor="@color/black"
                         android:text="@string/twoChild"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-
-                    <androidx.appcompat.widget.AppCompatRadioButton
-                        android:buttonTint="@color/basic"
-                        android:textSize="14sp"
-                        android:paddingStart="5dp"
-                        android:fontFamily="@font/poppins"
-                        android:textColor="@color/black"
-                        android:text="@string/threeChild"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
 
