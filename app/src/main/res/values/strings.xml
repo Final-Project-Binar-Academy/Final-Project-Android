@@ -128,6 +128,24 @@
     <string name="threeChild">3 Children</string>
     <string name="save">save</string>
     <string name="semua">Semua</string>
+    <string name="paycard">Pay by Card</string>
+    <string name="cardNumber">Card Number</string>
+    <string name="name">Name</string>
+    <string name="expiry">Expiry Date</string>
+    <string name="cvv">CVV</string>
+    <string name="price_detail">Price Detail</string>
+    <string name="fare">Fare</string>
+    <string name="price">$150</string>
+    <string name="other_fees">Other Fees</string>
+    <string name="tax">Tax</string>
+    <string name="included">Included</string>
+    <string name="total">Total Payment</string>
+    <string name="pay_e_wallet">Pay by E-wallet</string>
+    <string name="gopay">Gopay</string>
+    <string name="ovo">Ovo</string>
+    <string name="shopeepay">ShopeePay</string>
+    <string name="dana">Dana</string>
+    <string name="pay_qris">Pay by Qris</string>
     <string-array name="languages">
         <item>Indonesia</item>
         <item>English</item>

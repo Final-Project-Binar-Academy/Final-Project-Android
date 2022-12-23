@@ -27,6 +27,9 @@
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_login.xml" value="0.2" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_notification.xml" value="0.20885416666666667" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_past.xml" value="0.176" />
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_pay_card.xml" value="0.176" />
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_pay_ewallet.xml" value="0.264" />
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_pay_qris.xml" value="0.264" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_profile.xml" value="0.12239583333333333" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_register.xml" value="0.2" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_rincian_pembayaran.xml" value="0.18723404255319148" />
