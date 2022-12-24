@@ -54,12 +54,11 @@ class ProfileFragment : Fragment() {
         viewModel.user.observe(viewLifecycleOwner) {
             binding.apply {
                 if (it != null) {
-                    username.text = it.firstName + " " + it.lastName
-                    etFirstName.setText(it.firstName)
-                    etLastName.setText(it.lastName)
-                    etAddress.setText(it.address)
-                    etPhone.setText(it.phoneNumber)
-
+                    username.text = it.data?.firstName + " " + it.data?.lastName
+                    etFirstName.setText(it.data?.firstName)
+                    etLastName.setText(it.data?.lastName)
+                    etAddress.setText(it.data?.address)
+                    etPhone.setText(it.data?.phoneNumber)
                 }
             }
         }

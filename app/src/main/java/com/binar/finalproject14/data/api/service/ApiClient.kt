@@ -66,21 +66,6 @@ object ApiClient {
             .create(NewsApi::class.java)
     }
 
-//    @Singleton
-//    @Provides
-//    fun provideApiService(retrofit: Retrofit): UserApi {
-//        return retrofit.create()
-//    }
-
-//    @Singleton
-//    @Provides
-//    fun provideApiServiceNews(retrofit: Retrofit): NewsApi {
-//        retrofit.newBuilder()
-//            .baseUrl(BASE_URL2).r
-//        return retrofit.create()
-//    }
-
-
     @Singleton
     @Provides
     fun provideApiHelper(apiHelper: ApiHelperImpl): ApiHelper {
