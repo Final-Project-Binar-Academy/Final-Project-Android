@@ -80,7 +80,7 @@ class EditProfileFragment : DialogFragment() {
             viewModel.getDataStoreToken().observe(viewLifecycleOwner) {
                 viewModel.updateUser(fName, lName, address,phone, imageMultiPart!!,"Bearer $it")
             }
-            viewModel.saveImage(image_uri.toString())
+//            viewModel.saveImage(image_uri.toString())
             viewModel.saveUsername(username)
             Toast.makeText(requireContext(), "Update Success", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_editProfileFragment_to_profileFragment)
