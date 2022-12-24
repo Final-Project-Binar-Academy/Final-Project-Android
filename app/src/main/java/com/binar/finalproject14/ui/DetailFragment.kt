@@ -86,15 +86,16 @@ class DetailFragment : DialogFragment() {
                         airportDestination.text = it.data?.destination?.airportName.toString()
                         price.text = it.data?.price.toString()
                         var duration = 0
-                        data = it.data?.id?.let { it1 ->
-                            WishlistData(
-                                it1.toInt(), departure_date,
-                                it.data?.departureTime.toString(), it.data?.origin?.cityCode.toString(),
-                                it.data?.origin?.city.toString(), duration.toString(), it.data?.classX.toString(),
-                                arrivalDate, it.data?.arrivalTime.toString(),
-                                it.data?.destination?.cityCode.toString(), it.data?.destination?.city.toString(),
-                                it.data?.airplane?.company?.companyName.toString(), it.data?.price.toString())
-                        }!!
+                        data =
+                            it.data?.id?.let { it1 ->
+                                WishlistData(
+                                    it1, departure_date,
+                                    it.data?.departureTime.toString(), it.data?.origin?.cityCode.toString(),
+                                    it.data?.origin?.city.toString(), duration.toString(), it.data?.classX.toString(),
+                                    arrivalDate, it.data?.arrivalTime.toString(),
+                                    it.data?.destination?.cityCode.toString(), it.data?.destination?.city.toString(),
+                                    it.data?.airplane?.company?.companyName.toString(), it.data?.price.toString())
+                            }!!
                     }
                 }
             }

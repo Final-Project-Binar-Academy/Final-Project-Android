@@ -15,8 +15,8 @@ interface WishlistDao {
     fun cekWishlist(id : Int) : Boolean
 
     @Insert
-    fun addWishlist(wishlistMovie: WishlistData)
+    fun addWishlist(wishlistTicket: WishlistData)
 
     @Delete
-    fun deleteWishlist(wishlistMovie: WishlistData)
+    fun deleteWishlist(wishlistTicket: WishlistData)
 }

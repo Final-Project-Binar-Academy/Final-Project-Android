@@ -22,4 +22,5 @@ class WishlistData(
     var city_destination: String,
     var company: String,
     var price: String
-) : Parcelable
+) : Parcelable {
+}

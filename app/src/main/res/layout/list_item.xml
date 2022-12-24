@@ -8,13 +8,6 @@
             type="com.binar.finalproject14.data.api.response.ticket.DataFlight" />
     </data>
 
-    <FrameLayout
-        android:background="@drawable/bg_light"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="4dp"
-        android:layout_marginHorizontal="4dp">
-
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card"
             android:layout_width="match_parent"
@@ -215,5 +208,4 @@
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
-    </FrameLayout>
 </layout>

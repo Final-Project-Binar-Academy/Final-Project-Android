@@ -11,6 +11,7 @@ import com.binar.finalproject14.data.dao.WishlistDatabase
 import com.binar.finalproject14.repository.FlightRepository
 import com.binar.finalproject14.repository.WishlistRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import retrofit2.Call
@@ -34,6 +35,7 @@ class WishlistViewModel @Inject constructor(
     private val listWishlist: MutableLiveData<List<WishlistData>> = MutableLiveData()
     val list_wishlist: LiveData<List<WishlistData>> get() = listWishlist
 
+    @OptIn(DelicateCoroutinesApi::class)
     fun getAllWishlistFlight() {
         GlobalScope.launch {
             listWishlist.postValue(repository.getAllDataWishlist())
@@ -43,6 +45,7 @@ class WishlistViewModel @Inject constructor(
     private val isWishlist: MutableLiveData<Boolean> = MutableLiveData()
     val wishlist: LiveData<Boolean> get() = isWishlist
 
+    @OptIn(DelicateCoroutinesApi::class)
     fun isWishlist(id: Int) {
         GlobalScope.launch {
             isWishlist.postValue(repository.cekWishlist(id))
@@ -52,6 +55,7 @@ class WishlistViewModel @Inject constructor(
     private val fav_flight: MutableLiveData<WishlistData> = MutableLiveData()
     val wishlistFlight: LiveData<WishlistData> get() = fav_flight
 
+    @OptIn(DelicateCoroutinesApi::class)
     fun addWishlist(wishlist: WishlistData) {
         GlobalScope.launch {
             repository.addWishlist(wishlist)
@@ -63,6 +67,7 @@ class WishlistViewModel @Inject constructor(
     private val delete_wishlist: MutableLiveData<WishlistData> = MutableLiveData()
     val deleteWishlist: LiveData<WishlistData> get() = delete_wishlist
 
+    @OptIn(DelicateCoroutinesApi::class)
     fun removeWishlist(wishlist: WishlistData) {
         GlobalScope.launch {
             repository.deleteWishlist(wishlist)
