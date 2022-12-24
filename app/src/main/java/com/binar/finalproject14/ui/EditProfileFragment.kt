@@ -68,6 +68,7 @@ class EditProfileFragment : DialogFragment() {
         }
         binding.btnUpdate.setOnClickListener {
 
+            val username = binding.etFirstName.text.toString()
             val fName = binding.etFirstName.text.toString().trim()
                 .toRequestBody("multipart/form-data".toMediaType())
             val lName = binding.etLastName.text.toString().trim()
@@ -79,6 +80,8 @@ class EditProfileFragment : DialogFragment() {
             viewModel.getDataStoreToken().observe(viewLifecycleOwner) {
                 viewModel.updateUser(fName, lName, address,phone, imageMultiPart!!,"Bearer $it")
             }
+            viewModel.saveImage(image_uri.toString())
+            viewModel.saveUsername(username)
             Toast.makeText(requireContext(), "Update Success", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_editProfileFragment_to_profileFragment)
         }

@@ -109,9 +109,9 @@ class ProfileViewModel @Inject constructor(
         return pref.getIsLogin.asLiveData()
     }
 
-    fun saveUsername(fName: String) {
+    fun saveUsername(username: String) {
         viewModelScope.launch {
-            pref.saveUsername(fName)
+            pref.saveUsername(username)
         }
     }
 

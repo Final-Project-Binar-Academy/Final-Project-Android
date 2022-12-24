@@ -3,11 +3,13 @@ package com.binar.finalproject14.ui
 import android.graphics.Color
 import android.opengl.Visibility
 import android.os.Bundle
+import android.provider.ContactsContract.Profile
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -21,10 +23,8 @@ import com.binar.finalproject14.data.api.response.Article
 import com.binar.finalproject14.data.api.response.airport.DataAirport
 import com.binar.finalproject14.data.api.response.ticket.DataFlight
 import com.binar.finalproject14.databinding.FragmentHomeBinding
-import com.binar.finalproject14.viewmodel.AirportViewModel
-import com.binar.finalproject14.viewmodel.FlightViewModel
-import com.binar.finalproject14.viewmodel.HomeViewModel
-import com.binar.finalproject14.viewmodel.InfoViewModel
+import com.binar.finalproject14.viewmodel.*
+import com.bumptech.glide.Glide
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.analytics.FirebaseAnalytics
@@ -36,6 +36,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
     private lateinit var viewModel : HomeViewModel
+    private lateinit var profileViewModel : ProfileViewModel
     private lateinit var analytics: FirebaseAnalytics
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -59,6 +60,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
         infoViewModel = ViewModelProvider(this)[InfoViewModel::class.java]
+        profileViewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
 
         activateOneway()
 
@@ -142,6 +144,19 @@ class HomeFragment : Fragment() {
 
         resultListView()
         setUsername()
+        setImageProfile()
+    }
+
+    private fun setImageProfile() {
+        profileViewModel.getDataStoreToken().observe(viewLifecycleOwner) {
+            profileViewModel.getUserProfile("Bearer $it")
+        }
+        profileViewModel.user.observe(viewLifecycleOwner){
+            Glide.with(requireContext())
+                .load(it?.data?.avatar)
+                .circleCrop()
+                .into(binding.profileImage)
+        }
     }
 
     private fun resultListView() {
