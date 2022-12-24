@@ -44,20 +44,42 @@ object ApiClient {
     @Provides
     fun provideRetrofit(
         okHttpClient: OkHttpClient
-    ): Retrofit {
+    ): UserApi {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .baseUrl(BASE_URL2)
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()
+            .create(UserApi::class.java)
     }
 
     @Singleton
     @Provides
-    fun provideApiService(retrofit: Retrofit): UserApi {
-        return retrofit.create()
+    fun provideRetrofitNews(
+        okHttpClient: OkHttpClient
+    ): NewsApi {
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL2)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(okHttpClient)
+            .build()
+            .create(NewsApi::class.java)
     }
+
+//    @Singleton
+//    @Provides
+//    fun provideApiService(retrofit: Retrofit): UserApi {
+//        return retrofit.create()
+//    }
+
+//    @Singleton
+//    @Provides
+//    fun provideApiServiceNews(retrofit: Retrofit): NewsApi {
+//        retrofit.newBuilder()
+//            .baseUrl(BASE_URL2).r
+//        return retrofit.create()
+//    }
+
 
     @Singleton
     @Provides
@@ -69,45 +91,4 @@ object ApiClient {
     fun getUserManager(@ApplicationContext context: Context): UserDataStoreManager =
         UserDataStoreManager(context)
 
-//    @Singleton
-//    @Provides
-//    fun getUserService(): UserApi {
-//        var mHttpLoggingInterceptor = HttpLoggingInterceptor()
-//            .setLevel(HttpLoggingInterceptor.Level.BODY)
-//        var mOkHttpClient = OkHttpClient
-//            .Builder()
-//            .addInterceptor(mHttpLoggingInterceptor)
-//            .build()
-//        val mRetrofit = Retrofit.Builder()
-//            .baseUrl(BASE_URL)
-//            .addConverterFactory(GsonConverterFactory.create())
-//            .client(mOkHttpClient)
-//            .build()
-//        return mRetrofit.create(UserApi::class.java)
-//    }
-//object ApiClient {
-//    const val BASE_URL = "https://lef-id.up.railway.app"
-//
-//    var mHttpLoggingInterceptor = HttpLoggingInterceptor()
-//        .setLevel(HttpLoggingInterceptor.Level.BODY)
-//
-//    var mOkHttpClient = OkHttpClient
-//        .Builder()
-//        .addInterceptor(mHttpLoggingInterceptor)
-//        .build()
-//
-//    var mRetrofit: Retrofit? = null
-//
-//
-//    val client: Retrofit?
-//        get() {
-//            if(mRetrofit == null){
-//                mRetrofit = Retrofit.Builder()
-//                    .baseUrl(BASE_URL)
-//                    .client(mOkHttpClient)
-//                    .addConverterFactory(GsonConverterFactory.create())
-//                    .build()
-//            }
-//            return mRetrofit
-//        }
 }

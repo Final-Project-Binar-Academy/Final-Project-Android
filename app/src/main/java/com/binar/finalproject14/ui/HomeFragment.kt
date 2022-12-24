@@ -14,11 +14,14 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.binar.finalproject14.MainActivity
 import com.binar.finalproject14.R
+import com.binar.finalproject14.adapter.AirportAdapter
 import com.binar.finalproject14.adapter.FlightAdapter
 import com.binar.finalproject14.adapter.InfoAdapter
 import com.binar.finalproject14.data.api.response.Article
+import com.binar.finalproject14.data.api.response.airport.DataAirport
 import com.binar.finalproject14.data.api.response.ticket.DataFlight
 import com.binar.finalproject14.databinding.FragmentHomeBinding
+import com.binar.finalproject14.viewmodel.AirportViewModel
 import com.binar.finalproject14.viewmodel.FlightViewModel
 import com.binar.finalproject14.viewmodel.HomeViewModel
 import com.binar.finalproject14.viewmodel.InfoViewModel
@@ -38,6 +41,7 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
     private var oneway: Boolean = true
     private lateinit var infoViewModel: InfoViewModel
+    private lateinit var airportViewModel: AirportViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,7 +62,7 @@ class HomeFragment : Fragment() {
 
         activateOneway()
 
-        infoViewModel = ViewModelProvider(this)[InfoViewModel::class.java]
+        airportViewModel = ViewModelProvider(this)[AirportViewModel::class.java]
 
         val adapter: InfoAdapter by lazy {
             InfoAdapter {
@@ -85,6 +89,29 @@ class HomeFragment : Fragment() {
             rvImportant.adapter = adapter
         }
 
+        val adapterAirport: AirportAdapter by lazy {
+            AirportAdapter {
+
+            }
+        }
+
+        binding.apply {
+            airportViewModel.getAirport()
+            airportViewModel.getLiveDataAirport.observe(viewLifecycleOwner){
+                if (it != null){
+                    adapterAirport.setData(it.data as List<DataAirport>)
+                }else{
+                    Snackbar.make(binding.root, "Data Gagal Dimuat", Snackbar.LENGTH_SHORT)
+                        .setBackgroundTint(
+                            ContextCompat.getColor(requireContext(),
+                                R.color.button
+                            ))
+                        .setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+                        .show()
+                }
+            }
+        }
+
         binding.txtOneway.setOnClickListener{
             oneway = true
             activateOneway()
@@ -109,9 +136,9 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
         }
 
-        binding.btnDeparture.setOnClickListener{
-            findNavController().navigate(R.id.action_homeFragment_to_listViewFragment)
-        }
+//        binding.btnDeparture.setOnClickListener{
+//            findNavController().navigate(R.id.action_homeFragment_to_listViewFragment)
+//        }
 
         resultListView()
         setUsername()

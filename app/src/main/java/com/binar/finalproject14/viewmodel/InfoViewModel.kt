@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.binar.finalproject14.data.api.response.InfoResponse
+import com.binar.finalproject14.data.api.service.NewsApi
 import com.binar.finalproject14.data.api.service.UserApi
 import com.binar.finalproject14.repository.InfoRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class InfoViewModel @Inject constructor(
-    private val client: UserApi,
+    private val client: NewsApi,
     private val infoRepository: InfoRepository,
     application: Application
 ) : AndroidViewModel(application) {
