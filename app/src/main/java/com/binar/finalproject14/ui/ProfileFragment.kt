@@ -31,7 +31,6 @@ class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -71,7 +70,7 @@ class ProfileFragment : Fragment() {
             }
         }
 
-        binding.btnEdit.setOnClickListener {
+        binding.btnEdit.setOnClickListener{
             findNavController().navigate(R.id.action_profileFragment_to_editProfileFragment)
         }
         logout()

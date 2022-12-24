@@ -2,6 +2,8 @@ package com.binar.finalproject14.data.api.service
 
 import com.binar.finalproject14.data.api.request.LoginRequest
 import com.binar.finalproject14.data.api.request.RegisterRequest
+import com.binar.finalproject14.data.api.response.InfoResponse
+import com.binar.finalproject14.data.api.response.airport.AirportResponse
 import com.binar.finalproject14.data.api.response.auth.AuthResponse
 import com.binar.finalproject14.data.api.response.profile.GetUserResponse
 import com.binar.finalproject14.data.api.response.profile.User
@@ -39,6 +41,9 @@ interface UserApi {
 
     @GET("/api/ticket/{id}")
     fun getFlightDetail(@Path("id") id: Int) : Call<FlightIdResponse>
+
+    @GET("/api/airport")
+    fun getAirport() : Call<AirportResponse>
 
 //    companion object {
 //        fun getApi(): UserApi? {

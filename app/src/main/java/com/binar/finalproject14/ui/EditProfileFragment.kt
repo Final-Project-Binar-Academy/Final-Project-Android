@@ -85,10 +85,10 @@ class EditProfileFragment : DialogFragment() {
         viewModel.user.observe(viewLifecycleOwner) {
             binding.apply {
                 if (it != null) {
-                    etFirstName.setText(it.data?.firstName.toString())
-                    etLastName.setText(it.data?.lastName.toString())
-                    etAddress.setText(it.data?.address.toString())
-                    etPhone.setText(it.data?.phoneNumber.toString())
+                    etFirstName.setText(it.data?.firstName)
+                    etLastName.setText(it.data?.lastName)
+                    etAddress.setText(it.data?.address)
+                    etPhone.setText(it.data?.phoneNumber)
                 }
             }
         }

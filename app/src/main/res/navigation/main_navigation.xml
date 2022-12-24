@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_homeFragment_to_travellerDialogFragment"
             app:destination="@id/travellerDialogFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_listViewFragment"
+            app:destination="@id/listViewFragment" />
     </fragment>
     <fragment
         android:id="@+id/tripUpcomingFragment"
@@ -124,6 +127,9 @@
         <action
             android:id="@+id/action_detailFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_detailFragment_to_dataPenumpangFragment"
+            app:destination="@id/dataPenumpangFragment" />
     </dialog>
     <dialog
         android:id="@+id/editProfileFragment"
@@ -134,4 +140,18 @@
             android:id="@+id/action_editProfileFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
     </dialog>
+    <fragment
+        android:id="@+id/dataPenumpangFragment"
+        android:name="com.binar.finalproject14.ui.DataPenumpangFragment"
+        android:label="fragment_data_penumpang"
+        tools:layout="@layout/fragment_data_penumpang" />
+    <fragment
+        android:id="@+id/listViewFragment"
+        android:name="com.binar.finalproject14.ui.ListViewFragment"
+        android:label="fragment_list_view"
+        tools:layout="@layout/fragment_list_view" >
+        <action
+            android:id="@+id/action_listViewFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

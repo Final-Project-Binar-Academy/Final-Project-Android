@@ -149,6 +149,9 @@
     <string name="edit">Edit</string>
     <string name="logout">Logout</string>
     <string name="select_image">Select Image</string>
+    <string name="phone">PHONE NUMBER</string>
+    <string name="penumpang2">PENUMPANG 2</string>
+    <string name="penumpang3">PENUMPANG 3</string>
     <string-array name="languages">
         <item>Indonesia</item>
         <item>English</item>
