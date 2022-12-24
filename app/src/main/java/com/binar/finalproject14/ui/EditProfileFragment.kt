@@ -1,33 +1,43 @@
 package com.binar.finalproject14.ui
 
+import android.content.ContentResolver
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.binar.finalproject14.MainActivity
 import com.binar.finalproject14.R
 import com.binar.finalproject14.databinding.FragmentEditProfileBinding
-import com.binar.finalproject14.databinding.FragmentProfileBinding
 import com.binar.finalproject14.viewmodel.ProfileViewModel
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
+import java.io.File
 
 @AndroidEntryPoint
 class EditProfileFragment : DialogFragment() {
+    private var image_uri: Uri? = null
+    private var imageFile: File? = null
+    private var imageMultiPart: MultipartBody.Part? = null
     private lateinit var viewModel: ProfileViewModel
     private lateinit var analytics: FirebaseAnalytics
     private var _binding: FragmentEditProfileBinding? = null
     private val binding get() = _binding!!
+
 
     override fun onStart() {
         super.onStart()
@@ -57,14 +67,17 @@ class EditProfileFragment : DialogFragment() {
             viewModel.getUserProfile("Bearer $it")
         }
         binding.btnUpdate.setOnClickListener {
-            val fName = binding.etFirstName.text.toString().trim()
-            val lName = binding.etLastName.text.toString().trim()
-            val address = binding.etAddress.text.toString().trim()
-            val phone = binding.etPhone.text.toString().trim()
 
-            viewModel.saveUsername(fName)
+            val fName = binding.etFirstName.text.toString().trim()
+                .toRequestBody("multipart/form-data".toMediaType())
+            val lName = binding.etLastName.text.toString().trim()
+                .toRequestBody("multipart/form-data".toMediaType())
+            val address = binding.etAddress.text.toString().trim()
+                .toRequestBody("multipart/form-data".toMediaType())
+            val phone = binding.etPhone.text.toString().trim()
+                .toRequestBody("multipart/form-data".toMediaType())
             viewModel.getDataStoreToken().observe(viewLifecycleOwner) {
-                viewModel.updateUser(fName, lName, address,phone, "Bearer $it")
+                viewModel.updateUser(fName, lName, address,phone, imageMultiPart!!,"Bearer $it")
             }
             Toast.makeText(requireContext(), "Update Success", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_editProfileFragment_to_profileFragment)
@@ -79,7 +92,38 @@ class EditProfileFragment : DialogFragment() {
                 }
             }
         }
+        openGallery()
     }
+
+
+    fun openGallery() {
+        binding.btnSelectImage.setOnClickListener {
+            getContent.launch("image/*")
+        }
+    }
+
+    private val getContent =
+        registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+            uri?.let {
+                val contentResolver: ContentResolver = requireContext().contentResolver
+                val type = contentResolver.getType(it)
+                image_uri = it
+
+                val fileNameimg = "${System.currentTimeMillis()}.png"
+                binding.ivEditImage.setImageURI(it)
+                Toast.makeText(requireContext(), "$image_uri", Toast.LENGTH_SHORT).show()
+
+                val tempFile = File.createTempFile("and1-", fileNameimg, null)
+                imageFile = tempFile
+                val inputstream = contentResolver.openInputStream(uri)
+                tempFile.outputStream().use { result ->
+                    inputstream?.copyTo(result)
+                }
+                val requestBody: RequestBody = tempFile.asRequestBody(type?.toMediaType())
+                imageMultiPart =
+                    MultipartBody.Part.createFormData("image", tempFile.name, requestBody)
+            }
+        }
 
     override fun onDestroyView() {
         super.onDestroyView()

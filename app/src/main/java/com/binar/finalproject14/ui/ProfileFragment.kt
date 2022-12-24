@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -17,6 +18,7 @@ import com.binar.finalproject14.databinding.FragmentAboutBinding
 import com.binar.finalproject14.databinding.FragmentPastBinding
 import com.binar.finalproject14.databinding.FragmentProfileBinding
 import com.binar.finalproject14.viewmodel.ProfileViewModel
+import com.bumptech.glide.Glide
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
@@ -28,6 +30,7 @@ class ProfileFragment : Fragment() {
     private lateinit var analytics: FirebaseAnalytics
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,16 +57,21 @@ class ProfileFragment : Fragment() {
         viewModel.user.observe(viewLifecycleOwner) {
             binding.apply {
                 if (it != null) {
-                    username.text = it.data?.firstName.toString() + " " + it.data?.lastName.toString()
+                    username.text =
+                        it.data?.firstName.toString() + " " + it.data?.lastName.toString()
                     etFirstName.setText(it.data?.firstName.toString())
                     etLastName.setText(it.data?.lastName.toString())
                     etAddress.setText(it.data?.address.toString())
                     etPhone.setText(it.data?.phoneNumber.toString())
+                    Glide.with(requireContext())
+                        .load(it.data?.avatar)
+                        .circleCrop()
+                        .into(binding.profileImage)
                 }
             }
         }
 
-        binding.btnEdit.setOnClickListener{
+        binding.btnEdit.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment_to_editProfileFragment)
         }
         logout()

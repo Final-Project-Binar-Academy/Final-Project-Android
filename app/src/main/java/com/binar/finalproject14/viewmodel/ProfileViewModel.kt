@@ -1,14 +1,16 @@
 package com.binar.finalproject14.viewmodel
 
 import android.app.Application
+import android.net.Uri
 import androidx.lifecycle.*
 import com.binar.finalproject14.data.api.response.profile.GetUserResponse
-import com.binar.finalproject14.data.api.response.profile.ProfileResponse
 import com.binar.finalproject14.data.api.response.profile.User
 import com.binar.finalproject14.data.api.service.UserApi
 import com.binar.finalproject14.utils.UserDataStoreManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,9 +25,13 @@ class ProfileViewModel @Inject constructor(
     private val _user: MutableLiveData<GetUserResponse?> = MutableLiveData()
     val user: LiveData<GetUserResponse?> get() = _user
 
-    fun getUserProfile(token : String){
+    private val _update: MutableLiveData<User?> = MutableLiveData()
+    val update: LiveData<User?> get() = _update
+    private var imageUri: Uri? = null
+
+    fun getUserProfile(token: String) {
         client.getUserProfile(token)
-            .enqueue(object : Callback <GetUserResponse> {
+            .enqueue(object : Callback<GetUserResponse> {
                 override fun onResponse(
                     call: Call<GetUserResponse>,
                     response: Response<GetUserResponse>
@@ -42,38 +48,51 @@ class ProfileViewModel @Inject constructor(
                 }
             })
     }
+
     fun updateUser(
-        firstName: String,
-        lastName: String,
-        address: String,
-        phoneNumber: String,
+        firstName: RequestBody,
+        lastName: RequestBody,
+        address: RequestBody,
+        phoneNumber: RequestBody,
+        image: MultipartBody.Part,
         token: String
     ) {
-        client.updateUser(User(firstName, lastName, address, phoneNumber), token)
-            .enqueue(object : Callback<ProfileResponse> {
+        client.updateUser(firstName, lastName, address, phoneNumber, image, token)
+            .enqueue(object : Callback<User> {
                 override fun onResponse(
-                    call: Call<ProfileResponse>,
-                    response: Response<ProfileResponse>
+                    call: Call<User>,
+                    response: Response<User>
                 ) {
+                    if (response.isSuccessful) {
+                        val responseBody = response.body()
+                        if (responseBody != null) {
+                            _update.postValue(responseBody)
+                        }
+                    }
                 }
 
-                override fun onFailure(call: Call<ProfileResponse>, t: Throwable) {
+                override fun onFailure(call: Call<User>, t: Throwable) {
+                    _update.postValue(null)
                 }
             })
     }
+
     fun getDataStoreToken(): LiveData<String> {
         return pref.getToken.asLiveData()
     }
+
     fun removeIsLoginStatus() {
         viewModelScope.launch {
             pref.removeIsLoginStatus()
         }
     }
+
     fun removeUsername() {
         viewModelScope.launch {
             pref.removeUsername()
         }
     }
+
     fun removeToken() {
         viewModelScope.launch {
             pref.removeToken()
@@ -85,9 +104,11 @@ class ProfileViewModel @Inject constructor(
             pref.removeId()
         }
     }
+
     fun getDataStoreIsLogin(): LiveData<Boolean> {
         return pref.getIsLogin.asLiveData()
     }
+
     fun saveUsername(fName: String) {
         viewModelScope.launch {
             pref.saveUsername(fName)
