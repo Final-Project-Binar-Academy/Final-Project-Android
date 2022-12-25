@@ -4,6 +4,7 @@ import com.binar.finalproject14.data.api.request.LoginRequest
 import com.binar.finalproject14.data.api.request.RegisterRequest
 import com.binar.finalproject14.data.api.response.InfoResponse
 import com.binar.finalproject14.data.api.response.airport.AirportResponse
+import com.binar.finalproject14.data.api.response.airport.DataAirport
 import com.binar.finalproject14.data.api.response.auth.AuthResponse
 import com.binar.finalproject14.data.api.response.profile.GetUserResponse
 import com.binar.finalproject14.data.api.response.profile.ProfileResponse
@@ -37,6 +38,10 @@ interface UserApi {
 
     @GET("/api/airport")
     fun getAirport() : Call<AirportResponse>
+
+    @GET("/api/airport")
+    fun getAirportCity() : Call<DataAirport>
+
 
 //    companion object {
 //        fun getApi(): UserApi? {
