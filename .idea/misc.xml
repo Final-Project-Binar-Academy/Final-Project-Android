@@ -11,12 +11,19 @@
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/drawable/person.xml" value="0.202" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/drawable/plane_black.xml" value="0.202" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/activity_main.xml" value="0.176" />
-        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/bottom_dialog_search.xml" value="0.1" />
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/auto_complete_text.xml" value="0.2046875" />
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/bottom_dialog_search.xml" value="0.1543859649122807" />
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/calendar.xml" value="0.264" />
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/calendar_dialog.xml" value="0.184375" />
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/custom_list_view.xml" value="0.24895833333333334" />
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/dropdown_item.xml" value="0.19322916666666667" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_about.xml" value="0.20416666666666666" />
-        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_book.xml" value="0.176" />
-        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_data_penumpang.xml" value="0.1621376811594203" />
-        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_detail.xml" value="0.2" />
-        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_book.xml" value="0.264" />
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_data_penumpang.xml" value="0.17925856405443455" />
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_detail.xml" value="0.264" />
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_edit_profile.xml" value="0.21614583333333334" />
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_list_view.xml" value="0.19895833333333332" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_login.xml" value="0.2" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_past.xml" value="0.209375" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_register.xml" value="0.152" />

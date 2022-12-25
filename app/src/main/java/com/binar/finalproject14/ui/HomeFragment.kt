@@ -91,29 +91,6 @@ class HomeFragment : Fragment() {
             rvImportant.adapter = adapter
         }
 
-        val adapterAirport: AirportAdapter by lazy {
-            AirportAdapter {
-
-            }
-        }
-
-        binding.apply {
-            airportViewModel.getAirport()
-            airportViewModel.getLiveDataAirport.observe(viewLifecycleOwner){
-                if (it != null){
-                    adapterAirport.setData(it.data as List<DataAirport>)
-                }else{
-                    Snackbar.make(binding.root, "Data Gagal Dimuat", Snackbar.LENGTH_SHORT)
-                        .setBackgroundTint(
-                            ContextCompat.getColor(requireContext(),
-                                R.color.button
-                            ))
-                        .setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
-                        .show()
-                }
-            }
-        }
-
         binding.txtOneway.setOnClickListener{
             oneway = true
             activateOneway()
@@ -138,9 +115,9 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
         }
 
-//        binding.btnDeparture.setOnClickListener{
-//            findNavController().navigate(R.id.action_homeFragment_to_listViewFragment)
-//        }
+        binding.btnDeparture.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_listViewFragment)
+        }
 
         resultListView()
         setUsername()
