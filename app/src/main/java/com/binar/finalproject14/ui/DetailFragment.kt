@@ -58,6 +58,53 @@ class DetailFragment : DialogFragment() {
         flightViewModel = ViewModelProvider(this)[FlightViewModel::class.java]
         wishlistViewModel = ViewModelProvider(this)[WishlistViewModel::class.java]
 
+        getDetail()
+        cekWishlist()
+
+        val id = arguments?.getInt("id")
+
+        binding.btnWishlist.setOnClickListener {
+            if (!isClicked) {
+                isClicked = true
+                addWishlist(data)
+                binding.btnWishlist.setBackgroundColor(resources.getColor(R.color.wishlist))
+
+            } else {
+                isClicked = false
+                deleteWishlist(data)
+                binding.btnWishlist.setBackgroundColor(Color.TRANSPARENT)
+            }
+        }
+
+        binding.btnBook.setOnClickListener{
+            val bund = Bundle()
+            if (id != null) {
+                bund.putInt("id", id)
+            }
+            findNavController().navigate(R.id.action_detailFragment_to_dataPenumpangFragment, bund)
+        }
+        super.onViewCreated(view, savedInstanceState)
+    }
+
+    private fun cekWishlist() {
+        val id = arguments?.getInt("id")
+        if (id != null) {
+            wishlistViewModel.isWishlist(id)
+            wishlistViewModel.wishlist.observe(viewLifecycleOwner) {
+                if (it != null) {
+                    if (it) {
+                        isClicked = true
+                        binding.btnWishlist.setBackgroundColor(resources.getColor(R.color.wishlist))
+                    } else {
+                        isClicked = false
+                        binding.btnWishlist.setBackgroundColor(Color.TRANSPARENT)
+                    }
+                }
+            }
+        }
+    }
+
+    private fun getDetail() {
         val id = arguments?.getInt("id")
 
         if (id != null) {
@@ -100,39 +147,6 @@ class DetailFragment : DialogFragment() {
                 }
             }
         }
-
-        if (id != null) {
-            wishlistViewModel.isWishlist(id)
-            wishlistViewModel.wishlist.observe(viewLifecycleOwner) {
-                if (it != null) {
-                    if (it) {
-                        isClicked = true
-                        binding.btnWishlist.setBackgroundColor(resources.getColor(R.color.wishlist))
-                    } else {
-                        isClicked = false
-                        binding.btnWishlist.setBackgroundColor(Color.TRANSPARENT)
-                    }
-                }
-            }
-        }
-
-        binding.btnWishlist.setOnClickListener {
-            if (!isClicked) {
-                isClicked = true
-                addWishlist(data)
-                binding.btnWishlist.setBackgroundColor(resources.getColor(R.color.wishlist))
-
-            } else {
-                isClicked = false
-                deleteWishlist(data)
-                binding.btnWishlist.setBackgroundColor(Color.TRANSPARENT)
-            }
-        }
-
-        binding.btnBook.setOnClickListener{
-            findNavController().navigate(R.id.action_detailFragment_to_dataPenumpangFragment)
-        }
-        super.onViewCreated(view, savedInstanceState)
     }
 
     private fun addWishlist(wishlistFlight: WishlistData) {
