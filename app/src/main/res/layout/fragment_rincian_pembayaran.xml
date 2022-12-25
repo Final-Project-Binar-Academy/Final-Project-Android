@@ -40,129 +40,122 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="15dp"
-                app:cardMaxElevation="12dp"
+                app:cardCornerRadius="20dp"
                 app:cardUseCompatPadding="true">
 
                 <LinearLayout
+                    android:background="@drawable/bg_rincian"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:text="FROM"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.from" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="110dp"
-                            android:rotation="90"
-                            android:src="@drawable/plane_black" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="130dp"
-                            android:text="@string/to"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.from" />
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:orientation="horizontal"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="25dp">
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="150dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
                             android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="DEL"
-                                android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport" />
+                                android:text="FROM"
+                                android:textAppearance="@style/TextAppearance.MyApp.detail.from" />
 
-                            <TextView
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="New Delhi,India"
-                                android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
+                                android:orientation="vertical">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="23:45,Thu 15 Oct"
-                                android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="DEL"
+                                    android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport" />
 
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="New Delhi,India"
+                                    android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="23:45,Thu 15 Oct"
+                                    android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
+
+
+                            </LinearLayout>
 
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
                             android:gravity="end"
-                            android:orientation="vertical"
-                            android:paddingStart="125dp">
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="DEL"
-                                android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport" />
+                                android:text="@string/to"
+                                android:textAppearance="@style/TextAppearance.MyApp.detail.from" />
 
-                            <TextView
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="New Delhi,India"
-                                android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
+                                android:gravity="end"
+                                android:orientation="vertical">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="23:45,Thu 15 Oct"
-                                android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="DEL"
+                                    android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport" />
 
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="New Delhi,India"
+                                    android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="23:45,Thu 15 Oct"
+                                    android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
+
+
+                            </LinearLayout>
 
                         </LinearLayout>
-
 
                     </LinearLayout>
 
                     <View
-                        android:layout_width="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
                         android:background="@color/black" />
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
                         android:layout_marginTop="15dp"
-                        android:layout_marginBottom="15dp"
                         android:orientation="horizontal">
 
                         <ImageView
@@ -194,16 +187,15 @@
                     </LinearLayout>
 
                     <View
+                        android:layout_marginTop="15dp"
                         android:layout_width="wrap_content"
                         android:layout_height="1dp"
                         android:background="@color/black" />
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
                         android:layout_marginTop="15dp"
-                        android:layout_marginBottom="20dp"
                         android:orientation="vertical">
 
                         <TextView
@@ -215,7 +207,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:paddingTop="20dp"
+                            android:layout_marginTop="15dp"
                             android:text="Samantha Ruth"
                             android:textAppearance="@style/TextAppearance.MyApp.detail.from.airline" />
 
@@ -230,7 +222,7 @@
                 </LinearLayout>
 
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
 
         </RelativeLayout>
@@ -258,13 +250,14 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="15dp"
-            app:cardMaxElevation="12dp"
+            app:cardCornerRadius="20dp"
+            android:layout_margin="10dp"
             app:cardUseCompatPadding="true">
 
             <LinearLayout
+                android:padding="10dp"
+                android:paddingHorizontal="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -276,34 +269,41 @@
                     android:orientation="vertical">
 
                     <com.google.android.material.radiobutton.MaterialRadioButton
-                        android:id="@+id/option1"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/bank"
+                        android:buttonTint="@color/basic"
+                        android:textSize="14sp"
+                        android:paddingStart="10dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/payment_bank"
                         android:textAppearance="@style/TextAppearance.MyApp.detail.payment.choice" />
 
                     <View
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:layout_marginLeft="30dp"
-                        android:background="@color/black" />
+                        android:background="@color/abu" />
 
                     <com.google.android.material.radiobutton.MaterialRadioButton
-                        android:id="@+id/option2"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/ewallet"
+                        android:buttonTint="@color/basic"
+                        android:textSize="14sp"
+                        android:paddingStart="10dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/payment_e_wallet"
                         android:textAppearance="@style/TextAppearance.MyApp.detail.payment.choice" />
 
                     <View
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:layout_marginLeft="30dp"
-                        android:background="@color/black" />
+                        android:background="@color/abu" />
 
                     <com.google.android.material.radiobutton.MaterialRadioButton
-                        android:id="@+id/option3"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/qris"
+                        android:buttonTint="@color/basic"
+                        android:textSize="14sp"
+                        android:paddingStart="10dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/payment_qris"
                         android:textAppearance="@style/TextAppearance.MyApp.detail.payment.choice" />
@@ -319,10 +319,9 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="15dp"
-            app:cardMaxElevation="12dp"
+            android:layout_marginHorizontal="10dp"
             app:cardUseCompatPadding="true">
 
             <LinearLayout
@@ -531,7 +530,7 @@
                 android:text="@string/detail_tos" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
@@ -556,8 +555,9 @@
 
                 </LinearLayout>
 
-                <ImageView
-                    android:layout_width="170dp"
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnNext"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="100dp"
                     android:src="@drawable/resource_continue" />

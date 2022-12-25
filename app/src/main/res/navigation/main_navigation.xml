@@ -144,7 +144,11 @@
         android:id="@+id/dataPenumpangFragment"
         android:name="com.binar.finalproject14.ui.DataPenumpangFragment"
         android:label="fragment_data_penumpang"
-        tools:layout="@layout/fragment_data_penumpang" />
+        tools:layout="@layout/fragment_data_penumpang" >
+        <action
+            android:id="@+id/action_dataPenumpangFragment_to_rincianPembayaranFragment"
+            app:destination="@id/rincianPembayaranFragment" />
+    </fragment>
     <fragment
         android:id="@+id/listViewFragment"
         android:name="com.binar.finalproject14.ui.ListViewFragment"
@@ -157,4 +161,34 @@
             android:name="myArg"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/rincianPembayaranFragment"
+        android:name="com.binar.finalproject14.ui.RincianPembayaranFragment"
+        android:label="fragment_rincian_pembayaran"
+        tools:layout="@layout/fragment_rincian_pembayaran" >
+        <action
+            android:id="@+id/action_rincianPembayaranFragment_to_payCardFragment"
+            app:destination="@id/payCardFragment" />
+        <action
+            android:id="@+id/action_rincianPembayaranFragment_to_payEwalletFragment"
+            app:destination="@id/payEwalletFragment" />
+        <action
+            android:id="@+id/action_rincianPembayaranFragment_to_payQrisFragment"
+            app:destination="@id/payQrisFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/payCardFragment"
+        android:name="com.binar.finalproject14.ui.PayCardFragment"
+        android:label="fragment_pay_card"
+        tools:layout="@layout/fragment_pay_card" />
+    <fragment
+        android:id="@+id/payEwalletFragment"
+        android:name="com.binar.finalproject14.ui.PayEwalletFragment"
+        android:label="fragment_pay_ewallet"
+        tools:layout="@layout/fragment_pay_ewallet" />
+    <fragment
+        android:id="@+id/payQrisFragment"
+        android:name="com.binar.finalproject14.ui.PayQrisFragment"
+        android:label="fragment_pay_qris"
+        tools:layout="@layout/fragment_pay_qris" />
 </navigation>

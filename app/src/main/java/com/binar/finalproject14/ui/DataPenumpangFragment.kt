@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.binar.finalproject14.R
 import com.binar.finalproject14.databinding.FragmentAboutBinding
 import com.binar.finalproject14.databinding.FragmentDataPenumpangBinding
@@ -44,6 +45,9 @@ class DataPenumpangFragment : Fragment() {
         getTipeId()
         getTicket()
         getBirthday()
+        binding.btnBooking.setOnClickListener{
+            findNavController().navigate(R.id.action_dataPenumpangFragment_to_rincianPembayaranFragment)
+        }
         super.onViewCreated(view, savedInstanceState)
     }
 
