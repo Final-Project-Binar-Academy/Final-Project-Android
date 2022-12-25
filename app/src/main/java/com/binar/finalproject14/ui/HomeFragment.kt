@@ -43,6 +43,7 @@ class HomeFragment : Fragment() {
     private var oneway: Boolean = true
     private lateinit var infoViewModel: InfoViewModel
     private lateinit var airportViewModel: AirportViewModel
+    private lateinit var cityViewModel: CityViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -61,11 +62,82 @@ class HomeFragment : Fragment() {
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
         infoViewModel = ViewModelProvider(this)[InfoViewModel::class.java]
         profileViewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
+        airportViewModel = ViewModelProvider(this)[AirportViewModel::class.java]
+        cityViewModel = ViewModelProvider(this)[CityViewModel::class.java]
+
+        (activity as MainActivity).binding.navHome.visibility = View.VISIBLE
 
         activateOneway()
+        getInfo()
+        getListView()
+        getKelas()
+        getTraveller()
 
-        airportViewModel = ViewModelProvider(this)[AirportViewModel::class.java]
+        binding.txtOneway.setOnClickListener{
+            oneway = true
+            activateOneway()
+        }
 
+        binding.txtRoundTrip.setOnClickListener{
+            oneway = false
+            activateRoundTrip()
+        }
+
+        binding.txtTraveller.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_travellerDialogFragment)
+        }
+
+        binding.btnSearch.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
+        }
+
+        binding.btnDeparture.setOnClickListener{
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToListViewFragment("departure"))
+        }
+
+        binding.btnDestination.setOnClickListener{
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToListViewFragment("destination"))
+        }
+
+        setUsername()
+        setImageProfile()
+    }
+
+    private fun getTraveller() {
+        val traveller = arguments?.getString("traveller")
+        binding.txtTraveller.text = traveller
+    }
+
+    private fun getKelas() {
+        val kelas = resources.getStringArray(R.array.kelas)
+        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, kelas)
+        binding.autoCompleteTextView3.setAdapter(arrayAdapter)
+    }
+
+    private fun getListView() {
+        cityViewModel.getCityDeparture().observe(viewLifecycleOwner){
+            if (it != null){
+                binding.txtCityDeparture.text = it
+            }
+        }
+        cityViewModel.getCityCodeDeparture().observe(viewLifecycleOwner){
+            if (it != null){
+                binding.txtCitycodeDeparture.text = it
+            }
+        }
+        cityViewModel.getCityDestination().observe(viewLifecycleOwner){
+            if (it != null){
+                binding.txtCityDestination.text = it
+            }
+        }
+        cityViewModel.getCityCodeDestination().observe(viewLifecycleOwner){
+            if (it != null){
+                binding.txtCitycodeDestination.text = it
+            }
+        }
+    }
+
+    private fun getInfo() {
         val adapter: InfoAdapter by lazy {
             InfoAdapter {
 
@@ -90,38 +162,6 @@ class HomeFragment : Fragment() {
             rvImportant.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             rvImportant.adapter = adapter
         }
-
-        binding.txtOneway.setOnClickListener{
-            oneway = true
-            activateOneway()
-        }
-
-        binding.txtRoundTrip.setOnClickListener{
-            oneway = false
-            activateRoundTrip()
-        }
-
-        binding.txtTraveller.setOnClickListener{
-            findNavController().navigate(R.id.action_homeFragment_to_travellerDialogFragment)
-        }
-
-        val kelas = resources.getStringArray(R.array.kelas)
-        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, kelas)
-        binding.autoCompleteTextView3.setAdapter(arrayAdapter)
-
-        (activity as MainActivity).binding.navHome.visibility = View.VISIBLE
-
-        binding.btnSearch.setOnClickListener{
-            findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
-        }
-
-        binding.btnDeparture.setOnClickListener{
-            findNavController().navigate(R.id.action_homeFragment_to_listViewFragment)
-        }
-
-        resultListView()
-        setUsername()
-        setImageProfile()
     }
 
     private fun setImageProfile() {
@@ -133,14 +173,6 @@ class HomeFragment : Fragment() {
                 .load(it?.data?.avatar)
                 .circleCrop()
                 .into(binding.profileImage)
-        }
-    }
-
-    private fun resultListView() {
-        val departure = arguments?.getString("departure")
-
-        if (departure != null) {
-            binding.txtCityDeparture.text = departure
         }
     }
 

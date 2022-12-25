@@ -20,7 +20,7 @@ class TravellerDialogFragment : DialogFragment() {
         super.onStart()
         dialog!!.window
             ?.setLayout(
-                WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.WRAP_CONTENT,
                 WindowManager.LayoutParams.WRAP_CONTENT
             )
         dialog!!.window
@@ -38,7 +38,14 @@ class TravellerDialogFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.save.setOnClickListener{
-            findNavController().navigate(R.id.action_travellerDialogFragment_to_homeFragment)
+            val bund = Bundle()
+            if (binding.rbAdult.isChecked){
+                bund.putString("traveller", "1 Adult")
+            }
+            else if (binding.rbChild.isChecked){
+                bund.putString("traveller", "1 Child")
+            }
+            findNavController().navigate(R.id.action_travellerDialogFragment_to_homeFragment, bund)
         }
         super.onViewCreated(view, savedInstanceState)
     }
