@@ -6,29 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Filter
-import android.widget.ImageView
-import android.widget.TextView
 import com.binar.finalproject14.R
 import com.binar.finalproject14.data.api.response.airport.DataAirport
 import com.binar.finalproject14.databinding.CustomListViewBinding
 import java.util.*
 
-
-//class AirportAdapter(context: Context, airport: ArrayList<DataAirport?>) :
-//    ArrayAdapter<DataAirport?>(context, 0, airport) {
-
-//    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-//        val view = LayoutInflater.from(context).inflate(R.layout.custom_list_view, parent, false)
-//        val binding = CustomListViewBinding.bind(view)
-//        val data: DataAirport? = getItem(position)
-//        binding.textView1.text = data?.city
-//        return view
-//    }
-
 class AirportAdapter(context: Context, airports: ArrayList<DataAirport>) :
     ArrayAdapter<DataAirport>(context, 0, airports) {
 
-    private val filter = RegistrationFilter(airports)
+    private val filter = AirportFilter(airports)
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val airport = getItem(position)
@@ -40,7 +26,7 @@ class AirportAdapter(context: Context, airports: ArrayList<DataAirport>) :
 
     override fun getFilter() = filter
 
-    inner class RegistrationFilter(private val originalList: List<DataAirport>) : Filter() {
+    inner class AirportFilter(private val originalList: List<DataAirport>) : Filter() {
 
         private val sourceObjects: ArrayList<DataAirport> = ArrayList()
 
@@ -86,7 +72,6 @@ class AirportAdapter(context: Context, airports: ArrayList<DataAirport>) :
             } else {
                 notifyDataSetInvalidated()
             }
-
         }
 
 
