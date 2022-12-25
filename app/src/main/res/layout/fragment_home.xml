@@ -183,7 +183,7 @@
                         android:paddingTop="10dp"
                         android:gravity="center"
                         android:fontFamily="@font/rubik_medium"
-                        android:text="@string/txt_traveller"
+                        android:hint="@string/txt_traveller"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 

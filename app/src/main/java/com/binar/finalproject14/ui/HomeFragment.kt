@@ -65,9 +65,13 @@ class HomeFragment : Fragment() {
         airportViewModel = ViewModelProvider(this)[AirportViewModel::class.java]
         cityViewModel = ViewModelProvider(this)[CityViewModel::class.java]
 
+        (activity as MainActivity).binding.navHome.visibility = View.VISIBLE
+
         activateOneway()
         getInfo()
         getListView()
+        getKelas()
+        getTraveller()
 
         binding.txtOneway.setOnClickListener{
             oneway = true
@@ -83,12 +87,6 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_travellerDialogFragment)
         }
 
-        val kelas = resources.getStringArray(R.array.kelas)
-        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, kelas)
-        binding.autoCompleteTextView3.setAdapter(arrayAdapter)
-
-        (activity as MainActivity).binding.navHome.visibility = View.VISIBLE
-
         binding.btnSearch.setOnClickListener{
             findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
         }
@@ -103,6 +101,17 @@ class HomeFragment : Fragment() {
 
         setUsername()
         setImageProfile()
+    }
+
+    private fun getTraveller() {
+        val traveller = arguments?.getString("traveller")
+        binding.txtTraveller.text = traveller
+    }
+
+    private fun getKelas() {
+        val kelas = resources.getStringArray(R.array.kelas)
+        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, kelas)
+        binding.autoCompleteTextView3.setAdapter(arrayAdapter)
     }
 
     private fun getListView() {

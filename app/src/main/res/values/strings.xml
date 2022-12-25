@@ -102,7 +102,7 @@
     <string name="indonesia">Indonesia</string>
     <string name="idn">(IDN)</string>
     <string name="detailsPenumpang">These details must match\npassport and photo ID</string>
-    <string name="jmlPenumpang">Jumlah Penumpang</string>
+    <string name="tipePenumpang">Tipe Penumpang</string>
     <string name="penumpang">Penumpang 1</string>
     <string name="choose">choose seat</string>
     <string name="male">Male</string>
