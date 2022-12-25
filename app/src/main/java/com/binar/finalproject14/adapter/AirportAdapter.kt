@@ -25,12 +25,12 @@ class AirportAdapter(context: Context, airports: ArrayList<DataAirport>) :
         binding.txtCity.text = airport?.city
         binding.txtCityCode.text = airport?.cityCode
 
-        view.setOnClickListener{
-            val bund = Bundle()
-            bund.putString("city", airport?.city)
-            bund.putString("cityCode", airport?.cityCode)
-            Navigation.findNavController(view).navigate(R.id.action_listViewFragment_to_homeFragment, bund)
-        }
+//        view.setOnClickListener{
+//            val bund = Bundle()
+//            bund.putString("city", airport?.city)
+//            bund.putString("cityCode", airport?.cityCode)
+//            Navigation.findNavController(view).navigate(R.id.action_listViewFragment_to_homeFragment, bund)
+//        }
         return view
     }
 

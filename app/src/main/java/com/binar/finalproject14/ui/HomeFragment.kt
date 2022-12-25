@@ -43,6 +43,7 @@ class HomeFragment : Fragment() {
     private var oneway: Boolean = true
     private lateinit var infoViewModel: InfoViewModel
     private lateinit var airportViewModel: AirportViewModel
+    private lateinit var cityViewModel: CityViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -62,6 +63,7 @@ class HomeFragment : Fragment() {
         infoViewModel = ViewModelProvider(this)[InfoViewModel::class.java]
         profileViewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
         airportViewModel = ViewModelProvider(this)[AirportViewModel::class.java]
+        cityViewModel = ViewModelProvider(this)[CityViewModel::class.java]
 
         activateOneway()
         getInfo()
@@ -92,19 +94,38 @@ class HomeFragment : Fragment() {
         }
 
         binding.btnDeparture.setOnClickListener{
-            findNavController().navigate(R.id.action_homeFragment_to_listViewFragment)
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToListViewFragment("departure"))
         }
 
-        resultListView()
+        binding.btnDestination.setOnClickListener{
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToListViewFragment("destination"))
+        }
+
         setUsername()
         setImageProfile()
     }
 
     private fun getListView() {
-        val city = arguments?.getString("city")
-        binding.txtCityDeparture.text = city
-        val cityCode = arguments?.getString("cityCode")
-        binding.txtCitycodeDeparture.text = cityCode
+        cityViewModel.getCityDeparture().observe(viewLifecycleOwner){
+            if (it != null){
+                binding.txtCityDeparture.text = it
+            }
+        }
+        cityViewModel.getCityCodeDeparture().observe(viewLifecycleOwner){
+            if (it != null){
+                binding.txtCitycodeDeparture.text = it
+            }
+        }
+        cityViewModel.getCityDestination().observe(viewLifecycleOwner){
+            if (it != null){
+                binding.txtCityDestination.text = it
+            }
+        }
+        cityViewModel.getCityCodeDestination().observe(viewLifecycleOwner){
+            if (it != null){
+                binding.txtCitycodeDestination.text = it
+            }
+        }
     }
 
     private fun getInfo() {
@@ -143,14 +164,6 @@ class HomeFragment : Fragment() {
                 .load(it?.data?.avatar)
                 .circleCrop()
                 .into(binding.profileImage)
-        }
-    }
-
-    private fun resultListView() {
-        val departure = arguments?.getString("departure")
-
-        if (departure != null) {
-            binding.txtCityDeparture.text = departure
         }
     }
 

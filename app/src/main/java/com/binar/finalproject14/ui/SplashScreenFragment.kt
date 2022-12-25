@@ -7,11 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.binar.finalproject14.R
 import com.binar.finalproject14.databinding.FragmentSplashScreenBinding
-import com.binar.finalproject14.utils.SessionManager
 
 class SplashScreenFragment : Fragment() {
     private var _binding: FragmentSplashScreenBinding? = null

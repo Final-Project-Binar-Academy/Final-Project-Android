@@ -219,25 +219,25 @@
                             android:orientation="vertical">
 
                             <TextView
-                                android:id="@+id/txt_jfk"
+                                android:id="@+id/txt_citycode_destination"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="end"
                                 android:layout_marginTop="10dp"
                                 android:fontFamily="@font/rubik_medium"
-                                android:text="@string/jfk"
+                                android:hint="@string/jfk"
                                 android:textAlignment="textEnd"
                                 android:textColor="@color/black"
                                 android:textSize="14sp" />
 
                             <TextView
-                                android:id="@+id/txt_newyork"
+                                android:id="@+id/txt_city_destination"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="end"
                                 android:layout_marginTop="0dp"
                                 android:fontFamily="@font/rubik"
-                                android:text="@string/new_york"
+                                android:hint="@string/new_york"
                                 android:textAlignment="textEnd"
                                 android:textColor="@color/black"
                                 android:textSize="14sp" />

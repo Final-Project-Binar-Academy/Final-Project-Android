@@ -1,6 +1,7 @@
 package com.binar.finalproject14.data.api.service
 
 import android.content.Context
+import com.binar.finalproject14.utils.CityDatastore
 import com.binar.finalproject14.utils.UserDataStoreManager
 import dagger.Module
 import dagger.Provides
@@ -75,5 +76,9 @@ object ApiClient {
     @Provides
     fun getUserManager(@ApplicationContext context: Context): UserDataStoreManager =
         UserDataStoreManager(context)
+
+    @Provides
+    fun getCityManager(@ApplicationContext context: Context): CityDatastore =
+        CityDatastore(context)
 
 }

@@ -13,7 +13,6 @@ import com.binar.finalproject14.R
 import com.binar.finalproject14.data.api.response.BaseResponse
 import com.binar.finalproject14.data.api.response.auth.AuthResponse
 import com.binar.finalproject14.databinding.FragmentLoginBinding
-import com.binar.finalproject14.utils.SessionManager
 import com.binar.finalproject14.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
