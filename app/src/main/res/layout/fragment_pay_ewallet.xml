@@ -49,14 +49,16 @@
                 android:layout_height="match_parent">
 
                 <RadioGroup
+                    android:id="@+id/radioGroup"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_marginTop="5dp"
                         app:cardCornerRadius="10dp"
-                        app:strokeColor="@color/black"
                         app:strokeWidth="1dp"
+                        android:checkable="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
@@ -67,6 +69,7 @@
                             android:scaleX="0.8"
                             android:scaleY="0.8"
                             android:textSize="18sp"
+                            android:checkable="false"
                             android:fontFamily="@font/poppins_semibold"
                             android:textColor="@color/black"
                             android:drawableEnd="@android:drawable/btn_radio"
@@ -91,6 +94,7 @@
                             android:scaleX="0.8"
                             android:scaleY="0.8"
                             android:textSize="18sp"
+                            android:checkable="false"
                             android:fontFamily="@font/poppins_semibold"
                             android:textColor="@color/black"
                             android:drawableEnd="@android:drawable/btn_radio"
@@ -139,6 +143,7 @@
                             android:scaleX="0.8"
                             android:scaleY="0.8"
                             android:textSize="18sp"
+                            android:checkable="false"
                             android:fontFamily="@font/poppins_semibold"
                             android:textColor="@color/black"
                             android:drawableEnd="@android:drawable/btn_radio"

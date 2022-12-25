@@ -90,9 +90,6 @@ class ProfileFragment : Fragment() {
     }
 
 
-
-
-
     private fun logout() {
         binding.btnLogout.setOnClickListener {
             viewModel.removeIsLoginStatus()

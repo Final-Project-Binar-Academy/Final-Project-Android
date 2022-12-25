@@ -66,11 +66,10 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/cardNum"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="wrap_content"
                         android:inputType="text"
                         android:fontFamily="@font/rubik_medium"
-                        android:textSize="15sp"
-                        android:hint="7777 5211 0027 4021"
+                        android:textSize="12sp"
                         android:textColorHint="@color/black"
                         android:maxLines="1"
                         android:textColor="@color/black" />
@@ -92,9 +91,8 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/firstname"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="wrap_content"
                         android:inputType="text"
-                        android:hint="Aiffah Kiysa Waafi"
                         android:textColorHint="@color/black"
                         android:fontFamily="@font/rubik_medium"
                         android:textSize="15sp"
@@ -103,6 +101,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <LinearLayout
+                    android:gravity="center"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -110,8 +109,8 @@
 
                     <LinearLayout
                         android:orientation="vertical"
-                        android:layout_width="155dp"
-                        android:layout_height="match_parent">
+                        android:layout_width="145dp"
+                        android:layout_height="wrap_content">
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:fontFamily="@font/rubik_medium"
@@ -122,15 +121,14 @@
 
                         <com.google.android.material.textfield.TextInputLayout
                             style="@style/Widget.MyApp.TextInputLayoutData"
-                            android:layout_width="155dp"
+                            android:layout_width="145dp"
                             android:layout_height="wrap_content">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/expiryDate"
                                 android:layout_width="match_parent"
-                                android:layout_height="40dp"
+                                android:layout_height="wrap_content"
                                 android:inputType="text"
-                                android:hint="01/2025"
                                 android:textColorHint="@color/black"
                                 android:fontFamily="@font/rubik_medium"
                                 android:textSize="15sp"
@@ -142,7 +140,7 @@
                     <LinearLayout
                         android:layout_marginStart="20dp"
                         android:orientation="vertical"
-                        android:layout_width="155dp"
+                        android:layout_width="145dp"
                         android:layout_height="match_parent">
 
                         <androidx.appcompat.widget.AppCompatTextView
@@ -154,13 +152,13 @@
 
                         <com.google.android.material.textfield.TextInputLayout
                             style="@style/Widget.MyApp.TextInputLayoutData"
-                            android:layout_width="155dp"
+                            android:layout_width="145dp"
                             android:layout_height="wrap_content">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/cvv"
                                 android:layout_width="match_parent"
-                                android:layout_height="40dp"
+                                android:layout_height="wrap_content"
                                 android:inputType="text"
                                 android:fontFamily="@font/rubik_medium"
                                 android:textSize="15sp"
