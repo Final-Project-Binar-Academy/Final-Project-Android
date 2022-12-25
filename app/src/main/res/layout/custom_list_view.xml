@@ -8,16 +8,27 @@
     tools:ignore="UselessParent">
 
     <LinearLayout
+        android:padding="20dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textView1"
-            android:layout_width="match_parent"
+            android:id="@+id/txtCity"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:gravity="bottom|left"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded" />
+
+        <TextView
+            android:id="@+id/txtCityCode"
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:gravity="bottom|left"
             android:textColor="@android:color/black"
             android:textSize="18sp"

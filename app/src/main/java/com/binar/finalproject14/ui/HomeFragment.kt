@@ -61,35 +61,11 @@ class HomeFragment : Fragment() {
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
         infoViewModel = ViewModelProvider(this)[InfoViewModel::class.java]
         profileViewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
-
-        activateOneway()
-
         airportViewModel = ViewModelProvider(this)[AirportViewModel::class.java]
 
-        val adapter: InfoAdapter by lazy {
-            InfoAdapter {
-
-            }
-        }
-
-        binding.apply {
-            infoViewModel.getDataInfo()
-            infoViewModel.getLiveDataInfo().observe(viewLifecycleOwner){
-                if (it != null){
-                    adapter.setData(it.articles as List<Article>)
-                }else{
-                    Snackbar.make(binding.root, "Data Gagal Dimuat", Snackbar.LENGTH_SHORT)
-                        .setBackgroundTint(
-                            ContextCompat.getColor(requireContext(),
-                                R.color.button
-                            ))
-                        .setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
-                        .show()
-                }
-            }
-            rvImportant.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            rvImportant.adapter = adapter
-        }
+        activateOneway()
+        getInfo()
+        getListView()
 
         binding.txtOneway.setOnClickListener{
             oneway = true
@@ -122,6 +98,40 @@ class HomeFragment : Fragment() {
         resultListView()
         setUsername()
         setImageProfile()
+    }
+
+    private fun getListView() {
+        val city = arguments?.getString("city")
+        binding.txtCityDeparture.text = city
+        val cityCode = arguments?.getString("cityCode")
+        binding.txtCitycodeDeparture.text = cityCode
+    }
+
+    private fun getInfo() {
+        val adapter: InfoAdapter by lazy {
+            InfoAdapter {
+
+            }
+        }
+
+        binding.apply {
+            infoViewModel.getDataInfo()
+            infoViewModel.getLiveDataInfo().observe(viewLifecycleOwner){
+                if (it != null){
+                    adapter.setData(it.articles as List<Article>)
+                }else{
+                    Snackbar.make(binding.root, "Data Gagal Dimuat", Snackbar.LENGTH_SHORT)
+                        .setBackgroundTint(
+                            ContextCompat.getColor(requireContext(),
+                                R.color.button
+                            ))
+                        .setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+                        .show()
+                }
+            }
+            rvImportant.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            rvImportant.adapter = adapter
+        }
     }
 
     private fun setImageProfile() {

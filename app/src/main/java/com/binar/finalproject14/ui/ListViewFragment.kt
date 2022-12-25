@@ -6,8 +6,12 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.binar.finalproject14.R
 import com.binar.finalproject14.adapter.AirportAdapter
 import com.binar.finalproject14.data.api.response.airport.DataAirport
 import com.binar.finalproject14.databinding.FragmentListViewBinding
@@ -46,7 +50,7 @@ class ListViewFragment : Fragment() {
                         count: Int
                     ) {
                         // Call back the Adapter with current character to Filter
-                        adapter.getFilter().filter(s.toString())
+                        adapter.filter.filter(s.toString())
                     }
 
                     override fun beforeTextChanged(
