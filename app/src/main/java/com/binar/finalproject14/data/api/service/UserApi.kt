@@ -2,14 +2,13 @@ package com.binar.finalproject14.data.api.service
 
 import com.binar.finalproject14.data.api.request.LoginRequest
 import com.binar.finalproject14.data.api.request.RegisterRequest
-import com.binar.finalproject14.data.api.response.InfoResponse
 import com.binar.finalproject14.data.api.response.airport.AirportResponse
-import com.binar.finalproject14.data.api.response.airport.DataAirport
 import com.binar.finalproject14.data.api.response.auth.AuthResponse
 import com.binar.finalproject14.data.api.response.profile.GetUserResponse
 import com.binar.finalproject14.data.api.response.profile.User
 import com.binar.finalproject14.data.api.response.ticket.FlightIdResponse
 import com.binar.finalproject14.data.api.response.ticket.FlightResponse
+import com.binar.finalproject14.data.api.response.transaction.history.TransactionFilterResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -46,8 +45,10 @@ interface UserApi {
     @GET("/api/airport")
     fun getAirport() : Call<AirportResponse>
 
-    @GET("/api/airport")
-    fun getAirportCity() : Call<DataAirport>
+    @GET("/api/transaction/filter")
+    fun getTransactionDataByFilter(@Header("Authorization")token: String, @Query("status")status: String) : Call<TransactionFilterResponse>
+
+
 
 
 //    companion object {
