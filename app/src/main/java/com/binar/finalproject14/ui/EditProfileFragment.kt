@@ -78,7 +78,7 @@ class EditProfileFragment : DialogFragment() {
             val phone = binding.etPhone.text.toString().trim()
                 .toRequestBody("multipart/form-data".toMediaType())
             viewModel.getDataStoreToken().observe(viewLifecycleOwner) {
-                viewModel.updateUser(fName, lName, address,phone, imageMultiPart!!,"Bearer $it")
+                viewModel.updateUser(fName, lName, address, phone, imageMultiPart!!,"Bearer $it")
             }
 //            viewModel.saveImage(image_uri.toString())
             viewModel.saveUsername(username)
