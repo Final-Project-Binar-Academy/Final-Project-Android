@@ -1,27 +1,23 @@
 package com.binar.finalproject14.ui
 
 import android.graphics.Color
-import android.opengl.Visibility
+import android.os.Build
 import android.os.Bundle
-import android.provider.ContactsContract.Profile
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
-import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.binar.finalproject14.MainActivity
 import com.binar.finalproject14.R
-import com.binar.finalproject14.adapter.AirportAdapter
-import com.binar.finalproject14.adapter.FlightAdapter
 import com.binar.finalproject14.adapter.InfoAdapter
 import com.binar.finalproject14.data.api.response.Article
-import com.binar.finalproject14.data.api.response.airport.DataAirport
-import com.binar.finalproject14.data.api.response.ticket.DataFlight
 import com.binar.finalproject14.databinding.FragmentHomeBinding
 import com.binar.finalproject14.viewmodel.*
 import com.bumptech.glide.Glide
@@ -31,6 +27,8 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 @AndroidEntryPoint
@@ -41,9 +39,11 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private var oneway: Boolean = true
+    private lateinit var departureDate: String
+    private lateinit var returnDate: String
     private lateinit var infoViewModel: InfoViewModel
     private lateinit var airportViewModel: AirportViewModel
-    private lateinit var cityViewModel: CityViewModel
+    private lateinit var searchViewModel: SearchViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,19 +51,20 @@ class HomeFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
 
+        viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
+        infoViewModel = ViewModelProvider(this)[InfoViewModel::class.java]
+        profileViewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
+        airportViewModel = ViewModelProvider(this)[AirportViewModel::class.java]
+        searchViewModel = ViewModelProvider(this)[SearchViewModel::class.java]
         analytics = Firebase.analytics
 
         _binding = FragmentHomeBinding.inflate(inflater,container,false)
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
-        infoViewModel = ViewModelProvider(this)[InfoViewModel::class.java]
-        profileViewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
-        airportViewModel = ViewModelProvider(this)[AirportViewModel::class.java]
-        cityViewModel = ViewModelProvider(this)[CityViewModel::class.java]
 
         (activity as MainActivity).binding.navHome.visibility = View.VISIBLE
 
@@ -87,10 +88,6 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_travellerDialogFragment)
         }
 
-        binding.btnSearch.setOnClickListener{
-            findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
-        }
-
         binding.btnDeparture.setOnClickListener{
             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToListViewFragment("departure"))
         }
@@ -103,38 +100,74 @@ class HomeFragment : Fragment() {
         setImageProfile()
     }
 
+
+//        searchViewModel.getLiveDataSearch().observe(viewLifecycleOwner){
+//            if (it != null){
+//            }else{
+//                Snackbar.make(binding.root, "Data Gagal Dimuat", Snackbar.LENGTH_SHORT)
+//                    .setBackgroundTint(
+//                        ContextCompat.getColor(requireContext(),
+//                            R.color.button
+//                        ))
+//                    .setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+//                    .show()
+//            }
+//        }
+
     private fun getTraveller() {
         val traveller = arguments?.getString("traveller")
-        binding.txtTraveller.text = traveller
+        if (traveller != null) {
+            binding.txtTraveller.text = traveller
+        }
+
     }
 
     private fun getKelas() {
-        val kelas = resources.getStringArray(R.array.kelas)
-        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, kelas)
-        binding.autoCompleteTextView3.setAdapter(arrayAdapter)
+        val arrayClass = resources.getStringArray(R.array.kelas)
+        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, arrayClass)
+        binding.actvClass.setAdapter(arrayAdapter)
     }
 
     private fun getListView() {
-        cityViewModel.getCityDeparture().observe(viewLifecycleOwner){
+        val bund = Bundle()
+        searchViewModel.getCityDeparture().observe(viewLifecycleOwner){
             if (it != null){
                 binding.txtCityDeparture.text = it
+                bund.putString("departureCity", it)
             }
         }
-        cityViewModel.getCityCodeDeparture().observe(viewLifecycleOwner){
+        searchViewModel.getCityCodeDeparture().observe(viewLifecycleOwner){
             if (it != null){
                 binding.txtCitycodeDeparture.text = it
             }
         }
-        cityViewModel.getCityDestination().observe(viewLifecycleOwner){
+        searchViewModel.getCityDestination().observe(viewLifecycleOwner){
             if (it != null){
                 binding.txtCityDestination.text = it
+                bund.putString("destinationCity", it)
             }
         }
-        cityViewModel.getCityCodeDestination().observe(viewLifecycleOwner){
+        searchViewModel.getCityCodeDestination().observe(viewLifecycleOwner){
             if (it != null){
                 binding.txtCitycodeDestination.text = it
             }
         }
+        searchViewModel.getDepartureDate().observe(viewLifecycleOwner){
+            if (it != null){
+                binding.date1.text = it
+                bund.putString("departureDate", it)
+            }
+        }
+        searchViewModel.getReturnDate().observe(viewLifecycleOwner){
+            if (it != null){
+                binding.date2.text = it
+                bund.putString("returnDate", it)
+            }
+        }
+        binding.btnSearch.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_searchFragment, bund)
+        }
+
     }
 
     private fun getInfo() {
@@ -187,7 +220,15 @@ class HomeFragment : Fragment() {
                 materialDatePicker.show(parentFragmentManager, "MATERIAL_DATE_PICKER")
             })
         materialDatePicker.addOnPositiveButtonClickListener {
+            val simpleFormat = SimpleDateFormat("yyyy-MM-dd")
+            departureDate = simpleFormat.format(Date(materialDatePicker.headerText))
             binding.date1.text = materialDatePicker.headerText
+            searchViewModel.getIsDepartureDate().observe(viewLifecycleOwner){
+                if (it != null){
+                    searchViewModel.removeDepartureDate()
+                }
+                searchViewModel.saveDepartureDate(departureDate)
+            }
         }
         binding.txtOneway.setTextColor(resources.getColor(R.color.basic))
         binding.txtReturn.visibility = View.INVISIBLE
@@ -208,7 +249,15 @@ class HomeFragment : Fragment() {
                 materialDatePicker.show(parentFragmentManager, "MATERIAL_DATE_PICKER")
             })
         materialDatePicker.addOnPositiveButtonClickListener {
+            val simpleFormat = SimpleDateFormat("yyyy-MM-dd")
+            returnDate = simpleFormat.format(Date(materialDatePicker.headerText))
             binding.date2.text = materialDatePicker.headerText
+            searchViewModel.getIsReturnDate().observe(viewLifecycleOwner){
+                if (it != null){
+                    searchViewModel.removeReturnDate()
+                }
+                searchViewModel.saveReturnDate(returnDate)
+            }
         }
         binding.txtOneway.setTextColor(Color.BLACK)
         binding.txtRoundTrip.setTextColor(resources.getColor(R.color.basic))

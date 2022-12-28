@@ -3,15 +3,13 @@ package com.binar.finalproject14.adapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.binar.finalproject14.R
 import com.binar.finalproject14.data.api.response.ticket.DataFlight
-import com.binar.finalproject14.data.dao.WishlistData
+import com.binar.finalproject14.data.model.WishlistData
 import com.binar.finalproject14.databinding.ListItemBinding
 
 class WishlistAdapter (private val listFlight: List<WishlistData>) :

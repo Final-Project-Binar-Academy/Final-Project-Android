@@ -1,7 +1,7 @@
 package com.binar.finalproject14.repository
 
 import com.binar.finalproject14.data.dao.WishlistDao
-import com.binar.finalproject14.data.dao.WishlistData
+import com.binar.finalproject14.data.model.WishlistData
 
 class WishlistRepository(private val data: WishlistDao) {
 

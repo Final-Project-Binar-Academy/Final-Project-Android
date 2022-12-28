@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.binar.finalproject14.data.model.WishlistData
 
 @Database( entities = [
     WishlistData::class],

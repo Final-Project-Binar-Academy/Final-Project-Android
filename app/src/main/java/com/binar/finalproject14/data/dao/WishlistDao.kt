@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.binar.finalproject14.data.dao.WishlistData
+import com.binar.finalproject14.data.model.WishlistData
 
 @Dao
 interface WishlistDao {

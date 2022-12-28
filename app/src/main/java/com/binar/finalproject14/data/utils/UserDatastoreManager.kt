@@ -1,4 +1,4 @@
-package com.binar.finalproject14.utils
+package com.binar.finalproject14.data.utils
 
 import android.content.Context
 import androidx.datastore.preferences.core.*

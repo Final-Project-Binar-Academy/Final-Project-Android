@@ -1,19 +1,17 @@
 package com.binar.finalproject14.data.api.service
 
 import android.content.Context
-import com.binar.finalproject14.utils.CityDatastore
-import com.binar.finalproject14.utils.UserDataStoreManager
+import com.binar.finalproject14.data.utils.SearchDatastore
+import com.binar.finalproject14.data.utils.UserDataStoreManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import javax.inject.Singleton
 
 @Module
@@ -78,7 +76,7 @@ object ApiClient {
         UserDataStoreManager(context)
 
     @Provides
-    fun getCityManager(@ApplicationContext context: Context): CityDatastore =
-        CityDatastore(context)
+    fun getSearchManager(@ApplicationContext context: Context): SearchDatastore =
+        SearchDatastore(context)
 
 }

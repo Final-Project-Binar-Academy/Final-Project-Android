@@ -9,7 +9,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.binar.finalproject14.R
-import com.binar.finalproject14.data.dao.WishlistData
+import com.binar.finalproject14.data.model.WishlistData
 import com.binar.finalproject14.databinding.FragmentDetailBinding
 import com.binar.finalproject14.viewmodel.FlightViewModel
 import com.binar.finalproject14.viewmodel.WishlistViewModel

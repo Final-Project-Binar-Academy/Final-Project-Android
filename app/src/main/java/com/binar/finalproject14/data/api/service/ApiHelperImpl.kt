@@ -6,7 +6,6 @@ import com.binar.finalproject14.data.api.response.InfoResponse
 import com.binar.finalproject14.data.api.response.auth.AuthResponse
 import com.binar.finalproject14.data.api.response.ticket.FlightIdResponse
 import com.binar.finalproject14.data.api.response.ticket.FlightResponse
-import com.binar.finalproject14.utils.UserDataStoreManager
 import retrofit2.Call
 import retrofit2.Response
 import javax.inject.Inject

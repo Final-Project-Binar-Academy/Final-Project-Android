@@ -1,18 +1,14 @@
 package com.binar.finalproject14.viewmodel
 
-import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
 import com.binar.finalproject14.data.api.response.transaction.history.TransactionFilterResponse
-import com.binar.finalproject14.data.api.service.UserApi
 import com.binar.finalproject14.data.api.service.filter.ApiClient
 import com.binar.finalproject14.repository.TransactionFilterRepository
-import com.binar.finalproject14.utils.UserDataStoreManager
-import dagger.hilt.android.lifecycle.HiltViewModel
+import com.binar.finalproject14.data.utils.UserDataStoreManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import javax.inject.Inject
 
 
 class TransactionFilterViewModel (

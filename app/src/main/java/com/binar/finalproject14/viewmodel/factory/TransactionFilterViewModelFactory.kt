@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.binar.finalproject14.data.api.service.filter.ApiHelper
 import com.binar.finalproject14.repository.TransactionFilterRepository
-import com.binar.finalproject14.utils.UserDataStoreManager
+import com.binar.finalproject14.data.utils.UserDataStoreManager
 import com.binar.finalproject14.viewmodel.TransactionFilterViewModel
 
 class TransactionFilterViewModelFactory(

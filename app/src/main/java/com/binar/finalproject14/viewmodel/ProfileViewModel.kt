@@ -6,7 +6,7 @@ import androidx.lifecycle.*
 import com.binar.finalproject14.data.api.response.profile.GetUserResponse
 import com.binar.finalproject14.data.api.response.profile.User
 import com.binar.finalproject14.data.api.service.UserApi
-import com.binar.finalproject14.utils.UserDataStoreManager
+import com.binar.finalproject14.data.utils.UserDataStoreManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import okhttp3.MultipartBody

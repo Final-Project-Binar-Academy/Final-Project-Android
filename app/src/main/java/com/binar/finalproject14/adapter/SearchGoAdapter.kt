@@ -1,33 +1,29 @@
 package com.binar.finalproject14.adapter
 
-import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.binar.finalproject14.R
-import com.binar.finalproject14.data.api.response.ticket.DataFlight
+import com.binar.finalproject14.data.api.response.search.TicketGo
 import com.binar.finalproject14.databinding.ListItemBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
+class SearchGoAdapter (private var itemClick: SearchGoAdapter.ListSearchInterface) : RecyclerView.Adapter<SearchGoAdapter.ViewHolder>(){
 
-class FlightAdapter (private var itemClick: FlightAdapter.ListFlightInterface) : RecyclerView.Adapter<FlightAdapter.ViewHolder>(){
-
-    private val differCallback = object : DiffUtil.ItemCallback<DataFlight>(){
+    private val differCallback = object : DiffUtil.ItemCallback<TicketGo>(){
         override fun areItemsTheSame(
-            oldItem: DataFlight,
-            newItem: DataFlight
+            oldItem: TicketGo,
+            newItem: TicketGo
         ): Boolean {
             return oldItem.id == oldItem.id
         }
 
         override fun areContentsTheSame(
-            oldItem: DataFlight,
-            newItem: DataFlight
+            oldItem: TicketGo,
+            newItem: TicketGo
         ): Boolean {
             return oldItem == newItem
         }
@@ -38,14 +34,14 @@ class FlightAdapter (private var itemClick: FlightAdapter.ListFlightInterface) :
     inner class ViewHolder(private val binding: ListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: DataFlight) {
+        fun bind(item: TicketGo) {
             with(item) {
 
                 var simpleDateFormat = SimpleDateFormat("E, dd LLL")
                 var departure : Date? = item.departureDate
                 var departureDate = simpleDateFormat.format(departure?.time).toString()
 
-                var arrival : Date? = item.arrivalDate
+                var arrival : Date? = item.departureDate
                 var arrivalDate = simpleDateFormat.format(arrival?.time).toString()
 
                 binding.departureDate.text = departureDate
@@ -61,6 +57,7 @@ class FlightAdapter (private var itemClick: FlightAdapter.ListFlightInterface) :
                 binding.city2.text = item.destination?.city.toString()
                 binding.company.text = item.airplane?.company?.companyName.toString()
 
+                Log.d("search", item.code.toString())
 
                 binding.card.setOnClickListener{
                     item.id?.let { it1 -> itemClick.onItemClick(it1) }
@@ -85,11 +82,11 @@ class FlightAdapter (private var itemClick: FlightAdapter.ListFlightInterface) :
         return differ.currentList.size
     }
 
-    fun setData(data : List<DataFlight>){
+    fun setData(data : List<TicketGo>){
         differ.submitList(data)
     }
 
-    interface ListFlightInterface {
+    interface ListSearchInterface {
         fun onItemClick(id: Int)
     }
 }

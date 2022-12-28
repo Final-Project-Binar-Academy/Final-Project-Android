@@ -12,10 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.binar.finalproject14.MainActivity
 import com.binar.finalproject14.R
-import com.binar.finalproject14.adapter.InfoAdapter
 import com.binar.finalproject14.adapter.WishlistAdapter
-import com.binar.finalproject14.data.dao.WishlistData
-import com.binar.finalproject14.databinding.FragmentAboutBinding
+import com.binar.finalproject14.data.model.WishlistData
 import com.binar.finalproject14.databinding.FragmentWhislistBinding
 import com.binar.finalproject14.viewmodel.WishlistViewModel
 import com.google.android.material.snackbar.Snackbar

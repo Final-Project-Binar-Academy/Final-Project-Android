@@ -6,6 +6,7 @@ import com.binar.finalproject14.data.api.response.airport.AirportResponse
 import com.binar.finalproject14.data.api.response.auth.AuthResponse
 import com.binar.finalproject14.data.api.response.profile.GetUserResponse
 import com.binar.finalproject14.data.api.response.profile.User
+import com.binar.finalproject14.data.api.response.search.SearchResponse
 import com.binar.finalproject14.data.api.response.ticket.FlightIdResponse
 import com.binar.finalproject14.data.api.response.ticket.FlightResponse
 import com.binar.finalproject14.data.api.response.transaction.history.TransactionFilterResponse
@@ -48,7 +49,10 @@ interface UserApi {
     @GET("/api/transaction/filter")
     fun getTransactionDataByFilter(@Header("Authorization")token: String, @Query("status")status: String) : Call<TransactionFilterResponse>
 
-
+    // search
+    @GET("/api/ticket/search/")
+    fun search(@Query("departureDate")departureDate: String, @Query("originCity")originCity: String,
+                @Query("destinationCity")destinationCity: String, @Query("returnDate")returnDate: String) : Call<SearchResponse>
 
 
 //    companion object {

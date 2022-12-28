@@ -1,4 +1,4 @@
-package com.binar.finalproject14.utils
+package com.binar.finalproject14.data.utils
 
 import android.content.Context
 import androidx.datastore.preferences.core.booleanPreferencesKey
@@ -9,7 +9,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class CityDatastore(@ApplicationContext val context: Context) {
+class SearchDatastore(@ApplicationContext val context: Context) {
 
     companion object {
         private const val DATASTORE_NAME = "CITY_DATASTORE"
@@ -19,6 +19,10 @@ class CityDatastore(@ApplicationContext val context: Context) {
         private val CITYCODE_DEPARTURE = stringPreferencesKey("CITYCODE_DEPARTURE")
         private val IS_DEPARTURE_KEY = booleanPreferencesKey("IS_DEPARTURE_KEY")
         private val IS_DESTINATION_KEY = booleanPreferencesKey("IS_DESTINATION_KEY")
+        private val DEPARTURE_DATE = stringPreferencesKey("DEPARTURE_DATE")
+        private val RETURN_DATE = stringPreferencesKey("RETURN_DATE")
+        private val IS_DEPARTURE_DATE = booleanPreferencesKey("IS_DEPARTURE_DATE")
+        private val IS_RETURN_DATE = booleanPreferencesKey("IS_RETURN_DATE")
         private val Context.dataStore by preferencesDataStore(
             name = DATASTORE_NAME
         )
@@ -44,6 +48,16 @@ class CityDatastore(@ApplicationContext val context: Context) {
             it[CITYCODE_DESTINATION] ?: ""
         }
 
+    val getDepartureDate: Flow<String> =
+        context.dataStore.data.map {
+            it[DEPARTURE_DATE] ?: ""
+        }
+
+    val getReturnDate: Flow<String> =
+        context.dataStore.data.map {
+            it[RETURN_DATE] ?: ""
+        }
+
     val getIsDeparture: Flow<Boolean> =
         context.dataStore.data.map {
             it[IS_DEPARTURE_KEY] ?: false
@@ -53,6 +67,28 @@ class CityDatastore(@ApplicationContext val context: Context) {
         context.dataStore.data.map {
             it[IS_DESTINATION_KEY] ?: false
         }
+
+    val getIsDepartureDate: Flow<Boolean> =
+        context.dataStore.data.map {
+            it[IS_DEPARTURE_DATE] ?: false
+        }
+
+    val getIsReturnDate: Flow<Boolean> =
+        context.dataStore.data.map {
+            it[IS_RETURN_DATE] ?: false
+        }
+
+    suspend fun saveDepartureDate(departureDate: String){
+        context.dataStore.edit {
+            it[DEPARTURE_DATE] = departureDate
+        }
+    }
+
+    suspend fun saveReturnDate(returnDate: String){
+        context.dataStore.edit {
+            it[RETURN_DATE] = returnDate
+        }
+    }
 
     suspend fun saveDeparture(cityDeparture: String, cityCodeDeparture: String, isDeparture: Boolean) {
         context.dataStore.edit {
@@ -83,6 +119,18 @@ class CityDatastore(@ApplicationContext val context: Context) {
             it.remove(CITY_DESTINATION)
             it.remove(CITYCODE_DESTINATION)
             it.remove(IS_DESTINATION_KEY)
+        }
+    }
+
+    suspend fun removeDepartureDate(){
+        context.dataStore.edit {
+            it.remove(DEPARTURE_DATE)
+        }
+    }
+
+    suspend fun removeReturnDate(){
+        context.dataStore.edit {
+            it.remove(RETURN_DATE)
         }
     }
 }

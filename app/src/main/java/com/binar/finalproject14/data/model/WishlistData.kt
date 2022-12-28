@@ -1,4 +1,4 @@
-package com.binar.finalproject14.data.dao
+package com.binar.finalproject14.data.model
 
 import android.os.Parcelable
 import androidx.room.Entity
@@ -22,5 +22,4 @@ class WishlistData(
     var city_destination: String,
     var company: String,
     var price: String
-) : Parcelable {
-}
+) : Parcelable

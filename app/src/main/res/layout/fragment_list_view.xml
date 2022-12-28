@@ -5,15 +5,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_home"
     tools:context=".ui.ListViewFragment">
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edit_text"
+        android:layout_marginHorizontal="10dp"
         android:layout_width="match_parent"
-        android:layout_height="50sp"
-        android:inputType="text"/>
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
+        android:backgroundTintMode="screen"
+        android:hint="Input City"
+        android:inputType="textPersonName"
+        android:maxLines="1"
+        android:textColorHint="@color/abu"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <ListView
+        android:layout_marginTop="0dp"
+        android:layout_marginHorizontal="10dp"
         android:id="@+id/list_view"
         android:layout_below="@id/edit_text"
         android:layout_width="match_parent"

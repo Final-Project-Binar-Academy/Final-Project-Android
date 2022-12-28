@@ -4,19 +4,14 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.binar.finalproject14.data.api.response.ticket.FlightIdResponse
 import com.binar.finalproject14.data.api.service.UserApi
-import com.binar.finalproject14.data.dao.WishlistData
+import com.binar.finalproject14.data.model.WishlistData
 import com.binar.finalproject14.data.dao.WishlistDatabase
-import com.binar.finalproject14.repository.FlightRepository
 import com.binar.finalproject14.repository.WishlistRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel

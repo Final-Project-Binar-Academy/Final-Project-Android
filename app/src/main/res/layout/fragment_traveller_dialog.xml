@@ -8,189 +8,196 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="20dp"
+        android:background="@color/white"
         android:paddingBottom="16dp">
 
         <LinearLayout
-        android:padding ="20dp"
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-<!--        <LinearLayout-->
-<!--            android:gravity="center"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content">-->
-
-<!--            <LinearLayout-->
-<!--                android:padding="10dp"-->
-<!--                android:orientation="vertical"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content">-->
-
-<!--                <androidx.appcompat.widget.AppCompatTextView-->
-<!--                    android:text="@string/adult"-->
-<!--                    android:fontFamily="@font/poppins_semibold"-->
-<!--                    android:textSize="16sp"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"/>-->
-
-<!--                <RadioGroup-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content">-->
-
-<!--                    <androidx.appcompat.widget.AppCompatRadioButton-->
-<!--                        android:buttonTint="@color/basic"-->
-<!--                        android:textSize="14sp"-->
-<!--                        android:paddingStart="5dp"-->
-<!--                        android:fontFamily="@font/poppins"-->
-<!--                        android:textColor="@color/black"-->
-<!--                        android:text="@string/oneAdult"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"/>-->
-
-<!--                    <androidx.appcompat.widget.AppCompatRadioButton-->
-<!--                        android:buttonTint="@color/basic"-->
-<!--                        android:textSize="14sp"-->
-<!--                        android:paddingStart="5dp"-->
-<!--                        android:fontFamily="@font/poppins"-->
-<!--                        android:textColor="@color/black"-->
-<!--                        android:text="@string/twoAdult"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"/>-->
-
-<!--                    <androidx.appcompat.widget.AppCompatRadioButton-->
-<!--                        android:buttonTint="@color/basic"-->
-<!--                        android:textSize="14sp"-->
-<!--                        android:paddingStart="5dp"-->
-<!--                        android:fontFamily="@font/poppins"-->
-<!--                        android:textColor="@color/black"-->
-<!--                        android:text="@string/threeAdult"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"/>-->
-
-<!--                    <androidx.appcompat.widget.AppCompatRadioButton-->
-<!--                        android:buttonTint="@color/basic"-->
-<!--                        android:textSize="14sp"-->
-<!--                        android:paddingStart="5dp"-->
-<!--                        android:fontFamily="@font/poppins"-->
-<!--                        android:textColor="@color/black"-->
-<!--                        android:text="@string/fourAdult"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"/>-->
-
-<!--                </RadioGroup>-->
-
-<!--            </LinearLayout>-->
-
-<!--            <LinearLayout-->
-<!--                android:padding="10dp"-->
-<!--                android:layout_marginStart="50dp"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:orientation="vertical"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content">-->
-
-<!--                <androidx.appcompat.widget.AppCompatTextView-->
-<!--                    android:text="@string/child"-->
-<!--                    android:fontFamily="@font/poppins_semibold"-->
-<!--                    android:textSize="16sp"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"/>-->
-
-<!--                <RadioGroup-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content">-->
-
-<!--                    <androidx.appcompat.widget.AppCompatRadioButton-->
-<!--                        android:buttonTint="@color/basic"-->
-<!--                        android:textSize="14sp"-->
-<!--                        android:paddingStart="5dp"-->
-<!--                        android:fontFamily="@font/poppins"-->
-<!--                        android:textColor="@color/black"-->
-<!--                        android:text="@string/oneChild"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"/>-->
-
-<!--                    <androidx.appcompat.widget.AppCompatRadioButton-->
-<!--                        android:buttonTint="@color/basic"-->
-<!--                        android:textSize="14sp"-->
-<!--                        android:paddingStart="5dp"-->
-<!--                        android:fontFamily="@font/poppins"-->
-<!--                        android:textColor="@color/black"-->
-<!--                        android:text="@string/twoChild"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"/>-->
-
-<!--                </RadioGroup>-->
-
-<!--            </LinearLayout>-->
-
-<!--        </LinearLayout>-->
-
-        <LinearLayout
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
+            android:padding ="20dp"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
+            <!--        <LinearLayout-->
+            <!--            android:gravity="center"-->
+            <!--            android:orientation="horizontal"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content">-->
+
+            <!--            <LinearLayout-->
+            <!--                android:padding="10dp"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content">-->
+
+            <!--                <androidx.appcompat.widget.AppCompatTextView-->
+            <!--                    android:text="@string/adult"-->
+            <!--                    android:fontFamily="@font/poppins_semibold"-->
+            <!--                    android:textSize="16sp"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"/>-->
+
+            <!--                <RadioGroup-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content">-->
+
+            <!--                    <androidx.appcompat.widget.AppCompatRadioButton-->
+            <!--                        android:buttonTint="@color/basic"-->
+            <!--                        android:textSize="14sp"-->
+            <!--                        android:paddingStart="5dp"-->
+            <!--                        android:fontFamily="@font/poppins"-->
+            <!--                        android:textColor="@color/black"-->
+            <!--                        android:text="@string/oneAdult"-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="wrap_content"/>-->
+
+            <!--                    <androidx.appcompat.widget.AppCompatRadioButton-->
+            <!--                        android:buttonTint="@color/basic"-->
+            <!--                        android:textSize="14sp"-->
+            <!--                        android:paddingStart="5dp"-->
+            <!--                        android:fontFamily="@font/poppins"-->
+            <!--                        android:textColor="@color/black"-->
+            <!--                        android:text="@string/twoAdult"-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="wrap_content"/>-->
+
+            <!--                    <androidx.appcompat.widget.AppCompatRadioButton-->
+            <!--                        android:buttonTint="@color/basic"-->
+            <!--                        android:textSize="14sp"-->
+            <!--                        android:paddingStart="5dp"-->
+            <!--                        android:fontFamily="@font/poppins"-->
+            <!--                        android:textColor="@color/black"-->
+            <!--                        android:text="@string/threeAdult"-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="wrap_content"/>-->
+
+            <!--                    <androidx.appcompat.widget.AppCompatRadioButton-->
+            <!--                        android:buttonTint="@color/basic"-->
+            <!--                        android:textSize="14sp"-->
+            <!--                        android:paddingStart="5dp"-->
+            <!--                        android:fontFamily="@font/poppins"-->
+            <!--                        android:textColor="@color/black"-->
+            <!--                        android:text="@string/fourAdult"-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="wrap_content"/>-->
+
+            <!--                </RadioGroup>-->
+
+            <!--            </LinearLayout>-->
+
+            <!--            <LinearLayout-->
+            <!--                android:padding="10dp"-->
+            <!--                android:layout_marginStart="50dp"-->
+            <!--                android:layout_gravity="center"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content">-->
+
+            <!--                <androidx.appcompat.widget.AppCompatTextView-->
+            <!--                    android:text="@string/child"-->
+            <!--                    android:fontFamily="@font/poppins_semibold"-->
+            <!--                    android:textSize="16sp"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"/>-->
+
+            <!--                <RadioGroup-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content">-->
+
+            <!--                    <androidx.appcompat.widget.AppCompatRadioButton-->
+            <!--                        android:buttonTint="@color/basic"-->
+            <!--                        android:textSize="14sp"-->
+            <!--                        android:paddingStart="5dp"-->
+            <!--                        android:fontFamily="@font/poppins"-->
+            <!--                        android:textColor="@color/black"-->
+            <!--                        android:text="@string/oneChild"-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="wrap_content"/>-->
+
+            <!--                    <androidx.appcompat.widget.AppCompatRadioButton-->
+            <!--                        android:buttonTint="@color/basic"-->
+            <!--                        android:textSize="14sp"-->
+            <!--                        android:paddingStart="5dp"-->
+            <!--                        android:fontFamily="@font/poppins"-->
+            <!--                        android:textColor="@color/black"-->
+            <!--                        android:text="@string/twoChild"-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="wrap_content"/>-->
+
+            <!--                </RadioGroup>-->
+
+            <!--            </LinearLayout>-->
+
+            <!--        </LinearLayout>-->
+
             <LinearLayout
-                android:padding="10dp"
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:background="@color/white"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:text="@string/traveller"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:textSize="16sp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-                <RadioGroup
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:padding="10dp"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
-                    <androidx.appcompat.widget.AppCompatRadioButton
-                        android:id="@+id/rbAdult"
-                        android:buttonTint="@color/basic"
-                        android:textSize="14sp"
-                        android:paddingStart="5dp"
-                        android:fontFamily="@font/poppins_medium"
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:text="@string/traveller"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textSize="16sp"
                         android:textColor="@color/black"
-                        android:text="@string/oneAdult"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
 
-                    <androidx.appcompat.widget.AppCompatRadioButton
-                        android:id="@+id/rbChild"
-                        android:buttonTint="@color/basic"
-                        android:textSize="14sp"
-                        android:paddingStart="5dp"
-                        android:fontFamily="@font/poppins_medium"
-                        android:textColor="@color/black"
-                        android:text="@string/oneChild"
+                    <RadioGroup
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                </RadioGroup>
+                        android:layout_height="wrap_content">
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                            android:id="@+id/rbAdult"
+                            android:buttonTint="@color/basic"
+                            android:textSize="14sp"
+                            android:paddingStart="5dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textColor="@color/black"
+                            android:text="@string/oneAdult"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                            android:id="@+id/rbChild"
+                            android:buttonTint="@color/basic"
+                            android:textSize="14sp"
+                            android:paddingStart="5dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textColor="@color/black"
+                            android:text="@string/oneChild"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </RadioGroup>
+                </LinearLayout>
             </LinearLayout>
+            <View
+                android:layout_gravity="center"
+                android:layout_width="200dp"
+                android:visibility="visible"
+                android:layout_height="1dp"
+                android:background="@color/abu"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/save"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:text="@string/save"
+                android:backgroundTint="@color/basic"
+                app:cornerRadius="20dp"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"/>
+
         </LinearLayout>
-        <View
-            android:layout_gravity="center"
-            android:layout_width="200dp"
-            android:visibility="visible"
-            android:layout_height="1dp"
-            android:background="@color/abu"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/save"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
-            android:text="@string/save"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
 </layout>

@@ -16,7 +16,7 @@ import com.binar.finalproject14.data.api.response.transaction.history.Data
 import com.binar.finalproject14.data.api.service.filter.ApiClient
 import com.binar.finalproject14.data.api.service.filter.ApiHelper
 import com.binar.finalproject14.databinding.FragmentPastBinding
-import com.binar.finalproject14.utils.UserDataStoreManager
+import com.binar.finalproject14.data.utils.UserDataStoreManager
 import com.binar.finalproject14.viewmodel.TransactionFilterViewModel
 import com.binar.finalproject14.viewmodel.factory.TransactionFilterViewModelFactory
 import com.google.android.material.snackbar.Snackbar
