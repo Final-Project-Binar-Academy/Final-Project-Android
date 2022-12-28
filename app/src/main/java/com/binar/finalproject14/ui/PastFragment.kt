@@ -1,5 +1,7 @@
 package com.binar.finalproject14.ui
 
+import android.annotation.SuppressLint
+import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -31,6 +33,10 @@ class PastFragment : Fragment(), TransactionAdapter.ListTransactionInterface {
     private var _binding: FragmentPastBinding? = null
     private val binding get() = _binding!!
 
+    private var isSuccess = false
+    private var isPending = false
+    private var isCanceled = false
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,19 +51,36 @@ class PastFragment : Fragment(), TransactionAdapter.ListTransactionInterface {
         return binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         (activity as MainActivity).binding.navHome.visibility = View.VISIBLE
 
-        binding.upcoming.setOnClickListener {
-            findNavController().navigate(R.id.action_pastFragment_to_tripUpcomingFragment)
+        rcyView("success")
+        binding.successTransaction.setOnClickListener {
+            rcyView("success")
+            binding.successTransaction.typeface = Typeface.DEFAULT_BOLD
+            binding.pendingTransaction.typeface = Typeface.DEFAULT
+            binding.cancelTransaction.typeface = Typeface.DEFAULT
         }
-        rcyView("pending")
+        binding.pendingTransaction.setOnClickListener {
+            rcyView("pending")
+            binding.pendingTransaction.typeface = Typeface.DEFAULT_BOLD
+            binding.successTransaction.typeface = Typeface.DEFAULT
+            binding.cancelTransaction.typeface = Typeface.DEFAULT
+        }
+        binding.cancelTransaction.setOnClickListener {
+            rcyView("canceled")
+            binding.cancelTransaction.typeface = Typeface.DEFAULT_BOLD
+            binding.successTransaction.typeface = Typeface.DEFAULT
+            binding.pendingTransaction.typeface = Typeface.DEFAULT
+        }
+
         super.onViewCreated(view, savedInstanceState)
 
     }
 
-    fun rcyView(status: String) {
+    private fun rcyView(status: String) {
         val adapter: TransactionAdapter by lazy {
             TransactionAdapter {
 
@@ -72,22 +95,24 @@ class PastFragment : Fragment(), TransactionAdapter.ListTransactionInterface {
             viewModel.getTransactionFilter().observe(viewLifecycleOwner) {
                 if (it != null) {
                     adapter.setData(it.data as List<Data>)
+                    setImgOff()
                 } else {
-                    Snackbar.make(binding.root, "Data Gagal Dimuat", Snackbar.LENGTH_SHORT)
-                        .setBackgroundTint(
-                            ContextCompat.getColor(
-                                requireContext(),
-                                R.color.button
-                            )
-                        )
-                        .setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
-                        .show()
+                    setImg()
                 }
             }
             rvPost.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             rvPost.adapter = adapter
         }
 
+    }
+
+    fun setImg(){
+        binding.noTicket.visibility = View.VISIBLE
+        binding.rvPost.visibility = View.GONE
+    }
+    fun setImgOff(){
+        binding.noTicket.visibility = View.GONE
+        binding.rvPost.visibility = View.VISIBLE
     }
 
     override fun onItemClick(TransactionDetail: Data) {

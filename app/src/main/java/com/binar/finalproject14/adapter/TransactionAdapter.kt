@@ -90,6 +90,8 @@ class TransactionAdapter(private val itemClick: (Data) -> Unit) :
         differ.submitList(data)
     }
 
+
+
     interface ListTransactionInterface {
         fun onItemClick(TransactionDetail: Data)
     }
