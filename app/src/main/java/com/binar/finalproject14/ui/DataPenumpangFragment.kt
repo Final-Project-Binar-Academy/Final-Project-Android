@@ -69,7 +69,8 @@ class DataPenumpangFragment : Fragment() {
         }
     }
 
-    private fun getBirthday() {val materialDateBuilder: MaterialDatePicker.Builder<*> =
+    private fun getBirthday() {
+        val materialDateBuilder: MaterialDatePicker.Builder<*> =
         MaterialDatePicker.Builder.datePicker()
 
         materialDateBuilder.setTitleText("SELECT A DATE")
@@ -174,23 +175,40 @@ class DataPenumpangFragment : Fragment() {
 //            val tBack = binding.ticketBack.text.toString().toInt()
             val fName = binding.firstname1.text.toString()
             val lName = binding.lastname1.text.toString()
-            val nIK = binding.etPhone1.text.toString()
-            val tripId = binding.numberID1.text.toString().toInt()
+            val nIK = binding.nik.text.toString()
             val birth = binding.birth.text.toString()
-            transactionViewModel.getDataStoreToken().observe(viewLifecycleOwner) {
-                transactionViewModel.addTransaction(tGo!!, tBack!!, tripId, fName, lName, nIK, birth,"Bearer $it")
-                Log.d("tgo", tGo.toString())
+
+            searchViewModel.getIsOneway().observe(viewLifecycleOwner){
+                if (it == true){
+                    val tripId = 1
+                    transactionViewModel.getDataStoreToken().observe(viewLifecycleOwner) {
+                        transactionViewModel.addTransaction(tGo!!, tBack!!, tripId, fName, lName, nIK, birth,"Bearer $it")
+                        transactionViewModel.add.observe(viewLifecycleOwner) {
+                            val bundle = Bundle()
+                            bundle.putInt("tripId", tripId)
+                            findNavController().navigate(
+                                R.id.action_dataPenumpangFragment_to_rincianPembayaranFragment,
+                                bundle
+                            )
+                        }
+                    }
+                } else {
+                    val tripId = 2
+                    transactionViewModel.getDataStoreToken().observe(viewLifecycleOwner) {
+                        transactionViewModel.addTransaction(tGo!!, tBack!!, tripId, fName, lName, nIK, birth,"Bearer $it")
+                        transactionViewModel.add.observe(viewLifecycleOwner) {
+                            val bundle = Bundle()
+                            bundle.putInt("tripId", tripId)
+                            findNavController().navigate(
+                                R.id.action_dataPenumpangFragment_to_rincianPembayaranFragment,
+                                bundle
+                            )
+                        }
+                    }
+                }
             }
             Toast.makeText(requireContext(), "Add Success", Toast.LENGTH_SHORT).show()
-            transactionViewModel.add.observe(viewLifecycleOwner) {
-                val bundle = Bundle()
-                val tripId = it?.data?.tripId!!.toInt()
-                bundle.putInt("tripId", tripId)
-                findNavController().navigate(
-                    R.id.action_dataPenumpangFragment_to_rincianPembayaranFragment,
-                    bundle
-                )
-            }
+
         }
     }
 }
