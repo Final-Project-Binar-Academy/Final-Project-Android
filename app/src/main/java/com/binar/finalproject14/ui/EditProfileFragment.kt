@@ -17,6 +17,7 @@ import com.binar.finalproject14.MainActivity
 import com.binar.finalproject14.R
 import com.binar.finalproject14.databinding.FragmentEditProfileBinding
 import com.binar.finalproject14.viewmodel.ProfileViewModel
+import com.bumptech.glide.Glide
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
@@ -78,9 +79,10 @@ class EditProfileFragment : DialogFragment() {
             val phone = binding.etPhone.text.toString().trim()
                 .toRequestBody("multipart/form-data".toMediaType())
             viewModel.getDataStoreToken().observe(viewLifecycleOwner) {
-                viewModel.updateUser(fName, lName, address, phone, imageMultiPart!!,"Bearer $it")
+                viewModel.updateUser(fName, lName, address,phone, imageMultiPart!!,"Bearer $it")
             }
 //            viewModel.saveImage(image_uri.toString())
+
             viewModel.saveUsername(username)
             Toast.makeText(requireContext(), "Update Success", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_editProfileFragment_to_profileFragment)
@@ -92,6 +94,9 @@ class EditProfileFragment : DialogFragment() {
                     etLastName.setText(it.data?.lastName)
                     etAddress.setText(it.data?.address)
                     etPhone.setText(it.data?.phoneNumber)
+                    Glide.with(requireContext())
+                        .load(it.data?.avatar)
+                        .into(binding.ivEditImage)
                 }
             }
         }

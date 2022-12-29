@@ -6,18 +6,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.binar.finalproject14.R
+import com.binar.finalproject14.data.api.response.transaction.add.AddTransaction
 import com.binar.finalproject14.databinding.FragmentAboutBinding
 import com.binar.finalproject14.databinding.FragmentDataPenumpangBinding
 import com.binar.finalproject14.databinding.FragmentDetailBinding
 import com.binar.finalproject14.viewmodel.FlightViewModel
+import com.binar.finalproject14.viewmodel.TransactionViewModel
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.RequestBody.Companion.toRequestBody
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -27,6 +32,7 @@ class DataPenumpangFragment : Fragment() {
     private var _binding: FragmentDataPenumpangBinding? = null
     private val binding get() = _binding!!
     private lateinit var flightViewModel: FlightViewModel
+    private lateinit var transactionViewModel : TransactionViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +47,8 @@ class DataPenumpangFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         flightViewModel = ViewModelProvider(this)[FlightViewModel::class.java]
+        transactionViewModel = ViewModelProvider(this)[TransactionViewModel::class.java]
+        addAirport()
         getTipeTraveller()
         getTipeId()
         getTicket()
@@ -109,5 +117,28 @@ class DataPenumpangFragment : Fragment() {
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, tipeTraveller)
         binding.actvTipePenumpang.setAdapter(arrayAdapter)
     }
-
+    private fun addAirport(){
+        binding.btnBooking.setOnClickListener {
+            val tGo = binding.ticketGo.text.toString().toInt()
+            val tBack = binding.ticketBack.text.toString().toInt()
+            val fName = binding.firstname1.text.toString()
+            val lName = binding.lastname1.text.toString()
+            val nIK = binding.etPhone1.text.toString()
+            val tripId = binding.numberID1.text.toString().toInt()
+            val birth = binding.birth.text.toString()
+            transactionViewModel.getDataStoreToken().observe(viewLifecycleOwner) {
+                transactionViewModel.addTransaction(tGo, tBack, tripId, fName, lName, nIK, birth,"Bearer $it")
+            }
+            Toast.makeText(requireContext(), "Add Success", Toast.LENGTH_SHORT).show()
+            transactionViewModel.add.observe(viewLifecycleOwner) {
+                val bundle = Bundle()
+                val tripId = it?.data?.tripId.toString().toInt()
+                bundle.putInt("tripId", tripId)
+                findNavController().navigate(
+                    R.id.action_dataPenumpangFragment_to_rincianPembayaranFragment,
+                    bundle
+                )
+            }
+        }
+    }
 }

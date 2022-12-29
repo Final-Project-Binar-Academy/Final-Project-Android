@@ -2,6 +2,7 @@ package com.binar.finalproject14.data.api.service
 
 import com.binar.finalproject14.data.api.request.LoginRequest
 import com.binar.finalproject14.data.api.request.RegisterRequest
+import com.binar.finalproject14.data.api.response.TransactionResponse
 import com.binar.finalproject14.data.api.response.airport.AirportResponse
 import com.binar.finalproject14.data.api.response.auth.AuthResponse
 import com.binar.finalproject14.data.api.response.profile.GetUserResponse
@@ -9,6 +10,9 @@ import com.binar.finalproject14.data.api.response.profile.User
 import com.binar.finalproject14.data.api.response.search.SearchResponse
 import com.binar.finalproject14.data.api.response.ticket.FlightIdResponse
 import com.binar.finalproject14.data.api.response.ticket.FlightResponse
+import com.binar.finalproject14.data.api.response.transaction.add.AddTransaction
+import com.binar.finalproject14.data.api.response.transaction.add.Transaksi
+import com.binar.finalproject14.data.api.response.transaction.history.Go
 import com.binar.finalproject14.data.api.response.transaction.history.TransactionFilterResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -53,6 +57,12 @@ interface UserApi {
     @GET("/api/ticket/search/")
     fun search(@Query("departureDate")departureDate: String, @Query("originCity")originCity: String,
                 @Query("destinationCity")destinationCity: String, @Query("returnDate")returnDate: String) : Call<SearchResponse>
+
+    @POST("/api/transaction/add")
+    fun addTransaction(@Header("Authorization")token: String, @Body request : AddTransaction) : Call<TransactionResponse>
+
+    @GET("/api/transaction/trip")
+    fun getTransactionTrip(@Header("Authorization") token: String, @Query("tripId") tripId: Int?) : Call<Transaksi>
 
 
 //    companion object {

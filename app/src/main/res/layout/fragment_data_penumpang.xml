@@ -36,12 +36,12 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingTop="10dp"
-                        android:paddingStart="20dp"
-                        android:paddingEnd="20dp"
-                        android:paddingBottom="10dp"
                         android:gravity="center"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:paddingStart="20dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="20dp"
+                        android:paddingBottom="10dp">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -53,14 +53,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textAppearance="@style/TextAppearance.MyApp.dateArrDep"/>
+                                android:textAppearance="@style/TextAppearance.MyApp.dateArrDep" />
 
                             <TextView
                                 android:id="@+id/departureTime"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textAppearance="@style/TextAppearance.MyApp.timeArrDep"/>
+                                android:textAppearance="@style/TextAppearance.MyApp.timeArrDep" />
 
 
                             <TextView
@@ -68,15 +68,15 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textSize="15sp"
-                                android:textAppearance="@style/TextAppearance.MyApp.textAirportFrom"/>
+                                android:textAppearance="@style/TextAppearance.MyApp.textAirportFrom"
+                                android:textSize="15sp" />
 
                             <TextView
                                 android:id="@+id/city1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textAppearance="@style/TextAppearance.MyApp.textDestintionFrom"/>
+                                android:textAppearance="@style/TextAppearance.MyApp.textDestintionFrom" />
 
                         </LinearLayout>
 
@@ -93,7 +93,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="04h00m"
-                                android:textAppearance="@style/TextAppearance.MyApp.timeEst"/>
+                                android:textAppearance="@style/TextAppearance.MyApp.timeEst" />
 
                             <ImageView
                                 android:layout_width="wrap_content"
@@ -106,7 +106,7 @@
                                 android:id="@+id/kelas"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textAppearance="@style/TextAppearance.MyApp.classSeat"/>
+                                android:textAppearance="@style/TextAppearance.MyApp.classSeat" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -120,28 +120,28 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textAppearance="@style/TextAppearance.MyApp.dateArrDep"/>
+                                android:textAppearance="@style/TextAppearance.MyApp.dateArrDep" />
 
                             <TextView
                                 android:id="@+id/arrivalTime"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textAppearance="@style/TextAppearance.MyApp.timeArrDep"/>
+                                android:textAppearance="@style/TextAppearance.MyApp.timeArrDep" />
 
                             <TextView
                                 android:id="@+id/codeIataTo"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textAppearance="@style/TextAppearance.MyApp.textAirportFrom"/>
+                                android:textAppearance="@style/TextAppearance.MyApp.textAirportFrom" />
 
                             <TextView
                                 android:id="@+id/city2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textAppearance="@style/TextAppearance.MyApp.textDestintionFrom"/>
+                                android:textAppearance="@style/TextAppearance.MyApp.textDestintionFrom" />
 
 
                         </LinearLayout>
@@ -302,30 +302,50 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+                    <LinearLayout
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-                        <RadioGroup
-                            android:layout_marginStart="20dp"
-                            android:orientation="horizontal"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MyApp.TextInputLayoutData"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:hint="@string/ticketGo"
+                            android:textColorHint="@color/abu">
 
-                            <com.google.android.material.radiobutton.MaterialRadioButton
-                                android:text="@string/male"
-                                android:buttonTint="@color/basic"
-                                android:textSize="14sp"
-                                android:paddingStart="5dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/ticketGo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:fontFamily="@font/rubik_medium"
+                                android:textSize="15sp"
+                                android:maxLines="1"
+                                android:textColor="@color/black" />
+                        </com.google.android.material.textfield.TextInputLayout>
 
-                            <com.google.android.material.radiobutton.MaterialRadioButton
-                                android:layout_marginStart="50dp"
-                                android:text="@string/female"
-                                android:buttonTint="@color/basic"
-                                android:textSize="14sp"
-                                android:paddingStart="5dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
-                        </RadioGroup>
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MyApp.TextInputLayoutData"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:hint="@string/ticketBack"
+                            android:textColorHint="@color/abu">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/ticketBack"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:fontFamily="@font/rubik_medium"
+                                android:textSize="15sp"
+                                android:maxLines="1"
+                                android:textColor="@color/black" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
 
                         <LinearLayout
                             android:gravity="center"
@@ -394,13 +414,12 @@
                                     android:id="@+id/type_id"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:inputType="none"
                                     android:fontFamily="@font/rubik_medium"
-                                    android:textSize="14sp"
-                                    android:textColorHint="@color/abu"
-                                    android:textColor="@color/black"
                                     android:hint="@string/select_id"
-                                    />
+                                    android:inputType="none"
+                                    android:textColor="@color/black"
+                                    android:textColorHint="@color/abu"
+                                    android:textSize="14sp" />
 
                             </com.google.android.material.textfield.TextInputLayout>
 
@@ -512,7 +531,7 @@
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="@string/phone"
+                            android:hint="@string/NIK"
                             android:textColorHint="@color/abu">
 
                             <com.google.android.material.textfield.TextInputEditText

@@ -80,21 +80,31 @@
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:id="@+id/cityCodeOri"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="DEL"
                                     android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport" />
 
                                 <TextView
+                                    android:id="@+id/cityOri"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="New Delhi,India"
                                     android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
 
                                 <TextView
+                                    android:id="@+id/goDepartureTime"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="23:45,Thu 15 Oct"
+                                    android:text="23:45"
+                                    android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
+
+                                <TextView
+                                    android:id="@+id/goDepartureDate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Thu 15 Oct"
                                     android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
 
 
@@ -122,21 +132,30 @@
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:id="@+id/cityCodeDestination"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="DEL"
                                     android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport" />
 
                                 <TextView
+                                    android:id="@+id/cityDestination"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="New Delhi,India"
                                     android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
 
                                 <TextView
+                                    android:id="@+id/goArrivalTime"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="23:45,Thu 15 Oct"
+                                    android:text="23:45"
+                                    android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
+                                <TextView
+                                    android:id="@+id/goArrivalDate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Thu 15 Oct"
                                     android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
 
 
@@ -170,16 +189,11 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:id="@+id/goCompany"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="United Airlines UA 802"
                                 android:textAppearance="@style/TextAppearance.MyApp.detail.from.airline" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="15h 15m . Direct"
-                                android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
 
 
                         </LinearLayout>
@@ -205,6 +219,7 @@
                             android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
 
                         <TextView
+                            android:id="@+id/goPassenger"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15dp"
@@ -212,6 +227,7 @@
                             android:textAppearance="@style/TextAppearance.MyApp.detail.from.airline" />
 
                         <TextView
+                            android:id="@+id/goClass"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Adult (Business)"

@@ -157,6 +157,9 @@
     <string name="countOver">99+</string>
     <string name="overCount">99+</string>
     <string name="booking">Booking</string>
+    <string name="ticketGo">TICKET GO</string>
+    <string name="ticketBack">TICKET BACK</string>
+    <string name="NIK">NIK</string>
     <string name="cancelTransaction">Canceled</string>
     <string name="pendingTransaction">Pending</string>
     <string name="successTransaction">Success</string>

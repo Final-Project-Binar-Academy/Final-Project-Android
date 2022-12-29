@@ -80,6 +80,9 @@ class ProfileViewModel @Inject constructor(
     fun getDataStoreToken(): LiveData<String> {
         return pref.getToken.asLiveData()
     }
+    fun getDataStoreImage(): LiveData<String> {
+        return pref.getProfileImage.asLiveData()
+    }
 
     fun removeIsLoginStatus() {
         viewModelScope.launch {
@@ -98,6 +101,11 @@ class ProfileViewModel @Inject constructor(
             pref.removeToken()
         }
     }
+    fun removeImage() {
+        viewModelScope.launch {
+            pref.removeImage()
+        }
+    }
 
     fun removeId() {
         viewModelScope.launch {
@@ -112,6 +120,11 @@ class ProfileViewModel @Inject constructor(
     fun saveUsername(username: String) {
         viewModelScope.launch {
             pref.saveUsername(username)
+        }
+    }
+    fun saveImage(uri: String) {
+        viewModelScope.launch {
+            pref.saveImage(uri)
         }
     }
 
