@@ -137,7 +137,9 @@ class HomeFragment : Fragment() {
         }
         searchViewModel.getDepartureDate().observe(viewLifecycleOwner){
             if (it != null){
-                bund.putString("departureDate", it)
+                val simpleFormat = SimpleDateFormat("yyyy-MM-dd")
+                val itDepartureDate = simpleFormat.format(Date(it))
+                bund.putString("departureDate", itDepartureDate)
             }
         }
         searchViewModel.getIsOneway().observe(viewLifecycleOwner){
@@ -200,25 +202,26 @@ class HomeFragment : Fragment() {
 
     private fun activateOneway() {
         searchViewModel.saveIsOneway(true)
+        searchViewModel.removeReturnDate()
         searchViewModel.getDepartureDate().observe(viewLifecycleOwner){
             if (it != null){
                 binding.date1.text
             }
         }
+
         val materialDateBuilder: MaterialDatePicker.Builder<*> =
             MaterialDatePicker.Builder.datePicker()
 
         materialDateBuilder.setTitleText("SELECT A DATE")
         val materialDatePicker = materialDateBuilder.build()
+
         binding.date1.setOnClickListener(
             View.OnClickListener {
                 if(materialDatePicker.dialog==null && !materialDatePicker.isVisible)
                     materialDatePicker.show(childFragmentManager, "MATERIAL_DATE_PICKER")
             })
         materialDatePicker.addOnPositiveButtonClickListener {
-            searchViewModel.removeReturnDate()
-            val simpleFormat = SimpleDateFormat("yyyy-MM-dd")
-            departureDate = simpleFormat.format(Date(materialDatePicker.headerText))
+            departureDate = materialDatePicker.headerText
             binding.date1.text = materialDatePicker.headerText
             searchViewModel.getIsDepartureDate().observe(viewLifecycleOwner){
                 searchViewModel.saveDepartureDate(departureDate)

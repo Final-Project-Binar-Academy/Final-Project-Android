@@ -1,6 +1,7 @@
 package com.binar.finalproject14.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -82,10 +83,11 @@ class RincianPembayaranFragment : Fragment() {
     }
 
     private fun transactionTrip() {
-//        transactionViewModel.getDataStoreToken().observe(viewLifecycleOwner){
-//            val tripId = arguments?.getInt("tripId")
-//            transactionViewModel.getTransactionTrip(tripId, "Bearer $it")
-//        }
+        transactionViewModel.getDataStoreToken().observe(viewLifecycleOwner){
+            val tripId = arguments?.getInt("tripId")
+            Log.d("tripId", tripId.toString())
+            transactionViewModel.getTransactionTrip(tripId, "Bearer $it")
+        }
         transactionViewModel.transaction.observe(viewLifecycleOwner) {
             binding.cityCodeOri.text = it?.data?.go?.origin?.cityCode.toString()
             binding.cityOri.text = it?.data?.go?.origin?.city.toString()
