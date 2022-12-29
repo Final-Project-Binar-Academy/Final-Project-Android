@@ -1,21 +1,23 @@
 package com.binar.finalproject14.data.api.response.transaction.add
 
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
+@Keep
 data class Passenger(
     @SerializedName("brithDate")
-    val brithDate: String,
+    var brithDate: String?,
     @SerializedName("createdAt")
-    val createdAt: String,
+    var createdAt: String?,
     @SerializedName("firstName")
-    val firstName: String,
+    var firstName: String?,
     @SerializedName("id")
-    val id: Int,
+    var id: Int?,
     @SerializedName("lastName")
-    val lastName: String,
+    var lastName: String?,
     @SerializedName("NIK")
-    val nIK: String,
+    var nIK: String?,
     @SerializedName("updatedAt")
-    val updatedAt: String
+    var updatedAt: String?
 )

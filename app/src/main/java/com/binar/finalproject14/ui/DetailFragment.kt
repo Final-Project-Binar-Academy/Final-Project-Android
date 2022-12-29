@@ -92,23 +92,25 @@ class DetailFragment : DialogFragment() {
                 if (id_ticket_go != null) {
                     bund.putInt("id_oneway", id_ticket_go)
                 }
-                Log.d("idoneway", id_ticket_go.toString())
                 if (it == true){
                     findNavController().navigate(R.id.action_detailFragment_to_dataPenumpangFragment, bund)
-                } else {
+                }
+                else {
                     val departureDate = arguments?.getString("departure_date")
                     val departureCity = arguments?.getString("departure_city")
                     val destinationCity = arguments?.getString("destination_city")
                     val returnDate = arguments?.getString("return_date")
                     val id_ticket_back = arguments?.getInt("id_ticket_back")
-                    if (id_ticket_back != null){
-                        bund.putInt("id_ticket_back", id_ticket_back)
+                    if (id_ticket_back != 0){
+                        if (id_ticket_back != null) {
+                            bund.putInt("id_ticket_back", id_ticket_back)
+                        }
                         findNavController().navigate(R.id.action_detailFragment_to_dataPenumpangFragment, bund)
                     } else {
-                        bund.putString("departure_date", departureDate)
-                        bund.putString("departure_city", departureCity)
-                        bund.putString("destination_city", destinationCity)
-                        bund.putString("return_date", returnDate)
+                        bund.putString("departureDate", departureDate)
+                        bund.putString("departureCity", departureCity)
+                        bund.putString("destinationCity", destinationCity)
+                        bund.putString("returnDate", returnDate)
                         findNavController().navigate(R.id.searchFragment, bund)
                     }
                 }
@@ -117,7 +119,11 @@ class DetailFragment : DialogFragment() {
     }
 
     private fun cekWishlist() {
-        val id = arguments?.getInt("id_ticket_go")
+        var id = arguments?.getInt("id_ticket_go")
+        val id_back = arguments?.getInt("id_ticket_back")
+        if (id_back != 0) {
+            id = id_back
+        }
         if (id != null) {
             wishlistViewModel.isWishlist(id)
             wishlistViewModel.wishlist.observe(viewLifecycleOwner) {
@@ -132,10 +138,16 @@ class DetailFragment : DialogFragment() {
                 }
             }
         }
+
+
     }
 
     private fun getDetail() {
-        val id = arguments?.getInt("id_ticket_go")
+        var id = arguments?.getInt("id_ticket_go")
+        val id_back = arguments?.getInt("id_ticket_back")
+        if (id_back != 0) {
+            id = id_back
+        }
 
         if (id != null) {
             flightViewModel.getFlightDetail(id)
@@ -186,8 +198,8 @@ class DetailFragment : DialogFragment() {
                 Snackbar.make(binding.root, "Ticket ditambahkan ke Wishlist", Snackbar.LENGTH_SHORT)
                     .setBackgroundTint(
                         ContextCompat.getColor(requireContext(),
-                        R.color.basic
-                    ))
+                            R.color.basic
+                        ))
                     .setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
                     .show()
             }
@@ -201,8 +213,8 @@ class DetailFragment : DialogFragment() {
                 Snackbar.make(binding.root, "Ticket dihapus dari Wishlist", Snackbar.LENGTH_SHORT)
                     .setBackgroundTint(
                         ContextCompat.getColor(requireContext(),
-                        R.color.basic
-                    ))
+                            R.color.basic
+                        ))
                     .setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
                     .show()
             }

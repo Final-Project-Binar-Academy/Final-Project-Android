@@ -5,9 +5,9 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.asLiveData
-import com.binar.finalproject14.data.api.response.TransactionResponse
-import com.binar.finalproject14.data.api.response.transaction.add.AddTransaction
-import com.binar.finalproject14.data.api.response.transaction.add.Transaksi
+import com.binar.finalproject14.data.api.request.AddTransaction
+import com.binar.finalproject14.data.api.response.transaction.add.TransactionResponse
+import com.binar.finalproject14.data.api.response.transaction.history.TransactionHistory
 import com.binar.finalproject14.data.api.service.UserApi
 import com.binar.finalproject14.data.utils.UserDataStoreManager
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -35,7 +35,7 @@ class TransactionViewModel @Inject constructor(
         brithDate: String,
         token: String
     ) {
-        client.addTransaction(token, AddTransaction(ticketGo, ticketBack,tripId, firstName, lastName,nIK, brithDate))
+        client.addTransaction(token, AddTransaction(brithDate, firstName, lastName, nIK, ticketBack, ticketGo, tripId))
             .enqueue(object : Callback<TransactionResponse> {
                 override fun onResponse(
                     call: Call<TransactionResponse>,
@@ -55,18 +55,18 @@ class TransactionViewModel @Inject constructor(
             })
     }
 
-    private val _transaction: MutableLiveData<Transaksi?> = MutableLiveData()
-    val transaction: LiveData<Transaksi?> get() = _transaction
+    private val _transaction: MutableLiveData<TransactionResponse?> = MutableLiveData()
+    val transaction: LiveData<TransactionResponse?> get() = _transaction
 
     fun getTransactionTrip(
         tripId: Int?,
         token: String
     ) {
         client.getTransactionTrip(token, tripId)
-            .enqueue(object : Callback<Transaksi> {
+            .enqueue(object : Callback<TransactionResponse> {
                 override fun onResponse(
-                    call: Call<Transaksi>,
-                    response: Response<Transaksi>
+                    call: Call<TransactionResponse>,
+                    response: Response<TransactionResponse>
                 ) {
                     if (response.isSuccessful) {
                         val responseBody = response.body()
@@ -76,7 +76,7 @@ class TransactionViewModel @Inject constructor(
                     }
                 }
 
-                override fun onFailure(call: Call<Transaksi>, t: Throwable) {
+                override fun onFailure(call: Call<TransactionResponse>, t: Throwable) {
                     _transaction.postValue(null)
                 }
             })

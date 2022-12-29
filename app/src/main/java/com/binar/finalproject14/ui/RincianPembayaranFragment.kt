@@ -23,7 +23,7 @@ class RincianPembayaranFragment : Fragment() {
     private var _binding: FragmentRincianPembayaranBinding? = null
     private val binding get() = _binding!!
     private var payment: String = ""
-    private lateinit var transactionViewModel : TransactionViewModel
+    private lateinit var transactionViewModel: TransactionViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,22 +41,21 @@ class RincianPembayaranFragment : Fragment() {
         transactionTrip()
         paymentMethod()
 
-        binding.btnNext.setOnClickListener{
-            if (payment == "bank"){
+        binding.btnNext.setOnClickListener {
+            if (payment == "bank") {
                 findNavController().navigate(R.id.action_rincianPembayaranFragment_to_payCardFragment)
-            }
-            else if (payment == "ewallet"){
+            } else if (payment == "ewallet") {
                 findNavController().navigate(R.id.action_rincianPembayaranFragment_to_payEwalletFragment)
-            }
-            else if (payment == "qris"){
+            } else if (payment == "qris") {
                 findNavController().navigate(R.id.action_rincianPembayaranFragment_to_payQrisFragment)
-            }
-            else {
+            } else {
                 Snackbar.make(binding.root, "Pilih metode pembayaran anda", Snackbar.LENGTH_SHORT)
                     .setBackgroundTint(
-                        ContextCompat.getColor(requireContext(),
-                        R.color.basic
-                    ))
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.basic
+                        )
+                    )
                     .setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
                     .show()
             }
@@ -81,12 +80,13 @@ class RincianPembayaranFragment : Fragment() {
             }
         }
     }
-    private fun transactionTrip(){
-        transactionViewModel.getDataStoreToken().observe(viewLifecycleOwner){
-            val tripId = arguments?.getInt("tripId")
-            transactionViewModel.getTransactionTrip(tripId, "Bearer $it")
-        }
-        transactionViewModel.transaction.observe(viewLifecycleOwner){
+
+    private fun transactionTrip() {
+//        transactionViewModel.getDataStoreToken().observe(viewLifecycleOwner){
+//            val tripId = arguments?.getInt("tripId")
+//            transactionViewModel.getTransactionTrip(tripId, "Bearer $it")
+//        }
+        transactionViewModel.transaction.observe(viewLifecycleOwner) {
             binding.cityCodeOri.text = it?.data?.go?.origin?.cityCode.toString()
             binding.cityOri.text = it?.data?.go?.origin?.city.toString()
             binding.cityCodeDestination.text = it?.data?.go?.destination?.cityCode.toString()
@@ -96,12 +96,9 @@ class RincianPembayaranFragment : Fragment() {
             binding.goArrivalTime.text = it?.data?.go?.arrivalTime.toString()
             binding.goArrivalDate.text = it?.data?.go?.arrivalDate.toString()
             binding.goClass.text = it?.data?.go?.classX.toString()
-            binding.goPassenger.text = it?.data?.passenger?.firstName.toString() + " " + it?.data?.passenger?.lastName.toString()
+            binding.goPassenger.text =
+                it?.data?.passenger?.firstName.toString() + " " + it?.data?.passenger?.lastName.toString()
             binding.goCompany.text = it?.data?.go?.airplane?.company?.companyName.toString()
         }
-
-
-
     }
-
 }

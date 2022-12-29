@@ -1,18 +1,14 @@
 package com.binar.finalproject14.ui
 
-import android.annotation.SuppressLint
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.binar.finalproject14.MainActivity
-import com.binar.finalproject14.R
 import com.binar.finalproject14.adapter.TransactionAdapter
 import com.binar.finalproject14.data.api.response.transaction.history.Data
 import com.binar.finalproject14.data.api.service.filter.ApiClient
@@ -21,7 +17,6 @@ import com.binar.finalproject14.databinding.FragmentPastBinding
 import com.binar.finalproject14.data.utils.UserDataStoreManager
 import com.binar.finalproject14.viewmodel.TransactionFilterViewModel
 import com.binar.finalproject14.viewmodel.factory.TransactionFilterViewModelFactory
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase

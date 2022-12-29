@@ -1,15 +1,17 @@
 package com.binar.finalproject14.data.api.response.transaction.history
 
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
-data class TransactionFilterResponse(
+@Keep
+data class TransactionHistory(
     @SerializedName("data")
-    val `data`: List<Data>?,
+    var `data`: List<Data>?,
     @SerializedName("message")
-    val message: String?,
+    var message: String?,
     @SerializedName("status")
-    val status: String?,
+    var status: String?,
     @SerializedName("totalData")
-    val totalData: Int?
+    var totalData: Int?
 )

@@ -146,7 +146,7 @@ class SearchFragment : Fragment(), SearchGoAdapter.ListSearchGoInterface, Search
 
         val id_oneway = arguments?.getInt("id_oneway")
         Log.d("idoneway2", id_oneway.toString())
-        if (id_oneway == null){
+        if (id_oneway != 0){
             Log.d("oneway", id_oneway.toString())
             searchViewModel.getReturnDate().observe(viewLifecycleOwner){
                 binding.date.text = it
@@ -189,7 +189,11 @@ class SearchFragment : Fragment(), SearchGoAdapter.ListSearchGoInterface, Search
 
     override fun onItemClickBack(id: Int) {
         var bund = Bundle()
+        val id_go = arguments?.getInt("id_oneway")
         bund.putInt("id_ticket_back", id)
+        if (id_go != null) {
+            bund.putInt("id_ticket_go", id_go)
+        }
         findNavController().navigate(R.id.action_searchFragment_to_detailFragment, bund)
     }
 

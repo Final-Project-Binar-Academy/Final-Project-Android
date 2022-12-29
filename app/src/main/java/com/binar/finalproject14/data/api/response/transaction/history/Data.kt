@@ -1,43 +1,45 @@
 package com.binar.finalproject14.data.api.response.transaction.history
 
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
+@Keep
 data class Data(
     @SerializedName("back")
-    val back: Back?,
+    var back: Back?,
     @SerializedName("createdAt")
-    val createdAt: String?,
+    var createdAt: String?,
     @SerializedName("go")
-    val go: Go?,
+    var go: Go?,
     @SerializedName("id")
-    val id: Int?,
+    var id: Int?,
     @SerializedName("passenger")
-    val passenger: Passenger?,
+    var passenger: Passenger?,
     @SerializedName("passengerId")
-    val passengerId: Int?,
+    var passengerId: Int?,
     @SerializedName("payment")
-    val payment: Any?,
+    var payment: Payment?,
     @SerializedName("paymentId")
-    val paymentId: Any?,
+    var paymentId: Any?,
     @SerializedName("status")
-    val status: String?,
+    var status: String?,
     @SerializedName("ticketBack")
-    val ticketBack: Int?,
+    var ticketBack: Int?,
     @SerializedName("ticketGo")
-    val ticketGo: Int?,
+    var ticketGo: Int?,
     @SerializedName("totalPrice")
-    val totalPrice: String?,
+    var totalPrice: String?,
     @SerializedName("transactionCode")
-    val transactionCode: String?,
+    var transactionCode: String?,
     @SerializedName("tripId")
-    val tripId: Int?,
+    var tripId: Int?,
     @SerializedName("typeTrip")
-    val typeTrip: TypeTrip?,
+    var typeTrip: TypeTrip?,
     @SerializedName("updatedAt")
-    val updatedAt: String?,
+    var updatedAt: String?,
     @SerializedName("user")
-    val user: User?,
+    var user: User?,
     @SerializedName("userId")
-    val userId: Int?
+    var userId: Int?
 )

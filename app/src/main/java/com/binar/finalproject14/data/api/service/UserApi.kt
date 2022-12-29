@@ -1,8 +1,8 @@
 package com.binar.finalproject14.data.api.service
 
+import com.binar.finalproject14.data.api.request.AddTransaction
 import com.binar.finalproject14.data.api.request.LoginRequest
 import com.binar.finalproject14.data.api.request.RegisterRequest
-import com.binar.finalproject14.data.api.response.TransactionResponse
 import com.binar.finalproject14.data.api.response.airport.AirportResponse
 import com.binar.finalproject14.data.api.response.auth.AuthResponse
 import com.binar.finalproject14.data.api.response.profile.GetUserResponse
@@ -10,10 +10,8 @@ import com.binar.finalproject14.data.api.response.profile.User
 import com.binar.finalproject14.data.api.response.search.SearchResponse
 import com.binar.finalproject14.data.api.response.ticket.FlightIdResponse
 import com.binar.finalproject14.data.api.response.ticket.FlightResponse
-import com.binar.finalproject14.data.api.response.transaction.add.AddTransaction
-import com.binar.finalproject14.data.api.response.transaction.add.Transaksi
-import com.binar.finalproject14.data.api.response.transaction.history.Go
-import com.binar.finalproject14.data.api.response.transaction.history.TransactionFilterResponse
+import com.binar.finalproject14.data.api.response.transaction.add.TransactionResponse
+import com.binar.finalproject14.data.api.response.transaction.history.TransactionHistory
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -51,7 +49,7 @@ interface UserApi {
     fun getAirport() : Call<AirportResponse>
 
     @GET("/api/transaction/filter")
-    fun getTransactionDataByFilter(@Header("Authorization")token: String, @Query("status")status: String) : Call<TransactionFilterResponse>
+    fun getTransactionDataByFilter(@Header("Authorization")token: String, @Query("status")status: String) : Call<TransactionHistory>
 
     // search
     @GET("/api/ticket/search/")
@@ -62,7 +60,7 @@ interface UserApi {
     fun addTransaction(@Header("Authorization")token: String, @Body request : AddTransaction) : Call<TransactionResponse>
 
     @GET("/api/transaction/trip")
-    fun getTransactionTrip(@Header("Authorization") token: String, @Query("tripId") tripId: Int?) : Call<Transaksi>
+    fun getTransactionTrip(@Header("Authorization") token: String, @Query("tripId") tripId: Int?) : Call<TransactionResponse>
 
 
 //    companion object {

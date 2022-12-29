@@ -1,17 +1,19 @@
 package com.binar.finalproject14.data.api.response.transaction.history
 
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
+@Keep
 data class Company(
     @SerializedName("companyImage")
-    val companyImage: String?,
+    var companyImage: String?,
     @SerializedName("companyName")
-    val companyName: String?,
+    var companyName: String?,
     @SerializedName("createdAt")
-    val createdAt: String?,
+    var createdAt: String?,
     @SerializedName("id")
-    val id: Int?,
+    var id: Int?,
     @SerializedName("updatedAt")
-    val updatedAt: String?
+    var updatedAt: String?
 )

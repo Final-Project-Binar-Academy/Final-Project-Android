@@ -11,19 +11,15 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.binar.finalproject14.R
-import com.binar.finalproject14.data.api.response.transaction.add.AddTransaction
-import com.binar.finalproject14.databinding.FragmentAboutBinding
 import com.binar.finalproject14.databinding.FragmentDataPenumpangBinding
-import com.binar.finalproject14.databinding.FragmentDetailBinding
 import com.binar.finalproject14.viewmodel.FlightViewModel
+import com.binar.finalproject14.viewmodel.SearchViewModel
 import com.binar.finalproject14.viewmodel.TransactionViewModel
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.RequestBody.Companion.toRequestBody
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -34,6 +30,7 @@ class DataPenumpangFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var flightViewModel: FlightViewModel
     private lateinit var transactionViewModel : TransactionViewModel
+    private lateinit var searchViewModel: SearchViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +38,7 @@ class DataPenumpangFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         analytics = Firebase.analytics
+        searchViewModel = ViewModelProvider(this)[SearchViewModel::class.java]
 
         _binding = FragmentDataPenumpangBinding.inflate(inflater, container, false)
         return binding.root
@@ -52,12 +50,23 @@ class DataPenumpangFragment : Fragment() {
         addAirport()
         getTipeTraveller()
         getTipeId()
-        getTicket()
         getBirthday()
-        binding.btnBooking.setOnClickListener{
-            findNavController().navigate(R.id.action_dataPenumpangFragment_to_rincianPembayaranFragment)
-        }
+        getTipe()
+//        binding.btnBooking.setOnClickListener{
+//            findNavController().navigate(R.id.action_dataPenumpangFragment_to_rincianPembayaranFragment)
+//        }
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    private fun getTipe() {
+        searchViewModel.getIsOneway().observe(viewLifecycleOwner){
+            if (it == true){
+                getTicketOneway()
+            }
+            else {
+                getTicketRoundTrip()
+            }
+        }
     }
 
     private fun getBirthday() {val materialDateBuilder: MaterialDatePicker.Builder<*> =
@@ -81,8 +90,44 @@ class DataPenumpangFragment : Fragment() {
         binding.typeId.setAdapter(arrayAdapter)
     }
 
-    private fun getTicket() {
-        val id = arguments?.getInt("id")
+    private fun getTicketRoundTrip(){
+        getTicketOneway()
+        val id_back = arguments?.getInt("id_ticket_back")
+        Log.d("idround", id_back.toString())
+        binding.cardBack.visibility = View.VISIBLE
+        if (id_back != null){
+            flightViewModel.getFlightDetail(id_back)
+            flightViewModel.flightDetail.observe(viewLifecycleOwner) {
+                binding.apply {
+                    if (it != null) {
+                        var simpleDateFormat = SimpleDateFormat("LLL dd")
+                        var departure : Date? = it.data?.departureDate
+                        var departure_date = simpleDateFormat.format(departure?.time).toString()
+                        var arrival : Date? = it.data?.arrivalDate
+                        var arrivalDate = simpleDateFormat.format(arrival?.time).toString()
+
+                        binding.departureDate2.text = departure_date
+                        binding.departureTime2.text = it.data?.departureTime.toString()
+                        binding.codeIataFrom2.text = it.data?.origin?.cityCode.toString()
+                        binding.city12.text = it.data?.origin?.city.toString()
+                        binding.kelas2.text = it.data?.classX.toString()
+                        binding.arrivalDate2.text = arrivalDate
+                        binding.arrivalTime2.text = it.data?.arrivalTime.toString()
+                        binding.codeIataTo2.text = it.data?.destination?.cityCode.toString()
+                        binding.city22.text = it.data?.destination?.city.toString()
+                        binding.company2.text = it.data?.airplane?.company?.companyName
+                        binding.btnKelas2.text = it.data?.classX
+                        binding.price2.text = it.data?.price.toString()
+                    }
+                }
+            }
+        }
+    }
+
+    private fun getTicketOneway() {
+        binding.cardBack.visibility = View.GONE
+        val id = arguments?.getInt("id_oneway")
+        Log.d("idone", id.toString())
         if (id != null){
             flightViewModel.getFlightDetail(id)
             flightViewModel.flightDetail.observe(viewLifecycleOwner) {
@@ -118,20 +163,22 @@ class DataPenumpangFragment : Fragment() {
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, tipeTraveller)
         binding.actvTipePenumpang.setAdapter(arrayAdapter)
     }
+
     private fun addAirport(){
-        binding.btnBooking.setOnClickListener {
-//            val tGo = arguments?.getInt("id")
-            val tGo = binding.ticketGo.text.toString().toInt()
-            val tBack = binding.ticketBack.text.toString().toInt()
+        binding.btnBooking.setOnClickListener() {
+            Log.d("tes", "masukk")
+            val tGo = arguments?.getInt("id_oneway")
+            Log.d("tgo", tGo.toString())
+            val tBack = arguments?.getInt("id_ticket_back")
+//            val tGo = binding.ticketGo.text.toString().toInt()
+//            val tBack = binding.ticketBack.text.toString().toInt()
             val fName = binding.firstname1.text.toString()
             val lName = binding.lastname1.text.toString()
             val nIK = binding.etPhone1.text.toString()
             val tripId = binding.numberID1.text.toString().toInt()
             val birth = binding.birth.text.toString()
             transactionViewModel.getDataStoreToken().observe(viewLifecycleOwner) {
-                if (tGo != null) {
-                    transactionViewModel.addTransaction(tGo, tBack, tripId, fName, lName, nIK, birth,"Bearer $it")
-                }
+                transactionViewModel.addTransaction(tGo!!, tBack!!, tripId, fName, lName, nIK, birth,"Bearer $it")
                 Log.d("tgo", tGo.toString())
             }
             Toast.makeText(requireContext(), "Add Success", Toast.LENGTH_SHORT).show()

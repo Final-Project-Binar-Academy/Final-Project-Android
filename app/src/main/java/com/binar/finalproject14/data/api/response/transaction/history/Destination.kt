@@ -1,19 +1,21 @@
 package com.binar.finalproject14.data.api.response.transaction.history
 
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
+@Keep
 data class Destination(
     @SerializedName("airportName")
-    val airportName: String?,
+    var airportName: String?,
     @SerializedName("city")
-    val city: String?,
+    var city: String?,
     @SerializedName("cityCode")
-    val cityCode: String?,
+    var cityCode: String?,
     @SerializedName("createdAt")
-    val createdAt: String?,
+    var createdAt: String?,
     @SerializedName("id")
-    val id: Int?,
+    var id: Int?,
     @SerializedName("updatedAt")
-    val updatedAt: String?
+    var updatedAt: String?
 )

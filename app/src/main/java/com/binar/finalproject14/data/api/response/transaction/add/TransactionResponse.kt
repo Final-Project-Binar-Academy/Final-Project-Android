@@ -1,15 +1,15 @@
 package com.binar.finalproject14.data.api.response.transaction.add
 
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
-data class Transaksi(
+@Keep
+data class TransactionResponse(
     @SerializedName("data")
-    val `data`: Data,
+    var `data`: Data?,
     @SerializedName("message")
-    val message: String,
+    var message: String?,
     @SerializedName("status")
-    val status: String,
-    @SerializedName("totalData")
-    val totalData: Int
+    var status: String?
 )

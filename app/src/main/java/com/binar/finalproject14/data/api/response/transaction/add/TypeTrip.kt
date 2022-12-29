@@ -1,15 +1,17 @@
 package com.binar.finalproject14.data.api.response.transaction.add
 
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
+@Keep
 data class TypeTrip(
     @SerializedName("createdAt")
-    val createdAt: String,
+    var createdAt: String?,
     @SerializedName("id")
-    val id: Int,
+    var id: Int?,
     @SerializedName("type")
-    val type: String,
+    var type: String?,
     @SerializedName("updatedAt")
-    val updatedAt: String
+    var updatedAt: String?
 )

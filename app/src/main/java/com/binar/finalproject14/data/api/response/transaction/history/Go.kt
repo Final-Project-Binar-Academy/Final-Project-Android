@@ -1,41 +1,43 @@
 package com.binar.finalproject14.data.api.response.transaction.history
 
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
+@Keep
 data class Go(
     @SerializedName("airplane")
-    val airplane: AirplaneX?,
+    var airplane: Airplane?,
     @SerializedName("airplaneId")
-    val airplaneId: Int?,
+    var airplaneId: Int?,
     @SerializedName("arrivalDate")
-    val arrivalDate: String?,
+    var arrivalDate: String?,
     @SerializedName("arrivalTime")
-    val arrivalTime: String?,
+    var arrivalTime: String?,
     @SerializedName("capacity")
-    val capacity: Int?,
+    var capacity: Int?,
     @SerializedName("class")
-    val classX: String?,
+    var classX: String?,
     @SerializedName("code")
-    val code: String?,
+    var code: String?,
     @SerializedName("createdAt")
-    val createdAt: String?,
+    var createdAt: String?,
     @SerializedName("departureDate")
-    val departureDate: String?,
+    var departureDate: String?,
     @SerializedName("departureTime")
-    val departureTime: String?,
+    var departureTime: String?,
     @SerializedName("destination")
-    val destination: Destination?,
+    var destination: Destination?,
     @SerializedName("flightFrom")
-    val flightFrom: Int?,
+    var flightFrom: Int?,
     @SerializedName("flightTo")
-    val flightTo: Int?,
+    var flightTo: Int?,
     @SerializedName("id")
-    val id: Int?,
+    var id: Int?,
     @SerializedName("origin")
-    val origin: Origin?,
+    var origin: Origin?,
     @SerializedName("price")
-    val price: Int?,
+    var price: Int?,
     @SerializedName("updatedAt")
-    val updatedAt: String?
+    var updatedAt: String?
 )
