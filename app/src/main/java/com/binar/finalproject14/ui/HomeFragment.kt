@@ -135,13 +135,13 @@ class HomeFragment : Fragment() {
                 binding.txtCitycodeDestination.text = it
             }
         }
-        searchViewModel.getDepartureDate().observe(viewLifecycleOwner){
-            if (it != null){
-                val simpleFormat = SimpleDateFormat("yyyy-MM-dd")
-                val itDepartureDate = simpleFormat.format(Date(it))
-                bund.putString("departureDate", itDepartureDate)
-            }
-        }
+//        searchViewModel.getDepartureDate().observe(viewLifecycleOwner){
+//            if (it != null){
+//                val simpleFormat = SimpleDateFormat("yyyy-MM-dd")
+//                val itDepartureDate = simpleFormat.format(Date(it))
+//                bund.putString("departureDate", itDepartureDate)
+//            }
+//        }
         searchViewModel.getIsOneway().observe(viewLifecycleOwner){
             if (it == true){
                 searchViewModel.removeReturnDate()

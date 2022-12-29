@@ -25,9 +25,18 @@ class UserDataStoreManager(@ApplicationContext val context: Context) {
         it[ID_USER_KEY] ?: 0
     }
 
+    val getTransactionId: Flow<Int> = context.dataStore.data.map {
+        it[ID_TRANSACTION_KEY] ?: 0
+    }
+
     suspend fun saveUsername(username: String) {
         context.dataStore.edit {
             it[USERNAME_KEY] = username
+        }
+    }
+    suspend fun saveTransactionId(id: Int) {
+        context.dataStore.edit {
+            it[ID_TRANSACTION_KEY] = id
         }
     }
 
@@ -77,6 +86,7 @@ class UserDataStoreManager(@ApplicationContext val context: Context) {
         private const val DATASTORE_NAME = "user_preferences"
         private val USERNAME_KEY = stringPreferencesKey("username_key")
         private val TOKEN_KEY = stringPreferencesKey("token_key")
+        private val ID_TRANSACTION_KEY = intPreferencesKey("id_transaction_key")
         private val ID_USER_KEY = intPreferencesKey("id_user_key")
         private val IS_LOGIN_KEY = booleanPreferencesKey("is_login_key")
         private val Context.dataStore by preferencesDataStore(

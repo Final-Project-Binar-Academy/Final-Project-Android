@@ -184,8 +184,10 @@ class DataPenumpangFragment : Fragment() {
                 if (it == true){
                     val tripId = 1
                     transactionViewModel.getDataStoreToken().observe(viewLifecycleOwner) {
-                        transactionViewModel.addTransaction(tGo!!, tBack!!, tripId, fName, lName, nIK, birth,"Bearer $it")
+                        transactionViewModel.addTransaction(tGo!!, tBack!!, tripId, fName, lName, nIK, "2002-08-20","Bearer $it")
                         transactionViewModel.add.observe(viewLifecycleOwner) {
+                            val id = it?.data?.id.toString().toInt()
+                            transactionViewModel.saveTransactionId(id)
                             val bundle = Bundle()
                             bundle.putInt("tripId", tripId)
                             findNavController().navigate(
@@ -197,8 +199,10 @@ class DataPenumpangFragment : Fragment() {
                 } else {
                     val tripId = 2
                     transactionViewModel.getDataStoreToken().observe(viewLifecycleOwner) {
-                        transactionViewModel.addTransaction(tGo!!, tBack!!, tripId, fName, lName, nIK, birth,"Bearer $it")
+                        transactionViewModel.addTransaction(tGo!!, tBack!!, tripId, fName, lName, nIK, "2002-08-20","Bearer $it")
                         transactionViewModel.add.observe(viewLifecycleOwner) {
+                            val id = it?.data?.id.toString().toInt()
+                            transactionViewModel.saveTransactionId(id)
                             val bundle = Bundle()
                             bundle.putInt("tripId", tripId)
                             findNavController().navigate(

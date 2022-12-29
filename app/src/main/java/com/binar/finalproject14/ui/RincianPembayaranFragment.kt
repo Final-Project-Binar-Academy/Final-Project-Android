@@ -86,7 +86,9 @@ class RincianPembayaranFragment : Fragment() {
         transactionViewModel.getDataStoreToken().observe(viewLifecycleOwner){
             val tripId = arguments?.getInt("tripId")
             Log.d("tripId", tripId.toString())
-            transactionViewModel.getTransactionTrip(tripId, "Bearer $it")
+            transactionViewModel.getId().observe(viewLifecycleOwner){id ->
+                transactionViewModel.getTransactionId(id, "Bearer $it")
+            }
         }
         transactionViewModel.transaction.observe(viewLifecycleOwner) {
             binding.cityCodeOri.text = it?.data?.go?.origin?.cityCode.toString()

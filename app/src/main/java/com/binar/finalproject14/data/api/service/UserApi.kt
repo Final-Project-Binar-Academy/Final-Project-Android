@@ -59,8 +59,8 @@ interface UserApi {
     @POST("/api/transaction/add")
     fun addTransaction(@Header("Authorization")token: String, @Body request : AddTransaction) : Call<TransactionResponse>
 
-    @GET("/api/transaction/trip")
-    fun getTransactionTrip(@Header("Authorization") token: String, @Query("tripId") tripId: Int?) : Call<TransactionResponse>
+    @GET("/api/transaction/{id}")
+    fun getTransactionId(@Header("Authorization") token: String, @Path("id") id: Int?) : Call<TransactionResponse>
 
 
 //    companion object {
