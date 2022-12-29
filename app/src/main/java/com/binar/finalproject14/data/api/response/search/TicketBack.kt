@@ -3,6 +3,7 @@ package com.binar.finalproject14.data.api.response.search
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
+import java.util.*
 
 @Keep
 data class TicketBack(
@@ -11,7 +12,7 @@ data class TicketBack(
     @SerializedName("airplaneId")
     var airplaneId: Int?,
     @SerializedName("arrivalDate")
-    var arrivalDate: String?,
+    var arrivalDate: Date?,
     @SerializedName("arrivalTime")
     var arrivalTime: String?,
     @SerializedName("capacity")
@@ -23,7 +24,7 @@ data class TicketBack(
     @SerializedName("createdAt")
     var createdAt: String?,
     @SerializedName("departureDate")
-    var departureDate: String?,
+    var departureDate: Date?,
     @SerializedName("departureTime")
     var departureTime: String?,
     @SerializedName("destination")

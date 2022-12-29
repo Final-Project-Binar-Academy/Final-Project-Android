@@ -1,6 +1,7 @@
 package com.binar.finalproject14.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -119,6 +120,7 @@ class DataPenumpangFragment : Fragment() {
     }
     private fun addAirport(){
         binding.btnBooking.setOnClickListener {
+//            val tGo = arguments?.getInt("id")
             val tGo = binding.ticketGo.text.toString().toInt()
             val tBack = binding.ticketBack.text.toString().toInt()
             val fName = binding.firstname1.text.toString()
@@ -127,7 +129,10 @@ class DataPenumpangFragment : Fragment() {
             val tripId = binding.numberID1.text.toString().toInt()
             val birth = binding.birth.text.toString()
             transactionViewModel.getDataStoreToken().observe(viewLifecycleOwner) {
-                transactionViewModel.addTransaction(tGo, tBack, tripId, fName, lName, nIK, birth,"Bearer $it")
+                if (tGo != null) {
+                    transactionViewModel.addTransaction(tGo, tBack, tripId, fName, lName, nIK, birth,"Bearer $it")
+                }
+                Log.d("tgo", tGo.toString())
             }
             Toast.makeText(requireContext(), "Add Success", Toast.LENGTH_SHORT).show()
             transactionViewModel.add.observe(viewLifecycleOwner) {

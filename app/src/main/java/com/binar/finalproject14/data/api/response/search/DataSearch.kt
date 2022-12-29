@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName
 @Keep
 data class DataSearch(
     @SerializedName("ticketBack")
-    var ticketBack: TicketBack?,
+    var ticketBack: List<TicketBack>?,
     @SerializedName("ticketGo")
     var ticketGo: List<TicketGo>?
 )

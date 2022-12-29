@@ -71,6 +71,12 @@ class SearchViewModel @Inject constructor(
         }
     }
 
+    fun saveIsOneway(isOneway: Boolean){
+        viewModelScope.launch {
+            pref.saveIsOneway(isOneway)
+        }
+    }
+
     fun getCityDeparture(): LiveData<String> {
         return pref.getCityDeparture.asLiveData()
     }
@@ -111,6 +117,10 @@ class SearchViewModel @Inject constructor(
         return pref.getIsDestination.asLiveData()
     }
 
+    fun getIsOneway(): LiveData<Boolean> {
+        return pref.getIsOneway.asLiveData()
+    }
+
     fun removeDeparture(){
         viewModelScope.launch {
             pref.removeDeparture()
@@ -132,6 +142,12 @@ class SearchViewModel @Inject constructor(
     fun removeReturnDate(){
         viewModelScope.launch {
             pref.removeReturnDate()
+        }
+    }
+
+    fun removeIsOneway(){
+        viewModelScope.launch {
+            pref.removeIsOneway()
         }
     }
 }

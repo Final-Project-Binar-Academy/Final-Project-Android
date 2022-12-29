@@ -23,6 +23,7 @@ class SearchDatastore(@ApplicationContext val context: Context) {
         private val RETURN_DATE = stringPreferencesKey("RETURN_DATE")
         private val IS_DEPARTURE_DATE = booleanPreferencesKey("IS_DEPARTURE_DATE")
         private val IS_RETURN_DATE = booleanPreferencesKey("IS_RETURN_DATE")
+        private val IS_ONEWAY = booleanPreferencesKey("IS_ONEWAY")
         private val Context.dataStore by preferencesDataStore(
             name = DATASTORE_NAME
         )
@@ -78,6 +79,17 @@ class SearchDatastore(@ApplicationContext val context: Context) {
             it[IS_RETURN_DATE] ?: false
         }
 
+    val getIsOneway: Flow<Boolean> =
+        context.dataStore.data.map {
+            it[IS_ONEWAY] ?: false
+        }
+
+    suspend fun saveIsOneway(isOneway: Boolean){
+        context.dataStore.edit {
+            it[IS_ONEWAY] = isOneway
+        }
+    }
+
     suspend fun saveDepartureDate(departureDate: String){
         context.dataStore.edit {
             it[DEPARTURE_DATE] = departureDate
@@ -131,6 +143,12 @@ class SearchDatastore(@ApplicationContext val context: Context) {
     suspend fun removeReturnDate(){
         context.dataStore.edit {
             it.remove(RETURN_DATE)
+        }
+    }
+
+    suspend fun removeIsOneway(){
+        context.dataStore.edit {
+            it.remove(IS_ONEWAY)
         }
     }
 }

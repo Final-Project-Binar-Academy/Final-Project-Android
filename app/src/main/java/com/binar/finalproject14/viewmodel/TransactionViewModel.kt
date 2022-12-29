@@ -8,9 +8,8 @@ import androidx.lifecycle.asLiveData
 import com.binar.finalproject14.data.api.response.TransactionResponse
 import com.binar.finalproject14.data.api.response.transaction.add.AddTransaction
 import com.binar.finalproject14.data.api.response.transaction.add.Transaksi
-import com.binar.finalproject14.data.api.response.transaction.history.Go
 import com.binar.finalproject14.data.api.service.UserApi
-import com.binar.finalproject14.utils.UserDataStoreManager
+import com.binar.finalproject14.data.utils.UserDataStoreManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call
 import retrofit2.Callback

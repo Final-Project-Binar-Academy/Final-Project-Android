@@ -75,12 +75,10 @@ class HomeFragment : Fragment() {
         getTraveller()
 
         binding.txtOneway.setOnClickListener{
-            oneway = true
             activateOneway()
         }
 
         binding.txtRoundTrip.setOnClickListener{
-            oneway = false
             activateRoundTrip()
         }
 
@@ -99,20 +97,6 @@ class HomeFragment : Fragment() {
         setUsername()
         setImageProfile()
     }
-
-
-//        searchViewModel.getLiveDataSearch().observe(viewLifecycleOwner){
-//            if (it != null){
-//            }else{
-//                Snackbar.make(binding.root, "Data Gagal Dimuat", Snackbar.LENGTH_SHORT)
-//                    .setBackgroundTint(
-//                        ContextCompat.getColor(requireContext(),
-//                            R.color.button
-//                        ))
-//                    .setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
-//                    .show()
-//            }
-//        }
 
     private fun getTraveller() {
         val traveller = arguments?.getString("traveller")
@@ -154,16 +138,23 @@ class HomeFragment : Fragment() {
         }
         searchViewModel.getDepartureDate().observe(viewLifecycleOwner){
             if (it != null){
-                binding.date1.text = it
                 bund.putString("departureDate", it)
             }
         }
-        searchViewModel.getReturnDate().observe(viewLifecycleOwner){
-            if (it != null){
-                binding.date2.text = it
-                bund.putString("returnDate", it)
+        searchViewModel.getIsOneway().observe(viewLifecycleOwner){
+            if (it == true){
+                searchViewModel.removeReturnDate()
+                bund.putString("returnDate", "")
+            } else{
+                searchViewModel.getReturnDate().observe(viewLifecycleOwner){
+                    if (it != null){
+                        binding.date2.text = it
+                        bund.putString("returnDate", it)
+                    }
+                }
             }
         }
+
         binding.btnSearch.setOnClickListener{
             findNavController().navigate(R.id.action_homeFragment_to_searchFragment, bund)
         }
@@ -210,6 +201,12 @@ class HomeFragment : Fragment() {
     }
 
     private fun activateOneway() {
+        searchViewModel.saveIsOneway(true)
+        searchViewModel.getDepartureDate().observe(viewLifecycleOwner){
+            if (it != null){
+                binding.date1.text
+            }
+        }
         val materialDateBuilder: MaterialDatePicker.Builder<*> =
             MaterialDatePicker.Builder.datePicker()
 
@@ -220,13 +217,11 @@ class HomeFragment : Fragment() {
                 materialDatePicker.show(parentFragmentManager, "MATERIAL_DATE_PICKER")
             })
         materialDatePicker.addOnPositiveButtonClickListener {
+            searchViewModel.removeReturnDate()
             val simpleFormat = SimpleDateFormat("yyyy-MM-dd")
             departureDate = simpleFormat.format(Date(materialDatePicker.headerText))
             binding.date1.text = materialDatePicker.headerText
             searchViewModel.getIsDepartureDate().observe(viewLifecycleOwner){
-                if (it != null){
-                    searchViewModel.removeDepartureDate()
-                }
                 searchViewModel.saveDepartureDate(departureDate)
             }
         }
@@ -238,6 +233,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun activateRoundTrip() {
+        searchViewModel.removeIsOneway()
         val materialDateBuilder: MaterialDatePicker.Builder<*> =
         MaterialDatePicker.Builder.datePicker()
 
@@ -253,9 +249,6 @@ class HomeFragment : Fragment() {
             returnDate = simpleFormat.format(Date(materialDatePicker.headerText))
             binding.date2.text = materialDatePicker.headerText
             searchViewModel.getIsReturnDate().observe(viewLifecycleOwner){
-                if (it != null){
-                    searchViewModel.removeReturnDate()
-                }
                 searchViewModel.saveReturnDate(returnDate)
             }
         }

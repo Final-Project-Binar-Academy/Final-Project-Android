@@ -1,29 +1,28 @@
 package com.binar.finalproject14.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.binar.finalproject14.data.api.response.search.TicketGo
+import com.binar.finalproject14.data.api.response.search.TicketBack
 import com.binar.finalproject14.databinding.ListItemBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
-class SearchGoAdapter (private var itemClick: SearchGoAdapter.ListSearchGoInterface) : RecyclerView.Adapter<SearchGoAdapter.ViewHolder>(){
+class SearchBackAdapter (private var itemClick: SearchBackAdapter.ListSearchBackInterface) : RecyclerView.Adapter<SearchBackAdapter.ViewHolder>(){
 
-    private val differCallback = object : DiffUtil.ItemCallback<TicketGo>(){
+    private val differCallback = object : DiffUtil.ItemCallback<TicketBack>(){
         override fun areItemsTheSame(
-            oldItem: TicketGo,
-            newItem: TicketGo
+            oldItem: TicketBack,
+            newItem: TicketBack
         ): Boolean {
             return oldItem.id == oldItem.id
         }
 
         override fun areContentsTheSame(
-            oldItem: TicketGo,
-            newItem: TicketGo
+            oldItem: TicketBack,
+            newItem: TicketBack
         ): Boolean {
             return oldItem == newItem
         }
@@ -34,7 +33,7 @@ class SearchGoAdapter (private var itemClick: SearchGoAdapter.ListSearchGoInterf
     inner class ViewHolder(private val binding: ListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: TicketGo) {
+        fun bind(item: TicketBack) {
             with(item) {
 
                 var simpleDateFormat = SimpleDateFormat("E, dd LLL")
@@ -58,7 +57,7 @@ class SearchGoAdapter (private var itemClick: SearchGoAdapter.ListSearchGoInterf
                 binding.company.text = item.airplane?.company?.companyName.toString()
 
                 binding.card.setOnClickListener{
-                    item.id?.let { it1 -> itemClick.onItemClickGo(it1) }
+                    item.id?.let { it1 -> itemClick.onItemClickBack(it1) }
                 }
 
             }
@@ -80,11 +79,11 @@ class SearchGoAdapter (private var itemClick: SearchGoAdapter.ListSearchGoInterf
         return differ.currentList.size
     }
 
-    fun setData(data : List<TicketGo>){
+    fun setData(data : List<TicketBack>){
         differ.submitList(data)
     }
 
-    interface ListSearchGoInterface {
-        fun onItemClickGo(id: Int)
+    interface ListSearchBackInterface {
+        fun onItemClickBack(id: Int)
     }
 }
