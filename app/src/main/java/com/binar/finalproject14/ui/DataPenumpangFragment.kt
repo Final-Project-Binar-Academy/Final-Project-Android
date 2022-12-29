@@ -137,7 +137,7 @@ class DataPenumpangFragment : Fragment() {
             Toast.makeText(requireContext(), "Add Success", Toast.LENGTH_SHORT).show()
             transactionViewModel.add.observe(viewLifecycleOwner) {
                 val bundle = Bundle()
-                val tripId = it?.data?.tripId.toString().toInt()
+                val tripId = it?.data?.tripId!!.toInt()
                 bundle.putInt("tripId", tripId)
                 findNavController().navigate(
                     R.id.action_dataPenumpangFragment_to_rincianPembayaranFragment,

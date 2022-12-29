@@ -202,8 +202,8 @@ class HomeFragment : Fragment() {
 
     private fun activateOneway() {
         searchViewModel.saveIsOneway(true)
-        searchViewModel.getDepartureDate().observe(viewLifecycleOwner){
-            if (it != null){
+        searchViewModel.getDepartureDate().observe(viewLifecycleOwner) {
+            if (it != null) {
                 binding.date1.text
             }
         }
@@ -214,14 +214,15 @@ class HomeFragment : Fragment() {
         val materialDatePicker = materialDateBuilder.build()
         binding.date1.setOnClickListener(
             View.OnClickListener {
-                materialDatePicker.show(parentFragmentManager, "MATERIAL_DATE_PICKER")
+                if (materialDatePicker.dialog == null && !materialDatePicker.isVisible)
+                    materialDatePicker.show(childFragmentManager, "MATERIAL_DATE_PICKER")
             })
         materialDatePicker.addOnPositiveButtonClickListener {
             searchViewModel.removeReturnDate()
             val simpleFormat = SimpleDateFormat("yyyy-MM-dd")
             departureDate = simpleFormat.format(Date(materialDatePicker.headerText))
             binding.date1.text = materialDatePicker.headerText
-            searchViewModel.getIsDepartureDate().observe(viewLifecycleOwner){
+            searchViewModel.getIsDepartureDate().observe(viewLifecycleOwner) {
                 searchViewModel.saveDepartureDate(departureDate)
             }
         }
@@ -229,10 +230,9 @@ class HomeFragment : Fragment() {
         binding.txtReturn.visibility = View.INVISIBLE
         binding.date2.visibility = View.INVISIBLE
         binding.txtRoundTrip.setTextColor(Color.BLACK)
-
     }
 
-    private fun activateRoundTrip() {
+        private fun activateRoundTrip() {
         searchViewModel.removeIsOneway()
         val materialDateBuilder: MaterialDatePicker.Builder<*> =
         MaterialDatePicker.Builder.datePicker()

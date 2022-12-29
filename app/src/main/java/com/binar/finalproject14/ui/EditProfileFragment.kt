@@ -94,9 +94,6 @@ class EditProfileFragment : DialogFragment() {
                     etLastName.setText(it.data?.lastName)
                     etAddress.setText(it.data?.address)
                     etPhone.setText(it.data?.phoneNumber)
-                    Glide.with(requireContext())
-                        .load(it.data?.avatar)
-                        .into(binding.ivEditImage)
                 }
             }
         }

@@ -38,6 +38,7 @@ class RincianPembayaranFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         transactionViewModel = ViewModelProvider(this)[TransactionViewModel::class.java]
+        transactionTrip()
         paymentMethod()
 
         binding.btnNext.setOnClickListener{
@@ -80,7 +81,7 @@ class RincianPembayaranFragment : Fragment() {
             }
         }
     }
-    private fun TransactionTrip(){
+    private fun transactionTrip(){
         transactionViewModel.getDataStoreToken().observe(viewLifecycleOwner){
             val tripId = arguments?.getInt("tripId")
             transactionViewModel.getTransactionTrip(tripId, "Bearer $it")
