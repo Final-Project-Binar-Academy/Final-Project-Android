@@ -5,6 +5,8 @@ import com.binar.finalproject14.data.api.request.LoginRequest
 import com.binar.finalproject14.data.api.request.RegisterRequest
 import com.binar.finalproject14.data.api.response.airport.AirportResponse
 import com.binar.finalproject14.data.api.response.auth.AuthResponse
+import com.binar.finalproject14.data.api.response.payment.PaymentRequest
+import com.binar.finalproject14.data.api.response.payment.PaymentResponse
 import com.binar.finalproject14.data.api.response.profile.GetUserResponse
 import com.binar.finalproject14.data.api.response.profile.User
 import com.binar.finalproject14.data.api.response.search.SearchResponse
@@ -62,6 +64,8 @@ interface UserApi {
     @GET("/api/transaction/{id}")
     fun getTransactionId(@Header("Authorization") token: String, @Path("id") id: Int?) : Call<TransactionResponse>
 
+    @PUT("/api/payment/")
+    fun updatePayment(@Header("Authorization") token: String, @Body request: PaymentRequest) : Call<PaymentResponse>
 
 //    companion object {
 //        fun getApi(): UserApi? {
