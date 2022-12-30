@@ -20,6 +20,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
+                android:id="@+id/back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#00FFFFFF"
@@ -73,7 +74,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txt_dari"
+                    android:id="@+id/cityCodeOrigin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -83,7 +84,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/dari"
+                    android:id="@+id/cityOrigin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -102,7 +103,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txt_ke"
+                    android:id="@+id/cityCodeDestination"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -112,7 +113,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/dari2"
+                    android:id="@+id/cityDestination"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -126,6 +127,15 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPostGo"
+            android:layout_width="match_parent"
+            android:layout_height="480dp"
+            tools:listitem="@layout/ticket" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPostBack"
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="480dp"
             tools:listitem="@layout/ticket" />

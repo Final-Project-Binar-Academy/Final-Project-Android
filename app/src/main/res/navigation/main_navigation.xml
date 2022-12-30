@@ -85,6 +85,9 @@
         <action
             android:id="@+id/action_pastFragment_to_rincianPembayaranFragment"
             app:destination="@id/rincianPembayaranFragment" />
+        <action
+            android:id="@+id/action_pastFragment_to_tiketFragment"
+            app:destination="@id/tiketFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -206,4 +209,9 @@
             android:id="@+id/action_screenLetsFlyFragment_to_screenStartFragment"
             app:destination="@id/screenStartFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/tiketFragment"
+        android:name="com.binar.finalproject14.ui.TiketFragment"
+        android:label="fragment_tiket"
+        tools:layout="@layout/fragment_tiket" />
 </navigation>

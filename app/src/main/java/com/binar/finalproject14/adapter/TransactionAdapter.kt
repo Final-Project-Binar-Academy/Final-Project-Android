@@ -5,11 +5,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.binar.finalproject14.data.api.response.transaction.history.Data
+import com.binar.finalproject14.data.api.response.transaction.Data
 import com.binar.finalproject14.databinding.ListTiketUpcomingBinding
 
-class TransactionAdapter(private val itemClick: (Data) -> Unit) :
-    RecyclerView.Adapter<TransactionAdapter.ViewHolder>() {
+class TransactionAdapter (private var itemClick: TransactionAdapter.ListTransactionInterface)
+    : RecyclerView.Adapter<TransactionAdapter.ViewHolder>(){
+
 
     private val differCallback = object : DiffUtil.ItemCallback<Data>() {
         override fun areItemsTheSame(
@@ -30,13 +31,11 @@ class TransactionAdapter(private val itemClick: (Data) -> Unit) :
     private val differ = AsyncListDiffer(this, differCallback)
 
 
-    class ViewHolder(private val binding: ListTiketUpcomingBinding, val itemClick: (Data) -> Unit) :
+    inner class ViewHolder(private val binding: ListTiketUpcomingBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Data) {
             with(item) {
-                itemView.setOnClickListener { itemClick(this) }
-                binding.dataBinding = item
 
                 val cityCodeOrigin: String? = item.go?.origin?.cityCode
                 var cityNameOrigin: String? = item.go?.origin?.city
@@ -66,6 +65,10 @@ class TransactionAdapter(private val itemClick: (Data) -> Unit) :
                 binding.tanggal2.text = finalTimeAndDateTo
                 binding.terminal2.text = airPortNameTo
 
+                binding.btnTicket.setOnClickListener(){
+                    item.id?.let { it1 -> itemClick.ticket(it1) }
+                }
+
             }
         }
 
@@ -74,7 +77,7 @@ class TransactionAdapter(private val itemClick: (Data) -> Unit) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =
             ListTiketUpcomingBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ViewHolder(binding, itemClick)
+        return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -93,6 +96,6 @@ class TransactionAdapter(private val itemClick: (Data) -> Unit) :
 
 
     interface ListTransactionInterface {
-        fun onItemClick(TransactionDetail: Data)
+        fun ticket(id: Int)
     }
 }

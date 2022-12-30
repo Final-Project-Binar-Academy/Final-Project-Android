@@ -29,7 +29,7 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnTigaMnt"
+                    android:id="@+id/kelas"
                     style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
@@ -82,7 +82,7 @@
 
                 <TextView
                     android:layout_marginTop="10dp"
-                    android:id="@+id/no_flight"
+                    android:id="@+id/code_flight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/rubik_medium"
@@ -124,7 +124,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:id="@+id/txt_from"
+                        android:id="@+id/cityCodeOrigin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
@@ -141,7 +141,7 @@
                         android:layout_height="wrap_content" />
 
                     <TextView
-                        android:id="@+id/txt_to"
+                        android:id="@+id/cityCodeDestination"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
@@ -177,12 +177,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/rubik_medium"
-                    android:text="@string/gate"
+                    android:text="@string/airplane"
                     android:textSize="12sp" />
 
                 <TextView
                     android:layout_marginTop="10dp"
-                    android:id="@+id/txt_gate"
+                    android:id="@+id/txt_airplane"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/rubik_medium"
@@ -191,22 +191,22 @@
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/seat"
+                    android:id="@+id/price"
                     android:layout_marginTop="25dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/rubik_medium"
-                    android:text="@string/seat"
+                    android:text="@string/tvprice"
                     android:textSize="12sp" />
 
                 <TextView
                     android:layout_marginTop="10dp"
-                    android:id="@+id/txt_seat"
+                    android:id="@+id/txtPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/rubik_medium"
                     android:textColor="@color/black"
-                    android:text="@string/txt_seat"
+                    android:text="@string/price"
                     android:textSize="12sp" />
 
             </LinearLayout>

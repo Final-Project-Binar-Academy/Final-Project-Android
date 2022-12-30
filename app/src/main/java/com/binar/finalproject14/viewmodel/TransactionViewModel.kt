@@ -5,7 +5,6 @@ import androidx.lifecycle.*
 import com.binar.finalproject14.data.api.request.AddTransaction
 import com.binar.finalproject14.data.api.response.transaction.CancelResponse
 import com.binar.finalproject14.data.api.response.transaction.add.TransactionResponse
-import com.binar.finalproject14.data.api.response.transaction.history.TransactionHistory
 import com.binar.finalproject14.data.api.service.UserApi
 import com.binar.finalproject14.data.utils.UserDataStoreManager
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -2,6 +2,7 @@ package com.binar.finalproject14.data.api.response.transaction.history
 
 
 import androidx.annotation.Keep
+import com.binar.finalproject14.data.api.response.transaction.Data
 import com.google.gson.annotations.SerializedName
 
 @Keep

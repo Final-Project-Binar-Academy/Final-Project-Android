@@ -1,23 +1,23 @@
-package com.binar.finalproject14.data.api.response.transaction.history
+package com.binar.finalproject14.data.api.response.transaction
 
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
 @Keep
-data class Passenger(
-    @SerializedName("brithDate")
-    var brithDate: String?,
+data class User(
     @SerializedName("createdAt")
     var createdAt: String?,
+    @SerializedName("email")
+    var email: String?,
     @SerializedName("firstName")
     var firstName: String?,
     @SerializedName("id")
     var id: Int?,
     @SerializedName("lastName")
     var lastName: String?,
-    @SerializedName("NIK")
-    var nIK: String?,
+    @SerializedName("roleId")
+    var roleId: Int?,
     @SerializedName("updatedAt")
     var updatedAt: String?
 )

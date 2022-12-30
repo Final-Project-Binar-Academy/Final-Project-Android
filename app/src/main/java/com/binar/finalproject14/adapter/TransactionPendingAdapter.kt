@@ -5,9 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.binar.finalproject14.data.api.response.transaction.history.Data
+import com.binar.finalproject14.data.api.response.transaction.Data
 import com.binar.finalproject14.databinding.ListBookingBinding
-import com.binar.finalproject14.databinding.ListTiketUpcomingBinding
 
 
 class TransactionPendingAdapter (private var itemClick: TransactionPendingAdapter.ListTransactionPendingInterface)

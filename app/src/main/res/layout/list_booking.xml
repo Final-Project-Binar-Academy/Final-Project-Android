@@ -68,7 +68,7 @@
                         android:textAllCaps="false"
                         android:text="@string/cancel"
                         android:textColor="@color/white"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
                         app:cornerRadius="15dp" />
 
                     <com.google.android.material.button.MaterialButton
@@ -81,7 +81,7 @@
                         android:gravity="center"
                         android:text="@string/pay"
                         android:textColor="@color/black"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
                         app:cornerRadius="15dp" />
                 </LinearLayout>
 
@@ -249,6 +249,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="0dp"
                             android:fontFamily="@font/rubik"
+                            android:gravity="end"
                             android:text="@string/terminal2"
                             android:textColor="@color/black"
                             android:textSize="12sp" />

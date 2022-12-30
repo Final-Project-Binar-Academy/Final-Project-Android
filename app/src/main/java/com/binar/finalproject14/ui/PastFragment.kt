@@ -13,12 +13,11 @@ import com.binar.finalproject14.MainActivity
 import com.binar.finalproject14.R
 import com.binar.finalproject14.adapter.TransactionAdapter
 import com.binar.finalproject14.adapter.TransactionPendingAdapter
-import com.binar.finalproject14.data.api.response.transaction.history.Data
+import com.binar.finalproject14.data.api.response.transaction.Data
 import com.binar.finalproject14.data.api.service.filter.ApiClient
 import com.binar.finalproject14.data.api.service.filter.ApiHelper
 import com.binar.finalproject14.databinding.FragmentPastBinding
 import com.binar.finalproject14.data.utils.UserDataStoreManager
-import com.binar.finalproject14.viewmodel.SearchViewModel
 import com.binar.finalproject14.viewmodel.TransactionFilterViewModel
 import com.binar.finalproject14.viewmodel.TransactionViewModel
 import com.binar.finalproject14.viewmodel.factory.TransactionFilterViewModelFactory
@@ -106,11 +105,7 @@ class PastFragment : Fragment(), TransactionAdapter.ListTransactionInterface, Tr
         if (status == "pending"){
             rvPending("pending")
         } else {
-            val adapter: TransactionAdapter by lazy {
-                TransactionAdapter {
-
-                }
-            }
+            val adapter = TransactionAdapter(this)
             binding.apply {
 
                 viewModel.getDataStoreToken().observe(viewLifecycleOwner) {
@@ -141,10 +136,6 @@ class PastFragment : Fragment(), TransactionAdapter.ListTransactionInterface, Tr
         binding.rvPost.visibility = View.VISIBLE
     }
 
-    override fun onItemClick(TransactionDetail: Data) {
-        TODO("Not yet implemented")
-    }
-
     override fun pay(id: Int) {
         transactionViewModel.saveTransactionId(id)
         findNavController().navigate(R.id.action_pastFragment_to_rincianPembayaranFragment)
@@ -156,6 +147,11 @@ class PastFragment : Fragment(), TransactionAdapter.ListTransactionInterface, Tr
             transactionViewModel.cancelTransaction(id, "Bearer $it")
         }
         rcyView("canceled")
+    }
+
+    override fun ticket(id: Int) {
+        transactionViewModel.saveTransactionId(id)
+        findNavController().navigate(R.id.action_pastFragment_to_tiketFragment)
     }
 
 }

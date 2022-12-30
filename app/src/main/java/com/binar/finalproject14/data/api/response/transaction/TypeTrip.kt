@@ -1,19 +1,17 @@
-package com.binar.finalproject14.data.api.response.transaction.add
+package com.binar.finalproject14.data.api.response.transaction
 
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
 @Keep
-data class Company(
-    @SerializedName("companyImage")
-    var companyImage: String?,
-    @SerializedName("companyName")
-    var companyName: String?,
+data class TypeTrip(
     @SerializedName("createdAt")
     var createdAt: String?,
     @SerializedName("id")
     var id: Int?,
+    @SerializedName("type")
+    var type: String?,
     @SerializedName("updatedAt")
     var updatedAt: String?
 )
