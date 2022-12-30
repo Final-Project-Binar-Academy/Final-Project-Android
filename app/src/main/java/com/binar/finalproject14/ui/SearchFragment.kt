@@ -63,7 +63,7 @@ class SearchFragment : Fragment(), SearchGoAdapter.ListSearchGoInterface, Search
     }
 
     fun getData() {
-        departureDate = "2022-12-25"
+        departureDate = arguments?.getString("departureDate").toString()
         departureCity = arguments?.getString("departureCity").toString()
         destinationCity = arguments?.getString("destinationCity").toString()
         returnDate = "2022-12-25"

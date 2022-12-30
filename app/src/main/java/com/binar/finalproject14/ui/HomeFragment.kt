@@ -137,9 +137,9 @@ class HomeFragment : Fragment() {
         }
         searchViewModel.getDepartureDate().observe(viewLifecycleOwner){
             if (it != null){
-                val simpleFormat = "yyyy-MM-dd"
-                val itDepartureDate = SimpleDateFormat(simpleFormat, Locale.US)
-                bund.putString("departureDate", itDepartureDate.toString())
+//                val simpleFormat = "yyyy-MM-dd"
+//                val itDepartureDate = SimpleDateFormat(simpleFormat, Locale.US)
+                bund.putString("departureDate", it.toString())
             }
         }
         searchViewModel.getIsOneway().observe(viewLifecycleOwner){
@@ -223,10 +223,11 @@ class HomeFragment : Fragment() {
                     materialDatePicker.show(childFragmentManager, "MATERIAL_DATE_PICKER")
             })
         materialDatePicker.addOnPositiveButtonClickListener {
-            departureDate = materialDatePicker.headerText
+            val simpleFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
+            val itDepartureDate = simpleFormat.format(Date(materialDatePicker.headerText))
             binding.date1.text = materialDatePicker.headerText
             searchViewModel.getIsDepartureDate().observe(viewLifecycleOwner){
-                searchViewModel.saveDepartureDate(departureDate)
+                searchViewModel.saveDepartureDate(itDepartureDate)
             }
         }
         binding.txtOneway.setTextColor(resources.getColor(R.color.basic))
