@@ -1,4 +1,4 @@
-package com.binar.finalproject14.ui
+package com.binar.finalproject14.ui.splashscreen
 
 import android.os.Bundle
 import android.os.Handler
@@ -28,7 +28,7 @@ class SplashScreenFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 //        val token = SessionManager.getToken(requireContext())
         Handler(Looper.myLooper()!!).postDelayed({
-            findNavController().navigate(R.id.action_splashScreenFragment_to_loginFragment)
+            findNavController().navigate(R.id.action_splashScreenFragment_to_screenLetsFlyFragment)
             },1000)
 
     }

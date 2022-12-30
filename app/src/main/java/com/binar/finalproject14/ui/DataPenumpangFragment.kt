@@ -97,38 +97,10 @@ class DataPenumpangFragment : Fragment() {
         getTicketOneway()
         val id_back = arguments?.getInt("id_ticket_back")
         Log.d("idround", id_back.toString())
-        binding.cardBack.visibility = View.VISIBLE
-        if (id_back != null){
-            flightViewModel.getFlightDetail(id_back)
-            flightViewModel.flightDetail.observe(viewLifecycleOwner) {
-                binding.apply {
-                    if (it != null) {
-                        var simpleDateFormat = SimpleDateFormat("LLL dd")
-                        var departure : Date? = it.data?.departureDate
-                        var departure_date = simpleDateFormat.format(departure?.time).toString()
-                        var arrival : Date? = it.data?.arrivalDate
-                        var arrivalDate = simpleDateFormat.format(arrival?.time).toString()
 
-                        binding.departureDate2.text = departure_date
-                        binding.departureTime2.text = it.data?.departureTime.toString()
-                        binding.codeIataFrom2.text = it.data?.origin?.cityCode.toString()
-                        binding.city12.text = it.data?.origin?.city.toString()
-                        binding.kelas2.text = it.data?.classX.toString()
-                        binding.arrivalDate2.text = arrivalDate
-                        binding.arrivalTime2.text = it.data?.arrivalTime.toString()
-                        binding.codeIataTo2.text = it.data?.destination?.cityCode.toString()
-                        binding.city22.text = it.data?.destination?.city.toString()
-                        binding.company2.text = it.data?.airplane?.company?.companyName
-                        binding.btnKelas2.text = it.data?.classX
-                        binding.price2.text = it.data?.price.toString()
-                    }
-                }
-            }
-        }
     }
 
     private fun getTicketOneway() {
-        binding.cardBack.visibility = View.GONE
         val id = arguments?.getInt("id_oneway")
         Log.d("idone", id.toString())
         if (id != null){
@@ -173,48 +145,31 @@ class DataPenumpangFragment : Fragment() {
             val tGo = arguments?.getInt("id_oneway")
             Log.d("tgo", tGo.toString())
             val tBack = arguments?.getInt("id_ticket_back")
-//            val tGo = binding.ticketGo.text.toString().toInt()
-//            val tBack = binding.ticketBack.text.toString().toInt()
             val fName = binding.firstname1.text.toString()
             val lName = binding.lastname1.text.toString()
             val nIK = binding.nik.text.toString()
             val birth = binding.birth.text.toString()
 
             searchViewModel.getIsOneway().observe(viewLifecycleOwner){
+                val tripId: Int
                 if (it == true){
-                    val tripId = 1
-                    transactionViewModel.getDataStoreToken().observe(viewLifecycleOwner) {
-                        transactionViewModel.addTransaction(tGo!!, tBack!!, tripId, fName, lName, nIK, "2002-08-20","Bearer $it")
-                        transactionViewModel.add.observe(viewLifecycleOwner) {
-                            val id = it?.data?.id.toString().toInt()
-                            transactionViewModel.saveTransactionId(id)
-                            val bundle = Bundle()
-                            bundle.putInt("tripId", tripId)
-                            findNavController().navigate(
-                                R.id.action_dataPenumpangFragment_to_rincianPembayaranFragment,
-                                bundle
-                            )
-                        }
-                    }
+                    tripId = 1
                 } else {
-                    val tripId = 2
-                    transactionViewModel.getDataStoreToken().observe(viewLifecycleOwner) {
-                        transactionViewModel.addTransaction(tGo!!, tBack!!, tripId, fName, lName, nIK, "2002-08-20","Bearer $it")
-                        transactionViewModel.add.observe(viewLifecycleOwner) {
-                            val id = it?.data?.id.toString().toInt()
-                            transactionViewModel.saveTransactionId(id)
-                            val bundle = Bundle()
-                            bundle.putInt("tripId", tripId)
-                            findNavController().navigate(
-                                R.id.action_dataPenumpangFragment_to_rincianPembayaranFragment,
-                                bundle
-                            )
-                        }
+                    tripId = 2
+                }
+                transactionViewModel.getDataStoreToken().observe(viewLifecycleOwner) {
+                    transactionViewModel.addTransaction(tGo!!, tBack!!, tripId, fName, lName, nIK, birth,"Bearer $it")
+                    transactionViewModel.add.observe(viewLifecycleOwner) {
+                        Toast.makeText(requireContext(), "Add Success", Toast.LENGTH_SHORT).show()
+                        val bundle = Bundle()
+                        bundle.putInt("tripId", tripId)
+                        findNavController().navigate(
+                            R.id.action_dataPenumpangFragment_to_pastFragment,
+                            bundle
+                        )
                     }
                 }
             }
-            Toast.makeText(requireContext(), "Add Success", Toast.LENGTH_SHORT).show()
-
         }
     }
 }

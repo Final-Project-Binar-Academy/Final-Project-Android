@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.binar.finalproject14.MainActivity
 import com.binar.finalproject14.adapter.TransactionAdapter
+import com.binar.finalproject14.adapter.TransactionPendingAdapter
 import com.binar.finalproject14.data.api.response.transaction.history.Data
 import com.binar.finalproject14.data.api.service.filter.ApiClient
 import com.binar.finalproject14.data.api.service.filter.ApiHelper
@@ -51,7 +52,7 @@ class PastFragment : Fragment(), TransactionAdapter.ListTransactionInterface {
 
         (activity as MainActivity).binding.navHome.visibility = View.VISIBLE
 
-        rcyView("success")
+        rcyView("pending")
         binding.successTransaction.setOnClickListener {
             rcyView("success")
             binding.successTransaction.typeface = Typeface.DEFAULT_BOLD
@@ -75,14 +76,13 @@ class PastFragment : Fragment(), TransactionAdapter.ListTransactionInterface {
 
     }
 
-    private fun rcyView(status: String) {
-        val adapter: TransactionAdapter by lazy {
-            TransactionAdapter {
+    private fun rvPending(status: String){
+        val adapter: TransactionPendingAdapter by lazy {
+            TransactionPendingAdapter {
 
             }
         }
         binding.apply {
-
             viewModel.getDataStoreToken().observe(viewLifecycleOwner) {
                 viewModel.getFilterTransaction("Bearer $it", status)
             }
@@ -95,10 +95,40 @@ class PastFragment : Fragment(), TransactionAdapter.ListTransactionInterface {
                     setImg()
                 }
             }
-            rvPost.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            rvPost.layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             rvPost.adapter = adapter
         }
+    }
 
+    private fun rcyView(status: String) {
+        if (status == "pending"){
+            rvPending("pending")
+        } else {
+            val adapter: TransactionAdapter by lazy {
+                TransactionAdapter {
+
+                }
+            }
+            binding.apply {
+
+                viewModel.getDataStoreToken().observe(viewLifecycleOwner) {
+                    viewModel.getFilterTransaction("Bearer $it", status)
+                }
+
+                viewModel.getTransactionFilter().observe(viewLifecycleOwner) {
+                    if (it != null) {
+                        adapter.setData(it.data as List<Data>)
+                        setImgOff()
+                    } else {
+                        setImg()
+                    }
+                }
+                rvPost.layoutManager =
+                    LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+                rvPost.adapter = adapter
+            }
+        }
     }
 
     fun setImg(){

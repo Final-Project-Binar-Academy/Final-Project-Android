@@ -74,9 +74,9 @@ class LoginFragment : Fragment() {
         showToast("Success:" + data?.message)
         if (data?.data?.accessToken != null) {
             viewModel.saveIsLoginStatus(true)
-            viewModel.saveUsername(data?.data?.name.toString())
-            viewModel.saveId(data?.data?.id!!.toInt())
-            viewModel.saveToken(data?.data?.accessToken.toString())
+            viewModel.saveUsername(data.data?.name.toString())
+            viewModel.saveId(data.data?.id!!.toInt())
+            viewModel.saveToken(data.data?.accessToken.toString())
             findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
         }
     }
