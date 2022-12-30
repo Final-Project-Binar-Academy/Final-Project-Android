@@ -102,6 +102,7 @@ class SearchDatastore(@ApplicationContext val context: Context) {
         }
     }
 
+
     suspend fun saveDeparture(cityDeparture: String, cityCodeDeparture: String, isDeparture: Boolean) {
         context.dataStore.edit {
             it[CITY_DEPARTURE] = cityDeparture

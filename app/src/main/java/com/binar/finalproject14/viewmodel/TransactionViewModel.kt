@@ -1,16 +1,14 @@
 package com.binar.finalproject14.viewmodel
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.asLiveData
+import androidx.lifecycle.*
 import com.binar.finalproject14.data.api.request.AddTransaction
 import com.binar.finalproject14.data.api.response.transaction.add.TransactionResponse
 import com.binar.finalproject14.data.api.response.transaction.history.TransactionHistory
 import com.binar.finalproject14.data.api.service.UserApi
 import com.binar.finalproject14.data.utils.UserDataStoreManager
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -58,11 +56,11 @@ class TransactionViewModel @Inject constructor(
     private val _transaction: MutableLiveData<TransactionResponse?> = MutableLiveData()
     val transaction: LiveData<TransactionResponse?> get() = _transaction
 
-    fun getTransactionTrip(
-        tripId: Int?,
+    fun getTransactionId(
+        id: Int?,
         token: String
     ) {
-        client.getTransactionTrip(token, tripId)
+        client.getTransactionId(token, id)
             .enqueue(object : Callback<TransactionResponse> {
                 override fun onResponse(
                     call: Call<TransactionResponse>,
@@ -84,5 +82,14 @@ class TransactionViewModel @Inject constructor(
 
     fun getDataStoreToken(): LiveData<String> {
         return pref.getToken.asLiveData()
+    }
+    fun saveTransactionId(id: Int) {
+        viewModelScope.launch {
+            pref.saveTransactionId(id)
+        }
+    }
+
+    fun getId(): LiveData<Int> {
+        return pref.getTransactionId.asLiveData()
     }
 }

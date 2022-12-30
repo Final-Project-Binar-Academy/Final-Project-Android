@@ -68,12 +68,11 @@ class SearchFragment : Fragment(), SearchGoAdapter.ListSearchGoInterface, Search
         destinationCity = arguments?.getString("destinationCity").toString()
         returnDate = "2022-12-25"
 
-        searchViewModel.getIsOneway().observe(viewLifecycleOwner){
-            if (it == true){
+        searchViewModel.getIsOneway().observe(viewLifecycleOwner) {
+            if (it == true) {
                 Log.d("tipe", it.toString())
                 getOneway()
-            }
-            else {
+            } else {
                 Log.d("tipe", it.toString())
                 getRoundtrip()
             }

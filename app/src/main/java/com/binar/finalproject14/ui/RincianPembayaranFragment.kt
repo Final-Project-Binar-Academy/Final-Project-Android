@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.binar.finalproject14.R
 import com.binar.finalproject14.databinding.FragmentRincianPembayaranBinding
+import com.binar.finalproject14.viewmodel.PaymentViewModel
 import com.binar.finalproject14.viewmodel.TransactionViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.analytics.FirebaseAnalytics
