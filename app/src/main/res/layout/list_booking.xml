@@ -10,7 +10,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="330dp"
             app:cardBackgroundColor="@color/button"
             app:cardCornerRadius="15dp"
             app:cardElevation="0dp"
@@ -25,44 +25,65 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:padding="10dp">-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/waktuPembayaran"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/rubik_medium"-->
+<!--                        android:text="@string/txt_waktu"-->
+<!--                        android:textColor="#99FFFFFF"-->
+<!--                        android:textSize="14sp" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/waktu"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/rubik_medium"-->
+<!--                        android:text="@string/waktu"-->
+<!--                        android:textAlignment="textEnd"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="14sp" />-->
+
+<!--                </LinearLayout>-->
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:id="@+id/waktuPembayaran"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/rubik_medium"
-                        android:text="@string/txt_waktu"
-                        android:textColor="#99FFFFFF"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/waktu"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/rubik_medium"
-                        android:text="@string/waktu"
-                        android:textAlignment="textEnd"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
-
-                </LinearLayout>
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnPay"
-                    android:layout_width="200dp"
-                    android:layout_height="55dp"
-                    android:backgroundTint="@color/white"
-                    android:fontFamily="@font/rubik_medium"
                     android:gravity="center"
-                    android:text="@string/pay"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    app:cornerRadius="15dp" />
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnCancel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="55dp"
+                        android:backgroundTint="#F61E1E"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:gravity="center"
+                        android:textAllCaps="false"
+                        android:text="@string/cancel"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:cornerRadius="15dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnPay"
+                        android:layout_marginStart="40dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="55dp"
+                        android:backgroundTint="@color/white"
+                        android:fontFamily="@font/rubik_medium"
+                        android:gravity="center"
+                        android:text="@string/pay"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        app:cornerRadius="15dp" />
+                </LinearLayout>
 
             </LinearLayout>
 

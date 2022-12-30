@@ -12,6 +12,7 @@ import com.binar.finalproject14.data.api.response.profile.User
 import com.binar.finalproject14.data.api.response.search.SearchResponse
 import com.binar.finalproject14.data.api.response.ticket.FlightIdResponse
 import com.binar.finalproject14.data.api.response.ticket.FlightResponse
+import com.binar.finalproject14.data.api.response.transaction.CancelResponse
 import com.binar.finalproject14.data.api.response.transaction.add.TransactionResponse
 import com.binar.finalproject14.data.api.response.transaction.history.TransactionHistory
 import okhttp3.MultipartBody
@@ -66,6 +67,9 @@ interface UserApi {
 
     @PUT("/api/payment/")
     fun updatePayment(@Header("Authorization") token: String, @Body request: PaymentRequest) : Call<PaymentResponse>
+
+    @PUT("/api/transaction/cancel/{id}")
+    fun cancelTransaction(@Header("Authorization") token: String, @Path("id") id: Int?) : Call<CancelResponse>
 
 //    companion object {
 //        fun getApi(): UserApi? {

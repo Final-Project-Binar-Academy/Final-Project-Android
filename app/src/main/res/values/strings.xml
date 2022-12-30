@@ -165,6 +165,7 @@
     <string name="successTransaction">Success</string>
     <string name="text_welcome">Welcome to Lef.id</string>
     <string name="sudahPunyaAkun">Already have an account?</string>
+    <string name="cancel">Cancel</string>
     <string-array name="languages">
         <item>Indonesia</item>
         <item>English</item>

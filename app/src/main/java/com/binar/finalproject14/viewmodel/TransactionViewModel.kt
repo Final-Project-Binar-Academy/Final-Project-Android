@@ -3,6 +3,7 @@ package com.binar.finalproject14.viewmodel
 import android.app.Application
 import androidx.lifecycle.*
 import com.binar.finalproject14.data.api.request.AddTransaction
+import com.binar.finalproject14.data.api.response.transaction.CancelResponse
 import com.binar.finalproject14.data.api.response.transaction.add.TransactionResponse
 import com.binar.finalproject14.data.api.response.transaction.history.TransactionHistory
 import com.binar.finalproject14.data.api.service.UserApi
@@ -76,6 +77,33 @@ class TransactionViewModel @Inject constructor(
 
                 override fun onFailure(call: Call<TransactionResponse>, t: Throwable) {
                     _transaction.postValue(null)
+                }
+            })
+    }
+
+    private val _cancelTransaction: MutableLiveData<CancelResponse?> = MutableLiveData()
+    val cancelDataTransaction: LiveData<CancelResponse?> get() = _cancelTransaction
+
+    fun cancelTransaction(
+        id: Int?,
+        token: String
+    ) {
+        client.cancelTransaction(token, id)
+            .enqueue(object : Callback<CancelResponse> {
+                override fun onResponse(
+                    call: Call<CancelResponse>,
+                    response: Response<CancelResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val responseBody = response.body()
+                        if (responseBody != null) {
+                            _cancelTransaction.postValue(responseBody)
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<CancelResponse>, t: Throwable) {
+                    _cancelTransaction.postValue(null)
                 }
             })
     }

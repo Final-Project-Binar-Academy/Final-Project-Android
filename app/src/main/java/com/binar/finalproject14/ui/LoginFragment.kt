@@ -80,14 +80,6 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
         }
     }
-    override fun onStart() {
-        super.onStart()
-        viewModel.getDataStoreIsLogin().observe(viewLifecycleOwner) {
-            if (it == true) {
-                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-            }
-        }
-    }
 
     fun processError(msg: String?) {
         showToast("Error:" + msg)

@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.binar.finalproject14.MainActivity
+import com.binar.finalproject14.R
 import com.binar.finalproject14.adapter.TransactionAdapter
 import com.binar.finalproject14.adapter.TransactionPendingAdapter
 import com.binar.finalproject14.data.api.response.transaction.history.Data
@@ -16,22 +18,23 @@ import com.binar.finalproject14.data.api.service.filter.ApiClient
 import com.binar.finalproject14.data.api.service.filter.ApiHelper
 import com.binar.finalproject14.databinding.FragmentPastBinding
 import com.binar.finalproject14.data.utils.UserDataStoreManager
+import com.binar.finalproject14.viewmodel.SearchViewModel
 import com.binar.finalproject14.viewmodel.TransactionFilterViewModel
+import com.binar.finalproject14.viewmodel.TransactionViewModel
 import com.binar.finalproject14.viewmodel.factory.TransactionFilterViewModelFactory
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
+import dagger.hilt.android.AndroidEntryPoint
 
-class PastFragment : Fragment(), TransactionAdapter.ListTransactionInterface {
+@AndroidEntryPoint
+class PastFragment : Fragment(), TransactionAdapter.ListTransactionInterface, TransactionPendingAdapter.ListTransactionPendingInterface {
     private lateinit var analytics: FirebaseAnalytics
     private lateinit var viewModel: TransactionFilterViewModel
+    private lateinit var transactionViewModel: TransactionViewModel
     private lateinit var pref: UserDataStoreManager
     private var _binding: FragmentPastBinding? = null
     private val binding get() = _binding!!
-
-    private var isSuccess = false
-    private var isPending = false
-    private var isCanceled = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +46,8 @@ class PastFragment : Fragment(), TransactionAdapter.ListTransactionInterface {
         viewModel = ViewModelProvider(
             this,TransactionFilterViewModelFactory(ApiHelper(ApiClient.instance),pref)
         )[TransactionFilterViewModel::class.java]
+        transactionViewModel = ViewModelProvider(this)[TransactionViewModel::class.java]
+
         _binding = FragmentPastBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -77,11 +82,7 @@ class PastFragment : Fragment(), TransactionAdapter.ListTransactionInterface {
     }
 
     private fun rvPending(status: String){
-        val adapter: TransactionPendingAdapter by lazy {
-            TransactionPendingAdapter {
-
-            }
-        }
+        val adapter = TransactionPendingAdapter(this)
         binding.apply {
             viewModel.getDataStoreToken().observe(viewLifecycleOwner) {
                 viewModel.getFilterTransaction("Bearer $it", status)
@@ -142,6 +143,19 @@ class PastFragment : Fragment(), TransactionAdapter.ListTransactionInterface {
 
     override fun onItemClick(TransactionDetail: Data) {
         TODO("Not yet implemented")
+    }
+
+    override fun pay(id: Int) {
+        transactionViewModel.saveTransactionId(id)
+        findNavController().navigate(R.id.action_pastFragment_to_rincianPembayaranFragment)
+    }
+
+    override fun cancel(id: Int) {
+        transactionViewModel.saveTransactionId(id)
+        transactionViewModel.getDataStoreToken().observe(viewLifecycleOwner) {
+            transactionViewModel.cancelTransaction(id, "Bearer $it")
+        }
+        rcyView("canceled")
     }
 
 }

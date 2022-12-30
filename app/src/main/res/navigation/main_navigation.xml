@@ -51,18 +51,6 @@
             app:destination="@id/listViewFragment" />
     </fragment>
     <fragment
-        android:id="@+id/tripUpcomingFragment"
-        android:name="com.binar.finalproject14.ui.TripUpcomingFragment"
-        android:label="fragment_trip_upcoming"
-        tools:layout="@layout/fragment_trip_upcoming" >
-        <action
-            android:id="@+id/action_tripUpcomingFragment_to_pastFragment"
-            app:destination="@id/pastFragment" />
-        <action
-            android:id="@+id/action_tripUpcomingFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/profileFragment"
         android:name="com.binar.finalproject14.ui.ProfileFragment"
         android:label="fragment_profile"
@@ -95,8 +83,8 @@
         android:label="fragment_past"
         tools:layout="@layout/fragment_past" >
         <action
-            android:id="@+id/action_pastFragment_to_tripUpcomingFragment"
-            app:destination="@id/tripUpcomingFragment" />
+            android:id="@+id/action_pastFragment_to_rincianPembayaranFragment"
+            app:destination="@id/rincianPembayaranFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -205,6 +193,9 @@
         <action
             android:id="@+id/action_screenStartFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_screenStartFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/screenLetsFlyFragment"

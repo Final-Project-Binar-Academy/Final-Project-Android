@@ -103,7 +103,7 @@
                         android:layout_marginTop="0dp"
                         android:fontFamily="@font/rubik_medium"
                         android:text="@string/from"
-                        android:textColor="@color/abu"
+                        android:textColor="@color/black"
                         android:textSize="12sp" />
 
                     <com.google.android.material.card.MaterialCardView
@@ -150,7 +150,7 @@
                         android:layout_marginTop="28dp"
                         android:fontFamily="@font/rubik_medium"
                         android:text="@string/travel_date"
-                        android:textColor="@color/abu"
+                        android:textColor="@color/black"
                         android:textSize="12sp" />
 
                     <TextView
@@ -171,7 +171,7 @@
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/rubik_medium"
                         android:text="@string/traveller"
-                        android:textColor="@color/abu"
+                        android:textColor="@color/black"
                         android:textSize="12sp" />
 
                     <TextView
@@ -204,7 +204,7 @@
                         android:layout_marginTop="0dp"
                         android:fontFamily="@font/rubik_medium"
                         android:text="@string/to"
-                        android:textColor="@color/abu"
+                        android:textColor="@color/black"
                         android:textSize="12sp" />
 
                     <com.google.android.material.card.MaterialCardView
@@ -257,7 +257,7 @@
                         android:layout_marginTop="28dp"
                         android:fontFamily="@font/rubik_medium"
                         android:text="@string/returnn"
-                        android:textColor="@color/abu"
+                        android:textColor="@color/black"
                         android:textSize="12sp" />
 
                     <TextView
@@ -281,7 +281,7 @@
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/rubik_medium"
                         android:text="@string/str_class"
-                        android:textColor="@color/abu"
+                        android:textColor="@color/black"
                         android:textSize="12sp" />
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -351,35 +351,35 @@
             android:layout_marginTop="15dp"
             app:cornerRadius="18dp" />
 
-        <TextView
-            android:textColor="@color/black"
-            android:layout_marginTop="20dp"
-            android:text="@string/hotOffer"
-            style="@style/TextAppearance.MyApp.titleCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+<!--        <TextView-->
+<!--            android:textColor="@color/black"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:text="@string/hotOffer"-->
+<!--            style="@style/TextAppearance.MyApp.titleCard"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"/>-->
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_hot_offer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/hot_offer"
-            tools:visibility="visible" />
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/rv_hot_offer"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            tools:listitem="@layout/hot_offer"-->
+<!--            tools:visibility="visible" />-->
 
-        <TextView
-            style="@style/TextAppearance.MyApp.titleCard"
-            android:textColor="@color/black"
-            android:layout_marginTop="20dp"
-            android:text="@string/popular_flight"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+<!--        <TextView-->
+<!--            style="@style/TextAppearance.MyApp.titleCard"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:text="@string/popular_flight"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"/>-->
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_popular"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/list_popular"
-            tools:visibility="visible" />
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/rv_popular"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            tools:listitem="@layout/list_popular"-->
+<!--            tools:visibility="visible" />-->
 
         <TextView
             style="@style/TextAppearance.MyApp.titleCard"

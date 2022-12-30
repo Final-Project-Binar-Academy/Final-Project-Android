@@ -10,8 +10,9 @@ import com.binar.finalproject14.databinding.ListBookingBinding
 import com.binar.finalproject14.databinding.ListTiketUpcomingBinding
 
 
-class TransactionPendingAdapter(private val itemClick: (Data) -> Unit) :
-    RecyclerView.Adapter<TransactionPendingAdapter.ViewHolder>() {
+class TransactionPendingAdapter (private var itemClick: TransactionPendingAdapter.ListTransactionPendingInterface)
+    : RecyclerView.Adapter<TransactionPendingAdapter.ViewHolder>(){
+
 
     private val differCallback = object : DiffUtil.ItemCallback<Data>() {
         override fun areItemsTheSame(
@@ -32,7 +33,7 @@ class TransactionPendingAdapter(private val itemClick: (Data) -> Unit) :
     private val differ = AsyncListDiffer(this, differCallback)
 
 
-    class ViewHolder(private val binding: ListBookingBinding, val itemClick: (Data) -> Unit) :
+    inner class ViewHolder(private val binding: ListBookingBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Data) {
@@ -68,7 +69,11 @@ class TransactionPendingAdapter(private val itemClick: (Data) -> Unit) :
                 binding.airportDestination.text = airPortNameTo
 
                 binding.btnPay.setOnClickListener(){
+                    item.id?.let { it1 -> itemClick.pay(it1) }
+                }
 
+                binding.btnCancel.setOnClickListener(){
+                    item.id?.let { it1 -> itemClick.cancel(it1) }
                 }
             }
         }
@@ -78,7 +83,7 @@ class TransactionPendingAdapter(private val itemClick: (Data) -> Unit) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =
             ListBookingBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ViewHolder(binding, itemClick)
+        return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -96,6 +101,7 @@ class TransactionPendingAdapter(private val itemClick: (Data) -> Unit) :
 
 
     interface ListTransactionPendingInterface {
-        fun onItemClick(id: Int)
+        fun pay(id: Int)
+        fun cancel(id: Int)
     }
 }
