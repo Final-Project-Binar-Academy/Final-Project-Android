@@ -168,6 +168,9 @@
     <string name="cancel">Cancel</string>
     <string name="airplane">Airplane</string>
     <string name="tvprice">Price</string>
+    <string name="payment_bankBRI">Bank BRI</string>
+    <string name="payment_bankMandiri">Bank Mandiri</string>
+    <string name="payment_bankBCA">Bank BCA</string>
     <string-array name="languages">
         <item>Indonesia</item>
         <item>English</item>

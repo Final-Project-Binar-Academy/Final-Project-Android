@@ -291,7 +291,7 @@
                         android:paddingStart="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/payment_bank"
+                        android:text="@string/payment_bankBRI"
                         android:textAppearance="@style/TextAppearance.MyApp.detail.payment.choice" />
 
                     <View
@@ -306,7 +306,7 @@
                         android:paddingStart="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/payment_e_wallet"
+                        android:text="@string/payment_bankMandiri"
                         android:textAppearance="@style/TextAppearance.MyApp.detail.payment.choice" />
 
                     <View
@@ -321,7 +321,7 @@
                         android:paddingStart="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/payment_qris"
+                        android:text="@string/payment_bankBCA"
                         android:textAppearance="@style/TextAppearance.MyApp.detail.payment.choice" />
 
 
@@ -345,148 +345,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="20dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:layout_weight="0.1"
-                    android:orientation="horizontal">
-
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.payment.fare"
-                            android:text="Base Fare" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.payment.money"
-                            android:text="$320" />
-                    </LinearLayout>
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.payment.fare"
-                            android:text="@string/detail_fee_and_surcharges" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.payment.money"
-                            android:text="$320" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="wrap_content"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:background="@color/basic" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.payment.fare"
-                            android:text="@string/detail_travel_insurance" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.payment.money"
-                            android:text="$320" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="wrap_content"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:background="@color/basic" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.payment.fare"
-                            android:text="@string/detail_convenience_fee" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.payment.money"
-                            android:text="$320" />
-                    </LinearLayout>
-
-                </LinearLayout>
 
                 <View
                     android:layout_width="wrap_content"
@@ -518,10 +376,11 @@
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:id="@+id/priceFare"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="@style/TextAppearance.MyApp.detail.payment.money.total"
-                            android:text="$320" />
+                            android:text="$320"
+                            android:textAppearance="@style/TextAppearance.MyApp.detail.payment.money.total" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -564,10 +423,11 @@
                         android:text="TOTAL FARE" />
 
                     <TextView
+                        android:id="@+id/totalFare"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.MyApp.detail.totalFare.money"
-                        android:text="$ 100" />
+                        android:text="$ 100"
+                        android:textAppearance="@style/TextAppearance.MyApp.detail.totalFare.money" />
 
                 </LinearLayout>
 

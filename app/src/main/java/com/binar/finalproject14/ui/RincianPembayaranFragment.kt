@@ -51,23 +51,24 @@ class RincianPembayaranFragment : Fragment() {
                     paymentViewModel.updatePayment(id, payment,"Bearer $it")
                 }
             }
-            if (payment == 1) {
-                findNavController().navigate(R.id.action_rincianPembayaranFragment_to_payCardFragment)
-            } else if (payment == 2) {
-                findNavController().navigate(R.id.action_rincianPembayaranFragment_to_payEwalletFragment)
-            } else if (payment == 3) {
-                findNavController().navigate(R.id.action_rincianPembayaranFragment_to_payQrisFragment)
-            } else {
-                Snackbar.make(binding.root, "Pilih metode pembayaran anda", Snackbar.LENGTH_SHORT)
-                    .setBackgroundTint(
-                        ContextCompat.getColor(
-                            requireContext(),
-                            R.color.basic
-                        )
-                    )
-                    .setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
-                    .show()
-            }
+            findNavController().navigate(R.id.action_rincianPembayaranFragment_to_pastFragment)
+//            if (payment == 1) {
+//                findNavController().navigate(R.id.action_rincianPembayaranFragment_to_payCardFragment)
+//            } else if (payment == 2) {
+//                findNavController().navigate(R.id.action_rincianPembayaranFragment_to_payEwalletFragment)
+//            } else if (payment == 3) {
+//                findNavController().navigate(R.id.action_rincianPembayaranFragment_to_payQrisFragment)
+//            } else {
+//                Snackbar.make(binding.root, "Pilih metode pembayaran anda", Snackbar.LENGTH_SHORT)
+//                    .setBackgroundTint(
+//                        ContextCompat.getColor(
+//                            requireContext(),
+//                            R.color.basic
+//                        )
+//                    )
+//                    .setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+//                    .show()
+//            }
         }
         super.onViewCreated(view, savedInstanceState)
     }
@@ -111,6 +112,8 @@ class RincianPembayaranFragment : Fragment() {
             binding.goPassenger.text =
                 it?.data?.passenger?.firstName.toString() + " " + it?.data?.passenger?.lastName.toString()
             binding.goCompany.text = it?.data?.go?.airplane?.company?.companyName.toString()
+            binding.priceFare.text = it?.data?.totalPrice.toString()
+            binding.totalFare.text = it?.data?.totalPrice.toString()
         }
     }
 }

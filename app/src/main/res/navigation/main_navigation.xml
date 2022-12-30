@@ -169,6 +169,9 @@
         <action
             android:id="@+id/action_rincianPembayaranFragment_to_payQrisFragment"
             app:destination="@id/payQrisFragment" />
+        <action
+            android:id="@+id/action_rincianPembayaranFragment_to_pastFragment"
+            app:destination="@id/pastFragment" />
     </fragment>
     <fragment
         android:id="@+id/payCardFragment"
