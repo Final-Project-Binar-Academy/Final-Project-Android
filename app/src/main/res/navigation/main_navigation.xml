@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/splashScreenFragment"
-        android:name="com.binar.finalproject14.ui.SplashScreenFragment"
+        android:name="com.binar.finalproject14.ui.splashscreen.SplashScreenFragment"
         android:label="fragment_splash_screen"
         tools:layout="@layout/fragment_splash_screen" >
         <action
-            android:id="@+id/action_splashScreenFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            android:id="@+id/action_splashScreenFragment_to_screenLetsFlyFragment"
+            app:destination="@id/screenLetsFlyFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -148,6 +148,9 @@
         <action
             android:id="@+id/action_dataPenumpangFragment_to_rincianPembayaranFragment"
             app:destination="@id/rincianPembayaranFragment" />
+        <action
+            android:id="@+id/action_dataPenumpangFragment_to_pastFragment"
+            app:destination="@id/pastFragment" />
     </fragment>
     <fragment
         android:id="@+id/listViewFragment"
@@ -191,4 +194,25 @@
         android:name="com.binar.finalproject14.ui.PayQrisFragment"
         android:label="fragment_pay_qris"
         tools:layout="@layout/fragment_pay_qris" />
+    <fragment
+        android:id="@+id/screenStartFragment"
+        android:name="com.binar.finalproject14.ui.splashscreen.ScreenStartFragment"
+        android:label="fragment_screen_start"
+        tools:layout="@layout/fragment_screen_start" >
+        <action
+            android:id="@+id/action_screenStartFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_screenStartFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/screenLetsFlyFragment"
+        android:name="com.binar.finalproject14.ui.splashscreen.ScreenLetsFlyFragment"
+        android:label="fragment_screen_lets_fly"
+        tools:layout="@layout/fragment_screen_lets_fly" >
+        <action
+            android:id="@+id/action_screenLetsFlyFragment_to_screenStartFragment"
+            app:destination="@id/screenStartFragment" />
+    </fragment>
 </navigation>

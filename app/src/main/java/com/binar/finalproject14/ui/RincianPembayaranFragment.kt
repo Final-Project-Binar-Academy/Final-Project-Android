@@ -23,8 +23,9 @@ class RincianPembayaranFragment : Fragment() {
     private lateinit var analytics: FirebaseAnalytics
     private var _binding: FragmentRincianPembayaranBinding? = null
     private val binding get() = _binding!!
-    private var payment: String = ""
+    private var payment: Int = 0
     private lateinit var transactionViewModel: TransactionViewModel
+    private lateinit var paymentViewModel: PaymentViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,15 +40,21 @@ class RincianPembayaranFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         transactionViewModel = ViewModelProvider(this)[TransactionViewModel::class.java]
+        paymentViewModel = ViewModelProvider(this)[PaymentViewModel::class.java]
         transactionTrip()
         paymentMethod()
 
         binding.btnNext.setOnClickListener {
-            if (payment == "bank") {
+            paymentViewModel.getDataStoreToken().observe(viewLifecycleOwner){
+                paymentViewModel.getId().observe(viewLifecycleOwner){id ->
+                    paymentViewModel.updatePayment(id, payment,"Bearer $it")
+                }
+            }
+            if (payment == 1) {
                 findNavController().navigate(R.id.action_rincianPembayaranFragment_to_payCardFragment)
-            } else if (payment == "ewallet") {
+            } else if (payment == 2) {
                 findNavController().navigate(R.id.action_rincianPembayaranFragment_to_payEwalletFragment)
-            } else if (payment == "qris") {
+            } else if (payment == 3) {
                 findNavController().navigate(R.id.action_rincianPembayaranFragment_to_payQrisFragment)
             } else {
                 Snackbar.make(binding.root, "Pilih metode pembayaran anda", Snackbar.LENGTH_SHORT)
@@ -69,13 +76,13 @@ class RincianPembayaranFragment : Fragment() {
             run {
                 when (optionId) {
                     R.id.bank -> {
-                        payment = "bank"
+                        payment = 1
                     }
                     R.id.ewallet -> {
-                        payment = "ewallet"
+                        payment = 2
                     }
                     R.id.qris -> {
-                        payment = "qris"
+                        payment = 3
                     }
                 }
             }
@@ -86,7 +93,9 @@ class RincianPembayaranFragment : Fragment() {
         transactionViewModel.getDataStoreToken().observe(viewLifecycleOwner){
             val tripId = arguments?.getInt("tripId")
             Log.d("tripId", tripId.toString())
-            transactionViewModel.getTransactionTrip(tripId, "Bearer $it")
+            transactionViewModel.getId().observe(viewLifecycleOwner){id ->
+                transactionViewModel.getTransactionId(id, "Bearer $it")
+            }
         }
         transactionViewModel.transaction.observe(viewLifecycleOwner) {
             binding.cityCodeOri.text = it?.data?.go?.origin?.cityCode.toString()

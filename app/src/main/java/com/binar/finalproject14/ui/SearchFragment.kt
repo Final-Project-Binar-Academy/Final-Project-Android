@@ -14,11 +14,8 @@ import com.binar.finalproject14.MainActivity
 import com.binar.finalproject14.R
 import com.binar.finalproject14.adapter.SearchBackAdapter
 import com.binar.finalproject14.adapter.SearchGoAdapter
-import com.binar.finalproject14.data.api.response.search.DataSearch
 import com.binar.finalproject14.data.api.response.search.TicketBack
 import com.binar.finalproject14.data.api.response.search.TicketGo
-import com.binar.finalproject14.data.model.SearchData
-import com.binar.finalproject14.data.model.WishlistData
 import com.binar.finalproject14.databinding.FragmentSearchBinding
 import com.binar.finalproject14.viewmodel.SearchViewModel
 import com.google.android.material.snackbar.Snackbar
@@ -66,10 +63,10 @@ class SearchFragment : Fragment(), SearchGoAdapter.ListSearchGoInterface, Search
     }
 
     fun getData() {
-        departureDate = arguments?.getString("departureDate").toString()
+        departureDate = "2022-12-25"
         departureCity = arguments?.getString("departureCity").toString()
         destinationCity = arguments?.getString("destinationCity").toString()
-        returnDate = arguments?.getString("returnDate").toString()
+        returnDate = "2022-12-25"
 
         searchViewModel.getIsOneway().observe(viewLifecycleOwner){
             if (it == true){

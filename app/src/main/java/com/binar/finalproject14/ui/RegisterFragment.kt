@@ -33,6 +33,9 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.login.setOnClickListener(){
+            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+        }
         viewModel.registerResult.observe(viewLifecycleOwner) {
             when (it) {
                 is BaseResponse.Success -> {
