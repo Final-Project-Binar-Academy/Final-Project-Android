@@ -66,7 +66,7 @@ class SearchFragment : Fragment(), SearchGoAdapter.ListSearchGoInterface, Search
         departureDate = arguments?.getString("departureDate").toString()
         departureCity = arguments?.getString("departureCity").toString()
         destinationCity = arguments?.getString("destinationCity").toString()
-        returnDate = "2022-12-25"
+        returnDate = arguments?.getString("returnDate").toString()
 
         searchViewModel.getIsOneway().observe(viewLifecycleOwner) {
             if (it == true) {

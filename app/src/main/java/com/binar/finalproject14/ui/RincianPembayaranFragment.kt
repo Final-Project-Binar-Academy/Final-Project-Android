@@ -112,8 +112,8 @@ class RincianPembayaranFragment : Fragment() {
             binding.goPassenger.text =
                 it?.data?.passenger?.firstName.toString() + " " + it?.data?.passenger?.lastName.toString()
             binding.goCompany.text = it?.data?.go?.airplane?.company?.companyName.toString()
-            binding.priceFare.text = it?.data?.totalPrice.toString()
-            binding.totalFare.text = it?.data?.totalPrice.toString()
+            binding.priceFare.text = "IDR. " + it?.data?.totalPrice.toString()
+            binding.totalFare.text = "IDR. " + it?.data?.totalPrice.toString()
         }
     }
 }
