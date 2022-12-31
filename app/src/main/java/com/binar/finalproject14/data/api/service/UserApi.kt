@@ -46,6 +46,7 @@ interface UserApi {
     fun updateImage(
         @Part image: MultipartBody.Part,
         @Header("Authorization") token: String): Call <UpdateImage>
+
     //    ticket
     @GET("/api/ticket")
     fun getFlight() : Call<FlightResponse>
@@ -57,7 +58,7 @@ interface UserApi {
     fun getAirport() : Call<AirportResponse>
 
     @GET("/api/transaction/filter")
-    fun getTransactionDataByFilter(@Header("Authorization")token: String, @Query("status")status: String) : Call<TransactionHistory>
+    fun getTransactionFilter(@Header("Authorization")token: String, @Query("status")status: String) : Call<TransactionHistory>
 
     // search
     @GET("/api/ticket/search/")

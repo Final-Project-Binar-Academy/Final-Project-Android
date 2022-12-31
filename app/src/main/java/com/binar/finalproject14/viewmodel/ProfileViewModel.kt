@@ -8,6 +8,8 @@ import com.binar.finalproject14.data.api.response.profile.User
 import com.binar.finalproject14.data.api.response.user.UpdateImage
 import com.binar.finalproject14.data.api.service.UserApi
 import com.binar.finalproject14.data.utils.UserDataStoreManager
+import com.binar.finalproject14.repository.MainRepository
+import com.binar.finalproject14.repository.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import okhttp3.MultipartBody
@@ -20,6 +22,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
     private val client: UserApi,
+    private val repository: UserRepository,
     private val pref: UserDataStoreManager,
     application: Application
 ) : AndroidViewModel(application) {
@@ -43,6 +46,7 @@ class ProfileViewModel @Inject constructor(
                     if (response.isSuccessful) {
                         val responseBody = response.body()
                         if (responseBody != null) {
+                            repository.getUserProfile(token)
                             _user.postValue(responseBody)
                         }
                     }
@@ -69,6 +73,7 @@ class ProfileViewModel @Inject constructor(
                     if (response.isSuccessful) {
                         val responseBody = response.body()
                         if (responseBody != null) {
+                            repository.updateUser(firstName, lastName, address, phoneNumber, token)
                             _update.postValue(responseBody)
                         }
                     }
@@ -93,6 +98,7 @@ class ProfileViewModel @Inject constructor(
                     if (response.isSuccessful) {
                         val responseBody = response.body()
                         if (responseBody != null) {
+                            repository.updateImage(image, token)
                             _image.postValue(responseBody)
                         }
                     }

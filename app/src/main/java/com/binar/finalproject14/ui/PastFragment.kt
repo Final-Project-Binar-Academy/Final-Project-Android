@@ -14,13 +14,10 @@ import com.binar.finalproject14.R
 import com.binar.finalproject14.adapter.TransactionAdapter
 import com.binar.finalproject14.adapter.TransactionPendingAdapter
 import com.binar.finalproject14.data.api.response.transaction.Data
-import com.binar.finalproject14.data.api.service.filter.ApiClient
-import com.binar.finalproject14.data.api.service.filter.ApiHelper
-import com.binar.finalproject14.databinding.FragmentPastBinding
 import com.binar.finalproject14.data.utils.UserDataStoreManager
+import com.binar.finalproject14.databinding.FragmentPastBinding
 import com.binar.finalproject14.viewmodel.TransactionFilterViewModel
 import com.binar.finalproject14.viewmodel.TransactionViewModel
-import com.binar.finalproject14.viewmodel.factory.TransactionFilterViewModelFactory
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
@@ -42,9 +39,9 @@ class PastFragment : Fragment(), TransactionAdapter.ListTransactionInterface, Tr
         // Inflate the layout for this fragment
         analytics = Firebase.analytics
         pref = UserDataStoreManager(requireContext())
-        viewModel = ViewModelProvider(
-            this,TransactionFilterViewModelFactory(ApiHelper(ApiClient.instance),pref)
-        )[TransactionFilterViewModel::class.java]
+
+        viewModel = ViewModelProvider(this)[TransactionFilterViewModel::class.java]
+
         transactionViewModel = ViewModelProvider(this)[TransactionViewModel::class.java]
 
         _binding = FragmentPastBinding.inflate(inflater, container, false)

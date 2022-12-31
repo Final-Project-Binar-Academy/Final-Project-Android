@@ -8,7 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import com.binar.finalproject14.data.api.response.ticket.FlightIdResponse
 import com.binar.finalproject14.data.api.response.ticket.FlightResponse
 import com.binar.finalproject14.data.api.service.UserApi
-import com.binar.finalproject14.repository.FlightRepository
+import com.binar.finalproject14.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call
 import retrofit2.Callback
@@ -18,7 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class FlightViewModel @Inject constructor(
     private val client: UserApi,
-    private val flightRepository: FlightRepository,
+    private val repository: MainRepository,
     application: Application
 ) : AndroidViewModel(application) {
 
@@ -33,7 +33,7 @@ class FlightViewModel @Inject constructor(
                     response: Response<FlightResponse>
                 ) {
                     if (response.isSuccessful){
-                        flightRepository.getFlight()
+                        repository.getFlight()
                         _flight.postValue(response.body())
                     }else{
                         _flight.postValue(null)
@@ -62,7 +62,7 @@ class FlightViewModel @Inject constructor(
                     if (response.isSuccessful) {
                         val responseBody = response.body()
                         if (responseBody != null) {
-                            flightRepository.getDetailFlight(id)
+                            repository.getFlightDetail(id)
                             getDetailFlight.postValue(responseBody)
                         }
                     }

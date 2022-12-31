@@ -7,6 +7,7 @@ import com.binar.finalproject14.data.api.response.search.DataSearch
 import com.binar.finalproject14.data.api.response.search.SearchResponse
 import com.binar.finalproject14.data.api.service.UserApi
 import com.binar.finalproject14.data.utils.SearchDatastore
+import com.binar.finalproject14.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Call
@@ -17,6 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SearchViewModel @Inject constructor(
     private val client: UserApi,
+    private val repository: MainRepository,
     private val pref: SearchDatastore,
     application: Application
 ) : AndroidViewModel(application) {
@@ -32,6 +34,7 @@ class SearchViewModel @Inject constructor(
                     response: Response<SearchResponse>
                 ) {
                     if (response.isSuccessful) {
+                        repository.search(departureDate, originCity, destinationCity, returnDate)
                         _search.postValue(response.body()?.data)
                     } else {
                         _search.postValue(null)

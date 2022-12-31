@@ -8,7 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import com.binar.finalproject14.data.api.response.airport.AirportResponse
 import com.binar.finalproject14.data.api.response.airport.DataAirport
 import com.binar.finalproject14.data.api.service.UserApi
-import com.binar.finalproject14.repository.AirportRepository
+import com.binar.finalproject14.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call
 import retrofit2.Callback
@@ -18,7 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class AirportViewModel @Inject constructor(
     private val client: UserApi,
-    private val airportRepository: AirportRepository,
+    private val repository: MainRepository,
     application: Application
 ) : AndroidViewModel(application) {
 
@@ -32,6 +32,7 @@ class AirportViewModel @Inject constructor(
                 response: Response<AirportResponse>
             ) {
                 if (response.isSuccessful) {
+                    repository.getAirport()
                     _airportCity.postValue(response.body()!!.data)
                 }
             }

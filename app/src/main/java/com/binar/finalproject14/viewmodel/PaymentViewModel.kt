@@ -1,6 +1,7 @@
 package com.binar.finalproject14.viewmodel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,6 +12,7 @@ import com.binar.finalproject14.data.api.response.payment.PaymentResponse
 import com.binar.finalproject14.data.api.response.transaction.add.TransactionResponse
 import com.binar.finalproject14.data.api.service.UserApi
 import com.binar.finalproject14.data.utils.UserDataStoreManager
+import com.binar.finalproject14.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call
 import retrofit2.Callback
@@ -21,8 +23,10 @@ import javax.inject.Inject
 class PaymentViewModel @Inject constructor(
     private val client: UserApi,
     private val pref: UserDataStoreManager,
+    private val repository: MainRepository,
     application: Application
 ) : AndroidViewModel(application) {
+
     private val _update: MutableLiveData<PaymentResponse?> = MutableLiveData()
     val add: LiveData<PaymentResponse?> get() = _update
 
@@ -40,6 +44,7 @@ class PaymentViewModel @Inject constructor(
                     if (response.isSuccessful) {
                         val responseBody = response.body()
                         if (responseBody != null) {
+                            repository.updatePayment(token, PaymentRequest(transactionId, paymentId))
                             _update.postValue(responseBody)
                         }
                     }

@@ -7,6 +7,7 @@ import com.binar.finalproject14.data.api.response.transaction.CancelResponse
 import com.binar.finalproject14.data.api.response.transaction.add.TransactionResponse
 import com.binar.finalproject14.data.api.service.UserApi
 import com.binar.finalproject14.data.utils.UserDataStoreManager
+import com.binar.finalproject14.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Call
@@ -17,6 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class TransactionViewModel @Inject constructor(
     private val client: UserApi,
+    private val repository: MainRepository,
     private val pref: UserDataStoreManager,
     application: Application
 ) : AndroidViewModel(application) {
@@ -42,6 +44,7 @@ class TransactionViewModel @Inject constructor(
                     if (response.isSuccessful) {
                         val responseBody = response.body()
                         if (responseBody != null) {
+                            repository.addTransaction(token, AddTransaction(brithDate, firstName, lastName, nIK, ticketBack, ticketGo, tripId))
                             _add.postValue(responseBody)
                         }
                     }
@@ -69,6 +72,7 @@ class TransactionViewModel @Inject constructor(
                     if (response.isSuccessful) {
                         val responseBody = response.body()
                         if (responseBody != null) {
+                            repository.getTransactionId(token, id)
                             _transaction.postValue(responseBody)
                         }
                     }
@@ -96,6 +100,7 @@ class TransactionViewModel @Inject constructor(
                     if (response.isSuccessful) {
                         val responseBody = response.body()
                         if (responseBody != null) {
+                            repository.cancelTransaction(token, id)
                             _cancelTransaction.postValue(responseBody)
                         }
                     }
