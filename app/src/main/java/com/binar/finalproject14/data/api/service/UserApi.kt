@@ -15,6 +15,7 @@ import com.binar.finalproject14.data.api.response.ticket.FlightResponse
 import com.binar.finalproject14.data.api.response.transaction.CancelResponse
 import com.binar.finalproject14.data.api.response.transaction.add.TransactionResponse
 import com.binar.finalproject14.data.api.response.transaction.history.TransactionHistory
+import com.binar.finalproject14.data.api.response.user.UpdateImage
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -38,9 +39,13 @@ interface UserApi {
                    @Part("lastName") lastName: RequestBody,
                    @Part("address") address: RequestBody,
                    @Part("phoneNumber") phoneNumber: RequestBody,
-                   @Part image: MultipartBody.Part,
                    @Header("Authorization") token: String): Call <User>
 
+    @Multipart
+    @PUT("/api/user/update")
+    fun updateImage(
+        @Part image: MultipartBody.Part,
+        @Header("Authorization") token: String): Call <UpdateImage>
     //    ticket
     @GET("/api/ticket")
     fun getFlight() : Call<FlightResponse>

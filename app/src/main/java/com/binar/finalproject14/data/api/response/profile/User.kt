@@ -13,7 +13,5 @@ data class User(
     @SerializedName("address")
     var address: String?,
     @SerializedName("phoneNumber")
-    var phoneNumber: String?,
-    @SerializedName("image")
-    var image: String?
+    var phoneNumber: String?
     )

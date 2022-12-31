@@ -1,6 +1,7 @@
 package com.binar.finalproject14.viewmodel
 
 import com.binar.finalproject14.data.api.request.LoginRequest
+import com.binar.finalproject14.data.api.response.auth.AuthResponse
 import com.binar.finalproject14.data.api.service.UserApi
 import io.mockk.every
 import io.mockk.mockk
