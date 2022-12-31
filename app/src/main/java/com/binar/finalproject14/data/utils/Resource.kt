@@ -1,4 +1,6 @@
-package com.example.mvvm_car_chapter6.utils
+package com.binar.finalproject14.data.utils
+
+import com.example.mvvm_car_chapter6.utils.Status
 
 data class Resource<out T>(val status: Status, val data: T?, val message: String?) {
     companion object {

@@ -56,7 +56,7 @@ class WishlistAdapter (private val listFlight: List<WishlistData>) :
 
                     binding.card.setOnClickListener{
                         var bund = Bundle()
-                        item.id_wishlist?.let { it1 -> bund.putInt("id", it1) }
+                        item.id_wishlist?.let { it1 -> bund.putInt("id_wishlist", it1) }
                         Navigation.findNavController(it)
                             .navigate(R.id.action_whislistFragment_to_detailFragment, bund)
                     }
@@ -81,4 +81,5 @@ class WishlistAdapter (private val listFlight: List<WishlistData>) :
 
 
     override fun getItemCount(): Int = listFlight.size
+
 }

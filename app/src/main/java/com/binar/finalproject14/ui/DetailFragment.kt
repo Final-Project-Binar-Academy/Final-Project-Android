@@ -121,8 +121,12 @@ class DetailFragment : DialogFragment() {
     private fun cekWishlist() {
         var id = arguments?.getInt("id_ticket_go")
         val id_back = arguments?.getInt("id_ticket_back")
+        val id_wishlist = arguments?.getInt("id_wishlist")
         if (id_back != 0) {
             id = id_back
+        }
+        else if(id_wishlist != 0) {
+            id = id_wishlist
         }
         if (id != null) {
             wishlistViewModel.isWishlist(id)
