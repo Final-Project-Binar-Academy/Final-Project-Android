@@ -1,12 +1,13 @@
 package com.binar.finalproject14.data.api.service
 
-import com.binar.finalproject14.data.api.request.AddTransaction
-import com.binar.finalproject14.data.api.request.LoginRequest
-import com.binar.finalproject14.data.api.request.RegisterRequest
+import com.binar.finalproject14.data.api.request.*
 import com.binar.finalproject14.data.api.response.InfoResponse
 import com.binar.finalproject14.data.api.response.airport.AirportResponse
 import com.binar.finalproject14.data.api.response.auth.AuthResponse
-import com.binar.finalproject14.data.api.response.payment.PaymentRequest
+import com.binar.finalproject14.data.api.response.notification.DeleteResponse
+import com.binar.finalproject14.data.api.response.notification.NotificationCreateResponse
+import com.binar.finalproject14.data.api.response.notification.NotificationIdResponse
+import com.binar.finalproject14.data.api.response.notification.NotificationResponse
 import com.binar.finalproject14.data.api.response.payment.PaymentResponse
 import com.binar.finalproject14.data.api.response.profile.GetUserResponse
 import com.binar.finalproject14.data.api.response.profile.User
@@ -90,6 +91,25 @@ class ApiHelperImpl @Inject constructor(
     }
 
     override fun getInfo(): Call<InfoResponse> = apiServiceNews.getInfo()
+
+    override fun createNotification(
+        token: String,
+        request: NotificationRequest
+    ): Call<NotificationCreateResponse> {
+        return apiService.createNotification(token, request)
+    }
+
+    override fun getNotification(token: String): Call<NotificationResponse> {
+        return apiService.getNotification(token)
+    }
+
+    override fun getNotificationDetail(token: String, id: Int?): Call<NotificationIdResponse> {
+        return apiService.getNotificationDetail(token, id)
+    }
+
+    override fun deleteNotification(token: String, id: Int?): Call<DeleteResponse> {
+        return apiService.deleteNotification(token, id)
+    }
 
 
 }

@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.binar.finalproject14.R
 import com.binar.finalproject14.databinding.FragmentRincianPembayaranBinding
+import com.binar.finalproject14.viewmodel.NotifViewModel
 import com.binar.finalproject14.viewmodel.PaymentViewModel
 import com.binar.finalproject14.viewmodel.TransactionViewModel
 import com.google.android.material.snackbar.Snackbar
@@ -27,6 +28,7 @@ class RincianPembayaranFragment : Fragment() {
     private var payment: Int = 0
     private lateinit var transactionViewModel: TransactionViewModel
     private lateinit var paymentViewModel: PaymentViewModel
+    private lateinit var notifViewModel: NotifViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,14 +36,15 @@ class RincianPembayaranFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         analytics = Firebase.analytics
+        notifViewModel = ViewModelProvider(this)[NotifViewModel::class.java]
+        transactionViewModel = ViewModelProvider(this)[TransactionViewModel::class.java]
+        paymentViewModel = ViewModelProvider(this)[PaymentViewModel::class.java]
 
         _binding = FragmentRincianPembayaranBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        transactionViewModel = ViewModelProvider(this)[TransactionViewModel::class.java]
-        paymentViewModel = ViewModelProvider(this)[PaymentViewModel::class.java]
         transactionTrip()
         paymentMethod()
 
@@ -49,9 +52,13 @@ class RincianPembayaranFragment : Fragment() {
             paymentViewModel.getDataStoreToken().observe(viewLifecycleOwner){
                 paymentViewModel.getId().observe(viewLifecycleOwner){id ->
                     paymentViewModel.updatePayment(id, payment,"Bearer $it")
+                    notifViewModel.getTotalNotif().observe(viewLifecycleOwner) {
+                        val total = it+1
+                        notifViewModel.saveNotif("payment", total)
+                    }
                 }
             }
-            findNavController().navigate(R.id.action_rincianPembayaranFragment_to_pastFragment)
+            findNavController().navigate(R.id.action_rincianPembayaranFragment_to_prosesPembayaranFragment)
 //            if (payment == 1) {
 //                findNavController().navigate(R.id.action_rincianPembayaranFragment_to_payCardFragment)
 //            } else if (payment == 2) {

@@ -1,15 +1,12 @@
 package com.binar.finalproject14.viewmodel
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.asLiveData
-import com.binar.finalproject14.data.api.request.AddTransaction
-import com.binar.finalproject14.data.api.response.payment.PaymentRequest
+import com.binar.finalproject14.data.api.request.PaymentRequest
 import com.binar.finalproject14.data.api.response.payment.PaymentResponse
-import com.binar.finalproject14.data.api.response.transaction.add.TransactionResponse
 import com.binar.finalproject14.data.api.service.UserApi
 import com.binar.finalproject14.data.utils.UserDataStoreManager
 import com.binar.finalproject14.repository.MainRepository

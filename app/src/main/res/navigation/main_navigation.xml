@@ -64,6 +64,9 @@
         <action
             android:id="@+id/action_profileFragment_to_editProfileFragment"
             app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment" />
     </fragment>
     <fragment
         android:id="@+id/whislistFragment"
@@ -172,6 +175,9 @@
         <action
             android:id="@+id/action_rincianPembayaranFragment_to_pastFragment"
             app:destination="@id/pastFragment" />
+        <action
+            android:id="@+id/action_rincianPembayaranFragment_to_prosesPembayaranFragment"
+            app:destination="@id/prosesPembayaranFragment" />
     </fragment>
     <fragment
         android:id="@+id/payCardFragment"
@@ -217,4 +223,18 @@
         android:name="com.binar.finalproject14.ui.TiketFragment"
         android:label="fragment_tiket"
         tools:layout="@layout/fragment_tiket" />
+    <fragment
+        android:id="@+id/prosesPembayaranFragment"
+        android:name="com.binar.finalproject14.ui.ProsesPembayaranFragment"
+        android:label="fragment_proses_pembayaran"
+        tools:layout="@layout/fragment_proses_pembayaran" >
+        <action
+            android:id="@+id/action_prosesPembayaranFragment_to_pastFragment"
+            app:destination="@id/pastFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.binar.finalproject14.ui.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" />
 </navigation>

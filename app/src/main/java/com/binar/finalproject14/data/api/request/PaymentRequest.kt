@@ -1,4 +1,4 @@
-package com.binar.finalproject14.data.api.response.payment
+package com.binar.finalproject14.data.api.request
 
 
 import com.google.gson.annotations.SerializedName

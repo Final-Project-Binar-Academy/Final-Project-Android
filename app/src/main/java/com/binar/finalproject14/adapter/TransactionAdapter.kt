@@ -93,8 +93,6 @@ class TransactionAdapter (private var itemClick: TransactionAdapter.ListTransact
         differ.submitList(data)
     }
 
-
-
     interface ListTransactionInterface {
         fun ticket(id: Int)
     }

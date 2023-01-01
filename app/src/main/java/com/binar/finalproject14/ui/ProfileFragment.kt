@@ -33,6 +33,8 @@ class ProfileFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         analytics = Firebase.analytics
+        viewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
+        viewModelNotif = ViewModelProvider(this)[NotifViewModel::class.java]
 
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
@@ -43,8 +45,6 @@ class ProfileFragment : Fragment() {
 
         (activity as MainActivity).binding.navHome.visibility = View.VISIBLE
 
-        viewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
-        viewModelNotif = ViewModelProvider(this)[NotifViewModel::class.java]
         viewModel.getDataStoreToken().observe(viewLifecycleOwner) {
             viewModel.getUserProfile("Bearer $it")
         }
@@ -67,18 +67,25 @@ class ProfileFragment : Fragment() {
             }
         }
 
-        var count: LiveData<Int> = viewModelNotif.getInitialCount()
-        count.observe(viewLifecycleOwner) {
-            if (it == 0) {
-                binding.notifCount.visibility = View.GONE
-            } else if (it > 0){
-                binding.apply {
-                    notifCount.text = it.toString()
-                    notifCount.visibility =View.VISIBLE
-                }
-            }else{
-                binding.notifCount.text=getString(R.string.overCount)
-            }
+        cekNotif()
+
+//        var count: LiveData<Int> = viewModelNotif.getInitialCount()
+//        count.observe(viewLifecycleOwner) {
+//            if (it == 0) {
+//                binding.notifCount.visibility = View.GONE
+//            } else if (it > 0){
+//                binding.apply {
+//                    notifCount.text = it.toString()
+//                    notifCount.visibility = View.VISIBLE
+//                }
+//            }else{
+//                binding.notifCount.text=getString(R.string.overCount)
+//            }
+//        }
+
+        binding.btnNotification.setOnClickListener(){
+            viewModelNotif.removeNotif()
+            findNavController().navigate(R.id.action_profileFragment_to_notificationFragment)
         }
 
         binding.btnEdit.setOnClickListener {
@@ -89,6 +96,20 @@ class ProfileFragment : Fragment() {
         logout()
     }
 
+    private fun cekNotif(){
+        viewModelNotif.getIsNotif().observe(viewLifecycleOwner){
+            if (it == true){
+                viewModelNotif.getDataStoreToken().observe(viewLifecycleOwner) {
+                    viewModelNotif.getDataNotification("Bearer $it")
+                }
+                viewModelNotif.getTotalNotif().observe(viewLifecycleOwner){
+                    binding.notifCount.text = it.toString()
+                }
+            } else {
+                binding.notifCount.visibility = View.GONE
+            }
+        }
+    }
 
     private fun logout() {
         binding.btnLogout.setOnClickListener {

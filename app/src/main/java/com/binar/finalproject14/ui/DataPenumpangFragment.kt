@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.binar.finalproject14.R
 import com.binar.finalproject14.databinding.FragmentDataPenumpangBinding
 import com.binar.finalproject14.viewmodel.FlightViewModel
+import com.binar.finalproject14.viewmodel.NotifViewModel
 import com.binar.finalproject14.viewmodel.SearchViewModel
 import com.binar.finalproject14.viewmodel.TransactionViewModel
 import com.google.android.material.datepicker.MaterialDatePicker
@@ -33,6 +34,7 @@ class DataPenumpangFragment : Fragment() {
     private lateinit var flightViewModel: FlightViewModel
     private lateinit var transactionViewModel : TransactionViewModel
     private lateinit var searchViewModel: SearchViewModel
+    private lateinit var notifViewModel: NotifViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,15 +43,16 @@ class DataPenumpangFragment : Fragment() {
         // Inflate the layout for this fragment
         analytics = Firebase.analytics
         searchViewModel = ViewModelProvider(this)[SearchViewModel::class.java]
+        notifViewModel = ViewModelProvider(this)[NotifViewModel::class.java]
+        flightViewModel = ViewModelProvider(this)[FlightViewModel::class.java]
+        transactionViewModel = ViewModelProvider(this)[TransactionViewModel::class.java]
 
         _binding = FragmentDataPenumpangBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        flightViewModel = ViewModelProvider(this)[FlightViewModel::class.java]
-        transactionViewModel = ViewModelProvider(this)[TransactionViewModel::class.java]
-        addAirport()
+        Booking()
         getTipeTraveller()
         getTipeId()
         getBirthday()
@@ -139,7 +142,7 @@ class DataPenumpangFragment : Fragment() {
         binding.actvTipePenumpang.setAdapter(arrayAdapter)
     }
 
-    private fun addAirport(){
+    private fun Booking(){
         binding.btnBooking.setOnClickListener() {
             Log.d("tes", "masukk")
             val tGo = arguments?.getInt("id_oneway")
@@ -159,6 +162,12 @@ class DataPenumpangFragment : Fragment() {
                 }
                 transactionViewModel.getDataStoreToken().observe(viewLifecycleOwner) {
                     transactionViewModel.addTransaction(tGo!!, tBack!!, tripId, fName, lName, nIK, birth,"Bearer $it")
+
+                    notifViewModel.getTotalNotif().observe(viewLifecycleOwner) {
+                        val total = it.toInt()+1
+                        notifViewModel.saveNotif("booking", total)
+                    }
+
                     transactionViewModel.add.observe(viewLifecycleOwner) {
                         Toast.makeText(requireContext(), "Add Success", Toast.LENGTH_SHORT).show()
                         val bundle = Bundle()

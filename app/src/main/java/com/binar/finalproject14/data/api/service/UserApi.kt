@@ -1,11 +1,12 @@
 package com.binar.finalproject14.data.api.service
 
-import com.binar.finalproject14.data.api.request.AddTransaction
-import com.binar.finalproject14.data.api.request.LoginRequest
-import com.binar.finalproject14.data.api.request.RegisterRequest
+import com.binar.finalproject14.data.api.request.*
 import com.binar.finalproject14.data.api.response.airport.AirportResponse
 import com.binar.finalproject14.data.api.response.auth.AuthResponse
-import com.binar.finalproject14.data.api.response.payment.PaymentRequest
+import com.binar.finalproject14.data.api.response.notification.DeleteResponse
+import com.binar.finalproject14.data.api.response.notification.NotificationCreateResponse
+import com.binar.finalproject14.data.api.response.notification.NotificationIdResponse
+import com.binar.finalproject14.data.api.response.notification.NotificationResponse
 import com.binar.finalproject14.data.api.response.payment.PaymentResponse
 import com.binar.finalproject14.data.api.response.profile.GetUserResponse
 import com.binar.finalproject14.data.api.response.profile.User
@@ -77,9 +78,15 @@ interface UserApi {
     @PUT("/api/transaction/cancel/{id}")
     fun cancelTransaction(@Header("Authorization") token: String, @Path("id") id: Int?) : Call<CancelResponse>
 
-//    companion object {
-//        fun getApi(): UserApi? {
-//            return ApiClient.client?.create(UserApi::class.java)
-//        }
-//    }
+    @POST("/api/notification/")
+    fun createNotification(@Header("Authorization") token: String, @Body request: NotificationRequest): Call<NotificationCreateResponse>
+
+    @GET("/api/notification")
+    fun getNotification(@Header("Authorization") token: String): Call<NotificationResponse>
+
+    @GET("/api/notification/{id}")
+    fun getNotificationDetail(@Header("Authorization") token: String, @Path("id") id: Int?): Call<NotificationIdResponse>
+
+    @DELETE("/api/notification/delete/{id}")
+    fun deleteNotification(@Header("Authorization") token: String, @Path("id") id: Int?): Call<DeleteResponse>
 }

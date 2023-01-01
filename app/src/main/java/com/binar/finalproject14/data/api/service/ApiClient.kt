@@ -1,6 +1,7 @@
 package com.binar.finalproject14.data.api.service
 
 import android.content.Context
+import com.binar.finalproject14.data.utils.NotifDataStore
 import com.binar.finalproject14.data.utils.SearchDatastore
 import com.binar.finalproject14.data.utils.UserDataStoreManager
 import dagger.Module
@@ -78,5 +79,9 @@ object ApiClient {
     @Provides
     fun getSearchManager(@ApplicationContext context: Context): SearchDatastore =
         SearchDatastore(context)
+
+    @Provides
+    fun getNotifManager(@ApplicationContext context: Context): NotifDataStore =
+        NotifDataStore(context)
 
 }

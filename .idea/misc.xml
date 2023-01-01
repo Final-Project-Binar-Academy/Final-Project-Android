@@ -22,10 +22,12 @@
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_home.xml" value="0.10438689217758985" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_list_view.xml" value="0.19895833333333332" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_login.xml" value="0.12" />
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_notification.xml" value="0.1" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_past.xml" value="0.209375" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_pay_card.xml" value="0.2" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_pay_ewallet.xml" value="0.15416666666666667" />
-        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_proses_pembayaran.xml" value="0.1180921052631579" />
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_profile.xml" value="0.13848684210526316" />
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_proses_pembayaran.xml" value="0.136" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_register.xml" value="0.2" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_rincian_pembayaran.xml" value="0.19786096256684493" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/fragment_screen_lets_fly.xml" value="0.12598684210526315" />
@@ -43,7 +45,7 @@
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/list_booking.xml" value="0.15966386554621848" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/list_important_info.xml" value="0.1180921052631579" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/list_item.xml" value="0.2716627634660422" />
-        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/list_notif.xml" value="0.1180921052631579" />
+        <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/list_notif.xml" value="0.176" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/list_popular.xml" value="0.1180921052631579" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/list_tiket_upcoming.xml" value="0.2" />
         <entry key="..\:/Binar/Final-Project-Android/app/src/main/res/layout/ticket.xml" value="0.2" />
