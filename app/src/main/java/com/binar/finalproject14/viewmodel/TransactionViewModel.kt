@@ -26,6 +26,14 @@ class TransactionViewModel @Inject constructor(
     private val _add: MutableLiveData<TransactionResponse?> = MutableLiveData()
     val add: LiveData<TransactionResponse?> get() = _add
 
+    private val _add1 = MutableLiveData<String>()
+    val add1: LiveData<String> = _add1
+    val add2 = _add1.map { it.toUpperCase() }
+
+    fun setNewValue(newValue: String) {
+        _add1.value = newValue
+    }
+
     fun addTransaction(
         ticketGo : Int,
         ticketBack: Int,
