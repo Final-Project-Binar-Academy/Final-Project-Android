@@ -84,14 +84,26 @@ class RincianPembayaranFragment : Fragment() {
         binding.radioGroup.setOnCheckedChangeListener { radioGroup, optionId ->
             run {
                 when (optionId) {
-                    R.id.bank -> {
+                    R.id.bankBRI -> {
                         payment = 1
                     }
-                    R.id.ewallet -> {
+                    R.id.bankMandiri -> {
                         payment = 2
                     }
-                    R.id.qris -> {
+                    R.id.bankBCA -> {
                         payment = 3
+                    }
+                    R.id.bankBNI -> {
+                        payment = 4
+                    }
+                    R.id.gopay -> {
+                        payment = 5
+                    }
+                    R.id.dana -> {
+                        payment = 6
+                    }
+                    R.id.ovo -> {
+                        payment = 7
                     }
                 }
             }

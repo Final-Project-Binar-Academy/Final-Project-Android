@@ -16,9 +16,10 @@
         android:backgroundTint="@color/black"
         android:backgroundTintMode="screen"
         android:hint="Input City"
+        android:textColor="@color/black"
         android:inputType="textPersonName"
         android:maxLines="1"
-        android:textColorHint="@color/abu"
+        android:textColorHint="@color/black"
         tools:ignore="TouchTargetSizeCheck" />
 
     <ListView

@@ -1,13 +1,11 @@
 package com.binar.finalproject14.adapter
 
 import android.content.Context
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Filter
-import androidx.navigation.Navigation
 import com.binar.finalproject14.R
 import com.binar.finalproject14.data.api.response.airport.DataAirport
 import com.binar.finalproject14.databinding.CustomListViewBinding
@@ -24,13 +22,6 @@ class AirportAdapter(context: Context, airports: ArrayList<DataAirport>) :
         val binding = CustomListViewBinding.bind(view)
         binding.txtCity.text = airport?.city
         binding.txtCityCode.text = airport?.cityCode
-
-//        view.setOnClickListener{
-//            val bund = Bundle()
-//            bund.putString("city", airport?.city)
-//            bund.putString("cityCode", airport?.cityCode)
-//            Navigation.findNavController(view).navigate(R.id.action_listViewFragment_to_homeFragment, bund)
-//        }
         return view
     }
 
@@ -38,11 +29,11 @@ class AirportAdapter(context: Context, airports: ArrayList<DataAirport>) :
 
     inner class AirportFilter(private val originalList: List<DataAirport>) : Filter() {
 
-        private val airport: ArrayList<DataAirport> = ArrayList()
+        private val sourceObjects: ArrayList<DataAirport> = ArrayList()
 
         init {
             synchronized (this) {
-                airport.addAll(originalList)
+                sourceObjects.addAll(originalList)
             }
         }
 
@@ -52,16 +43,17 @@ class AirportAdapter(context: Context, airports: ArrayList<DataAirport>) :
             val result = FilterResults()
 
             if (constraint.isNotEmpty()) {
+                val filteredList = ArrayList<DataAirport>()
 
-                airport.filterTo(airport) { isWithinConstraint(it, constraint) }
+                sourceObjects.filterTo(filteredList) { isWithinConstraint(it, constraint) }
 
-                result.count = airport.size
-                result.values = airport
+                result.count = filteredList.size
+                result.values = filteredList
 
             } else {
                 synchronized(this) {
-                    result.values = airport
-                    result.count = airport.size
+                    result.values = sourceObjects
+                    result.count = sourceObjects.size
                 }
 
             }

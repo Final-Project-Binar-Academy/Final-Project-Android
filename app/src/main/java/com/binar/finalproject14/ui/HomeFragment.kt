@@ -85,11 +85,11 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_travellerDialogFragment)
         }
 
-        binding.btnDeparture.setOnClickListener{
+        binding.llDeparture.setOnClickListener{
             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToListViewFragment("departure"))
         }
 
-        binding.btnDestination.setOnClickListener{
+        binding.llDestination.setOnClickListener{
             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToListViewFragment("destination"))
         }
 

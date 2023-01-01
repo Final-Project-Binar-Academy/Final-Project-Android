@@ -54,7 +54,7 @@ class ListViewFragment : Fragment() {
                         count: Int
                     ) {
                         // Call back the Adapter with current character to Filter
-                        adapter.filter.filter(s.toString())
+                        adapter.getFilter().filter(s.toString())
                     }
 
                     override fun beforeTextChanged(
@@ -67,7 +67,6 @@ class ListViewFragment : Fragment() {
 
                     override fun afterTextChanged(s: Editable) {}
                 })
-
                 binding.listView.setOnItemClickListener(AdapterView.OnItemClickListener { parent, view, position, id ->
                     val airport = adapter.getItem(position)
 

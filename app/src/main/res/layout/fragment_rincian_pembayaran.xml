@@ -285,7 +285,7 @@
                     android:orientation="vertical">
 
                     <com.google.android.material.radiobutton.MaterialRadioButton
-                        android:id="@+id/bank"
+                        android:id="@+id/bankBRI"
                         android:buttonTint="@color/basic"
                         android:textSize="14sp"
                         android:paddingStart="10dp"
@@ -300,7 +300,7 @@
                         android:background="@color/abu" />
 
                     <com.google.android.material.radiobutton.MaterialRadioButton
-                        android:id="@+id/ewallet"
+                        android:id="@+id/bankMandiri"
                         android:buttonTint="@color/basic"
                         android:textSize="14sp"
                         android:paddingStart="10dp"
@@ -315,13 +315,73 @@
                         android:background="@color/abu" />
 
                     <com.google.android.material.radiobutton.MaterialRadioButton
-                        android:id="@+id/qris"
+                        android:id="@+id/bankBCA"
                         android:buttonTint="@color/basic"
                         android:textSize="14sp"
                         android:paddingStart="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/payment_bankBCA"
+                        android:textAppearance="@style/TextAppearance.MyApp.detail.payment.choice" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/abu" />
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/bankBNI"
+                        android:buttonTint="@color/basic"
+                        android:textSize="14sp"
+                        android:paddingStart="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/payment_bankBNI"
+                        android:textAppearance="@style/TextAppearance.MyApp.detail.payment.choice" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/abu" />
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/gopay"
+                        android:buttonTint="@color/basic"
+                        android:textSize="14sp"
+                        android:paddingStart="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/gopay"
+                        android:textAppearance="@style/TextAppearance.MyApp.detail.payment.choice" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/abu" />
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/dana"
+                        android:buttonTint="@color/basic"
+                        android:textSize="14sp"
+                        android:paddingStart="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dana"
+                        android:textAppearance="@style/TextAppearance.MyApp.detail.payment.choice" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/abu" />
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/ovo"
+                        android:buttonTint="@color/basic"
+                        android:textSize="14sp"
+                        android:paddingStart="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ovo"
                         android:textAppearance="@style/TextAppearance.MyApp.detail.payment.choice" />
 
 

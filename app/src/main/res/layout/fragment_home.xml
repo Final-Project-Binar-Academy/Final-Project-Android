@@ -106,24 +106,17 @@
                         android:textColor="@color/black"
                         android:textSize="12sp" />
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_marginEnd="20dp"
-                        app:strokeColor="@color/white"
-                        android:backgroundTint="@color/white"
-                        android:id="@+id/btnDeparture"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
                         <LinearLayout
+                            android:id="@+id/ll_departure"
+                            android:paddingTop="10dp"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:orientation="vertical">
 
                             <TextView
                                 android:id="@+id/txt_citycode_departure"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
                                 android:fontFamily="@font/rubik_medium"
                                 android:hint="@string/del"
                                 android:textColorHint="@color/black"
@@ -131,9 +124,10 @@
                                 android:textSize="14sp" />
                             <TextView
                                 android:id="@+id/txt_city_departure"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="0dp"
+                                android:paddingBottom="10dp"
                                 android:fontFamily="@font/rubik"
                                 android:hint="@string/new_delhi"
                                 android:textColorHint="@color/black"
@@ -141,13 +135,12 @@
                                 android:textSize="14sp" />
 
                         </LinearLayout>
-                    </com.google.android.material.card.MaterialCardView>
 
                     <TextView
                         android:id="@+id/txt_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="28dp"
+                        android:layout_marginTop="20dp"
                         android:fontFamily="@font/rubik_medium"
                         android:text="@string/travel_date"
                         android:textColor="@color/black"
@@ -180,7 +173,7 @@
                         android:layout_height="wrap_content"
                         android:paddingBottom="15dp"
                         android:paddingEnd="50dp"
-                        android:paddingTop="10dp"
+                        android:paddingTop="15dp"
                         android:gravity="center"
                         android:fontFamily="@font/rubik_medium"
                         android:hint="@string/txt_traveller"
@@ -207,25 +200,18 @@
                         android:textColor="@color/black"
                         android:textSize="12sp" />
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/btnDestination"
-                        android:backgroundTint="@color/white"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        app:strokeColor="@color/white">
-
                         <LinearLayout
+                            android:id="@+id/ll_destination"
+                            android:paddingTop="10dp"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:orientation="vertical">
 
                             <TextView
                                 android:id="@+id/txt_citycode_destination"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
                                 android:layout_gravity="end"
-                                android:layout_marginTop="10dp"
                                 android:textColorHint="@color/black"
                                 android:fontFamily="@font/rubik_medium"
                                 android:hint="@string/jfk"
@@ -235,26 +221,26 @@
 
                             <TextView
                                 android:id="@+id/txt_city_destination"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
                                 android:layout_gravity="end"
                                 android:layout_marginTop="0dp"
                                 android:fontFamily="@font/rubik"
                                 android:hint="@string/new_york"
                                 android:textAlignment="textEnd"
+                                android:paddingBottom="10dp"
                                 android:textColorHint="@color/black"
                                 android:textColor="@color/black"
                                 android:textSize="14sp" />
 
                         </LinearLayout>
-                    </com.google.android.material.card.MaterialCardView>
 
                     <TextView
                         android:id="@+id/txt_return"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
-                        android:layout_marginTop="28dp"
+                        android:layout_marginTop="20dp"
                         android:fontFamily="@font/rubik_medium"
                         android:text="@string/returnn"
                         android:textColor="@color/black"
@@ -287,10 +273,11 @@
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="55dp"
                         app:endIconMode="dropdown_menu"
                         app:boxStrokeColor="#00FFFFFF"
                         app:boxBackgroundMode="filled"
+                        app:boxStrokeErrorColor="@color/white"
                         app:boxBackgroundColor="@color/white">
 
                         <AutoCompleteTextView
