@@ -56,7 +56,7 @@ class SearchFragment : Fragment(), SearchGoAdapter.ListSearchGoInterface, Search
         getData()
 
         binding.btnBack.setOnClickListener{
-            findNavController().navigate(R.id.action_searchFragment_to_detailFragment)
+            findNavController().navigate(R.id.action_searchFragment_to_homeFragment)
         }
 
         super.onViewCreated(view, savedInstanceState)
