@@ -156,12 +156,6 @@ class DataPenumpangFragment : Fragment() {
         binding.actvTipePenumpang.setAdapter(arrayAdapter)
     }
 
-    private fun notificationChannel(context: Context) {
-        // check if the version is equal or greater
-        // than android oreo version
-
-    }
-
     val CHANNEL_ID = "BOOKING"
     val CHANNEL_NAME = "Booking Successfull"
     val CHANNEL_DESCRIPTION = "BOOKING NOTIFICATION"
@@ -184,6 +178,7 @@ class DataPenumpangFragment : Fragment() {
             .setContentTitle(CHANNEL_NAME)
             .setContentText(message)
             .setSmallIcon(R.drawable.logo)
+            .setColor(resources.getColor(R.color.basic))
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setVibrate(LongArray(0))
 
