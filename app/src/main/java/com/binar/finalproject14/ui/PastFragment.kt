@@ -57,20 +57,29 @@ class PastFragment : Fragment(), TransactionAdapter.ListTransactionInterface, Tr
         binding.successTransaction.setOnClickListener {
             rcyView("success")
             binding.successTransaction.typeface = Typeface.DEFAULT_BOLD
+            binding.successTransaction.setBackgroundColor(resources.getColor(R.color.birutua))
             binding.pendingTransaction.typeface = Typeface.DEFAULT
+            binding.pendingTransaction.setBackgroundColor(resources.getColor(R.color.basic))
             binding.cancelTransaction.typeface = Typeface.DEFAULT
+            binding.cancelTransaction.setBackgroundColor(resources.getColor(R.color.basic))
         }
         binding.pendingTransaction.setOnClickListener {
             rcyView("pending")
             binding.pendingTransaction.typeface = Typeface.DEFAULT_BOLD
+            binding.pendingTransaction.setBackgroundColor(resources.getColor(R.color.birutua))
             binding.successTransaction.typeface = Typeface.DEFAULT
+            binding.successTransaction.setBackgroundColor(resources.getColor(R.color.basic))
             binding.cancelTransaction.typeface = Typeface.DEFAULT
+            binding.cancelTransaction.setBackgroundColor(resources.getColor(R.color.basic))
         }
         binding.cancelTransaction.setOnClickListener {
             rcyView("canceled")
             binding.cancelTransaction.typeface = Typeface.DEFAULT_BOLD
+            binding.cancelTransaction.setBackgroundColor(resources.getColor(R.color.birutua))
             binding.successTransaction.typeface = Typeface.DEFAULT
+            binding.successTransaction.setBackgroundColor(resources.getColor(R.color.basic))
             binding.pendingTransaction.typeface = Typeface.DEFAULT
+            binding.pendingTransaction.setBackgroundColor(resources.getColor(R.color.basic))
         }
 
         super.onViewCreated(view, savedInstanceState)

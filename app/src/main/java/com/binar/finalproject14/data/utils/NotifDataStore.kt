@@ -16,7 +16,6 @@ class NotifDataStore(@ApplicationContext val context: Context) {
         private const val DATASTORE_NAME = "NOTIF_DATASTORE"
         private val NOTIFICATION = stringPreferencesKey("NOTIFICATION")
         private val IS_NOTIFICATION = booleanPreferencesKey("IS_NOTIFICATION")
-        private val TOTAL_NOTIF = intPreferencesKey("TOTAL_NOTIF")
         private val Context.dataStore by preferencesDataStore(
             name = DATASTORE_NAME
         )
@@ -32,16 +31,10 @@ class NotifDataStore(@ApplicationContext val context: Context) {
             it[IS_NOTIFICATION] ?: false
         }
 
-    val getTotalNotif: Flow<Int> =
-        context.dataStore.data.map {
-            it[TOTAL_NOTIF] ?: 0
-        }
-
-    suspend fun saveNotif(notif: String, total: Int){
+    suspend fun saveNotif(notif: String){
         context.dataStore.edit {
             it[NOTIFICATION] = notif
             it[IS_NOTIFICATION] = true
-            it[TOTAL_NOTIF] = total
         }
     }
 
@@ -49,7 +42,6 @@ class NotifDataStore(@ApplicationContext val context: Context) {
         context.dataStore.edit {
             it.remove(NOTIFICATION)
             it.remove(IS_NOTIFICATION)
-            it.remove(TOTAL_NOTIF)
         }
     }
 }

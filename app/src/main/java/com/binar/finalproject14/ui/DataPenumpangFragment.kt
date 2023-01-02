@@ -163,10 +163,7 @@ class DataPenumpangFragment : Fragment() {
                 transactionViewModel.getDataStoreToken().observe(viewLifecycleOwner) {
                     transactionViewModel.addTransaction(tGo!!, tBack!!, tripId, fName, lName, nIK, birth,"Bearer $it")
 
-                    notifViewModel.getTotalNotif().observe(viewLifecycleOwner) {
-                        val total = it.toInt()+1
-                        notifViewModel.saveNotif("booking", total)
-                    }
+                    notifViewModel.saveNotif("booking")
 
                     transactionViewModel.add.observe(viewLifecycleOwner) {
                         Toast.makeText(requireContext(), "Add Success", Toast.LENGTH_SHORT).show()

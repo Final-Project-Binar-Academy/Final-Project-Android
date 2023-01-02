@@ -72,9 +72,6 @@ interface UserApi {
     @GET("/api/transaction/{id}")
     fun getTransactionId(@Header("Authorization") token: String, @Path("id") id: Int?) : Call<TransactionResponse>
 
-    @GET("/api/transaction/{id}")
-    fun getTransactionListId(@Header("Authorization") token: String, @Path("id") id: Int?) : Call<TransactionListResponse>
-
     @PUT("/api/payment/")
     fun updatePayment(@Header("Authorization") token: String, @Body request: PaymentRequest) : Call<PaymentResponse>
 

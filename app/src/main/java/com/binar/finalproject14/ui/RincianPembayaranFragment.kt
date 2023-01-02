@@ -52,10 +52,7 @@ class RincianPembayaranFragment : Fragment() {
             paymentViewModel.getDataStoreToken().observe(viewLifecycleOwner){
                 paymentViewModel.getId().observe(viewLifecycleOwner){id ->
                     paymentViewModel.updatePayment(id, payment,"Bearer $it")
-                    notifViewModel.getTotalNotif().observe(viewLifecycleOwner) {
-                        val total = it+1
-                        notifViewModel.saveNotif("payment", total)
-                    }
+                    notifViewModel.saveNotif("payment")
                 }
             }
             findNavController().navigate(R.id.action_rincianPembayaranFragment_to_prosesPembayaranFragment)

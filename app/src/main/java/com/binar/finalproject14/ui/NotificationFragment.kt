@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.binar.finalproject14.R
 import com.binar.finalproject14.adapter.NotificationAdapter
@@ -64,6 +65,9 @@ class NotificationFragment : Fragment(), NotificationAdapter.ListNotificationInt
             }
         }
 
+        binding.btnBack.setOnClickListener(){
+            findNavController().navigate(R.id.action_notificationFragment_to_profileFragment)
+        }
         super.onViewCreated(view, savedInstanceState)
     }
 

@@ -123,14 +123,10 @@ class NotifViewModel @Inject constructor(
         return pref.getToken.asLiveData()
     }
 
-    fun saveNotif(notif: String, total: Int){
+    fun saveNotif(notif: String){
         viewModelScope.launch {
-            notifPref.saveNotif(notif, total)
+            notifPref.saveNotif(notif)
         }
-    }
-
-    fun getTotalNotif(): LiveData<Int> {
-        return notifPref.getTotalNotif.asLiveData()
     }
 
     fun getIsNotif(): LiveData<Boolean> {

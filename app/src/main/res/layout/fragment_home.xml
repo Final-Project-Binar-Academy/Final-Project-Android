@@ -83,13 +83,13 @@
             </LinearLayout>
 
             <LinearLayout
-                android:gravity="center_horizontal"
-                android:padding="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="45dp"
                 android:background="@drawable/card_home"
-                android:orientation="horizontal">
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:padding="20dp">
 
                 <LinearLayout
                     android:layout_width="140dp"
@@ -106,35 +106,36 @@
                         android:textColor="@color/black"
                         android:textSize="12sp" />
 
-                        <LinearLayout
-                            android:id="@+id/ll_departure"
-                            android:paddingTop="10dp"
+                    <LinearLayout
+                        android:id="@+id/ll_departure"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingTop="10dp">
+
+                        <TextView
+                            android:id="@+id/txt_citycode_departure"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical">
+                            android:fontFamily="@font/rubik_medium"
+                            android:hint="@string/del"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black"
+                            android:textSize="14sp" />
 
-                            <TextView
-                                android:id="@+id/txt_citycode_departure"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:fontFamily="@font/rubik_medium"
-                                android:hint="@string/del"
-                                android:textColorHint="@color/black"
-                                android:textColor="@color/black"
-                                android:textSize="14sp" />
-                            <TextView
-                                android:id="@+id/txt_city_departure"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="0dp"
-                                android:paddingBottom="10dp"
-                                android:fontFamily="@font/rubik"
-                                android:hint="@string/new_delhi"
-                                android:textColorHint="@color/black"
-                                android:textColor="@color/black"
-                                android:textSize="14sp" />
+                        <TextView
+                            android:id="@+id/txt_city_departure"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="0dp"
+                            android:fontFamily="@font/rubik"
+                            android:hint="@string/new_delhi"
+                            android:paddingBottom="10dp"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black"
+                            android:textSize="14sp" />
 
-                        </LinearLayout>
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/txt_date"
@@ -148,11 +149,11 @@
 
                     <TextView
                         android:id="@+id/date1"
-                        android:paddingBottom="15dp"
-                        android:paddingTop="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/rubik_medium"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="15dp"
                         android:text="@string/date"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
@@ -171,14 +172,14 @@
                         android:id="@+id/txt_traveller"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="15dp"
-                        android:paddingEnd="50dp"
-                        android:paddingTop="15dp"
-                        android:gravity="center"
                         android:fontFamily="@font/rubik_medium"
+                        android:gravity="center"
                         android:hint="@string/txt_traveller"
-                        android:textColorHint="@color/black"
+                        android:paddingTop="15dp"
+                        android:paddingEnd="50dp"
+                        android:paddingBottom="15dp"
                         android:textColor="@color/black"
+                        android:textColorHint="@color/black"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -200,40 +201,40 @@
                         android:textColor="@color/black"
                         android:textSize="12sp" />
 
-                        <LinearLayout
-                            android:id="@+id/ll_destination"
-                            android:paddingTop="10dp"
+                    <LinearLayout
+                        android:id="@+id/ll_destination"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingTop="10dp">
+
+                        <TextView
+                            android:id="@+id/txt_citycode_destination"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical">
+                            android:layout_gravity="end"
+                            android:fontFamily="@font/rubik_medium"
+                            android:hint="@string/jfk"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black"
+                            android:textSize="14sp" />
 
-                            <TextView
-                                android:id="@+id/txt_citycode_destination"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="end"
-                                android:textColorHint="@color/black"
-                                android:fontFamily="@font/rubik_medium"
-                                android:hint="@string/jfk"
-                                android:textAlignment="textEnd"
-                                android:textColor="@color/black"
-                                android:textSize="14sp" />
+                        <TextView
+                            android:id="@+id/txt_city_destination"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="0dp"
+                            android:fontFamily="@font/rubik"
+                            android:hint="@string/new_york"
+                            android:paddingBottom="10dp"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black"
+                            android:textSize="14sp" />
 
-                            <TextView
-                                android:id="@+id/txt_city_destination"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="end"
-                                android:layout_marginTop="0dp"
-                                android:fontFamily="@font/rubik"
-                                android:hint="@string/new_york"
-                                android:textAlignment="textEnd"
-                                android:paddingBottom="10dp"
-                                android:textColorHint="@color/black"
-                                android:textColor="@color/black"
-                                android:textSize="14sp" />
-
-                        </LinearLayout>
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/txt_return"
@@ -248,12 +249,12 @@
 
                     <TextView
                         android:id="@+id/date2"
-                        android:paddingBottom="15dp"
-                        android:paddingTop="10dp"
-                        android:gravity="end"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/rubik_medium"
+                        android:gravity="end"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="15dp"
                         android:text="@string/date"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
@@ -274,24 +275,23 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
-                        app:endIconMode="dropdown_menu"
-                        app:boxStrokeColor="#00FFFFFF"
+                        app:boxBackgroundColor="@color/white"
                         app:boxBackgroundMode="filled"
+                        app:boxStrokeColor="#00FFFFFF"
                         app:boxStrokeErrorColor="@color/white"
-                        app:boxBackgroundColor="@color/white">
+                        app:endIconMode="dropdown_menu">
 
                         <AutoCompleteTextView
-                            android:textAlignment="textEnd"
-                            android:paddingVertical="5dp"
                             android:id="@+id/actvClass"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:inputType="none"
                             android:fontFamily="@font/rubik_medium"
-                            android:textSize="13sp"
-                            android:textColor="@color/black"
+                            android:inputType="none"
+                            android:paddingVertical="5dp"
                             android:text="@string/semua"
-                            />
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>

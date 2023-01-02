@@ -102,9 +102,9 @@ class ProfileFragment : Fragment() {
                 viewModelNotif.getDataStoreToken().observe(viewLifecycleOwner) {
                     viewModelNotif.getDataNotification("Bearer $it")
                 }
-                viewModelNotif.getTotalNotif().observe(viewLifecycleOwner){
-                    binding.notifCount.text = it.toString()
-                }
+//                viewModelNotif.getTotalNotif().observe(viewLifecycleOwner){
+//                    binding.notifCount.text = it.toString()
+//                }
             } else {
                 binding.notifCount.visibility = View.GONE
             }

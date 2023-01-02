@@ -149,9 +149,7 @@ class HomeFragment : Fragment() {
             } else{
                 searchViewModel.getReturnDate().observe(viewLifecycleOwner){
                     if (it != null){
-                        val simpleFormat = "yyyy-MM-dd"
-                        val itReturnDate = SimpleDateFormat(simpleFormat, Locale.US)
-                        bund.putString("returnDate", itReturnDate.toString())
+                        bund.putString("returnDate", it.toString())
                     }
                 }
             }
@@ -250,10 +248,11 @@ class HomeFragment : Fragment() {
                 materialDatePicker.show(parentFragmentManager, "MATERIAL_DATE_PICKER")
             })
         materialDatePicker.addOnPositiveButtonClickListener {
-            returnDate = materialDatePicker.headerText
+            val simpleFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
+            val itReturnDate = simpleFormat.format(Date(materialDatePicker.headerText))
             binding.date2.text = materialDatePicker.headerText
             searchViewModel.getIsReturnDate().observe(viewLifecycleOwner){
-                searchViewModel.saveReturnDate(returnDate)
+                searchViewModel.saveReturnDate(itReturnDate)
             }
         }
         binding.txtOneway.setTextColor(Color.BLACK)
