@@ -54,6 +54,22 @@ class RegisterFragment : Fragment() {
             val email = binding.edtEmail.text.toString()
             val pwd = binding.etPassword.text.toString()
             val confPwd = binding.etConfirmPassword.text.toString()
+
+            if(fname.isEmpty()){
+                binding.edtFirstName.error = "First Name harus terisi"
+            }
+            if(lname.isEmpty()){
+                binding.edtLastName.error = "Last Name harus terisi"
+            }
+            if(email.isEmpty()){
+                binding.edtEmail.error = "Email harus terisi"
+            }
+            if(pwd.isEmpty()){
+                binding.etPassword.error = "Password harus terisi"
+            }
+            if(confPwd.isEmpty()){
+                binding.etConfirmPassword.error = "Confirm Password harus terisi"
+            }
             if (pwd == confPwd){
                 viewModel.registerUser(fname, lname, email, pwd)
             }

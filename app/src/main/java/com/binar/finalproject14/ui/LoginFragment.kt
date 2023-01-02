@@ -57,9 +57,21 @@ class LoginFragment : Fragment() {
         binding.forgetPass.setOnClickListener {
             throw RuntimeException("App Crashed")
         }
+
+
+
         binding.btnLogin.setOnClickListener {
             val mail = binding.email.text.toString()
             val pwd = binding.password.text.toString()
+            if(mail.isEmpty()){
+                binding.email.error = "Username harus terisi"
+            }
+            if(pwd.isEmpty()){
+                binding.password.error = "Password harus terisi"
+            }
+            if(pwd.length < 8){
+                binding.password.error = "Password minimal 8 karakter"
+            }
             viewModel.loginUser(email = mail, pwd = pwd)
         }
 

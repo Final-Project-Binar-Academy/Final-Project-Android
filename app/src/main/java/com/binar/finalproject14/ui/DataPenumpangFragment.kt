@@ -153,6 +153,22 @@ class DataPenumpangFragment : Fragment() {
             val nIK = binding.nik.text.toString()
             val birth = binding.birth.text.toString()
 
+            if(nIK.length < 16){
+                binding.nik.error = "NIK minimal 16 karakter"
+            }
+            if(fName.isEmpty()){
+                binding.firstname1.error = "First Name harus terisi"
+            }
+            if(lName.isEmpty()){
+                binding.lastname1.error = "Last Name harus terisi"
+            }
+            if(nIK.isEmpty()){
+                binding.nik.error = "NIK harus terisi"
+            }
+            if(birth.isEmpty()){
+                binding.birth.error = "Birth harus terisi"
+            }
+
             searchViewModel.getIsOneway().observe(viewLifecycleOwner){
                 val tripId: Int
                 if (it == true){
