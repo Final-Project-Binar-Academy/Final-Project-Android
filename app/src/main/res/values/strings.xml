@@ -103,7 +103,7 @@
     <string name="indonesia">Indonesia</string>
     <string name="idn">(IDN)</string>
     <string name="detailsPenumpang">These details must match\npassport and photo ID</string>
-    <string name="tipePenumpang">Tipe Penumpang</string>
+    <string name="tipePenumpang">Traveller Type</string>
     <string name="penumpang">Penumpang 1</string>
     <string name="choose">choose seat</string>
     <string name="male">Male</string>
@@ -178,8 +178,8 @@
         <item>English</item>
     </string-array>
     <string-array name="tipe_penumpang">
-        <item>adult</item>
-        <item>child</item>
+        <item>Adult</item>
+        <item>Child</item>
     </string-array>
     <string-array name="select_id">
         <item>KTP</item>

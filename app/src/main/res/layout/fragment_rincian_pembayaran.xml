@@ -44,6 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                app:strokeColor="@color/basic"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="20dp"
                 app:cardUseCompatPadding="true">
@@ -72,6 +73,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="FROM"
+                                android:textColor="@color/black"
                                 android:textAppearance="@style/TextAppearance.MyApp.detail.from" />
 
                             <LinearLayout
@@ -80,24 +82,32 @@
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:layout_marginTop="5dp"
                                     android:id="@+id/cityCodeOri"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="DEL"
+                                    android:textColor="@color/black"
                                     android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport" />
 
                                 <TextView
+                                    android:layout_marginTop="5dp"
                                     android:id="@+id/cityOri"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="New Delhi,India"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/black"
                                     android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
 
                                 <TextView
+                                    android:layout_marginTop="5dp"
                                     android:id="@+id/goDepartureTime"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="23:45"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/black"
                                     android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
 
                                 <TextView
@@ -105,6 +115,8 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="Thu 15 Oct"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/black"
                                     android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
 
 
@@ -123,6 +135,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/to"
+                                android:textColor="@color/black"
                                 android:textAppearance="@style/TextAppearance.MyApp.detail.from" />
 
                             <LinearLayout
@@ -132,30 +145,44 @@
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:layout_marginTop="5dp"
                                     android:id="@+id/cityCodeDestination"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="DEL"
+                                    android:textColor="@color/black"
+                                    android:gravity="end"
                                     android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport" />
 
                                 <TextView
+                                    android:layout_marginTop="5dp"
                                     android:id="@+id/cityDestination"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="New Delhi,India"
+                                    android:textColor="@color/black"
+                                    android:gravity="end"
+                                    android:textSize="14sp"
                                     android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
 
                                 <TextView
+                                    android:layout_marginTop="5dp"
                                     android:id="@+id/goArrivalTime"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="23:45"
+                                    android:textColor="@color/black"
+                                    android:gravity="end"
+                                    android:textSize="14sp"
                                     android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
                                 <TextView
                                     android:id="@+id/goArrivalDate"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="Thu 15 Oct"
+                                    android:textColor="@color/black"
+                                    android:gravity="end"
+                                    android:textSize="14sp"
                                     android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
 
 
@@ -193,6 +220,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="United Airlines UA 802"
+                                android:textSize="16sp"
                                 android:textAppearance="@style/TextAppearance.MyApp.detail.from.airline" />
 
 
@@ -216,6 +244,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/traveler_details"
+                            android:textColor="@color/basic"
+                            android:textSize="14sp"
                             android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
 
                         <TextView
@@ -224,6 +254,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15dp"
                             android:text="Samantha Ruth"
+                            android:textSize="15sp"
                             android:textAppearance="@style/TextAppearance.MyApp.detail.from.airline" />
 
                         <TextView
@@ -231,6 +262,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Adult (Business)"
+                            android:textSize="15sp"
                             android:textAppearance="@style/TextAppearance.MyApp.detail.from.airport.detail" />
 
                     </LinearLayout>
