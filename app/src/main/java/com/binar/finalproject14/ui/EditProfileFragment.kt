@@ -1,15 +1,24 @@
 package com.binar.finalproject14.ui
 
+import android.Manifest
+import android.app.Activity
+import android.app.AlertDialog
 import android.content.ContentResolver
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityCompat
+import androidx.core.content.FileProvider
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -39,6 +48,9 @@ class EditProfileFragment : DialogFragment() {
     private var _binding: FragmentEditProfileBinding? = null
     private val binding get() = _binding!!
 
+    companion object {
+        private val PERMISSION_CODE = 100
+    }
 
     override fun onStart() {
         super.onStart()
@@ -102,14 +114,116 @@ class EditProfileFragment : DialogFragment() {
                 }
             }
         }
-        openGallery()
+        binding.btnSelectImage.setOnClickListener(){
+            checkingPermission()
+        }
     }
 
+    private fun showPermissionDeniedDialog() {
+        AlertDialog.Builder(requireContext())
+            .setTitle("Permission Denied")
+            .setMessage("Permission is denied, Please allow permissions from App settings.")
+            .setPositiveButton(
+                "App Settings"
+            ){
+                    _, _ ->
+                val intent = Intent()
+                intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
+                val uri = Uri.fromParts("package", requireActivity().packageName, null)
+                intent.data = uri
+                startActivity(intent)
+            }
+            .setNegativeButton("Cancel") { dialog, _ -> dialog.cancel() }
+            .show()
+    }
+
+    private fun isGranted(activity: Activity, permission: String, permissions: Array<String>, request: Int
+    ): Boolean {
+        val permissionCheck = ActivityCompat.checkSelfPermission(activity, permission)
+        return if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(activity, permission)) {
+                showPermissionDeniedDialog()
+            } else{
+                ActivityCompat.requestPermissions(activity, permissions, request)
+            }
+            false
+        }
+        else{
+            true
+        }
+    }
+
+    private fun checkingPermission(){
+        if (isGranted(
+                requireActivity(), Manifest.permission.READ_EXTERNAL_STORAGE,
+                arrayOf(
+                    Manifest.permission.CAMERA,
+                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ),
+                PERMISSION_CODE,
+            )
+        ){
+            chooseImageDialog()
+        }
+    }
+
+    private fun chooseImageDialog() {
+        AlertDialog.Builder(context)
+            .setMessage("Pilih gambar")
+            .setPositiveButton("Gallery") { _, _ -> openGallery() }
+            .setNegativeButton("Camera") { _, _ -> openCamera() }
+            .show()
+    }
+
+    private lateinit var uri: Uri
+
+    private fun handleCameraImage(uri: Uri) {
+//        Glide.with(this).load(uri).into(binding.ivEditImage)
+        image_uri = uri
+
+        val contentResolver: ContentResolver = requireContext().contentResolver
+        val type = contentResolver.getType(uri)
+
+        val fileNameimg = "${System.currentTimeMillis()}.png"
+        binding.ivEditImage.setImageURI(uri)
+        Toast.makeText(requireContext(), "$image_uri", Toast.LENGTH_SHORT).show()
+
+        val tempFile = File.createTempFile("and1-", fileNameimg, null)
+        imageFile = tempFile
+        val inputstream = contentResolver.openInputStream(uri)
+        tempFile.outputStream().use { result ->
+            inputstream?.copyTo(result)
+        }
+        val requestBody: RequestBody = tempFile.asRequestBody(type?.toMediaType())
+        imageMultiPart =
+            MultipartBody.Part.createFormData("image", tempFile.name, requestBody)
+    }
+
+    private val cameraResult =
+        registerForActivityResult(ActivityResultContracts.TakePicture()) { result ->
+            if (result){
+                handleCameraImage(uri)
+            }
+        }
+
+    private fun openCamera() {
+        val photoFile = File.createTempFile(
+            "IMG_",
+            ".jpg",
+            requireContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        )
+
+        uri = FileProvider.getUriForFile(
+            requireContext(),
+            "${context?.packageName}.provider",
+            photoFile
+        )
+        cameraResult.launch(uri)
+    }
 
     fun openGallery() {
-        binding.btnSelectImage.setOnClickListener {
-            getContent.launch("image/*")
-        }
+        getContent.launch("image/*")
     }
 
     private val getContent =
