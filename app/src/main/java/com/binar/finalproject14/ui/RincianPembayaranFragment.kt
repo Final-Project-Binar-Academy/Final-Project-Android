@@ -1,11 +1,17 @@
 package com.binar.finalproject14.ui
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -52,12 +58,44 @@ class RincianPembayaranFragment : Fragment() {
                 paymentViewModel.getId().observe(viewLifecycleOwner){id ->
                     paymentViewModel.updatePayment(id, payment,"Bearer $it")
                     notifViewModel.saveNotif("payment")
+                    makeStatusNotification("Transaksi anda berhasil. Selamat menikmati penerbangan anda", requireContext())
+
                 }
             }
             findNavController().navigate(R.id.action_rincianPembayaranFragment_to_prosesPembayaranFragment)
         }
         super.onViewCreated(view, savedInstanceState)
     }
+
+    val CHANNEL_ID = "PAYMENT"
+    val CHANNEL_NAME = "Payment Successfull"
+    val CHANNEL_DESCRIPTION = "PAYMENT NOTIFICATION"
+
+    fun makeStatusNotification(message: String, context: Context) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val importance = NotificationManager.IMPORTANCE_HIGH
+            val channel = NotificationChannel(CHANNEL_ID, CHANNEL_NAME, importance)
+            channel.description = CHANNEL_DESCRIPTION
+
+            val notificationManager =
+                context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager?
+
+            notificationManager?.createNotificationChannel(channel)
+        }
+
+        // Create the notification
+        val builder = NotificationCompat.Builder(context, CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setContentTitle(CHANNEL_NAME)
+            .setContentText(message)
+            .setSmallIcon(R.drawable.logo)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setVibrate(LongArray(0))
+
+        // Show the notification
+        NotificationManagerCompat.from(context).notify(1, builder.build())
+    }
+
 
     private fun paymentMethod() {
         binding.radioGroup.setOnCheckedChangeListener { radioGroup, optionId ->
@@ -88,6 +126,7 @@ class RincianPembayaranFragment : Fragment() {
             }
         }
     }
+
 
     private fun transactionTrip() {
         transactionViewModel.getDataStoreToken().observe(viewLifecycleOwner){

@@ -1,5 +1,11 @@
 package com.binar.finalproject14.ui
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
+import android.content.Context.NOTIFICATION_SERVICE
+import android.graphics.BitmapFactory
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -8,6 +14,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.binar.finalproject14.R
@@ -21,8 +30,6 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.RequestBody.Companion.toRequestBody
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -35,6 +42,13 @@ class DataPenumpangFragment : Fragment() {
     private lateinit var transactionViewModel : TransactionViewModel
     private lateinit var searchViewModel: SearchViewModel
     private lateinit var notifViewModel: NotifViewModel
+
+//    val CHANNEL_ID = "GFG"
+//    val CHANNEL_NAME = "GFG ContentWriting"
+//
+//    val CHANNEL_DESCRIPTION = "GFG NOTIFICATION"
+//
+//    val imgBitmap = BitmapFactory.decodeResource(resources, R.drawable.logo)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -142,8 +156,45 @@ class DataPenumpangFragment : Fragment() {
         binding.actvTipePenumpang.setAdapter(arrayAdapter)
     }
 
+    private fun notificationChannel(context: Context) {
+        // check if the version is equal or greater
+        // than android oreo version
+
+    }
+
+    val CHANNEL_ID = "BOOKING"
+    val CHANNEL_NAME = "Booking Successfull"
+    val CHANNEL_DESCRIPTION = "BOOKING NOTIFICATION"
+
+    fun makeStatusNotification(message: String, context: Context) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val importance = NotificationManager.IMPORTANCE_HIGH
+            val channel = NotificationChannel(CHANNEL_ID, CHANNEL_NAME, importance)
+            channel.description = CHANNEL_DESCRIPTION
+
+            val notificationManager =
+                context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager?
+
+            notificationManager?.createNotificationChannel(channel)
+        }
+
+        // Create the notification
+        val builder = NotificationCompat.Builder(context, CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setContentTitle(CHANNEL_NAME)
+            .setContentText(message)
+            .setSmallIcon(R.drawable.logo)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setVibrate(LongArray(0))
+
+        // Show the notification
+        NotificationManagerCompat.from(context).notify(1, builder.build())
+    }
+
     private fun Booking(){
         binding.btnBooking.setOnClickListener() {
+            makeStatusNotification("Silahkan Lakukan Pembayaran agar Transaksi Anda Dapat Segera di Proses", requireContext())
+
             Log.d("tes", "masukk")
             val tGo = arguments?.getInt("id_oneway")
             Log.d("tgo", tGo.toString())
