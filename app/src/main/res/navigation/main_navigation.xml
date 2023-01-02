@@ -222,7 +222,11 @@
         android:id="@+id/tiketFragment"
         android:name="com.binar.finalproject14.ui.TiketFragment"
         android:label="fragment_tiket"
-        tools:layout="@layout/fragment_tiket" />
+        tools:layout="@layout/fragment_tiket" >
+        <action
+            android:id="@+id/action_tiketFragment_to_pastFragment"
+            app:destination="@id/pastFragment" />
+    </fragment>
     <fragment
         android:id="@+id/prosesPembayaranFragment"
         android:name="com.binar.finalproject14.ui.ProsesPembayaranFragment"

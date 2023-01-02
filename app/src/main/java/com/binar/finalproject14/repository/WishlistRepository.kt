@@ -9,10 +9,10 @@ class WishlistRepository(private val data: WishlistDao) {
         return data.getAllWishlist()
     }
 
-    suspend fun addWishlist(wishlist: WishlistData) = data.addWishlist(wishlist)
+    fun addWishlist(wishlist: WishlistData) = data.addWishlist(wishlist)
 
-    suspend fun cekWishlist(id: Int) = data.cekWishlist(id)
+    fun cekWishlist(id: Int) = data.cekWishlist(id)
 
-    suspend fun deleteWishlist(wishlist: WishlistData) = data.deleteWishlist(wishlist)
+    fun deleteWishlist(wishlist: WishlistData) = data.deleteWishlist(wishlist)
 
 }

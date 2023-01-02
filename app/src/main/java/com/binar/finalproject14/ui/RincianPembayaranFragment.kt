@@ -47,7 +47,6 @@ class RincianPembayaranFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         transactionTrip()
         paymentMethod()
-
         binding.btnNext.setOnClickListener {
             paymentViewModel.getDataStoreToken().observe(viewLifecycleOwner){
                 paymentViewModel.getId().observe(viewLifecycleOwner){id ->
@@ -56,23 +55,6 @@ class RincianPembayaranFragment : Fragment() {
                 }
             }
             findNavController().navigate(R.id.action_rincianPembayaranFragment_to_prosesPembayaranFragment)
-//            if (payment == 1) {
-//                findNavController().navigate(R.id.action_rincianPembayaranFragment_to_payCardFragment)
-//            } else if (payment == 2) {
-//                findNavController().navigate(R.id.action_rincianPembayaranFragment_to_payEwalletFragment)
-//            } else if (payment == 3) {
-//                findNavController().navigate(R.id.action_rincianPembayaranFragment_to_payQrisFragment)
-//            } else {
-//                Snackbar.make(binding.root, "Pilih metode pembayaran anda", Snackbar.LENGTH_SHORT)
-//                    .setBackgroundTint(
-//                        ContextCompat.getColor(
-//                            requireContext(),
-//                            R.color.basic
-//                        )
-//                    )
-//                    .setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
-//                    .show()
-//            }
         }
         super.onViewCreated(view, savedInstanceState)
     }
